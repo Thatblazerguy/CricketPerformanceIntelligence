@@ -1,0 +1,544 @@
+﻿venue_id,canonical_name,source_name,source_venue_id,city,country,match_count,aliases
+c39dd83a-bb99-46e2-b0f5-5c1e3b30e62d,"7he Sevens Stadium, Dubai","7he Sevens Stadium, Dubai",f0c3ccc8,Dubai,,4,
+db118a39-0a2c-4c0c-b37f-152774ffc64c,"Abhimanyu Cricket Academy, Dehradun","Abhimanyu Cricket Academy, Dehradun",f140992f,Dehra Dun,,10,
+22a8f946-a75f-48f7-9217-63df1055b9d0,"Achimota Senior Secondary School A Field, Accra","Achimota Senior Secondary School A Field, Accra",058a1066,Accra,,22,
+23897bcd-c38a-431e-95dc-23bc4a9d8840,"Achimota Senior Secondary School B Field, Accra","Achimota Senior Secondary School B Field, Accra",d0c6b84d,Accra,,15,
+eb3e548a-031c-48fe-a947-d8d8a2f24539,Adelaide Oval,Adelaide Oval,ca92c7ab,,,219,
+2bd7e855-4f38-4c42-a4c6-971f4231185a,Adelaide Oval No 2,Adelaide Oval No 2,ff431ef3,,,1,
+1e973c97-3ec1-40d0-adeb-f2cb1361a8c3,"Affies Park, Windhoek","Affies Park, Windhoek",467bfb75,Windhoek,,18,"Windhoek Afrikaans Primary School Ground, Windhoek [467bfb75]"
+70d81bc7-0b01-4f07-91bd-6665f7822aed,"Aigburth, Liverpool","Aigburth, Liverpool",0cef2db0,Liverpool,,15,
+ae9932fa-ef50-44d4-aa31-e69582e076a1,Al Amerat Cricket Ground Oman Cricket (Ministry Turf 1),Al Amerat Cricket Ground Oman Cricket (Ministry Turf 1),fcb438b3,Al Amarat,,175,
+3163324c-a39d-43cb-997d-7460420b1449,Al Amerat Cricket Ground Oman Cricket (Ministry Turf 2),Al Amerat Cricket Ground Oman Cricket (Ministry Turf 2),7d0ce327,Al Amarat,,58,
+92066e4d-1ae4-4453-ad52-61f1e70d5c2e,Al Dhaid Cricket Village,Al Dhaid Cricket Village,5c666407,,,3,
+6113faec-fb7c-45c9-9676-640f5f513c62,"Albert Park 1, Suva","Albert Park 1, Suva",419fe87a,Suva,,17,
+b7728820-4fc2-4496-9d6a-34f8b2e7ef7d,"Albert Park 2, Suva","Albert Park 2, Suva",36c653fc,Suva,,15,
+86f72ee0-f437-4290-9f7d-2cb36400a809,Albertslund Cricket Club,Albertslund Cricket Club,42a45b5f,Copenhagen,,6,
+c5d6d2ac-b3b9-4a94-a656-876e954ad0b5,"Alembic Ground, Vadodara","Alembic Ground, Vadodara",b7a9d7f8,,,3,
+6be32caa-d7a3-4c27-b8fa-852b39a16450,"Allan Border Field, Brisbane","Allan Border Field, Brisbane",5a232ad1,Brisbane,,81,
+bb88db8e-c5ac-479b-9921-6dd6c7ebe7f4,"Amini Park, Port Moresby","Amini Park, Port Moresby",aa30d19d,Port Moresby,,43,
+6b889133-21c6-4bd6-850c-5d72efd4dda2,"Ampleforth College, Ampleforth","Ampleforth College, Ampleforth",98f87c42,York,,1,
+250dcfa5-99fd-4bd7-9b8e-5af7bcd52909,"Andhra Cricket Association Stadium, Mangalagiri","Andhra Cricket Association Stadium, Mangalagiri",82da1bdb,,,7,
+34f843cc-011b-4074-a7d9-7b0ea2a9370f,"Antigua Recreation Ground, St John's","Antigua Recreation Ground, St John's",b46ed39f,St John's,,7,"Antigua Recreation Ground, St John's, Antigua [b46ed39f]"
+f00bae29-894b-45da-9be1-93e5efa7bcda,"Army Ground, Panagoda","Army Ground, Panagoda",1a82fe4b,Panagoda,,5,
+c68b760f-1d3b-44da-87d1-e98d0a90a2b8,"Arnos Vale Ground, Kingstown","Arnos Vale Ground, Kingstown",59c5568b,Kingstown,,27,"Arnos Vale Ground, Kingstown, St Vincent [59c5568b]"
+7c6f418a-a4bb-4171-9029-12b5e58c5494,Arun Jaitley Stadium,Arun Jaitley Stadium,eef26f35,Delhi,,188,"Arun Jaitley Stadium, Delhi [eef26f35] | Feroz Shah Kotla [eef26f35] | Feroz Shah Kotla, Delhi [eef26f35]"
+ab23fe1c-4387-4f92-bd8d-11d31e7ca49d,Arundel Castle Cricket Club Ground,Arundel Castle Cricket Club Ground,656a8f4f,,,25,
+d364c86a-c406-46f6-bb8c-b60f4c29e262,"Asgiriya Stadium, Kandy","Asgiriya Stadium, Kandy",18758283,Kandy,,3,
+db1ba620-578b-471d-ba81-064c3cd178d3,"Ashlyns Road, Frinton-on-Sea","Ashlyns Road, Frinton-on-Sea",f878bad5,Frinton-on-Sea,,3,
+f17b917d-c4de-410d-b48c-df06534bc8d3,"Asian Institute of Technology Ground, Bangkok","Asian Institute of Technology Ground, Bangkok",426556b9,Bangkok,,43,
+d1e5b718-84e6-46f5-b834-32da4947ad2c,"Ballpark Ground, Graz","Ballpark Ground, Graz",e39f2daf,Graz,,2,
+3cc12784-b61a-4131-9829-343faa460bdd,"Bandra Kurla Complex, Mumbai","Bandra Kurla Complex, Mumbai",4fbc052d,,,22,
+99a3d857-522d-4a2f-9d60-151125f2d8f2,"Bangabandhu National Stadium, Dhaka","Bangabandhu National Stadium, Dhaka",5c9da760,Dhaka,,7,"Dacca Stadium [5c9da760] | National Stadium, Dhaka [5c9da760]"
+dc73c421-2188-4c25-a85d-f65eaa7528c9,"Bankstown Oval, Sydney","Bankstown Oval, Sydney",3e9ce5d3,Sydney,,7,
+ba78f05f-32e5-431a-b240-67792258a2e3,"Barabati Stadium, Cuttack","Barabati Stadium, Cuttack",6cbe6b49,Cuttack,,43,Barabati Stadium [6cbe6b49]
+4180aa08-658a-44d6-9475-495bac750d73,"Barsapara Cricket Stadium, Guwahati","Barsapara Cricket Stadium, Guwahati",61e72dcd,Guwahati,,34,"ACA Stadium, Barsapara [61e72dcd] | Assam Cricket Association Stadium, Guwahati [61e72dcd] | Dr. Bhupen Hazarika Cricket Stadium, Guwahati [61e72dcd]"
+38a4efce-22ab-4f83-bec2-d81814541b72,"Basin Reserve, Wellington","Basin Reserve, Wellington",993ce27b,Wellington,,177,Basin Reserve [993ce27b]
+19695503-bc90-4cae-a0a6-cd2899281ec2,"Bay Oval, Mount Maunganui","Bay Oval, Mount Maunganui",a0891586,Mount Maunganui,,103,
+4776138e-6bdd-444b-b87f-9ed5f10670a2,Bayer Uerdingen Cricket Ground,Bayer Uerdingen Cricket Ground,c2d746b5,Krefeld,,49,
+2c424c11-476b-42bd-8bd0-5c30ccd2cd01,"Bayuemas Oval, Kuala Lumpur","Bayuemas Oval, Kuala Lumpur",8755e10d,Kuala Lumpur,,179,
+fc80007b-f2d4-4d21-a19a-fb27b17ce927,"Belgrano Athletic Club Ground, Buenos Aires","Belgrano Athletic Club Ground, Buenos Aires",144d015c,Buenos Aires,,10,
+47ab824f-54bf-48a2-a0a0-65ba8d868b95,"Bellerive Oval, Hobart","Bellerive Oval, Hobart",783a2b83,Hobart,,211,
+a356e35b-fa72-482b-8cd6-0d65d5683433,"Bert Sutcliffe Oval, Lincoln","Bert Sutcliffe Oval, Lincoln",be2a1b44,Lincoln,,8,"BIL Oval, Lincoln [be2a1b44]"
+f2703763-8fa5-495d-8e47-e33130a3b798,"Blacktown International Sportspark, Sydney","Blacktown International Sportspark, Sydney",d7992cf0,Sydney,,15,"Blacktown Olympic Park Oval, Sydney [d7992cf0]"
+a455e538-23b4-439b-b5fa-a6adc4e66978,"Bloomfield Cricket and Athletic Club Ground, Colombo","Bloomfield Cricket and Athletic Club Ground, Colombo",0d1f3e7c,Colombo,,22,
+9d2cef86-fea3-4abd-9d5d-84fdfee1cafc,"Boland Park, Paarl","Boland Park, Paarl",05ceed33,Paarl,,75,"Boland Bank Park, Paarl [05ceed33]"
+61524fe5-cb4b-44b4-b393-270207d0ad16,"Botkyrka Cricket Center, Stockholm","Botkyrka Cricket Center, Stockholm",a74f7dc2,Stockholm,,17,
+bf983e24-9bbd-42eb-baca-0422f77736d4,"Botswana Cricket Association Oval 1, Gaborone","Botswana Cricket Association Oval 1, Gaborone",447236ab,Gaborone,,94,
+d2fd0faf-2f7d-4b6a-b1dd-36b66fa9de80,"Botswana Cricket Association Oval 2, Gaborone","Botswana Cricket Association Oval 2, Gaborone",e6958e6b,Gaborone,,65,
+f3b403e0-58b7-47f1-94c7-86f5a9a3717a,"Boughton Hall Cricket Club Ground, Chester","Boughton Hall Cricket Club Ground, Chester",48efd5ba,Chester,,5,
+dac8105d-6a6c-4678-91b3-e89a2ce51fa4,"Brabourne Stadium, Mumbai","Brabourne Stadium, Mumbai",8d1d7db9,Mumbai,,70,"Brabourne Stadium [8d1d7db9] | Brabourne Stadium, Bombay [8d1d7db9]"
+1c38b883-e7c7-4722-b5a6-01c93d3757fa,"Bradman Oval, Bowral","Bradman Oval, Bowral",8edb7b01,Bowral,,3,
+f3c60577-b9cb-43d9-8ed0-a3981c25ef4b,"Bready Cricket Club, Magheramason","Bready Cricket Club, Magheramason",c4f77dc5,Londonderry,,51,"Bready Cricket Club, Magheramason, Bready [c4f77dc5]"
+ee437149-1d1d-4123-83b5-403d1aec4efe,"Brian Lara Stadium, Tarouba, Trinidad","Brian Lara Stadium, Tarouba, Trinidad",a2a2eb9b,Trinidad,,74,"Brian Lara Cricket Academy, Tarouba, Trinidad [a2a2eb9b]"
+3c00eb1c-eeb5-4862-85f2-51090485b8a3,Brisbane Cricket Ground,Brisbane Cricket Ground,89068030,Brisbane,,165,"Brisbane Cricket Ground, Woolloongabba, Brisbane [89068030] | The Gabba [89068030]"
+77fd97f5-f43f-490d-966f-348d3358e45c,"Brunton Memorial Ground, Radlett","Brunton Memorial Ground, Radlett",f5901fcb,Radlett,,8,
+56d471ee-b3bb-4e2d-bb89-d944c5b7a236,"Buffalo Park, KuGumpo City","Buffalo Park, KuGumpo City",132928e2,KuGompo City,,51,"Buffalo Park, East London [132928e2]"
+3f52fc62-6547-4f30-9a7d-8d8e6ee8080e,Bulawayo Athletic Club,Bulawayo Athletic Club,1b07faf3,Bulawayo,,16,
+f58a3ad6-502f-44a2-927e-bc53525e168d,"Burgher Recreation Club Ground, Colombo","Burgher Recreation Club Ground, Colombo",960ec193,Colombo,,8,
+5335ecdc-ab4c-4344-bb1a-e3b2f7937ea2,"Camberwell Sports Ground, Melbourne","Camberwell Sports Ground, Melbourne",09634126,Melbourne,,5,
+687b83a3-dbc1-481f-b292-90eb75bd9d9d,"Cambusdoon New Ground, Ayr","Cambusdoon New Ground, Ayr",e542d88c,Ayr,,4,
+73317288-a6f7-4688-8de8-f938a892c06e,"Campbell Park, Milton Keynes","Campbell Park, Milton Keynes",1e715f96,Milton Keynes,,1,
+f2386d65-aded-46b6-8f93-de2cda69dd5c,"Canterbury Park, Bendigo","Canterbury Park, Bendigo",061d21b1,Bendigo,,2,
+d9f9bddf-399c-4aea-8470-fa0a88c68dc8,"Captain Roop Singh Stadium, Gwalior","Captain Roop Singh Stadium, Gwalior",3b6df8ab,Gwalior,,3,
+5d076b48-3049-4708-a8a2-0e4cce09568b,"Carisbrook, Dunedin","Carisbrook, Dunedin",d5289528,Dunedin,,1,
+b885145c-4d39-434b-8b25-2351c05c1130,Carrara Oval,"Heritage Bank Stadium, Carrara",36c9939a,Carrara,,25,"Heritage Bank Stadium, Carrara [36c9939a] | Metricon Stadium, Carrara [36c9939a] | People First Stadium, Carrara [36c9939a]"
+b1ca3a65-eb99-430e-9f15-329cfa9e72b7,"Casey Fields No 4, Melbourne","Casey Fields No 4, Melbourne",d127b5dc,Melbourne,,7,
+1904f1f9-9dc5-4cf6-a5cf-e1c0a87c7af3,"Castle Park Cricket Ground, Colchester","Castle Park Cricket Ground, Colchester",60146a0a,Colchester,,4,
+d05b3e2c-604d-4511-91c2-a8fed27b4dde,"Cazalys Stadium, Cairns","Cazalys Stadium, Cairns",5e7136c5,Cairns,,10,
+52f3a435-d8f8-461e-9a0d-0e80cfa76cd8,"CB Patel International Cricket Stadium, Surat","CB Patel International Cricket Stadium, Surat",a8d90b2d,,,25,C B Patel Ground [a8d90b2d]
+a449ae76-89ed-4841-8d8c-ad96df333a12,"Central Broward Regional Park Stadium Turf Ground, Lauderhill","Central Broward Regional Park Stadium Turf Ground, Lauderhill",0c1f648d,Lauderhill,,55,
+08c3c45e-35ff-4dfb-a684-a643a50b6251,"Centre for Cricket Development Ground, Windhoek","Centre for Cricket Development Ground, Windhoek",5a97f529,Windhoek,,10,"Trans Namib Ground, Windhoek [5a97f529]"
+10d7356f-468e-46e4-82b9-21f4add1b068,"Centro Sportivo Ca'Nova, Medicina","Centro Sportivo Ca'Nova, Medicina",af5859d7,Medicina,,1,
+3d6c2279-5a44-469f-92b0-ff7cb72d1539,"Centro Sportivo Dozza, Navile","Centro Sportivo Dozza, Navile",8189eb41,Navile,,4,
+9db31f2b-ac07-486a-9080-727a4d51d5ec,Centurion Park,Centurion Park,3dc422fc,Centurion,,161,"Centurion Park, Centurion [3dc422fc] | Centurion Park, Verwoerdburg [3dc422fc] | Supersport Centurion, Centurion [3dc422fc] | SuperSport Park [3dc422fc] | SuperSport Park, Centurion [3dc422fc]"
+55ea9291-b7d7-40c5-a776-2a2b77b0cab8,"CH Bansi Lal Cricket Stadium, Lahli, Rohtak","CH Bansi Lal Cricket Stadium, Lahli, Rohtak",ffa60819,,,4,"Chaudhary Bansi Lal Cricket Stadium, Lahli, Rohtak [ffa60819]"
+207c85bd-027a-49dd-8bec-83091fcab795,"Chester Road North Ground, Kidderminster","Chester Road North Ground, Kidderminster",b13bdb45,Kidderminster,,5,
+263fedf6-ab20-46db-9ad3-898006de44bb,"Chilaw Marians Cricket Club Ground, Katunayake","Chilaw Marians Cricket Club Ground, Katunayake",2eb1cc24,FTZ Sports Complex,,12,"FTZ Sports Complex (Board of Investment), Katunayake [2eb1cc24]"
+bbc11962-aa90-423c-9cc2-2678f4946078,Chittagong Divisional Stadium,"Bir Shrestha Shahid Ruhul Amin Stadium, Chittagong",425055d2,Chattogram,,183,"Bir Shrestha Shahid Ruhul Amin Stadium, Chittagong [425055d2] | Bir Sreshtho Flight Lieutenant Matiur Rahman Stadium, Chattogram [425055d2] | Zahur Ahmed Chowdhury Stadium, Chattogram [425055d2] | Zahur Ahmed Chowdhury Stadium, Chittagong [425055d2]"
+7cf39898-f828-4f30-a09e-c5e3a304491d,Chittagong Stadium,Chittagong Stadium,b1f9d65d,Chattogram,,13,"MA Aziz Stadium, Chittagong [b1f9d65d]"
+d6093d34-8fd8-44f0-8124-a8ecf98633b2,"Chukkapalli Pitchaiah Cricket Ground, Mulapadu","Chukkapalli Pitchaiah Cricket Ground, Mulapadu",8332a4ff,,,8,
+1ddae322-901f-4fed-95fb-0cad170cb676,"Church Street Park, Morrisville","Church Street Park, Morrisville",416aeb39,Morrisville,,24,
+2a9eea5d-9542-4561-926f-b27347efe2ed,"City Oval, Pietermaritzburg","City Oval, Pietermaritzburg",72c91202,Pietermaritzburg,,6,"Alexandra Park, Pietermaritzburg [72c91202]"
+afbead35-e5df-4819-a4b3-b9dbeff7a23b,"Civil Service Cricket Club, Stormont, Belfast","Civil Service Cricket Club, Stormont, Belfast",67e29339,Belfast,,79,
+34987410-99e5-4e71-af2a-a80cfa6530f0,"CIYMS Cricket Club Ground, Belfast","CIYMS Cricket Club Ground, Belfast",75cc2dc8,Belfast,,2,"Church of Ireland Young Men's Society Cricket Club Ground, Belfast [75cc2dc8]"
+f4bd82ec-20bc-4b04-8f63-6c3b117c7087,"Clayton Panama, Panama City","Clayton Panama, Panama City",b9ea5724,Panama City,,7,
+0105a938-9a7d-4c31-b3c8-98e81eafa9a2,"Clifton Park Ground, York","Clifton Park Ground, York",d9192b42,York,,10,
+38f8bd53-e374-4fcf-9c56-4ed9bfc04d4c,"Clontarf Cricket Club Ground, Dublin","Clontarf Cricket Club Ground, Dublin",6ab3b11e,Dublin,,43,"Castle Avenue, Dublin [6ab3b11e]"
+9447157a-66dc-46ce-af6d-feb7fda5ebe7,"Cobham Oval (New), Whangarei","Cobham Oval (New), Whangarei",2592a1a2,,,15,
+a8ea9b23-ccb4-4d29-b881-2b45451e73b7,"Cobham Oval, Whangarei","Cobham Oval, Whangarei",ea93d0e0,,,3,
+b5adb9a1-2945-4496-9e21-1f791beb4c1d,"Colin Maiden Park, Auckland","Colin Maiden Park, Auckland",57d6be70,,,8,
+9163ec64-677d-4d58-bcfc-93f3f800c2ff,"College Field, St Peter Port","College Field, St Peter Port",5c006b8f,St Peter Port,,6,
+fd87e840-a486-4028-9f62-23fb1974fb32,"College Ground, Cheltenham","College Ground, Cheltenham",25fd68ff,Cheltenham,,53,
+d37c6ca4-3687-4496-94c6-8a47149ae224,Colombo Cricket Club Ground,Colombo Cricket Club Ground,7b17a134,,,46,
+ceb09685-2e90-4061-b927-eeddde8ae477,"Colts Cricket Club Ground, Colombo","Colts Cricket Club Ground, Colombo",24868794,Colombo,,52,
+c89a204f-6628-4413-b7f1-3e133d8949da,Complejo Municipal de Beisbol de Texcoco,Complejo Municipal de Beisbol de Texcoco,d24e54e3,Texcoco de Mora,,3,
+7729dff5-a00a-4bef-8999-d63f2ff94768,"Coolidge Cricket Ground, Antigua","Coolidge Cricket Ground, Antigua",781303a2,Antigua,,20,"Stanford Cricket Ground, Coolidge, Antigua [781303a2]"
+2a001d9d-a7db-4c99-a028-e03e73607e1b,"County Ground, Bristol","County Ground, Bristol",afed0e37,Bristol,,236,"Seat Unique Stadium, Bristol [afed0e37] | The Royal & Sun Alliance County Ground, Bristol [afed0e37]"
+9f8f6819-0f2e-4b98-84d2-335c3f637d2b,"County Ground, Northampton","County Ground, Northampton",e70b9a7c,Northampton,,233,
+de247cf2-38e1-42a7-98da-22f59c0a76cb,"Cricket Central, Sydney","Cricket Central, Sydney",dac1057e,Sydney,,19,
+44e9c0a0-3d5c-41a3-8c1c-74062ab3335c,"Cricket Field Lane, Bishop's Stortford","Cricket Field Lane, Bishop's Stortford",0dc0a6db,Bishop's Stortford,,1,
+49a7a33b-a8dd-4be5-b873-a57190841cba,"Cricket Field Road Ground, Horsham","Cricket Field Road Ground, Horsham",4ea2b916,Horsham,,3,
+f8e6f448-8d97-493c-9545-53fa041c2a71,"Daren Sammy National Cricket Stadium, Gros Islet","Beausejour Stadium, Gros Islet, St Lucia",441641a6,St Lucia,,126,"Beausejour Stadium, Gros Islet, St Lucia [441641a6] | Daren Sammy National Cricket Stadium, Gros Islet, St Lucia [441641a6] | Darren Sammy National Cricket Stadium, Gros Islet [441641a6] | Darren Sammy National Cricket Stadium, Gros Islet, St Lucia [441641a6]"
+6793dd24-065d-4dfe-9521-ea9b72b98fc9,"De Soysa Cricket Stadium, Moratuwa","De Soysa Cricket Stadium, Moratuwa",5e64e83c,Moratuwa,,14,"De Zoysa Stadium, Moratuwa [5e64e83c] | Tyronne Fernando Stadium, Moratuwa [5e64e83c]"
+cec1d0db-6031-4037-a080-7dab5918581d,"Desert Springs Cricket Ground, Almeria","Desert Springs Cricket Ground, Almeria",eeb3829d,Almeria,,46,
+aa5680f8-c578-4a6d-ad7f-f62480bf8fb6,"Devineni Venkata Ramana Praneetha Ground, Mulapadu","Devineni Venkata Ramana Praneetha Ground, Mulapadu",7354790b,,,23,"Andhra Cricket Assocition Grounds, Mulapadu [7354790b]"
+a1d27820-7b9d-4096-929e-34f0138485c2,"Diamond Oval, Kimberley","Diamond Oval, Kimberley",72923025,Kimberley,,35,"De Beers Diamond Oval [72923025] | De Beers Diamond Oval, Kimberley [72923025]"
+550c21a3-4af9-4839-9074-68e1d3d6f8c9,"Docklands Stadium, Melbourne","Telstra Dome, Melbourne",477f1ae2,Melbourne,,80,"Colonial Stadium, Melbourne [477f1ae2] | Etihad Stadium, Melbourne [477f1ae2] | Marvel Stadium, Melbourne [477f1ae2] | Telstra Dome, Melbourne [477f1ae2]"
+28fee11a-437a-4564-8c57-6a499915d65d,"Dower Park, Bendigo","Dower Park, Bendigo",882adb69,Bendigo,,1,
+585139bc-7bc6-48fc-825e-f0fb521760be,"Dr DY Patil Sports Academy, Navi Mumbai","Dr DY Patil Sports Academy, Navi Mumbai",07159bf0,Mumbai,,73,"Dr DY Patil Sports Academy [07159bf0] | Dr DY Patil Sports Academy, Mumbai [07159bf0]"
+c08b0b8b-e47f-4f04-9ae4-4e2464f0d4a5,"Dr PVG Raju ACA Sports Complex, Vizianagaram","Dr PVG Raju ACA Sports Complex, Vizianagaram",6e0bb613,,,12,
+0012f0c9-dfef-4245-8062-c64ab100b1ac,"Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium, Visakhapatnam","Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium, Visakhapatnam",deae8c56,Visakhapatnam,,66,"ACA–VDCA Cricket Stadium, Visakhapatnam [deae8c56] | Andhra Cricket Association-Visakhapatnam District Cricket Association Stadium, Visakhapatnam [deae8c56] | Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium [deae8c56]"
+01afa6e0-7dc6-40e2-814c-03a172601bc8,Dreux Sport Cricket Club,Dreux Sport Cricket Club,40ba2a7e,Dreux,,7,
+4ab6bf96-4b1b-4877-a84b-a58c9c560608,"DRIEMS Ground, Tangi, Cuttack","DRIEMS Ground, Tangi, Cuttack",fbb1656d,,,17,DRIEMS Ground [fbb1656d]
+bb83739e-8089-495a-82d9-3f708b522904,"Drummoyne Oval, Sydney","Drummoyne Oval, Sydney",11b76a2f,Sydney,,35,
+b37841b0-338a-4a0b-86d0-33f272617c4d,Dubai International Cricket Stadium,Dubai International Cricket Stadium,a48e1e3a,,,390,
+6d303a73-a5b2-40c5-adc2-aaf2248af5ae,"Eastern Oval, Ballarat","Eastern Oval, Ballarat",472e2c7f,Ballarat,,6,
+94dddb08-a196-4970-8a9f-3d101fefc9c5,"Eden Gardens, Kolkata","Eden Gardens, Kolkata",672f066b,Kolkata,,176,"Eden Gardens [672f066b] | Eden Gardens, Calcutta [672f066b]"
+31939456-54eb-4809-8794-89f68c64093b,"Eden Park Outer Oval, Auckland","Eden Park Outer Oval, Auckland",3d631e0e,Auckland,,123,"Eden Park No 2, Auckland [3d631e0e]"
+58398843-e303-43c3-80c8-0fba4faab950,"Eden Park, Auckland","Eden Park, Auckland",63714fc3,Auckland,,84,
+4f5e46b6-02ac-4eca-af70-8cb7b1a74cfc,Edgbaston,Edgbaston,6b2f7c19,Birmingham,,422,"Edgbaston, Birmingham [6b2f7c19]"
+e48baeb6-0b5b-408b-9773-a811036a2a8b,"Edgbaston Foundation Community Sports Ground, Birmingham","Edgbaston Foundation Community Sports Ground, Birmingham",1cc2cfc9,Birmingham,,10,"Mitchells and Butlers' Ground, Birmingham [1cc2cfc9]"
+b7bd6b2f-069b-4ed2-933f-3ba0297cd954,Ekana Cricket Stadium B Ground,Ekana Cricket Stadium B Ground,ee9d695e,,,5,
+c0510dfb-339d-4b27-8447-a9f71eb71d21,"Ekana Cricket Stadium, Lucknow","Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",ed4e4230,Lucknow,,57,"Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow [ed4e4230] | Ekana International Cricket Stadium, Lucknow [ed4e4230]"
+3bce7d3e-72a3-4c35-b338-9b2b30b384cd,"Ekeberg Cricket Ground 1, Oslo","Ekeberg Cricket Ground 1, Oslo",bff75d57,Oslo,,3,
+b9326e28-a806-4467-bd5d-d36fb5390864,"Ekeberg Cricket Ground 2, Oslo","Ekeberg Cricket Ground 2, Oslo",25e064c5,Oslo,,1,
+370420e2-f90a-4a4b-8c3b-590dbea3701e,"Emerald High School Ground, Indore","Emerald High School Ground, Indore",09c89765,,,22,Emerald Heights International School Ground [09c89765]
+ad6056be-8d63-42ca-962f-4ef8e9251489,"Enborne Lodge, Newbury","Enborne Lodge, Newbury",19345e84,Newbury,,3,
+dbdc531f-7455-4508-a297-1cf645b50bf7,Entebbe Cricket Oval,Entebbe Cricket Oval,660368d7,Entebbe,,56,
+3e83794c-3158-45e1-b69f-79ff737c7aa0,"Estonian National Cricket and Rugby Field, Tallinn","Estonian National Cricket and Rugby Field, Tallinn",d8c57c5e,Tallinn,,12,Estonian National Cricket and Rugby Field [d8c57c5e]
+7881ca2b-586b-44b5-9abe-5a83027478e4,"Europa Sports Complex, Gibraltar","Europa Sports Complex, Gibraltar",46eb19b0,Gibraltar,,22,Europa Sports Complex [46eb19b0]
+b4a40608-b622-4a20-aa3d-833effb23b66,"F.B. Colony Ground, Vadodara","F.B. Colony Ground, Vadodara",cbde1693,,,11,"Alembic No 2 Ground, Vadodara [cbde1693]"
+0f930d24-08d7-48c4-bda5-e1f1c9b0d580,"Faleata Oval No 1, Apia","Faleata Oval No 1, Apia",83d836ef,Apia,,2,
+38646269-2d1a-4e95-beaa-8efd4c93265c,"Faleata Oval No 2, Apia","Faleata Oval No 2, Apia",8783ce1a,Apia,,13,
+f630f396-a3a0-43f4-a40f-6c99a1c26d6f,"Faleata Oval No 3, Apia","Faleata Oval No 3, Apia",5729af0b,Apia,,3,
+d608ee46-206e-40c0-8ea3-476dcc2afa33,"Farington Cricket Ground, Farington","Farington Cricket Ground, Farington",38f978ee,Farington,,3,
+fd8b494b-5eee-4951-a66c-dc7692767101,"Farmers Cricket Club Ground, St Martin","Farmers Cricket Club Ground, St Martin",5bc81d03,St Martin,,14,
+99c44bb9-9920-4797-b888-6184375e88ed,"FB Fields, St Clement","FB Fields, St Clement",49496c64,St Clement,,8,"Florence Boot Fields, St Clement [49496c64]"
+718f3a51-d5fa-4f1f-a55f-c79100049526,"Feethams Cricket Ground, Darlington","Feethams Cricket Ground, Darlington",309a3e6d,Darlington,,1,
+5b40f33f-62fb-4ee5-9642-0e58390a19c7,"Fenner's, Cambridge","Fenner's, Cambridge",0cd1302a,Cambridge,,2,"FP Fenner's Ground, Cambridge [0cd1302a]"
+6956aa71-aa6e-467e-910e-775b6bcc7450,"Fitzherbert Park, Palmerston North","Fitzherbert Park, Palmerston North",33ec7769,Palmerston North,,16,
+b9a98488-6140-40d1-972b-7428b3855d52,"Forthill, Dundee","Forthill, Dundee",035dc474,Dundee,,26,
+44f9b776-7c1d-4389-a763-3a6f7e076848,"Friendship Oval, Dasmarinas","Friendship Oval, Dasmarinas",358af07b,Dasmarinas,,11,
+cfac498a-27ae-425e-936c-e277ea302ee5,"Gaddafi Stadium, Lahore","Gaddafi Stadium, Lahore",4666efc5,Lahore,,177,Gaddafi Stadium [4666efc5] | Lahore Stadium [4666efc5]
+b613db47-4cd5-428a-a7b4-a3e9bb9aa2a5,Gahanga B Ground,Gahanga B Ground,0d61ce0e,Kigali City,,61,"Gahanga B Ground, Rwanda [0d61ce0e]"
+da9cce39-f81e-4503-a1c2-7190091b7279,Gahanga International Cricket Stadium,Gahanga International Cricket Stadium,46d73339,Kigali City,,201,"Gahanga International Cricket Stadium, Rwanda [46d73339] | Gahanga International Cricket Stadium. Rwanda [46d73339]"
+8d385f1f-ba03-43b3-a655-df73e18b7294,Galle International Stadium,Galle International Stadium,2e3b883d,,,72,
+1b742beb-1bd5-49e0-a171-01dc886ac8fb,"Garon Park, Southend-on-Sea","Garon Park, Southend-on-Sea",a5d831a8,Southend-on-Sea,,1,
+87420c14-f930-42c4-8970-10e6547f2443,"GB Oval, Szodliget","GB Oval, Szodliget",741a8499,Szodliget,,16,
+515b8b55-b427-435c-8b2f-88e627f25682,Geelong Cricket Ground,Geelong Cricket Ground,e6dc087e,Geelong,,2,
+555014f0-c597-4761-baa0-d725a05ca23c,Gelephu International Cricket Ground,Gelephu International Cricket Ground,095126d9,Gelephu,,30,
+09e9b649-049b-4450-b9be-ded93ea8e50d,"GelsenTrabPark, Gelsenkirchen","GelsenTrabPark, Gelsenkirchen",f2ba1a1d,Gelsenkirchen,,5,
+d3e62fc8-3e11-43e4-977a-b18978791eca,"Glenelg Oval, Adelaide","ACH Group Stadium, Adelaide",011e780e,Adelaide,,6,"ACH Group Stadium, Adelaide [011e780e] | Challenge Recruitment Oval, Adelaide [011e780e] | Gliderol Stadium, Adelaide [011e780e] | Stratarama Stadium, Adelaide [011e780e]"
+df70d5df-e071-4dc3-9acb-aeb70f0a36ff,"Goldenacre, Edinburgh","Goldenacre, Edinburgh",6e5b41b7,Edinburgh,,12,
+be5ab7c8-d705-45f9-9dff-272390a2923d,"Gorse Lane, Grantham","Gorse Lane, Grantham",08f870b5,Grantham,,3,
+11e62070-2295-475d-9b06-1c22bcdad094,"Government Model Senior Secondary School, Chandigarh","Government Model Senior Secondary School, Chandigarh",d6f70739,,,12,Government Model Senior Secondary School [d6f70739]
+ca4fd735-e459-4bb2-91e8-b0f0eedbeda3,"Grace Road, Leicester","Grace Road, Leicester",38a7a67b,Leicester,,239,
+a6f43efa-1d20-4d4d-bb8f-c04968f4d967,"Grainville, St Saviour","Grainville, St Saviour",3d4fd61e,St Saviour,,30,"Grainville, St Saviour, Jersey [3d4fd61e]"
+05285c34-4b29-43bc-9a1e-b67b38011c6f,"Grand Prairie Stadium, Dallas","Grand Prairie Stadium, Dallas",aeb7f2e0,Dallas,,82,
+6fc3828b-4f6e-49de-8963-cd833a16065f,"Grange Cricket Club Ground, Raeburn Place, Edinburgh","Grange Cricket Club Ground, Raeburn Place, Edinburgh",044780b6,Edinburgh,,44,
+3a562140-3515-4423-ac6c-c65ff0db2ce0,"Green Park, Kanpur","Green Park, Kanpur",9dd68e5f,Kanpur,,17,
+290c4a60-4ae4-4d58-b7a2-3a09c4672bf0,"Greenfield International Stadium, Thiruvananthapuram","Greenfield International Stadium, Thiruvananthapuram",a5199fe6,Thiruvananthapuram,,24,
+3a6ba98d-b6b6-411c-84f0-a31cc01d8430,"Ground 1, Independence Park, Port Vila","Ground 1, Independence Park, Port Vila",2fd21e32,Port Vila,,6,
+997e179e-fa9b-4a9f-b417-594d5c6ea912,"Ground 2, Independence Park, Port Vila","Ground 2, Independence Park, Port Vila",1c80fa70,Port Vila,,4,
+f115c4c5-8595-4066-8bca-d694df619e55,Guanggong International Cricket Stadium,Guanggong International Cricket Stadium,0b1dbecd,,,4,
+30b7c7e8-0ba3-4710-b5b9-c621cfc50aaa,"Guernsey Rovers Athletic Club Ground, Port Soif","Guernsey Rovers Athletic Club Ground, Port Soif",1ddfa01c,Port  Soif,,13,
+a2262d00-3179-481f-8351-b80abd913cf3,"Gurgaon Cricket Ground (SRNCC), Sultanpur","Gurgaon Cricket Ground (SRNCC), Sultanpur",a5312317,,,8,
+52675a77-c9e4-4b95-925c-4fc9737a00a9,"Guru Nanak College Ground, Chennai","Guru Nanak College Ground, Chennai",43ac9a5d,,,3,"India Cement Limited Guru Nanak College Ground, Chennai [43ac9a5d]"
+e2cb072f-7485-4696-84f5-c00b648fc1b0,Guttsta Wicked Cricket Club,Guttsta Wicked Cricket Club,9f6ea5ea,Kolsva,,1,
+64d9250a-4f32-4e80-9d81-fa56567914ec,"Gymkhana Club Ground, Dar-es-Salaam","Gymkhana Club Ground, Dar-es-Salaam",0f38bf18,Dar-es-Salaam,,10,
+a3dde272-c5e9-4ca4-ba6b-28afbdd9daaf,"Gymkhana Club Ground, Nairobi","Gymkhana Club Ground, Nairobi",8243d26f,Nairobi,,77,
+6b21943c-dc8e-439c-b8df-e2c3fa229acf,"Gymkhana Club, Chiang Mai","Gymkhana Club, Chiang Mai",36a84e0b,Chiang Mai,,4,
+a8574bf3-a156-42d2-8878-beefe25423a2,"Hagley Oval, Christchurch","Hagley Oval, Christchurch",7152cefb,Christchurch,,171,
+8d43751f-89f0-4824-a254-c53256182f37,"Happy Valley Ground 2, Episkopi",Happy Valley Ground 2,52d34c4e,Episkopi,,28,Happy Valley Ground 2 [52d34c4e]
+fbe67725-b3b7-4f97-a6df-87808118cd1c,"Happy Valley Ground, Episkopi","Happy Valley Ground, Episkopi",d55d0c88,Episkopi,,36,Happy Valley Ground [d55d0c88]
+90385bdc-085d-44d6-921c-40febf1acbee,Harare Sports Club,Harare Sports Club,586b8dfc,,,232,
+f043e2e1-28c7-462c-98d4-1f0c597f4f61,"Hare Field, Coggeshall","Hare Field, Coggeshall",490dba1f,Coggeshall,,1,
+492a5954-04cc-4dbb-90ef-f0b0cab51bf5,"Harlequins, Pretoria","Harlequins, Pretoria",89d76efd,Pretoria,,1,Harlequins [89d76efd]
+381ff537-c867-4943-a618-dc05ecea1461,"Harry Barker Reserve, Gisborne","Harry Barker Reserve, Gisborne",4e9b49e9,Gisborne,,2,
+7eaf8086-5b14-4e3e-a674-82bcb604e1b2,"Haslegrave Ground, Loughborough","Haslegrave Ground, Loughborough",9c942e16,Loughborough,,27,
+efc64efa-4e5e-425c-9e60-72c63c3eca93,"Hazelaarweg, Rotterdam","Hazelaarweg, Rotterdam",27885932,Rotterdam,,28,
+72d483a6-6b3c-42f0-9468-3d3da9c06380,Headingley,Headingley,7e0fa9a4,Leeds,,298,"Headingley, Leeds [7e0fa9a4]"
+d46cab4f-3b34-40c1-b311-9c877cc06e65,"High Performance Oval, Windhoek","High Performance Oval, Windhoek",2895d86a,Windhoek,,28,
+b6c68d59-39cf-4713-990e-7dfb148d2b2e,"Himachal Pradesh Cricket Association Stadium, Dharamsala","Himachal Pradesh Cricket Association Stadium, Dharamsala",a682fc55,Dharamsala,,41,Himachal Pradesh Cricket Association Stadium [a682fc55]
+507695cd-bd0d-4e69-8bf4-8e65d3d0980c,"Holkar Cricket Stadium, Indore","Holkar Cricket Stadium, Indore",354f95b9,Indore,,70,
+2efa320c-1ab8-472a-8bf2-6316b4b606ca,Hong Kong Cricket Club,Hong Kong Cricket Club,ff772dd3,Wong Nai Chung Gap,,9,
+28df79d3-c750-4cc2-881a-db90d7e8b260,"Howell Oval, Penrith","Howell Oval, Penrith",9c39fe2f,Sydney,,1,
+2c61ff53-b0cf-4536-8eb2-21b13635363f,"Hugo Banks Field, Vinor","Hugo Banks Field, Vinor",87d8028d,Prague,,6,"Banks Field, Vinor [87d8028d]"
+d7d7e498-e1e5-4f3b-9db5-6d88c5e21c3c,"Hurlingham Club Ground, Buenos Aires","Hurlingham Club Ground, Buenos Aires",5ea0ad95,Buenos Aires,,15,
+9bebc5ba-d3cc-4170-8ae3-c557c090f84e,"Hurstville Oval, Sydney","Hurstville Oval, Sydney",60ebbb3c,Sydney,,20,
+bfd06282-05e9-44dd-8e4f-fcd5a1ce28d7,"ICC Academy Ground No 2, Dubai","ICC Academy Ground No 2, Dubai",c8d6aa78,Dubai,,20,ICC Academy Ground No 2 [c8d6aa78] | ICC Global Cricket Academy Ground No 2 [c8d6aa78]
+5547066f-65b5-4333-8a43-4875343b50d5,"ICC Academy, Dubai","ICC Academy, Dubai",abca06f8,Dubai,,92,ICC Academy [abca06f8] | ICC Global Cricket Academy [abca06f8]
+a4b3dff8-83fd-495e-ae5a-4773baaa6038,"Imran Khan Cricket Stadium, Peshawar","Arbab Niaz Stadium, Peshawar",e3543cd1,Peshawar,,3,"Arbab Niaz Stadium, Peshawar [e3543cd1] | Shahi Bagh Stadium, Peshawar [e3543cd1]"
+dfbef45d-660d-44ea-982f-402ecee0a77f,"Indian Association Ground, Singapore","Indian Association Ground, Singapore",9e8be504,Singapore,,35,
+d8fac327-5367-40c3-9034-6b1d08ea6a9f,"Instonians Cricket Club, Shaw's Bridge Lower Ground, Belfast","Instonians Cricket Club, Shaw's Bridge Lower Ground, Belfast",1cf55100,Belfast,,1,
+a54bd8aa-b813-4558-a5c2-b8496837279d,"Integrated Polytechnic Regional Centre, Kigali","Integrated Polytechnic Regional Centre, Kigali",674d6da8,Kigali City,,40,Integrated Polytechnic Regional Centre [674d6da8]
+ef704902-622a-422f-aa19-be027686af45,"International Sports Stadium, Coffs Harbour","International Sports Stadium, Coffs Harbour",0cda819b,Coffs Harbour,,7,
+17e2353e-bd88-4c97-88b9-02331653eae9,"Invermay Park, Launceston","Invermay Park, Launceston",08ddebea,Launceston,,3,
+29ed0b62-5a36-403e-a7dc-1ce2b08d30ce,"Iqbal Stadium, Faisalabad","Iqbal Stadium, Faisalabad",dab94618,Faisalabad,,11,"Lyallpur Stadium, Faisalabad [dab94618]"
+3b26ac1a-5ebd-4640-8211-510319ccce0e,"Ishoj Cricket Club, Vejledalen","Ishoj Cricket Club, Vejledalen",6fe44496,Ishoj,,10,
+a2377d93-2ac8-4176-8081-c8dd7dfa7fdb,"Jadavpur University Campus 2nd Ground, Kolkata","Jadavpur University Campus 2nd Ground, Kolkata",d7e89a1f,,,11,
+b467c432-12bc-46ce-9aaf-477457b00c37,"Jadavpur University Complex, Kolkata","Jadavpur University Complex, Kolkata",731556bd,,,4,
+2a909175-7219-4fba-b395-cf8478dcdfda,"Jaffery Sports Club Ground, Nairobi","Jaffery Sports Club Ground, Nairobi",bd7cf747,Nairobi,,3,
+972ea6a4-249e-4635-ac9d-9809c08e4117,"Jimmy Powell Oval, Cayman Islands","Jimmy Powell Oval, Cayman Islands",ad566198,George Town,,30,
+00234415-f9f1-4a5f-8072-4de952ff4127,Jinja Cricket Ground,Jinja Cricket Ground,6aeca24b,Jinja,,2,
+1a26a483-eb1d-43d8-9ba8-33ff9e2e978f,Johor Cricket Academy Oval,Johor Cricket Academy Oval,c205fa24,Johor,,5,
+3f0cac48-1048-4aa7-972a-9b511bca049b,"JSCA International Stadium Complex, Ranchi","JSCA International Stadium Complex, Ranchi",cc5717a5,Ranchi,,43,JSCA International Stadium Complex [cc5717a5]
+11cc3cb4-cf6d-4fec-9410-6576a7e325a7,"Jubilee Park, Ringwood, Melbourne","Jubilee Park, Ringwood, Melbourne",22c90c95,Melbourne,,1,
+cf8af3b7-451a-4001-a857-d8d635994147,"Junction Oval, Melbourne","Junction Oval, Melbourne",6a114331,Melbourne,,108,
+2aed5b1b-a2d0-49a7-b2ba-84c3810307b8,Kaizuka Cricket Ground,Kaizuka Cricket Ground,aae3e36c,Osaka,,4,
+1a79302a-0376-4655-8c0b-37a58cf5e330,"Kallang Ground, Singapore","Kallang Ground, Singapore",06ed5f05,Singapore,,9,
+e1f2706d-b53f-46ea-aa0d-722e18bc3c92,"Kardinia Park, South Geelong, Victoria","GMHBA Stadium, South Geelong, Victoria",394fe4d6,Geelong,,23,"Baytec Stadium, South Geelong, Victoria [394fe4d6] | GMHBA Stadium, South Geelong, Victoria [394fe4d6] | Shell Stadium, South Geelong, Victoria [394fe4d6] | Simonds Stadium, South Geelong, Victoria [394fe4d6] | Skilled Stadium, South Geelong, Victoria [394fe4d6]"
+26d05ac9-9ffd-4d39-88a8-fe76b0c87e4d,"Karen Rolton Oval, Adelaide","Karen Rolton Oval, Adelaide",c533c6ab,Adelaide,,61,
+965a0f9d-d7c7-4661-be94-3b58ba95225e,"Karori Park, Wellington","Karori Park, Wellington",69d54ff1,Wellington,,3,
+2eaedf64-53f6-4d3f-aa33-099300184d01,"Keenan Stadium, Jamshedpur","Keenan Stadium, Jamshedpur",7fc5a5e5,Jamshedpur,,1,
+ee9d4c26-3ea7-4e92-a060-2c1c09c43fe0,Kensington Oval,Kensington Oval,d2a4ff70,Barbados,,152,"Kensington Oval, Bridgetown, Barbados [d2a4ff70]"
+356eb08d-fd21-4d4f-be8c-f443db35846d,Kerava National Cricket Ground,Kerava National Cricket Ground,cf00ffeb,Kerava,,50,
+db001b1c-0382-46f5-8348-a2fcae3d1de3,"Kerrydale Oval, Gold Coast","Kerrydale Oval, Gold Coast",f7faf22e,Gold Coast,,4,
+d3498061-5472-4a4f-8d2f-8aafb8b58fd2,Khulna Divisional Stadium,"Sheikh Abu Naser Stadium, Khulna",044842ae,Khulna,,16,"Bir Shrestha Shahid Flight Lieutenant Motiur Rahman Stadium, Khulna [044842ae] | Sheikh Abu Naser Stadium, Khulna [044842ae]"
+9ea74e9b-6427-4f66-bddb-be54d1e7c4fb,Kibworth Cricket Club New Ground,Kibworth Cricket Club New Ground,f4721f56,Kibworth,,5,
+a7b73877-17d9-4ece-a47b-36c4fe8cbf71,"King George V Sports Ground, Castel","King George V Sports Ground, Castel",ff265dbf,Castel,,28,
+8186c8b1-6bba-41d2-8947-5b29ccba6215,"Kingsmead, Durban","Kingsmead, Durban",25b64fb5,Durban,,168,Kingsmead [25b64fb5]
+c2b377d1-7c09-43a7-8630-766e9373428f,"Kingston Twin Ovals, Hobart","Kingston Twin Ovals, Hobart",aff4b060,Hobart,,1,
+fc7e5398-464c-4597-ad4a-b47db00f5dea,"Kinrara Academy Oval, Kuala Lumpur","Kinrara Academy Oval, Kuala Lumpur",bf040d61,Kuala Lumpur,,100,
+934f618a-495f-4c8d-b606-bf78aac64cef,"Knight Riders Cricket Ground, Pomona","Knight Riders Cricket Ground, Pomona",b4a45184,Pomona,,7,
+2c5dbadf-746c-4e3f-9cc9-aba3cfd52645,Koge Cricket Club,Koge Cricket Club,c3844bde,Koge,,15,
+bfda6e6e-7bc6-4200-a3d4-628c6da68606,Koge Cricket Club 2,Koge Cricket Club 2,9ad6a24b,Koge,,2,
+8b595455-8dba-4f08-8053-77d8082eb7ec,"Kolej Tuanku Jaafar Cricket Oval, Mantin","Kolej Tuanku Jaafar Cricket Oval, Mantin",7a156414,Mantin,,6,
+5d2b5c2c-f34d-4c96-a5a8-6150d8b1c1de,Korogi Sports Park,Korogi Sports Park,bef5bb0f,Nisshin,,20,"Korogi Sports Park, Nisshin [bef5bb0f]"
+c8470b5b-07ea-41ac-afae-a0907d7e58fc,"Kotambi Stadium, Vadodara","Kotambi Stadium, Vadodara",5057d88a,Vadodara,,24,"Baroda Cricket Association Stadium, Vadodara [5057d88a] | Vadodara International Cricket Stadium [5057d88a]"
+d70db5d2-f944-4e40-8915-0092b27515d4,Kowloon Cricket Club,Kowloon Cricket Club,c3e61d33,Kowloon,,26,
+de47d72b-d527-4da6-841e-2fc843cc40ca,"KSCA Cricket (2) Ground, Alur","KSCA Cricket (2) Ground, Alur",08d5a12b,,,5,
+23343774-028b-42dd-ab63-0bc60bc44b4a,"KSCA Cricket (3) Ground, Alur","KSCA Cricket (3) Ground, Alur",53253b23,,,4,
+3c6626cb-89c3-475a-b0af-d820fd000276,"KSCA Cricket Ground, Alur","KSCA Cricket Ground, Alur",20c1f38f,,,6,
+387126f0-0140-4420-ab3a-56267db43779,Kwekwe Sports Club,Kwekwe Sports Club,45143c9a,Kwekwe,,2,
+6febc0be-e5be-435f-836d-81e70791a53a,"Kyambogo Cricket Oval, Kampala","Kyambogo Cricket Oval, Kampala",4e37a018,Kampala,,13,"Kyambogo Cricket Ground, Kampala [4e37a018]"
+f6ab5d30-b9fb-4e48-bf76-f959142776dd,La Manga Club Bottom Ground,La Manga Club Bottom Ground,4003ef9a,Murcia,,15,
+54a265be-738f-4baf-b047-dd2a5962141d,La Manga Club Top Ground,La Manga Club Top Ground,1361477c,Murcia,,18,
+7013909e-401b-4614-9e56-fa32d4e4f9fd,Lahore City Cricket Association Ground,Lahore City Cricket Association Ground,5b927a52,Lahore,,7,"Punjab Cricket Association Ground, Lahore [5b927a52]"
+35d87a7b-ad6a-4a30-84f7-8f1bdf8bc042,"Lal Bahadur Shastri Stadium, Hyderabad, Deccan","Lal Bahadur Shastri Stadium, Hyderabad, Deccan",60ce0fe1,Hyderabad,,1,"Fateh Maidan, Hyderabad, Deccan [60ce0fe1]"
+3efaaab3-622d-424c-9dfb-c4d87d993b8e,"Lalabhai Contractor Stadium, Surat","Lalabhai Contractor Stadium, Surat",0689d53a,Surat,,36,Lalbhai Contractor Stadium [0689d53a]
+d940f6d5-067d-4722-818a-dba2f120a440,"Lancaster Park, Christchurch","Jade Stadium, Christchurch",b4715b8e,Christchurch,,14,"AMI Stadium, Christchurch [b4715b8e] | Jade Stadium, Christchurch [b4715b8e]"
+9acbb78c-2438-476c-a59c-ecdef34bed6b,"Las Caballerizas, Mexico City","Las Caballerizas, Mexico City",2de57b79,Mexico City,,1,Las Caballerizas [2de57b79]
+24224aa2-a467-4905-a1f5-252cfb7b61a1,"Latrobe Recreation Ground, Latrobe","Latrobe Recreation Ground, Latrobe",8b28c570,Latrobe,,2,
+5f836e39-6194-441e-bf72-dc156beee385,"Lavington Sports Oval, Albury","Lavington Sports Oval, Albury",478adcab,Albury,,5,"Lavington Sports Club, Albury [478adcab]"
+20f1735f-d0b2-49e2-b32c-782496246bd1,"LC de Villiers Oval, Pretoria","LC de Villiers Oval, Pretoria",c2cce98e,Pretoria,,1,
+75c4dccf-d8be-4514-b994-33cdd38d70d0,"Lilac Hill Park, Perth","Lilac Hill Park, Perth",c8411207,Perth,,18,
+96b4cfef-e5af-4020-9996-29edc8620759,"Lindum Sports Club Ground, Lincoln","Lindum Sports Club Ground, Lincoln",d00aa69f,Lincoln,,2,
+08e6a71f-9def-4e20-9018-1a5320b6f3a4,"Lisburn Cricket Club, Wallace Park, Lisburn","Lisburn Cricket Club, Wallace Park, Lisburn",715fdfa4,Lisburn,,3,
+d9419945-c5d8-4aa0-8ff5-82311ce0453b,"Lisicji Jarak Cricket Ground, Belgrade","Lisicji Jarak Cricket Ground, Belgrade",dddf4293,Belgrade,,15,Lisicji Jarak Cricket Ground [dddf4293]
+76fc1c26-485e-4c48-9cf7-fff397ea21ba,"Lochlands, Arbroath","Lochlands, Arbroath",586df99b,Arbroath,,7,
+b9ba98c4-83cb-4399-89b3-4083a98fce41,Lord's,Lord's,c6e9ea3f,London,,312,"Lord's, London [c6e9ea3f]"
+73ae49df-4ea9-4c6f-a782-88c07ade315c,"Lords, St David's Cricket Club Ground, Bermuda","Lords, St David's Cricket Club Ground, Bermuda",548eb35f,Bermuda,,3,
+9e20aa88-7de1-43fb-acc5-d09c5bf9a637,"Los Pinos Polo Club 1, Cundinamarca","Los Pinos Polo Club 1, Cundinamarca",aa78065d,Bogota,,5,
+5b0b6839-634f-4f48-b0a9-57a27b611028,"Los Pinos Polo Club 2, Cundinamarca","Los Pinos Polo Club 2, Cundinamarca",6437937d,Bogota,,1,
+5a2cb36b-f85c-4aba-8b93-4d82dc2765b8,"Los Reyes Polo Club, Alajuela","Los Reyes Polo Club, Alajuela",a51b401a,Guacima,,6,Los Reyes Polo Club [a51b401a]
+8fbcefb5-8615-438e-b382-2908d930bc2d,Louth Cricket Club,Louth Cricket Club,f820cb66,,,1,
+d6860d4d-4422-4cc8-8be3-455cdd21b8da,"Lugogo Cricket Oval, Kampala","Lugogo Cricket Oval, Kampala",0ca53d3b,Kampala,,25,
+75f10ab3-4c73-48d8-94cf-db635f850cdb,"M Chinnaswamy Stadium, Bengaluru","M Chinnaswamy Stadium, Bengaluru",351ac0b1,Bengaluru,,174,
+33523ea2-b235-412f-a947-5bbcc5f2d98c,MA Chidambaram Stadium,MA Chidambaram Stadium,6b0a6071,Chennai,,141,"MA Chidambaram Stadium, Chepauk [6b0a6071] | MA Chidambaram Stadium, Chepauk, Chennai [6b0a6071] | Madras Cricket Club Ground [6b0a6071]"
+5dc0b371-cd47-4346-8ac3-ea6e06cb7b03,"Madhavrao Scindia Cricket Ground, Rajkot","Madhavrao Scindia Cricket Ground, Rajkot",833af9c5,Rajkot,,4,"Municipal Stadium, Rajkot [833af9c5]"
+ec6d3150-76ee-4e31-a9ef-f4bb5be244a6,"Maharaja Yadavindra Singh International Cricket Stadium, New Chandigarh","Maharaja Yadavindra Singh International Cricket Stadium, New Chandigarh",98010cd2,Mohali,,21,"Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur [98010cd2] | Mullanpur Cricket Stadium [98010cd2] | Mullanpur Cricket Stadium, New Chandigarh [98010cd2]"
+dfd9000e-a2cf-47fd-8e6b-533748f2b00f,"Maharashtra Cricket Association Stadium, Pune","Maharashtra Cricket Association Stadium, Pune",6f9052c3,Pune,,74,
+a29a2b3a-2afb-41dc-a4df-b02ecd155029,"Mahinda Rajapaksa International Cricket Stadium, Sooriyawewa, Hambantota","Mahinda Rajapaksa International Cricket Stadium, Sooriyawewa, Hambantota",58512cad,Hambantota,,79,
+c568b200-8850-40fc-a666-90cd1b14a010,"Malahide Cricket Ground, Dublin","Malahide Cricket Ground, Dublin",a656b2cd,Dublin,,68,"Malahide, Dublin [a656b2cd] | The Village, Malahide, Dublin [a656b2cd]"
+d2711d41-c813-43c5-909b-4f633834e684,"Malek Cricket Ground, Ajman","Malek Cricket Ground, Ajman",a974b23e,Ajman,,4,
+bd702c99-0bf5-4352-ae76-955c83cbba00,Malkerns Country Club Oval,Malkerns Country Club Oval,45d23acd,Malkerns,,13,Malkerns Country Club oval [45d23acd]
+5f3ce659-580c-4a8d-8ab3-94cdf420a066,"Mangaung Oval, Bloemfontein","Mangaung Oval, Bloemfontein",405a8927,Bloemfontein,,50,"Chevrolet Park, Bloemfontein [405a8927] | Goodyear Park, Bloemfontein [405a8927] | OUTsurance Oval [405a8927] | OUTsurance Oval, Bloemfontein [405a8927] | Springbok Park, Bloemfontein [405a8927]"
+6d76cab1-e51f-4399-b6a6-9a87fc35a144,"Mannofield Park, Aberdeen","Mannofield Park, Aberdeen",cce804bb,Aberdeen,,13,
+b655591e-88fe-4260-bae0-6dd4ae939eb8,"Manuka Oval, Canberra","Manuka Oval, Canberra",241ce892,Canberra,,67,
+7a92ecfd-da39-492b-bc61-36bbd0c37446,"Maple Leaf North-East Ground, King City","Maple Leaf North-East Ground, King City",5f68c629,King City,,10,
+f82a5cf7-f8c6-430c-989d-a05095603f65,"Maple Leaf North-West Ground, King City","Maple Leaf North-West Ground, King City",6802a4ed,King City,,43,"Maple Leaf North-West Ground, Toronto [6802a4ed]"
+c073166e-1775-4efb-9fa4-55e734044bb2,"Maple Leaf South-West Ground, Toronto","Maple Leaf South-West Ground, Toronto",65c9b4e7,King City,,1,
+8b849731-90af-40cd-8749-b137e82503b9,"Mardyke, Cork","Mardyke, Cork",8afe1eb6,Cork,,27,
+e38297a2-ed31-460a-8347-df9ec8c5cee7,"Marina Ground, Corfu","Marina Ground, Corfu",bfdb318c,Corfu,,13,
+0568381f-1847-4f43-8ef7-2f4d411d9ebd,"Marrara Cricket Ground, Darwin","Marrara Cricket Ground, Darwin",76b33ab4,Darwin,,8,"Marrara Stadium, Darwin [76b33ab4] | TIO Stadium, Darwin [76b33ab4]"
+740802d6-4d14-4adf-b512-e6dfeb3667e3,Marsa Sports Club,Marsa Sports Club,7ea7a26b,Marsa,,69,
+53b9ce1e-b4ff-49db-84a3-9f32366c6980,"McLean Park, Napier","McLean Park, Napier",189d0732,Napier,,90,
+4302fec7-439d-4f2f-815e-5487beadc8fe,"Meersen, Gent","Meersen, Gent",caa8e206,Ghent,,5,
+7b27091f-82fb-4e31-b129-68c5c8a55e98,Melbourne Cricket Ground,Melbourne Cricket Ground,291a7a33,,,192,MCG [291a7a33]
+94434b44-2c8d-4b1c-89a6-ed755748154d,"Mercantile Cricket Association Ground, Colombo","Mercantile Cricket Association Ground, Colombo",94f2f523,Colombo,,6,
+89dc1825-b82d-4cea-b04c-6f4bd5fa981b,"Merchant Taylors' School Ground, Northwood","Merchant Taylors' School Ground, Northwood",d9103e0a,Northwood,,23,
+a4621277-b4ca-471a-945b-257c6a4e5518,"Merrion Cricket Club Ground, Dublin","Merrion Cricket Club Ground, Dublin",31889d8b,Dublin,,5,
+85c9619d-b50f-425d-b507-016c0fec4bb8,"Millfield School, Street","Millfield School, Street",75215e66,Street,,1,
+ab4c5c95-a7b8-49de-8edc-91cddd755096,"Mission Road Ground, Mong Kok, Hong Kong","Mission Road Ground, Mong Kok, Hong Kong",7ec079d9,Mong Kok,,65,
+b97fc812-0a14-49ab-a020-35904d005bbf,"Mladost Cricket Ground, Zagreb","Mladost Cricket Ground, Zagreb",55e73e73,Zagreb,,9,
+773ece54-95c9-4db2-9160-83acaaee007c,"Moara Vlasiei Cricket Ground, Ilfov County","Moara Vlasiei Cricket Ground, Ilfov County",8d94c440,,,102,
+3bf3721f-5bb4-4308-8f0b-fa98be724282,"Molyneux Park, Alexandra","Molyneux Park, Alexandra",35f11f32,Alexandra,,32,
+7e427c6a-9ed0-464a-a370-aca38d910b8c,Mombasa Sports Club Ground,Mombasa Sports Club Ground,a44b2e74,,,5,
+19358789-8060-4678-8c04-c01e30a85efe,"Moors Sports Club Ground, Colombo","Moors Sports Club Ground, Colombo",ff03592f,Colombo,,7,
+b3b1032d-0753-4f6e-8fb8-0342bd5642f6,"Moosa Cricket Stadium, Pearland","Moosa Cricket Stadium, Pearland",df84525d,Pearland,,12,
+13bbb2f9-8a2f-462b-836f-a93f27fed74c,Morodok Techo National Stadium,Morodok Techo National Stadium,36339891,Phnom Penh,,4,
+d145c449-4f98-4a69-be1b-a7c411b2a24f,"Moses Mabhida Stadium, Durban","Moses Mabhida Stadium, Durban",2474c719,Durban,,1,
+0e07d091-014f-468a-ad96-c6ebe58cef75,"Motera Stadium, Ahmedabad","Sardar Patel Stadium, Motera, Ahmedabad",dea6641b,Ahmedabad,,106,"Gujarat Stadium, Motera, Ahmedabad [dea6641b] | Narendra Modi Stadium, Ahmedabad [dea6641b] | Sardar Patel Stadium, Motera [dea6641b] | Sardar Patel Stadium, Motera, Ahmedabad [dea6641b]"
+f45ad03e-6992-4c42-8a5d-cc55211a7ace,"Moti Bagh Stadium, Vadodara","Moti Bagh Stadium, Vadodara",8db14948,,,13,
+2ff3f9dc-3570-40ae-97ad-535454b3d9a4,Mulpani Cricket Ground,Mulpani Cricket Ground,13328e0d,Kathmandu,,28,
+f5d1406b-1856-459c-a7bd-b859d6c31b93,Multan Cricket Stadium,Multan Cricket Stadium,c3607be2,Multan,,38,
+fc44d237-5e89-4c26-8494-98fc9811c65a,"Myreside, Edinburgh","Myreside, Edinburgh",bccd84d8,Edinburgh,,4,
+5c2d7be6-a5ae-47be-8480-8c7afd185242,"N'Du Stadium, Noumea, New Caledonia","N'Du Stadium, Noumea, New Caledonia",f52f9c9a,Noumea,,6,
+d1ba3bef-bdae-41e3-bfe8-f74c88557fea,"Nahar Singh Stadium, Faridabad","Nahar Singh Stadium, Faridabad",829f2233,Faridabad,,2,"Mayur Stadium, Faridabad [829f2233]"
+fda29e9e-84f5-4437-93e3-4fdf5aef3bb6,"Namibia Cricket Ground, Windhoek","Namibia Cricket Ground, Windhoek",7e666178,Windhoek,,45,
+03d7b658-a53d-4d72-9eff-e7137ee7b95b,"Nassau County International Cricket Stadium, New York","Nassau County International Cricket Stadium, New York",8d502474,New York,,8,
+e7b4df59-9cad-495e-868e-a11765c31ba1,"National Cricket Stadium, St George's, Grenada","National Cricket Stadium, St George's, Grenada",024d9dc3,St George's,,38,"Queen's Park (New), St George's, Grenada [024d9dc3]"
+3ccb29b2-716d-4532-bb2a-b2137182ebed,"National Stadium, Hamilton","National Stadium, Hamilton",4af8b62f,Hamilton,,16,
+9971e2ef-15f2-4465-a2a0-bee96208dce1,"National Stadium, Karachi","National Stadium, Karachi",70795294,Karachi,,171,
+e4e73907-aef6-4746-b3eb-daac72ae584e,"Navy Ground, Welisara","Navy Ground, Welisara",c64f0774,Welisara,,1,
+6edbe566-a26c-4f82-bd7e-0f53be0a6646,"Nehru Stadium, Fatorda, Margao","Nehru Stadium, Fatorda, Margao",05b1646a,Margao,,2,Fatorda Stadium [05b1646a]
+ac4ecaf6-d602-446f-9ae5-392b0f8d6957,"Nehru Stadium, Guwahati","Nehru Stadium, Guwahati",62097f9d,Guwahati,,7,
+32d6ad9a-0f5e-453c-88c7-88d010478eaf,"Nehru Stadium, Kochi","Nehru Stadium, Kochi",92dc91a4,Kochi,,22,Nehru Stadium [92dc91a4]
+e9355783-5f8f-4107-99ec-f7ed716a0140,"Nehru Stadium, Pune","Nehru Stadium, Pune",db68cea3,Pune,,2,"Nehru Stadium, Poona [db68cea3]"
+decf9634-05f4-4913-98af-f44938ba5e3c,"Nelson Park, Napier","Nelson Park, Napier",7bd43e58,,,5,
+b8d8a13c-eba6-4ee0-83c3-0dfc5b71dfb9,"Nevill Ground, Tunbridge Wells","Nevill Ground, Tunbridge Wells",d74c0a77,Tunbridge Wells,,7,
+d1c14bf8-a46f-4847-8bb3-852fcd2fed20,"New Close County Cricket Ground, Newport, Isle-of-Wight","New Close County Cricket Ground, Newport, Isle-of-Wight",62a31cb3,Newport,,4,
+102290f3-2ef1-436f-b3ac-229f197de48a,"New Farnley Cricket Club, Leeds","New Farnley Cricket Club, Leeds",4b11d454,Leeds,,3,"New Farnley CC, Leeds [4b11d454]"
+604702bb-3896-427e-80b2-67750129d5ec,"New Road, Worcester","New Road, Worcester",c28dafd8,Worcester,,241,"County Ground, New Road, Worcester [c28dafd8]"
+e88ea132-f9c6-49c5-b2d8-ec74cdec26a1,New Strabane Park,New Strabane Park,b5ed508b,Strabane,,3,
+3e4f2781-f80c-4eed-9c23-693a6994f1bb,"New Williamfield No1 Oval, Stirling","New Williamfield No1 Oval, Stirling",6aa8faca,Stirling,,5,
+8a657134-5522-4951-83e7-2af925223e00,"Newlands, Cape Town","Newlands, Cape Town",a899c2b7,Cape Town,,154,Newlands [a899c2b7]
+42c48e78-5941-489a-85c5-075f4e8dd03f,"Niaz Stadium, Hyderabad, Sindh","Niaz Stadium, Hyderabad, Sind",b2797cc7,Sind,,1,"Niaz Stadium, Hyderabad, Sind [b2797cc7]"
+5cea1651-411e-483f-b705-c5e292111216,"Nigeria Cricket Federation Oval 1, Abuja","Nigeria Cricket Federation Oval 1, Abuja",dff861a2,Abuja,,32,
+bb7cad0c-2f57-4bc1-9dd5-89dbd1ce3964,"Nigeria Cricket Federation Oval 2, Abuja","Nigeria Cricket Federation Oval 2, Abuja",99d3ce22,Lagos,,15,
+7568b57e-62f7-4a0f-a342-30ec0a33ba9c,"Nondescripts Cricket Club Ground, Colombo","Nondescripts Cricket Club Ground, Colombo",d401b9a8,Colombo,,49,
+2d5ea298-2d19-44f8-81c7-10b63b553046,"North Dalton Park, Wollongong","North Dalton Park, Wollongong",d9b94b57,Wollongong,,3,
+7632905a-86a8-4f2d-9f4c-cfd52c268b16,"North Marine Road Ground, Scarborough","North Marine Road Ground, Scarborough",5e0fd54a,Scarborough,,52,
+c774018f-d398-4f6a-8eaf-c203503d690e,North Sydney Oval,North Sydney Oval,c15bc827,Sydney,,88,"North Sydney Oval, Sydney [c15bc827]"
+0bda1d48-4b16-4dde-aef5-410679eae3be,North Sydney Oval No 2,North Sydney Oval No 2,95a49af2,Sydney,,1,"North Sydney Oval No 2, Sydney [95a49af2]"
+0e8adc05-a564-4e92-bd04-1bfd7768343b,"North West Cricket Stadium, Potchefstroom","North West Cricket Stadium, Potchefstroom",80fc5774,Potchefstroom,,90,"JB Marks Oval, Potchefstroom [80fc5774] | Sedgars Park, Potchefstroom [80fc5774] | Senwes Park, Potchefstroom [80fc5774]"
+263ed62f-ce20-4ebc-a61e-f4c5010bd0f3,"North-West University No1 Ground, Potchefstroom","North-West University No1 Ground, Potchefstroom",33e58737,Potchefstroom,,6,
+b529b4b6-b908-4a95-9bc1-7b072f5e47b4,Nuriootpa Centennial Park,Nuriootpa Centennial Park,4a025ff3,Nuriootpa,,2,
+bb973130-2c76-47fa-98b6-1fcc0448e8c4,"Oak Hill Cricket Club, Wicklow","Oak Hill Cricket Club, Wicklow",30417bc3,Wicklow,,7,Oak Hill Cricket Club [30417bc3]
+9a9e3844-6c89-46a9-b962-4055a7caeed5,Oakham School Ground,Oakham School Ground,03b81561,Oakham,,2,
+e54a311c-08df-401d-a0b4-8f4652518585,"Oakland Coliseum, Oakland","Oakland Coliseum, Oakland",7e06f00d,Oakland,,21,"Oakland Coliseum,Oakland [7e06f00d]"
+0f618543-d30e-470f-a22c-71f20a347127,"Observatory Lane, Rathmines, Dublin","Observatory Lane, Rathmines, Dublin",ccdae359,Dublin,,4,
+b317a4fc-10fd-4b0c-9b21-72737838ab14,"Old Deer Park, Richmond","Old Deer Park, Richmond",eb5ec975,Richmond,,8,
+a6a15f80-eaef-49ee-83e5-c749e031baeb,"Old Edwardians Cricket Club Ground, Solihull","Old Edwardians Cricket Club Ground, Solihull",bc388a4d,Solihull,,1,
+722db1e4-2571-43c9-b269-213a7d4a2d41,"Old Hararians, Harare","Old Hararians, Harare",6bfc6938,Harare,,17,
+a50755eb-1ce9-42cd-b0fa-439d70535bfd,Old Trafford,Old Trafford,2a20f4bc,Manchester,,318,"Old Trafford, Manchester [2a20f4bc]"
+91eaf81d-22fd-4b9e-87b1-874352fdbebb,"Ovale di Rastignano, Pianoro","Ovale di Rastignano, Pianoro",f6fa1da6,Pianoro,,5,
+3563b93f-e561-471b-9c35-6affea34fb7b,"P Saravanamuttu Stadium, Colombo","P Saravanamuttu Stadium, Colombo",163af78d,Colombo,,79,"P Sara Oval, Colombo [163af78d]"
+a14ca5aa-a568-43fb-b202-00efb29bd365,"Palam A Ground, Model Sports Complex, Delhi","Palam A Ground, Model Sports Complex, Delhi",a84e4939,,,21,
+c046577f-f99b-457f-8af4-382396e061a2,"Palam B Ground, Model Sports Complex, Delhi","Palam B Ground, Model Sports Complex, Delhi",e9c280c1,,,14,
+1cccd2c5-670b-440b-b230-49ce2a7e3653,Pallekele International Cricket Stadium,Pallekele International Cricket Stadium,b7eee9e3,Kandy,,118,
+b347e6f9-e324-47e7-b0cd-f024ced6e429,Panadura Esplanade,Panadura Esplanade,d4582aa6,Panadura,,15,
+4713afa6-c09e-460f-bf2e-abfa83e86c65,"Park 25 No 2, Adelaide","Park 25 No 2, Adelaide",06b0a3ab,Adelaide,,4,
+ca556072-3206-4796-98e3-6e91dc2d5460,"Pembroke Cricket Club, Sandymount, Dublin","Pembroke Cricket Club, Sandymount, Dublin",804b80af,Dublin,,71,
+681c6d3b-b751-49f6-ac40-bdb901e47a2b,"Penrhyn Avenue, Rhos-on-Sea, Colwyn Bay","Penrhyn Avenue, Rhos-on-Sea, Colwyn Bay",d7c03b20,Colwyn Bay,,5,Colwyn Bay Cricket Club Ground [d7c03b20]
+93dd20f5-3bff-4da4-82d4-ea674c76065b,Perth Stadium,Perth Stadium,ba1305a8,Perth,,68,Optus Stadium [ba1305a8]
+30bf515b-c93f-4153-850a-14abc176b7b9,"Peter Burge Oval, Brisbane","Peter Burge Oval, Brisbane",19956be7,Brisbane,,2,
+277fc744-aff3-4177-8ffa-bf3fe84738d8,"Pierre Werner Cricket Ground, Walferdange","Pierre Werner Cricket Ground, Walferdange",b85aecf4,Walferdange,,14,Pierre Werner Cricket Ground [b85aecf4] | Walferdange Cricket Ground [b85aecf4]
+bab08832-11f9-4e20-9d0b-7a50d0a5dd7d,"Pocos Oval, Pocos de Caldas","Pocos Oval, Pocos de Caldas",8c850d77,Minas Gerias,,2,
+ffb5317e-168f-44db-b9cc-a4c63ce50f58,Pokhara Rangasala,Pokhara Rangasala,9c55fe2c,Pokhara,,4,
+2cc13485-369f-48ce-96d3-54da847d4674,"Police Park Ground, Colombo","Police Park Ground, Colombo",bbbe0030,Colombo,,19,
+4f223100-0ec0-49f0-aa06-03821a8360f1,"Prairie View Cricket Complex, Houston","Prairie View Cricket Complex, Houston",7514f831,Houston,,7,Prairie View Cricket Complex [7514f831]
+a33ef30b-246c-4e5f-864b-764e78324469,"Prem Tinsulanonda International School, Chiang Mai","Prem Tinsulanonda International School, Chiang Mai",0d559fbb,Chiang Mai,,3,
+0a748608-a08b-415c-b26d-d053933d1c89,"Providence Stadium, Guyana","Providence Stadium, Guyana",01a4fdb1,Guyana,,167,"Guyana National Stadium, Providence [01a4fdb1]"
+35a5735f-bdfd-4b92-9ecb-7127ef6d5677,"Pukekura Park, New Plymouth","Pukekura Park, New Plymouth",daf72acd,New Plymouth,,30,
+555f448a-16b9-47bb-915d-967a3172ca3b,"Punjab Cricket Association Stadium, Mohali, Chandigarh","Punjab Cricket Association Stadium, Mohali, Chandigarh",f4fe4119,Chandigarh,,104,"Punjab Cricket Association IS Bindra Stadium [f4fe4119] | Punjab Cricket Association IS Bindra Stadium, Mohali [f4fe4119] | Punjab Cricket Association IS Bindra Stadium, Mohali, Chandigarh [f4fe4119] | Punjab Cricket Association Stadium, Mohali [f4fe4119]"
+364e1343-890d-4c9b-914c-57ac4404a2be,"Queen Elizabeth II Oval, Bendigo","Queen Elizabeth II Oval, Bendigo",a381d895,Bendigo,,3,
+e8c16bf1-c9a9-4966-9af1-5a4b56f4386a,"Queen's Park Oval, Port of Spain, Trinidad","Queen's Park Oval, Port of Spain, Trinidad",d2fdb0fb,Trinidad,,105,
+5e466505-8b36-49ce-a403-b51c4c04dd9d,"Queen's Park, Chesterfield","Queen's Park, Chesterfield",11938200,Chesterfield,,32,
+27ea055d-41ff-412a-bfe1-670e9d7c8614,"Queen's Park, Invercargill","Queen's Park, Invercargill",b5a89e18,Invercargill,,5,
+a6aa6e40-b37f-46a9-8290-ac3dc7dc75f4,"Queens Sports Club, Bulawayo","Queens Sports Club, Bulawayo",81137e75,Bulawayo,,110,
+4107fa5a-ef45-4e12-984e-aab8f888114d,Queenstown Events Centre,Queenstown Events Centre,f2b98fd6,Queenstown,,28,"Davies Park, Queenstown [f2b98fd6] | John Davies Oval, Queenstown [f2b98fd6]"
+4a620a72-4554-48b2-b1ab-f05f2e541a4e,"R Premadasa Stadium, Colombo","R Premadasa Stadium, Colombo",146a8a08,Colombo,,246,"Khettarama Stadium, Colombo [146a8a08]"
+b74bf2b2-ae5d-4d08-8459-ac29a56389d3,"Radlett Cricket Club, Radlett","Radlett Cricket Club, Radlett",36a49c1a,Radlett,,31,
+7a382b82-e547-4bba-9d87-8f250a2996d8,"Rajiv Gandhi International Stadium, Uppal","Rajiv Gandhi International Stadium, Uppal",5094a793,Hyderabad,,110,"Rajiv Gandhi International Stadium, Uppal, Hyderabad [5094a793]"
+d7742235-214f-40f9-965e-9ae0f9e70c86,Rangiri Dambulla International Stadium,Rangiri Dambulla International Stadium,4bacac99,Dambulla,,100,
+bad04927-8c17-4b8c-b82b-c96aa4c17803,Rawalpindi Cricket Stadium,Rawalpindi Cricket Stadium,64e8f8d7,,,86,
+f20db3c5-1979-4266-b003-de8c40a90b44,"Ray Mitchell Oval, Harrup Park, Mackay","Ray Mitchell Oval, Harrup Park, Mackay",2489737f,Mackay,,32,"Great Barrier Reef Arena, Mackay [2489737f]"
+b7cab12f-7389-4e4e-83b5-a5a7d7d2c4f7,"Recreation Ground, Rangiora","Mainpower Oval, Rangiora",20c7c4e4,,,27,"Mainpower Oval, Rangiora [20c7c4e4]"
+ab398199-5e5e-4fcc-b05b-c14c1891eac0,"Reforma Athletic Club, Naucalpan","Reforma Athletic Club, Naucalpan",9b5220c5,Naucalpan,,11,
+92fc8547-a1ee-4966-992f-c830df75c865,"Reliance Stadium, Vadodara","Reliance Stadium, Vadodara",5bbd83c0,Vadodara,,28,"Indian Petrochemicals Corporation Limited Sports Complex Ground, Vadodara [5bbd83c0]"
+3a574965-7b8c-4706-b8f4-cef340ba2b37,Repton School Ground,Repton School Ground,2081cf5f,Repton,,1,
+4eedde46-aabd-4a27-943c-fbc3077505b4,"Riverside Ground, Chester-le-Street","Riverside Ground, Chester-le-Street",cc767911,Chester-le-Street,,285,
+68edc979-a005-46c6-b3e9-565ea2394101,"Riverway Stadium, Townsville","Riverway Stadium, Townsville",8357eaa5,Townsville,,7,
+1b3430dc-7f9c-4005-9544-e1f94c84990b,Roma Cricket Ground,Roma Cricket Ground,9bc15c48,Spinaceto,,20,
+bf78a39c-9aa4-40d7-982a-c1022c9304a3,"Rookwood, Sale","Rookwood, Sale",01489ccd,Sale,,7,
+1cf600aa-3af8-4cff-8ee0-9db3099d49d7,"Roseworth Terrace, Gosforth","Roseworth Terrace, Gosforth",83286303,Gosforth,,14,
+13e8604e-67e4-430b-9c78-0e502610bb73,"Royal Brunswick Ground, Hove, Brighton","Royal Brunswick Ground, Hove, Brighton",ec750057,Brighton,,1,
+8d8a4170-aaba-4a84-89e7-5bc9bff5e482,"Royal Brussels Cricket Club Ground, Waterloo","Royal Brussels Cricket Club Ground, Waterloo",42fac2bc,Waterloo,,10,
+23fed6a4-7e20-433d-b22c-4807160af5ef,Royal Chiangmai Golf Club,Royal Chiangmai Golf Club,8b32561f,Chiang Mai,,14,
+b2632fad-d5cd-4822-ac59-58e4ba0aa0dc,"Royal Selangor Club, Kuala Lumpur","Royal Selangor Club, Kuala Lumpur",4cd79f92,Kuala Lumpur,,18,
+7f37cd81-efdf-4ac3-9cd8-bfc6b839e29e,"Ruaraka Sports Club Ground, Nairobi","Ruaraka Sports Club Ground, Nairobi",9a0e6fdf,Nairobi,,20,
+753ebb54-48a0-49f2-87f2-54266ca87d08,"Rugby School Ground, Rugby","Rugby School Ground, Rugby",3131e8a6,Rugby,,10,Rugby School Ground [3131e8a6]
+fbb5cbd2-0ac9-4328-b97f-6537b675968a,Sabina Park,Sabina Park,9a7cfff8,Jamaica,,83,"Sabina Park, Kingston, Jamaica [9a7cfff8]"
+65e1acd0-0a49-4f4d-9d7f-d920aeec0959,Sano International Cricket Ground,Sano International Cricket Ground,34f4a4a5,Sano,,65,
+d6273e7f-c892-4771-a0e6-7edccf7b3a6a,Sano International Cricket Ground 2,Sano International Cricket Ground 2,f2b2131d,Sano,,6,
+bda665c2-986f-43b9-ad6e-df33ff1f7c9f,Santarem Cricket Ground,Santarem Cricket Ground,ba05ccb6,Albergaria,,21,Gucherre Cricket Ground [ba05ccb6]
+2acf53b0-71f8-43a4-8d7b-dc8a26fdd044,Sao Fernando Polo and Cricket Club,Sao Fernando Polo and Cricket Club,3fe8d9bf,Seropedica,,2,
+d05448d6-747a-41cc-ab5e-6a2ca727b50d,"Sao Fernando Polo and Cricket Club, Campo Sede","Sao Fernando Polo and Cricket Club, Campo Sede",6a862a25,Seropedica,,1,
+a1d3a18b-1c51-4f48-a79f-034c93cda878,"Saurashtra Cricket Association Stadium, Rajkot","Saurashtra Cricket Association Stadium, Rajkot",97ce693c,Rajkot,,49,
+0949b6ca-a5d0-4f8d-a8ec-67477e317b41,"Sawai Mansingh Stadium, Jaipur","Sawai Mansingh Stadium, Jaipur",5a985b66,Jaipur,,105,Sawai Mansingh Stadium [5a985b66]
+8cb2efa4-ec5b-49a9-8236-c4707e117378,"Saxton Oval, Nelson","Saxton Oval, Nelson",f380dc0d,Nelson,,52,
+322d531f-327b-489a-b1b8-55c5d0dc074e,"Scott Page Field, Vinor","Scott Page Field, Vinor",221a9746,Prague,,45,Vinoř Cricket Ground [221a9746]
+7bcaf03f-167f-4e8c-b0e9-d89ecbf4ed5c,"Sea Breeze Oval, Hamilton","Sea Breeze Oval, Hamilton",f9d437a8,Hamilton,,1,
+20d8a3b3-05b3-444a-95b5-7958bd74bd04,"Sector 16 Stadium, Chandigarh","Sector 16 Stadium, Chandigarh",1b74c7ea,,,14,
+afcd9600-5b89-4f3a-945e-457895aa787b,"Seddon Park, Hamilton","Seddon Park, Hamilton",a1d67071,Hamilton,,156,"Trust Bank Park, Hamilton [a1d67071] | Westpac Park, Hamilton [a1d67071] | WestpacTrust Park, Hamilton [a1d67071]"
+e2926a23-ec51-4732-abc6-b3e0a6f218c4,"Seebarn Cricket Centre, Lower Austria","Seebarn Cricket Centre, Lower Austria",a9710301,Lower Austria,,5,
+79fd91a2-2f0b-4bd9-9681-9ebe94176081,"Selangor Turf Club, Kuala Lumpur","Selangor Turf Club, Kuala Lumpur",9efd3a92,Kuala Lumpur,,60,
+d1689bd6-4d27-47a0-82c5-038b4577a0be,"Severn Cricket Field, Woodley Park, Los Angeles","Severn Cricket Field, Woodley Park, Los Angeles",fbc5fa14,Los Angeles,,5,
+4f11f03b-f610-4ee8-a877-deee9778be90,"Shaheed Chandu Stadium, Bogra","Shaheed Chandu Stadium, Bogra",73bb627b,Bogra,,5,"Bogra District Stadium, Bogra [73bb627b]"
+f48b01e6-f5d8-464e-903c-ce54920014b7,"Shaheed Ria Gope Cricket Stadium, Fatullah","Khan Shaheb Osman Ali Stadium, Fatullah",6a2a3465,Fatullah,,10,"Fatullah Khan Saheb Osmani Stadium, Fatullah [6a2a3465] | Khan Shaheb Osman Ali Stadium, Fatullah [6a2a3465] | Narayanganj Osmani Stadium, Fatullah [6a2a3465] | Shaheed Ria Gope Stadium, Fatullah [6a2a3465]"
+86434ac4-1959-4ba9-9357-414c979f7ea3,"Shaheed Veer Narayan Singh International Stadium, Raipur","Shaheed Veer Narayan Singh International Stadium, Raipur",5d785c7e,Raipur,,29,Shaheed Veer Narayan Singh International Stadium [5d785c7e]
+12fa27b3-0433-434f-b117-a24ed9ceff8c,"Shahid Kamruzzaman Stadium, Rajshahi","Shahid Kamruzzaman Stadium, Rajshahi",828126dc,Rajshahi,,3,
+d0fbb133-a4de-4fc0-91e8-66edbdaaae7f,Sharjah Cricket Stadium,Sharjah Cricket Stadium,2fa1bb17,,,200,Sharjah Cricket Association Stadium [2fa1bb17]
+9c38aa59-fcf0-4fda-9429-1a1e31b9d2a9,"Sheikh Kamal International Cricket Stadium, Cox's Bazar","Sheikh Kamal International Cricket Stadium, Cox's Bazar",cb04a7f0,Cox's Bazar,,4,
+0f0375a9-96d4-4722-b23c-36c638914f3d,"Sheikh Zayed Stadium Nursery 1, Abu Dhabi","Sheikh Zayed Stadium Nursery 1, Abu Dhabi",b5eabfb5,Abu Dhabi,,39,"Sheikh Zayed Stadium Nursery 1 [b5eabfb5] | Tolerance Oval, Abu Dhabi [b5eabfb5]"
+48f30bc6-9537-4620-a136-f82535802484,"Sheikh Zayed Stadium Nursery 2, Abu Dhabi","Sheikh Zayed Stadium Nursery 2, Abu Dhabi",f7d98265,Abu Dhabi,,8,"Mohan's Oval, Abu Dhabi [f7d98265] | Sheikh Zayed Stadium Nursery 2 [f7d98265]"
+d6060178-e47c-4560-8395-65af94a286a3,"Sheikh Zayed Stadium, Abu Dhabi","Sheikh Zayed Stadium, Abu Dhabi",12c104c1,Abu Dhabi,,259,"Zayed Cricket Stadium, Abu Dhabi [12c104c1]"
+c434d9bb-c2b0-47ac-bc99-b113732c117e,Sheikhupura Stadium,Sheikhupura Stadium,3562399b,,,1,
+0d5a60c0-2c8c-417f-b653-a009e1bd5e04,"Shere Bangla National Stadium, Mirpur","Shere Bangla National Stadium, Mirpur",a167b335,Dhaka,,498,
+878de64a-c703-4fb5-922b-f3731be59d79,"Shrimant Madhavrao Scindia Cricket Stadium, Gwalior","Shrimant Madhavrao Scindia Cricket Stadium, Gwalior",01de6f86,Gwalior,,1,
+b0db7c0d-6b92-47ea-874f-09308e7e6b0f,"Sikh Union Club Ground, Nairobi","Sikh Union Club Ground, Nairobi",d175a899,Nairobi,,16,
+24b05e6e-11c5-4266-b063-159e1a1cc80a,"Simar Cricket Ground, Rome","Simar Cricket Ground, Rome",3e6561e3,Rome,,19,
+7341b0af-a101-4d77-8bd8-f4b97ff8b8fb,Singapore National Cricket Ground,Singapore National Cricket Ground,1075163b,Singapore,,59,
+101e3925-aa98-4eb0-8788-81c3d34f97a2,Sinhalese Sports Club Ground,Sinhalese Sports Club Ground,eadbad25,Colombo,,81,"Sinhalese Sports Club Ground, Colombo [eadbad25]"
+ac1a3e95-7d51-44c2-b5d6-3de884df5e18,"Sinovich Park, Sinoville, Pretoria","Sinovich Park, Sinoville, Pretoria",6f27a582,Pretoria,,2,
+c631662a-e6ed-44c2-844f-ce2447642fd9,"Sir Paul Getty's Ground, Wormsley","Sir Paul Getty's Ground, Wormsley",22af7ba5,Wormsley,,6,
+f8851b7f-e289-4d08-bfff-399c639d2f7a,"Sir Vivian Richards Stadium, North Sound, Antigua","Sir Vivian Richards Stadium, North Sound, Antigua",a1af6c3f,Antigua,,104,
+11508a5e-c221-4d7c-8e6a-66649aa98f9f,"Skarpnack 1, Stockholm","Skarpnack 1, Stockholm",a166e034,Stockholm,,2,
+761ed9c2-b0b7-434f-9374-c2721340fe03,"Skarpnack 2, Stockholm","Skarpnack 2, Stockholm",4fda3a1a,Stockholm,,2,
+7eecd340-f768-401d-9150-2b81775d301a,"Solvangs Park, Glostrup","Solvangs Park, Glostrup",afb9268b,Copenhagen,,2,
+03939131-eb89-4380-8616-0c26537c713a,"Somerset Cricket Club, Bermuda","Somerset Cricket Club, Bermuda",6cdbf41a,Bermuda,,4,
+680a71d4-4870-4787-bf00-76563682a861,"Sophia Gardens, Cardiff","Sophia Gardens, Cardiff",9eecb9ce,Cardiff,,283,
+2be96758-c2c9-4cec-b9fa-3c8d12c2241b,"Southend Cricket Club Stadium, Karachi","Southend Cricket Club Stadium, Karachi",c9fb7c53,Karachi,,12,"Defence Cricket Stadium, Karachi [c9fb7c53] | Defence Housing Authority Stadium, Karachi [c9fb7c53] | Southend Club Cricket Stadium, Karachi [c9fb7c53]"
+0a85f00b-a756-4bb3-9e78-2009ae388361,"Sportpark Duivesteijn, Voorburg","Sportpark Duivesteijn, Voorburg",32c78126,Voorburg,,2,
+8d8ec203-d654-4173-8601-beed182d2552,"Sportpark Harga, Schiedam","Sportpark Harga, Schiedam",61ee1d7e,Schiedam,,3,
+021679ff-f434-4e06-95c5-99b29c9648cf,"Sportpark Het Schootsveld 2, Deventer","Sportpark Het Schootsveld 2, Deventer",d620057c,Deventer,,1,
+325338e5-5fa3-4790-961f-d5b9337d9449,"Sportpark Het Schootsveld, Deventer","Sportpark Het Schootsveld, Deventer",aee522f9,Deventer,,22,
+387de266-cc5f-40e5-8e73-52d6c810bd44,"Sportpark Maarschalkerweerd, Utrecht","Sportpark Maarschalkerweerd, Utrecht",35d10c8a,Utrecht,,49,"Kampong, Utrecht [35d10c8a] | Sportpark Maarschalkerweerd [35d10c8a]"
+ea86d8dc-7159-47a8-90e7-0674e0676267,"Sportpark Thurlede, Schiedam","Sportpark Thurlede, Schiedam",b30f82df,Schiedam,,6,
+30b32b1d-a07d-4a2b-a211-6a97a2569441,"Sportpark Westvliet, The Hague","Sportpark Westvliet, The Hague",2c7e2200,The Hague,,47,"Sportpark Westvliet, Voorburg [2c7e2200]"
+b2a87c8b-b1d5-459f-a95a-295c12fed645,"Spytty Park, Newport","Spytty Park, Newport",9b888386,Newport,,1,Newport International Sports Village [9b888386]
+2045cdbd-8ef3-4b0e-92ce-5ea753e63095,"Sri Lanka Army Ordnance Corps International Cricket Stadium, Horana","Sri Lanka Army Ordnance Corps International Cricket Stadium, Horana",f25f6b92,Kaluthara,,10,Sri Lanka Army Ordnance Corps International Cricket Stadium [f25f6b92]
+9a17f60f-b0dd-4b21-a3c7-9333769e5fdc,"Sri Ramachandra Medical College Ground, Chennai","Sri Ramachandra Medical College Ground, Chennai",18521501,,,5,
+01186378-ab50-4dcd-a009-1945c0742fc9,"Sri Sivasubramaniya Nadar College of Engineering Ground, Chennai","Sri Sivasubramaniya Nadar College of Engineering Ground, Chennai",7ce7583e,,,5,
+befadc69-122c-4512-93fa-8f6bd810fe1f,SSC Karlsruhe,SSC Karlsruhe,49d78642,Karlsruhe,,5,
+f3da9fd0-f8c0-4f5e-935f-a825f786650a,"St Albans Club, Buenos Aires","St Albans Club, Buenos Aires",b6c32272,Buenos Aires,,30,
+eaa24ea0-2eee-4bef-87cd-fadacb1c5870,"St George's College Ground, Buenos Aires","St George's College Ground, Buenos Aires",3f003d1a,,,19,
+af1e9de1-5381-4d09-bf15-90ca813722d6,"St George's Park, Gqeberha","St George's Park, Gqeberha",e8345861,Gqeberha,,141,"Crusaders Ground, St George's Park, Port Elizabeth [e8345861] | St George's Park [e8345861] | St George's Park, Port Elizabeth [e8345861]"
+abc7efed-8d01-41a1-bbbe-045b928c010b,"St Helen's, Swansea","St Helen's, Swansea",daeae01d,Swansea,,8,
+c1f498bb-7816-43f0-b7d0-68d7b3fc4849,"St Lawrence Ground, Canterbury","St Lawrence Ground, Canterbury",50039b09,Canterbury,,199,
+ad01b01c-e558-46ad-b2ac-f8ecb8ae0bbe,"St Paul's College Ground, Kochi","St Paul's College Ground, Kochi",9941c014,,,7,
+136ecf62-0c52-49fd-9e47-cc19eddc5bca,"St Xavier's College Ground, Thumba","St Xavier's College Ground, Thumba",d92d6d2c,,,7,
+9043cd9c-3bed-4bb9-98bd-ca1fcbafdfaa,"Stadium Australia, Sydney","ANZ Stadium, Sydney",9f610f1e,Sydney,,18,"Accor Stadium, Sydney [9f610f1e] | ANZ Stadium, Sydney [9f610f1e] | Telstra Stadium, Sydney [9f610f1e]"
+3c631d46-b438-42b7-b04b-c413251406e5,"Stanley Park, Blackpool","Stanley Park, Blackpool",af2acf74,Blackpool,,30,"Whitegate Park, Blackpool [af2acf74]"
+eb1bf58c-6601-432b-820f-468efcb82dd2,"Star Stile, Halstead","Star Stile, Halstead",9f57adaa,Halstead,,1,
+abcf1578-1ebd-4edc-8c64-dad750201e72,"Stars Arena Hofstade, Zemst","Stars Arena Hofstade, Zemst",d87ede64,Zemst,,11,
+0fc13136-4dd3-47ea-929a-5dde359af3d8,Stellenbosch University Ground,Stellenbosch University Ground,ecf39768,,,2,
+223f8b77-0c47-48b2-a45e-b34617a0146c,Stellenbosch University Ground 2,Stellenbosch University Ground 2,88928320,,,1,Stellenbosch University 2 [88928320]
+65740460-3198-4a0f-bb4d-ad6b954b7c81,"Strathfieldsaye, Bendigo","Strathfieldsaye, Bendigo",21e40c61,Bendigo,,1,
+40f46b10-66eb-4502-93f6-3ee3effdd68d,"Stubberudmyra Cricket Ground, Oslo","Stubberudmyra Cricket Ground, Oslo",f78b8fe9,Oslo,,3,
+32803dc6-d825-4322-b30b-9d878f3966d4,"Sulabiya Ground, Kuwait City","Sulabiya Ground, Kuwait City",ff8f4802,Kuwait City,,8,
+9645d87f-1796-4750-83f3-995a293e4b34,"Sunrise Sports Club, Harare","Sunrise Sports Club, Harare",13af4bc9,Harare,,3,
+9facd686-2d26-431d-9d01-1d536e4e78b5,"Surrey Village, Maggona","Surrey Village, Maggona",7c258abe,Maggona,,35,
+02be6279-9882-4af7-a6b2-119705cdf8e7,"Svanholm Park, Brondby","Svanholm Park, Brondby",b3914591,Brondby,,24,
+4194cb5e-2b3c-495a-8bda-5fc760c70af1,Sydney Cricket Ground,Sydney Cricket Ground,3198489d,,,194,SCG [3198489d]
+54a9d602-f17d-4c3e-b70a-e6ef15460261,"Sydney Parade, Dublin","Sydney Parade, Dublin",2569ab5c,Dublin,,2,
+8328851d-9286-4850-8b2c-b8cff48784ac,Sydney Showground Stadium,Sydney Showground Stadium,df3f7f6e,Sydney,,63,
+b7b556df-4ea2-4dc1-877b-f2782f0a19db,Sylhet International Cricket Stadium,Sylhet International Cricket Stadium,f5913055,,,156,Sylhet Stadium [f5913055]
+b46cd075-f012-4ff9-8e04-ecb2a93b60fc,"Sylhet International Cricket Stadium, Academy Ground","Sylhet International Cricket Stadium, Academy Ground",a22ac16e,Sylhet,,9,
+1598b76e-99d3-462c-bcba-1f424a0a3b4b,"Tack-Tec Ground, Kuwait City","Tack-Tec Ground, Kuwait City",b9e26f97,Kuwait City,,9,
+3d1fdcf9-1418-4d7e-9280-b44770c044cb,"Tafawa Balewa Square Cricket Oval, Lagos","Tafawa Balewa Square Cricket Oval, Lagos",d6b79871,,,37,
+fc94763d-775d-4750-ac18-aaf3aa81aabe,"Takashinga Sports Club, Highfield, Harare","Takashinga Sports Club, Highfield, Harare",3d9c33b7,Harare,,30,
+6c855708-1100-4224-95b4-8e8cc64ed250,"Taunton Vale Sports Club Ground, Taunton","Taunton Vale Sports Club Ground, Taunton",6b7cb7a9,Taunton,,1,
+eff0b99e-d44b-49aa-b609-e7475d5d1116,"TCA Oval, Blantyre","TCA Oval, Blantyre",0d32af46,Blantyre,,22,
+8bee9367-2ee8-46b9-8c97-9546cc9fe781,"Ted Summerton Reserve, Moe","Ted Summerton Reserve, Moe",7c9e06ca,Moe,,5,
+83aa09e6-5ebd-41e4-9b4a-1a1f8a89d62d,"Terdthai Cricket Ground, Bangkok","Terdthai Cricket Ground, Bangkok",e5f21392,Bangkok,,132,Thailand Cricket Ground [e5f21392]
+d53cc83e-6072-48f1-bf0c-8d204f49e289,"The County Ground, Beckenham","The County Ground, Beckenham",4cd78d95,Beckenham,,63,"Kent County Cricket Ground, Beckenham [4cd78d95]"
+f95916e9-7099-408e-98a5-9568321cbbf3,"The County Ground, Chelmsford","The County Ground, Chelmsford",4f19260e,Chelmsford,,289,"County Ground, Chelmsford [4f19260e]"
+0ba15f51-e16e-4a5a-935f-3b2b06bb3497,"The County Ground, Derby","The County Ground, Derby",d13044cf,Derby,,205,"County Ground, Derby [d13044cf] | Racecourse Ground, Derby [d13044cf]"
+46e21712-346e-4e29-9c1d-a0346353c3e1,"The County Ground, Hove","The County Ground, Hove",f84ac755,Brighton,,232,"County Ground, Hove [f84ac755] | New County Ground, Hove, Brighton [f84ac755]"
+e996ae58-9fc0-475f-b2dc-d7805deda4b1,"The County Ground, Taunton","The County Ground, Taunton",cc221190,Taunton,,295,"County Ground, Taunton [cc221190] | The Cooper Associates County Ground, Taunton [cc221190]"
+bdfc1ef8-615e-43d3-9824-476e0fab394c,"The Cricket Field, Sedbergh School","The Cricket Field, Sedbergh School",ef3b90b8,Sedbergh,,6,Sedbergh School [ef3b90b8]
+cfa98ac6-bd6c-4e2c-bbe8-ff89fc0c2c9f,"The Gnoll, Neath","The Gnoll, Neath",985bdcea,Neath,,8,
+79ca2ece-5c18-403d-ace8-406a9e65f46a,"The Green, Comber","The Green, Comber",2d01e61b,Comber,,13,
+6ab24db9-f906-4f01-a079-6644c7eb58c0,"The Hills Cricket Club Ground, Dublin","The Hills Cricket Club Ground, Dublin",159da669,Dublin,,7,"The Vineyard, Dublin [159da669]"
+3ea1c0fd-089a-477f-a6f2-b43ec3b0305f,"The Hills, Milverton","The Hills, Milverton",ef7b838d,Milverton,,1,
+510c9981-09e2-4b4b-afaa-e8b7e67f4b87,"The John Fretwell Sporting Complex, Nettleworth","The John Fretwell Sporting Complex, Nettleworth",2363950a,Nettleworth,,4,
+b6053d22-bcfb-49c3-809e-a0ccbe31c950,"The John Fretwell Sporting Complex, Sookholme","The John Fretwell Sporting Complex, Sookholme",84125ab0,Sookholme,,7,
+35cdf8c5-8ff0-4668-99f2-b878941e6306,"The Lawn, Waringstown","The Lawn, Waringstown",75d530df,Waringstown,,2,
+8bd9c63d-30da-4f96-8011-4e4910363fe9,"The Maer Ground, Exmouth","The Maer Ground, Exmouth",24871b09,Exmouth,,2,
+c60022b0-cd5f-43d2-b544-b2f2c4683b08,The Oval,The Oval,b97da5c8,London,,394,"Kennington Oval, London [b97da5c8] | Kia Oval, London [b97da5c8] | The Oval, London [b97da5c8]"
+25ef29c2-3159-4ed2-b77c-eb0c042d555e,"The Padang, Singapore","The Padang, Singapore",975c8d75,Singapore,,8,"Singapore Cricket Club, Padang [975c8d75]"
+122a7827-7941-4c0e-a32e-45dee1b13fc7,"The Rose Bowl (Nursery), Southampton","The Rose Bowl (Nursery), Southampton",0895b0c3,Southampton,,1,
+a7480ee7-870b-4340-9641-0098b314e0f7,"The Rose Bowl, Southampton","The Rose Bowl, Southampton",0443d94f,Southampton,,383,
+fcd8fdce-0e7e-4070-90ba-cff40c891ff5,"The Saffrons, Eastbourne","The Saffrons, Eastbourne",2259b6b2,Eastbourne,,3,
+bfa13d88-161a-4634-b6d9-669f67c40962,"Three Ws Oval, Cave Hill, Barbados","Three Ws Oval, Cave Hill, Barbados",a6032713,Cave Hill,,6,
+48352036-2ee2-4dc9-8604-5b191189eaef,"Thurstan College Ground, Colombo","Thurstan College Ground, Colombo",b8ad7d72,Colombo,,8,
+82d8325f-6075-42fe-8655-43fa32cd430f,"TI Cycles Ground, Murugappa, Chennai","TI Cycles Ground, Murugappa, Chennai",cd930d23,,,5,
+4fb39aa7-af22-4705-aced-c5e25ff7e056,Tikkurila Cricket Ground,Tikkurila Cricket Ground,4d54f272,Vantaa,,34,
+37ec589c-69fb-4399-87e0-5e38befd07d0,"Titwood, Glasgow","Titwood, Glasgow",a09dc076,Glasgow,,10,
+db34bf79-2a6a-483a-bdcd-6417f6d851eb,"Toronto Cricket, Skating and Curling Club","Toronto Cricket, Skating and Curling Club",8732bcd1,Toronto,,1,
+db35ce59-b247-41e0-ba71-2fe17d52931d,"Traeger Park, Alice Springs","Traeger Park, Alice Springs",8917f85b,Alice Springs,,7,
+744bba65-e728-4508-816c-b2f239ad49e6,"Trafalgar Road Ground, Southport","Trafalgar Road Ground, Southport",6dd8c4ab,Southport,,16,
+c96d15ff-2959-4970-a5ed-fb6d7b7d853c,Trent Bridge,Trent Bridge,93304ba7,Nottingham,,352,"Trent Bridge, Nottingham [93304ba7]"
+7562a2c9-5234-4c4b-8f30-57f8b0be0dd1,"Tribhuvan University International Cricket Ground, Kirtipur","Tribhuvan University International Cricket Ground, Kirtipur",6056f871,Kirtipur,,191,
+361cfa63-ba50-4fb8-823c-f1ab5bab5dea,"Turf City B Cricket Ground, Singapore","Turf City B Cricket Ground, Singapore",e71c89c9,Singapore,,1,Turf City B Cricket Ground [e71c89c9]
+1aa2fda8-3ec1-41ab-bace-d456deaf9a18,"Udayana Cricket Ground, Bali","Udayana Cricket Ground, Bali",59af6dc1,Bali,,98,Udayana Cricket Ground [59af6dc1]
+beff55a9-6b63-450a-830d-233a37fd7182,"United Cricket Club Ground, Windhoek","United Cricket Club Ground, Windhoek",0b786e7b,Windhoek,,73,
+77109447-e056-4d50-bae7-b73b3ca6bdde,University of Dar-es-Salaam Ground 1,University of Dar-es-Salaam Ground 1,5485390b,Dar-es-Salaam,,15,University of Dar-es-Salaam Ground [5485390b]
+a4e9fdef-b882-434e-9b67-9545a4939601,University of Dar-es-Salaam Ground 2,University of Dar-es-Salaam Ground 2,ae0d6b84,Dar-es-Salaam,,6,
+ac12de9e-2b97-4158-9cad-d6227f9e5883,University of Doha for Science and Technology,University of Doha for Science and Technology,c132f7e3,Doha,,12,
+b7bef1ee-4d57-4d8a-8239-f1408d0e05c7,University of Lagos Cricket Oval,University of Lagos Cricket Oval,54faa0f3,Lagos,,5,
+837a2dd0-6567-4690-b915-e249646234fa,"University Oval, Dunedin","University Oval, Dunedin",d9627581,Dunedin,,125,
+8527b402-c4d8-4fa9-89ea-97e384354485,"University Oval, Hobart","University Oval, Hobart",21c7f39a,Hobart,,2,
+03406eff-3a6b-480c-b2e0-48f9b328512d,"Uplands College, White River","Uplands College, White River",ee776f99,White River,,1,
+effeb4b3-59f0-4754-b495-0ddf00ada1d8,Uxbridge Cricket Club Ground,Uxbridge Cricket Club Ground,a36ef8c9,,,8,
+6867746f-f1ce-43a8-8f3a-8dd90080da34,Vanuatu Cricket Ground,Vanuatu Cricket Ground,0fe8f9ef,Port Vila,,20,
+a74414ab-304e-4beb-b772-28d16d219a13,Vanuatu Cricket Ground (Oval 2),Vanuatu Cricket Ground (Oval 2),0d0053c6,Port Vila,,8,
+e75d5c5b-7ae6-42de-9be1-954e0439ba4b,"Vassil Levski National Sports Academy, Sofia","Vassil Levski National Sports Academy, Sofia",5e5dc235,Sofia,,35,"National Sports Academy, Sofia [5e5dc235]"
+62e5f5c5-be31-4855-afd6-04039b7e8b1e,"Velden Cricket Ground, Latschach","Velden Cricket Ground, Latschach",c4c3c17e,Latschach,,9,
+9b1b69c7-2ecc-4cc6-931f-e1a06e62e213,"Vidarbha Cricket Association Ground, Nagpur","Vidarbha Cricket Association Ground, Nagpur",dfed09f0,Nagpur,,10,
+e7601663-590f-4994-b9fc-2a5416c12f40,"Vidarbha Cricket Association Stadium, Jamtha, Nagpur","Vidarbha Cricket Association Stadium, Jamtha, Nagpur",a0fc5764,Nagpur,,43,
+b6c0ba09-63af-4c3e-b3cd-bff350b4c262,"VRA Ground, Amstelveen","VRA Ground, Amstelveen",9d8bd95b,Amstelveen,,52,
+b585f69e-314f-439e-a019-751f10c05c39,"WACA, Perth","WACA, Perth",1fdf4def,Perth,,182,"Western Australia Cricket Association Ground, Perth [1fdf4def]"
+71b78daf-4544-4b2e-b32e-04b4c5f2ac30,"Wanderers Cricket Ground, Windhoek","Wanderers Cricket Ground, Windhoek",8e7cb417,Windhoek,,94,Wanderers Cricket Ground [8e7cb417]
+44668d33-3314-4a7f-bf0c-2b9a9ae4df13,"Wanderers Stadium, Johannesburg","Wanderers Stadium, Johannesburg",fcc90eb2,Johannesburg,,174,"New Wanderers Stadium [fcc90eb2] | New Wanderers Stadium, Johannesburg [fcc90eb2] | The Wanderers Stadium, Johannesburg [fcc90eb2]"
+c41150fe-dfc8-4e66-bba7-f5a5649b854b,"Wankhede Stadium, Mumbai","Wankhede Stadium, Mumbai",9e236baa,Mumbai,,213,"Wankhede Stadium [9e236baa] | Wankhede Stadium, Bombay [9e236baa]"
+226709d3-d523-424d-a62c-c046942a17fe,"Warner Park, St Kitts","Warner Park, St Kitts",ada144d6,St Kitts,,145,"Warner Park, Basseterre, St Kitts [ada144d6]"
+a12e040a-0ce0-4408-ab7a-266fd5acae51,"Waverley Oval, Sydney","Waverley Oval, Sydney",477b2bd0,Sydney,,1,
+28698922-7df0-4e24-94a4-dd7ff78d323f,"Welagedara Stadium, Kurunegala","Welagedara Stadium, Kurunegala",b5b6785c,Kurunegala,,23,
+5d7ea037-68ae-4184-b9bb-67b700ff03f0,Welbeck Abbey Cricket Ground,Welbeck Abbey Cricket Ground,72b204da,Welbeck,,3,
+8eaec531-933e-4f1c-b0e9-5d3e46c49123,"Welbeck Colliery Cricket Club Ground, Market Warsop","Welbeck Colliery Cricket Club Ground, Market Warsop",b1edd145,Market Warsop,,5,
+2c99c847-e192-4dba-b0c0-8865c19cb722,Wellington Regional Stadium,"Hnry Stadium, Wellington",23d8819f,Wellington,,49,"Hnry Stadium, Wellington [23d8819f] | Sky Stadium, Wellington [23d8819f] | Westpac Stadium, Wellington [23d8819f]"
+f251c865-79b6-4ad1-b5a4-6363a5b96a7f,"West End Park International Cricket Stadium, Doha","West End Park International Cricket Stadium, Doha",cba466b0,Doha,,65,
+4b4545bd-5f64-412e-b19e-cb40618ca4e3,West Mersea Cricket Club,West Mersea Cricket Club,8c6bff9d,,,1,
+bc513a63-0d37-402d-8a6f-4e55c9103847,"West Park Oval, Burnie","West Park Oval, Burnie",045591e3,Burnie,,3,
+88266ae5-3812-446b-8c97-ddbeeae14fc3,"White Hill Field, Sandys Parish","White Hill Field, Sandys Parish",1dc9ff53,Hamilton,,22,
+45e4d2ef-5562-4f4c-a724-d6127a610858,"White Hills Oval, Bendigo","White Hills Oval, Bendigo",21af2f52,Bendigo,,2,
+ebdb1007-8458-494c-944a-481ce98a86e8,"Willowmoore Park A Field, Benoni","Willowmoore Park A Field, Benoni",94f6ab5d,Benoni,,4,
+4e28c929-fc36-4f01-bea3-3b99b99282d2,"Willowmoore Park B Field, Benoni","Willowmoore Park B Field, Benoni",1655b950,Benoni,,9,
+3ec9311d-fe78-4277-883c-be109ae669da,"Willowmoore Park C Field, Benoni","Willowmoore Park C Field, Benoni",30f216a5,Benoni,,8,
+c43c9b97-3f22-4f35-912f-f0f00bbf09a6,"Willowmoore Park, Benoni","Willowmoore Park, Benoni",c3e37c1f,Benoni,,60,
+dddb8229-2304-467b-8dbf-009032655401,"Windsor Park, Roseau","Windsor Park, Roseau",4414dcff,Roseau,,14,"Windsor Park, Roseau, Dominica [4414dcff]"
+2c10976c-6a3c-4f13-a9b3-d565e0909c75,"Wong Cricket Field, Woodley Park, Los Angeles","Wong Cricket Field, Woodley Park, Los Angeles",5f7b177f,Los Angeles,,4,
+299db2a3-8fc5-403b-9356-e551178a3247,"Woodbridge Road, Guildford","Woodbridge Road, Guildford",3e4de790,Guildford,,32,
+9015d214-e642-4bc8-8e74-41e144c45933,"Woodley Cricket Field, Los Angeles","Woodley Cricket Field, Los Angeles",8d0d0ea5,Los Angeles,,12,"Leo Magnus Cricket Complex, Los Angeles [8d0d0ea5]"
+49745974-841a-46ec-8d30-50892fdfa74b,"Woodvale Road, Eglinton","Woodvale Road, Eglinton",fa6eaa2f,Eglinton,,9,
+4d642d47-df81-4ba9-954b-8c61a452979f,"Wright Cricket Field, Woodley Park, Los Angeles","Wright Cricket Field, Woodley Park, Los Angeles",f847c3b2,Los Angeles,,6,
+5dadd10d-095d-43ca-9966-f79c4f65632c,"Yeonhui Cricket Ground, Incheon","Yeonhui Cricket Ground, Incheon",7abed07e,Incheon,,47,
+2807bed7-d092-4eed-b6c8-9eef201f085a,"YMCA Cricket Club, Dublin","YMCA Cricket Club, Dublin",2b5d00db,Dublin,,13,
+2da06dbe-6d28-430e-b3fa-229c10b6ad33,York Cricket Club,York Cricket Club,bf50d31a,York,,13,
+bc226d83-5b64-4880-8930-0dd167fb9be1,"York Park, Launceston","University of Tasmania Stadium, Launceston",0f7729b7,Launceston,,28,"Aurora Stadium, Launceston [0f7729b7] | University of Tasmania Stadium, Launceston [0f7729b7] | UTAS Stadium, Launceston [0f7729b7]"
+7d6475de-5473-4919-b745-62670f29c14c,"YSD-UKM Cricket Oval, Bangi","YSD-UKM Cricket Oval, Bangi",e74170c2,Bangi,,108,"UKM-YSD Cricket Oval, Bangi [e74170c2]"
+0acde581-7d41-48bd-99aa-0c57fa2a84ad,Zhejiang University of Technology Cricket Field,Zhejiang University of Technology Cricket Field,3b0e922b,Hangzhou,,20,"Pingfeng Campus Cricket Ground, Zhejiang [3b0e922b]"

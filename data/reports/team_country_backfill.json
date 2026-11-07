@@ -1,0 +1,208 @@
+{
+  "dry_run": false,
+  "total_teams": 404,
+  "composite_country_mappings_cleared": 1,
+  "already_mapped_before_run": 107,
+  "country_mappings_written": 0,
+  "team_country_coverage": {
+    "total_teams": 404,
+    "mapped_teams": 107,
+    "unmapped_teams": 297,
+    "source_counts": {
+      "verified_international_player_affiliations": 107
+    },
+    "mapped_examples": [
+      {
+        "team": "Argentina",
+        "country": "Argentina",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Australia",
+        "country": "Australia",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Austria",
+        "country": "Austria",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Bahamas",
+        "country": "Bahamas",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Bahrain",
+        "country": "Bahrain",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Bangladesh",
+        "country": "Bangladesh",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Belgium",
+        "country": "Belgium",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Belize",
+        "country": "Belize",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Bermuda",
+        "country": "Bermuda",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Bhutan",
+        "country": "Bhutan",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Botswana",
+        "country": "Botswana",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Brazil",
+        "country": "Brazil",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Bulgaria",
+        "country": "Bulgaria",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Cambodia",
+        "country": "Cambodia",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Cameroon",
+        "country": "Cameroon",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Canada",
+        "country": "Canada",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Cayman Islands",
+        "country": "Cayman Islands",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Chile",
+        "country": "Chile",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "China",
+        "country": "China",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Cook Islands",
+        "country": "Cook Islands",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Costa Rica",
+        "country": "Costa Rica",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Croatia",
+        "country": "Croatia",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Cyprus",
+        "country": "Cyprus",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Czech Republic",
+        "country": "Czech Republic",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Denmark",
+        "country": "Denmark",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "England",
+        "country": "England",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Estonia",
+        "country": "Estonia",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Eswatini",
+        "country": "Eswatini",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Fiji",
+        "country": "Fiji",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      },
+      {
+        "team": "Finland",
+        "country": "Finland",
+        "source": "verified_international_player_affiliations",
+        "confidence": "high"
+      }
+    ]
+  },
+  "unresolved_after_backfill": 297,
+  "matches_by_gender": {
+    "female": 4714,
+    "male": 18527
+  },
+  "venue_country_coverage": {
+    "total_venues": 543,
+    "mapped_venues": 0,
+    "unmapped_venues": 543
+  },
+  "examples": []
+}

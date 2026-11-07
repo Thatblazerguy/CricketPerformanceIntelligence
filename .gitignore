@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Environment
+.env
+*.env.local
+
+# Data - raw archives (large)
+gamedata/
+data/raw/
+data/staging/
+data/processed/
+data/backups/
+players_database_export.csv
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.env.local
+backend/artifacts/auction/*.joblib
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+logs/
