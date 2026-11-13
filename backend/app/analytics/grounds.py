@@ -235,10 +235,17 @@ def get_ground_analytics(db: Session, venue_id: str, format_bucket: str, start_d
         FROM matches m JOIN match_innings i ON i.match_id=m.id AND i.is_super_over=FALSE
         JOIN deliveries d ON d.innings_id=i.id
         LEFT JOIN LATERAL (
-          SELECT lower(trim(pa.attribute_value)) AS value FROM player_attributes pa
-          WHERE pa.player_id=d.bowler_id AND pa.attribute_type='bowling_style'
-          ORDER BY CASE lower(pa.confidence) WHEN 'high' THEN 3 WHEN 'medium' THEN 2 ELSE 1 END DESC,
-                   pa.updated_at DESC LIMIT 1
+          SELECT COALESCE(
+            (SELECT lower(trim(category.attribute_value)) FROM player_attributes category
+             WHERE category.player_id=d.bowler_id AND category.attribute_type='bowling_type'
+               AND lower(trim(category.attribute_value)) IN ('pace','spin')
+             ORDER BY CASE lower(category.confidence) WHEN 'high' THEN 3 WHEN 'medium' THEN 2 ELSE 1 END DESC,
+                      category.updated_at DESC LIMIT 1),
+            (SELECT lower(trim(style.attribute_value)) FROM player_attributes style
+             WHERE style.player_id=d.bowler_id AND style.attribute_type='bowling_style'
+             ORDER BY CASE lower(style.confidence) WHEN 'high' THEN 3 WHEN 'medium' THEN 2 ELSE 1 END DESC,
+                      style.updated_at DESC LIMIT 1)
+          ) AS value
         ) style ON TRUE
         LEFT JOIN wickets_per_delivery wpd ON wpd.delivery_id=d.id
         WHERE m.venue_id=:venue_id AND m.match_format IN ({fmt_sql}) {date_clause}
@@ -310,10 +317,17 @@ def get_ground_analytics(db: Session, venue_id: str, format_bucket: str, start_d
       FROM matches m JOIN match_innings i ON i.match_id=m.id AND i.is_super_over=FALSE
       JOIN deliveries d ON d.innings_id=i.id
       LEFT JOIN LATERAL (
-        SELECT lower(trim(pa.attribute_value)) AS value FROM player_attributes pa
-        WHERE pa.player_id=d.bowler_id AND pa.attribute_type='bowling_style'
-        ORDER BY CASE lower(pa.confidence) WHEN 'high' THEN 3 WHEN 'medium' THEN 2 ELSE 1 END DESC,
-                 pa.updated_at DESC LIMIT 1
+        SELECT COALESCE(
+          (SELECT lower(trim(category.attribute_value)) FROM player_attributes category
+           WHERE category.player_id=d.bowler_id AND category.attribute_type='bowling_type'
+             AND lower(trim(category.attribute_value)) IN ('pace','spin')
+           ORDER BY CASE lower(category.confidence) WHEN 'high' THEN 3 WHEN 'medium' THEN 2 ELSE 1 END DESC,
+                    category.updated_at DESC LIMIT 1),
+          (SELECT lower(trim(style.attribute_value)) FROM player_attributes style
+           WHERE style.player_id=d.bowler_id AND style.attribute_type='bowling_style'
+           ORDER BY CASE lower(style.confidence) WHEN 'high' THEN 3 WHEN 'medium' THEN 2 ELSE 1 END DESC,
+                    style.updated_at DESC LIMIT 1)
+        ) AS value
       ) style ON TRUE
       LEFT JOIN wickets_per_delivery wpd ON wpd.delivery_id=d.id
       WHERE m.venue_id=:venue_id AND m.match_format IN ({fmt_sql}) {date_clause}

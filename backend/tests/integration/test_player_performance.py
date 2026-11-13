@@ -44,8 +44,10 @@ def test_player_filter_metadata():
 
     assert len(data["venues"]) > 50
     assert len(data["teams"]) > 20
-    assert "pace" in data["bowling_styles"]
-    assert "spin" in data["bowling_styles"]
+    # Pace/spin is the bowling *type*; bowling_styles lists the detailed recorded styles.
+    assert {"Pace", "Spin"} <= set(data["bowling_types"])
+    assert "Right-arm Off Break" in data["bowling_styles"]
+    assert "pace" not in data["bowling_styles"] and "Other / Unclassified" not in data["bowling_styles"]
 
 
 def test_t20_vs_t20i_separation():

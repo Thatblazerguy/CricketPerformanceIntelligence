@@ -3,11 +3,13 @@
  * Comprehensive ground-level scoring averages, toss tendencies, and team win-rate analytics.
  * Fully backed by Cricsheet PostgreSQL delivery & match tables.
  */
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { getVenues, getGroundAnalytics, getTeams, getTeamStats } from '../../services/api';
 import { useApi } from '../../hooks/useApi';
 import { LoadingSpinner, ErrorState, EmptyState, PageHeader, Badge, StatCard } from '../../components/ui';
 import { BarChart, LineChart } from '../../components/charts';
+import MatchCentreLink from '../../components/MatchCentreLink';
 
 export default function Venues() {
   const [activeTab, setActiveTab] = useState('venues'); // 'venues' | 'teams'
@@ -36,6 +38,14 @@ export default function Venues() {
   const { data: teamsData, loading: teamsLoading, error: teamsError } = useApi(getTeams);
   const [teamSearch, setTeamSearch] = useState('');
   const [selectedTeam, setSelectedTeam] = useState(null);
+  // Deep link: /venues?team=<CPI team id or name> opens that team's records (used by the Match Simulator).
+  const [searchParams] = useSearchParams();
+  useEffect(() => {
+    const wanted = (searchParams.get('team') || '').trim().toLowerCase();
+    if (!wanted || !teamsData) return;
+    const match = teamsData.find(t => t.id === wanted || (t.canonical_name || '').toLowerCase() === wanted || (t.name || '').toLowerCase() === wanted);
+    if (match) { setActiveTab('teams'); setSelectedTeam(match); }
+  }, [teamsData, searchParams]);
   const [teamFormat, setTeamFormat] = useState('T20');
   const [teamPeriod, setTeamPeriod] = useState('all');
   const [teamFrom, setTeamFrom] = useState('');
@@ -442,6 +452,10 @@ export default function Venues() {
                           )}
                         </div>
                         <TeamBreakdowns stats={selectedTeamStats} />
+                        <section className="overflow-hidden rounded-xl border border-slate-800">
+                          <h3 className="bg-slate-900 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-slate-300">Recent matches · selected filters</h3>
+                          <div className="overflow-x-auto"><table className="w-full min-w-[560px] text-left text-xs"><thead className="text-slate-500"><tr>{['Date','Format','Match','Venue','Result'].map(label=><th key={label} className="px-3 py-2">{label}</th>)}</tr></thead><tbody>{(selectedTeamStats.recent_matches || []).map(match=><tr key={match.match_id} className="border-t border-slate-800/80 text-slate-300"><td className="px-3 py-2"><MatchCentreLink matchId={match.match_id}>{match.date || 'Open scorecard'}</MatchCentreLink></td><td className="px-3 py-2">{match.format}</td><td className="px-3 py-2"><MatchCentreLink matchId={match.match_id}>{match.team1 || 'Team 1'} vs {match.team2 || 'Team 2'}</MatchCentreLink></td><td className="px-3 py-2 text-slate-400">{match.venue || 'N/A'}</td><td className="px-3 py-2">{match.winner ? `${match.winner} won` : match.result_type || 'Result unavailable'}</td></tr>)}</tbody></table>{!selectedTeamStats.recent_matches?.length && <p className="px-3 py-4 text-xs text-slate-500">No match records for the selected filters.</p>}</div>
+                        </section>
                       </div>
                     )}
                   </div>
@@ -530,7 +544,7 @@ function GroundAnalyticsView({ data }) {
         {name:`Recent · n=${recent.second_innings_sample || 0}`,value:recent.average_second_innings_score},
         {name:`Selected period · n=${batting.second_innings_sample}`,value:batting.average_second_innings_score},
       ].filter(x=>x.value!==null)} label={x=>x.name} value={x=>x.value} color="bg-violet-500" suffix=" runs" />
-      <div className="overflow-x-auto"><table className="w-full text-xs text-left"><thead className="text-slate-500 border-b border-slate-800"><tr>{['Date','Format','Match','Result'].map(x=><th key={x} className="p-2">{x}</th>)}</tr></thead><tbody>{(recent.results || []).map(m=><tr key={m.match_id} className="border-b border-slate-800/70 text-slate-300"><td className="p-2">{m.date}</td><td className="p-2">{m.format}</td><td className="p-2">{m.team1 || 'Unknown'} vs {m.team2 || 'Unknown'}</td><td className="p-2">{m.winner ? `${m.winner} won` : (m.result_type || 'Result unavailable')}</td></tr>)}</tbody></table></div>
+      <div className="overflow-x-auto"><table className="w-full text-xs text-left"><thead className="text-slate-500 border-b border-slate-800"><tr>{['Date','Format','Match','Result'].map(x=><th key={x} className="p-2">{x}</th>)}</tr></thead><tbody>{(recent.results || []).map(m=><tr key={m.match_id} className="border-b border-slate-800/70 text-slate-300"><td className="p-2"><MatchCentreLink matchId={m.match_id}>{m.date}</MatchCentreLink></td><td className="p-2">{m.format}</td><td className="p-2"><MatchCentreLink matchId={m.match_id}>{m.team1 || 'Unknown'} vs {m.team2 || 'Unknown'}</MatchCentreLink></td><td className="p-2">{m.winner ? `${m.winner} won` : (m.result_type || 'Result unavailable')}</td></tr>)}</tbody></table></div>
     </div>
 
     {data.format_comparison?.length > 1 && <MiniBarChart title="Stored-format comparison · average first-innings score"

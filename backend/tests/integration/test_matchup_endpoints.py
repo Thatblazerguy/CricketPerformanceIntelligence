@@ -44,6 +44,14 @@ def test_matchup_summary():
     assert data["batter_runs"] > 50
     assert data["strike_rate"] is not None
     assert data["strike_rate"] > 100.0
+    if data["dismissals"]:
+        assert data["batting_average"] == round(data["batter_runs"] / data["dismissals"], 2)
+    else:
+        assert data["batting_average"] is None
+    assert "bowling_average" not in data
+    dismissals = client.get(f"/api/v1/matchups/{KOHLI_ID}/{BUMRAH_ID}/dismissals?format=T20")
+    assert dismissals.status_code == 200
+    assert data["dismissals"] == dismissals.json()["bowler_credited"]
     assert data["matches_count"] >= 10
     assert "phases" in data
     assert len(data["phases"]) == 3
@@ -136,3 +144,5 @@ def test_matchup_no_records_pair():
     assert response.status_code == 200
     data = response.json()
     assert data["total_deliveries"] >= 0
+    if data["dismissals"] == 0:
+        assert data["batting_average"] is None

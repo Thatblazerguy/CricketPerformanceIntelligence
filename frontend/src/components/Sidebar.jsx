@@ -8,10 +8,12 @@ const navItems = [
   { to: '/players', label: 'Players', icon: '◎' },
   { to: '/compare', label: 'Comparison', icon: '⧉' },
   { to: '/matches', label: 'Matches', icon: '◉' },
+  { to: '/simulator', label: 'Match Simulator', icon: '↗' },
   { to: '/matchups', label: 'Matchups', icon: '⇌' },
   { to: '/scouting', label: 'Scouting', icon: '⌖' },
   { to: '/auction', label: 'Auction Intelligence', icon: '₹' },
   { to: '/venues', label: 'Teams & Venues', icon: '◈' },
+  { to: '/settings', label: 'Settings', icon: '⚙' },
 ];
 
 export default function Sidebar() {
@@ -24,7 +26,7 @@ export default function Sidebar() {
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 px-3 py-4 space-y-1">
+      <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
         {navItems.map(({ to, label, icon }) => (
           <NavLink
             key={to}
@@ -45,7 +47,7 @@ export default function Sidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="px-5 py-4 border-t border-slate-800">
+      <div className="px-5 py-3 border-t border-slate-800">
         <p className="text-xs text-slate-600">Powered by Cricsheet</p>
       </div>
     </aside>

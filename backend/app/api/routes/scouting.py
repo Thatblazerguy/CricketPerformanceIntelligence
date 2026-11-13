@@ -35,6 +35,8 @@ class ScoutingRequest(BaseModel):
     max_age: Optional[int] = None
     batting_style: Optional[str] = None
     bowling_style: Optional[str] = None
+    bowling_arm: Optional[str] = None
+    bowling_speed_category: Optional[str] = None
     pace_spin: Optional[Literal["pace", "spin"]] = None
     minimum_matches: int = 5
     minimum_innings: int = 5
@@ -73,6 +75,9 @@ class ScoutingCandidate(BaseModel):
     nationality: Optional[str] = None
     batting_style: Optional[str] = None
     bowling_style: Optional[str] = None
+    bowling_type: Optional[str] = None
+    bowling_arm: Optional[str] = None
+    bowling_speed_category: Optional[str] = None
     recent_match_runs: List[dict] = Field(default_factory=list)
     matches: int
     innings: int
@@ -125,8 +130,19 @@ def scouting_options(db: Session = Depends(get_db)):
     seasons = [row[0] for row in db.execute(text("SELECT DISTINCT season FROM matches WHERE season IS NOT NULL ORDER BY season DESC")).all()]
     competitions = [row[0] for row in db.execute(text("SELECT DISTINCT name FROM tournaments WHERE name IS NOT NULL ORDER BY name")).all()]
     teams = [dict(id=row[0], name=row[1]) for row in db.execute(text("SELECT id,name FROM teams ORDER BY name")).all()]
+    distinct_attrs = db.execute(text("""
+      SELECT attribute_type, attribute_value FROM player_attributes
+      WHERE attribute_type IN ('bowling_type','bowling_arm','bowling_speed_category')
+        AND attribute_value IS NOT NULL AND attribute_value <> ''
+      GROUP BY attribute_type, attribute_value ORDER BY attribute_type, attribute_value
+    """)).all()
+    extra = {}
+    for attr_type, value in distinct_attrs:
+        extra.setdefault(attr_type, []).append(value)
     return {"formats": ["Test", "ODI", "T20I", "T20", "MDM", "ODM"], "presets": SCOUTING_PRESETS,
             "batting_styles": batting, "bowling_styles": bowling, "seasons": seasons,
+            "bowling_types": [x for x in extra.get("bowling_type", []) if x in {"Pace", "Spin"}], "bowling_arms": extra.get("bowling_arm", []),
+            "bowling_speed_categories": extra.get("bowling_speed_category", []),
             "competitions": competitions, "nationalities": nationality, "teams": teams}
 
 
@@ -253,7 +269,7 @@ def _candidate_rows(db: Session, request: ScoutingRequest) -> List[dict]:
         attributes = db.execute(text("""
           SELECT player_id, attribute_type, attribute_value
           FROM player_attributes WHERE player_id=ANY(:ids)
-            AND attribute_type IN ('date_of_birth','batting_style','bowling_style','primary_role','nationality')
+            AND attribute_type IN ('date_of_birth','batting_style','bowling_style','bowling_type','bowling_arm','bowling_speed_category','primary_role','nationality')
           ORDER BY player_id, attribute_type,
                    CASE confidence WHEN 'high' THEN 3 WHEN 'medium' THEN 2 WHEN 'low' THEN 1 ELSE 0 END DESC,
                    updated_at DESC
@@ -368,6 +384,9 @@ def _candidate_rows(db: Session, request: ScoutingRequest) -> List[dict]:
                 continue
             bat_style = attrs.get("batting_style") or ""
             bowl_style = attrs.get("bowling_style") or ""
+            bowl_type = attrs.get("bowling_type") or ""
+            bowl_arm = attrs.get("bowling_arm") or ""
+            bowl_speed = attrs.get("bowling_speed_category") or ""
             nationality = attrs.get("nationality") or "Unknown"
             if request.nationality and request.nationality.casefold() != nationality.casefold():
                 continue
@@ -375,7 +394,11 @@ def _candidate_rows(db: Session, request: ScoutingRequest) -> List[dict]:
                 continue
             if request.bowling_style and request.bowling_style.lower() not in bowl_style.lower():
                 continue
-            style_group = "spin" if any(x in bowl_style.lower() for x in ("spin", "break", "orthodox")) else "pace" if any(x in bowl_style.lower() for x in ("fast", "pace", "medium")) else None
+            if request.bowling_arm and request.bowling_arm.casefold() != bowl_arm.casefold():
+                continue
+            if request.bowling_speed_category and request.bowling_speed_category.casefold() != bowl_speed.casefold():
+                continue
+            style_group = bowl_type.lower() if bowl_type.lower() in {"pace", "spin"} else "spin" if any(x in bowl_style.lower() for x in ("spin", "break", "orthodox", "chinaman")) else "pace" if any(x in bowl_style.lower() for x in ("fast", "pace", "medium")) else None
             if request.pace_spin and style_group != request.pace_spin:
                 continue
 
@@ -417,6 +440,9 @@ def _candidate_rows(db: Session, request: ScoutingRequest) -> List[dict]:
             rec["nationality"] = nationality
             rec["batting_style"] = bat_style or None
             rec["bowling_style"] = bowl_style or None
+            rec["bowling_type"] = bowl_type or None
+            rec["bowling_arm"] = bowl_arm or None
+            rec["bowling_speed_category"] = bowl_speed or None
             milestones = batting_milestones.get(pid)
             rec["fifties"] = milestones["fifties"] if milestones else (0 if bat else None)
             rec["hundreds"] = milestones["hundreds"] if milestones else (0 if bat else None)
@@ -515,6 +541,8 @@ def scouting_search(request: ScoutingRequest, db: Session = Depends(get_db)):
         candidates.append(ScoutingCandidate(
             rank=offset, player_id=row["player_id"], player_name=row["player_name"], role=row["role"],
             nationality=row.get("nationality"), batting_style=row.get("batting_style"), bowling_style=row.get("bowling_style"),
+            bowling_type=row.get("bowling_type"), bowling_arm=row.get("bowling_arm"),
+            bowling_speed_category=row.get("bowling_speed_category"),
             recent_match_runs=row.get("recent_match_runs", []),
             matches=row["matches"], innings=row["innings"], bowling_innings=row["bowling_innings"],
             runs=row["runs"], wickets=row["wickets"], balls_faced=row["balls_faced"], legal_balls=row["legal_balls"],

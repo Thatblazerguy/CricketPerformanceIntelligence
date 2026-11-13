@@ -97,6 +97,7 @@ class TeamStatsResponse(BaseModel):
     team_country: Optional[str] = None
     team_country_source: Optional[str] = None
     team_country_confidence: Optional[str] = None
+    recent_matches: list = []
 
 
 @router.get("/teams", response_model=List[TeamSummary])
@@ -244,7 +245,13 @@ def get_team_stats(
         filters={"format": format or "all", "period": period or "all", "start_date": start_date, "end_date": end_date,
                  "country": country, "opposition": opposition, "gender": gender, "sample_matches": played},
         insights=insights, team_country=team.country, team_country_source=team.country_source,
-        team_country_confidence=team.country_confidence)
+        team_country_confidence=team.country_confidence,
+        recent_matches=[{
+            "match_id": r["id"], "date": r["start_date"].isoformat() if r["start_date"] else None,
+            "format": r["match_format"], "team1": team_names.get(r["team1_id"]),
+            "team2": team_names.get(r["team2_id"]), "winner": team_names.get(r["winner_id"]),
+            "result_type": r["result_type"], "venue": r["ground"],
+        } for r in rows[:20]])
 
 
 def _bump(target, name, result, won):

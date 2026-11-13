@@ -46,3 +46,7 @@ backend/artifacts/auction/*.joblib
 # Logs
 *.log
 logs/
+
+# Sync worker runtime files
+backend/logs/
+backend/run/

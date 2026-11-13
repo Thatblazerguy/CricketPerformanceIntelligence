@@ -118,6 +118,12 @@ In modern professional cricket, traditional aggregate statistics (e.g. career ba
 - Classifies grounds into high-scoring, balanced, or bowling-friendly venues.
 - Team chasing vs batting-first win percentages to inform toss strategy.
 
+### 8. Match Simulator (ball-by-ball, data-calibrated)
+- The only place to upload Playing XIs (paste, team-sheet OCR, CSV, presets, saved XIs). Both XIs are resolved and validated against CPI players before any run, and kept for the browser session.
+- Workflow: teams → XIs → format and conditions (T20/ODI/Test, historical venue, pitch, weather, toss) → validate → one detailed match or a Monte Carlo batch.
+- Each delivery is sampled from smoothed CPI rates: format/innings/over/wickets-lost baselines, chase pressure, batter vs pace/spin by phase, bowler by phase, venue history and batting-position priors. It applies the real match rules: over limits, free hits, strike rotation, super overs, and Test follow-on and declarations. Scorecards reconcile exactly.
+- Calibrations live in `backend/artifacts/simulator/` (rebuild with `scripts/train_match_simulator.py`); `scripts/backtest_match_simulator.py` checks bias against real matches.
+
 ---
 
 ## Authoritative Cricket Rules & Statistical Integrity
@@ -253,6 +259,19 @@ npm install
 npm run dev
 ```
 Open `http://localhost:5173` in your browser.
+
+**Everything at once (API + Cricsheet sync worker + frontend):**
+```bash
+./start.sh
+```
+
+### 6. Automatic Cricsheet Synchronisation
+A local background worker checks Cricsheet every 6 hours (configurable in **Settings → Data Management**) and imports only new or corrected matches, without the browser open:
+```bash
+backend/scripts/sync_worker.sh start|stop|status|logs   # manual control
+backend/scripts/install_launchd.sh install              # optional: start at macOS login
+```
+See [docs/DATA_SYNC.md](docs/DATA_SYNC.md) for the full design, API and recovery behaviour.
 
 ---
 

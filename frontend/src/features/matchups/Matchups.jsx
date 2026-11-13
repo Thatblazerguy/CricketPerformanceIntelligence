@@ -27,6 +27,7 @@ import {
   LoadingSpinner, ErrorState, EmptyState, StatCard,
   PageHeader, Badge, Table
 } from '../../components/ui';
+import MatchCentreLink from '../../components/MatchCentreLink';
 
 // ─────────────────────────── Alphabet constant ───────────────────────────────
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -414,7 +415,7 @@ function SummaryPanel({ summary, loading, error }) {
         <StatCard label="Balls Faced" value={summary.balls_faced} />
         <StatCard label="Strike Rate" value={noBalls ? '—' : fmt(summary.strike_rate)} highlight />
         <StatCard label="Dismissals" value={summary.dismissals} />
-        <StatCard label="Batting Avg" value={noBalls ? '—' : fmt(summary.batting_average)} highlight />
+        <StatCard label="Batting Avg" value={summary.dismissals === 0 ? 'N/A' : fmt(summary.batting_average)} highlight />
         <StatCard label="Fours" value={summary.fours} />
         <StatCard label="Sixes" value={summary.sixes} />
         <StatCard label="Boundaries" value={summary.boundaries} />
@@ -848,7 +849,7 @@ function MatchByMatchPanel({ batterId, bowlerId, filters }) {
           <tbody className="divide-y divide-slate-800 bg-slate-900/50">
             {data.matches.map((m, i) => (
               <tr key={i} className={`hover:bg-slate-800/40 ${m.dismissed ? 'bg-rose-950/10' : ''}`}>
-                <td className="px-3 py-2 font-mono text-slate-200">{m.date}</td>
+                <td className="px-3 py-2 font-mono text-slate-200"><MatchCentreLink matchId={m.match_id} context={{ tab: 'scorecard', innings: m.innings_number, playerId: batterId, focus: 'batting' }}>{m.date}</MatchCentreLink></td>
                 <td className="px-3 py-2 max-w-[160px] truncate text-slate-400">{m.competition || '—'}</td>
                 <td className="px-3 py-2 max-w-[160px] truncate text-slate-400">{m.venue || '—'}</td>
                 <td className="px-3 py-2 max-w-[180px] truncate">
@@ -858,7 +859,7 @@ function MatchByMatchPanel({ batterId, bowlerId, filters }) {
                 </td>
                 <td className="px-3 py-2 text-right font-mono">{m.innings_number}</td>
                 <td className="px-3 py-2 text-right font-mono">{m.balls_faced}</td>
-                <td className="px-3 py-2 text-right font-mono font-semibold text-indigo-300">{m.runs}</td>
+                <td className="px-3 py-2 text-right font-mono font-semibold text-indigo-300"><MatchCentreLink matchId={m.match_id} context={{ tab: 'scorecard', innings: m.innings_number, playerId: batterId, focus: 'batting' }}>{m.runs}</MatchCentreLink></td>
                 <td className="px-3 py-2 text-right font-mono">{m.fours}</td>
                 <td className="px-3 py-2 text-right font-mono">{m.sixes}</td>
                 <td className="px-3 py-2 text-right font-mono text-slate-500">{m.dot_balls}</td>

@@ -8,7 +8,7 @@ from typing import Optional, List, Dict, Any
 from datetime import date
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
-from sqlalchemy import select, func, and_, or_, distinct, extract, text
+from sqlalchemy import select, func, and_, or_, distinct, extract, text, case
 from pydantic import BaseModel
 import pandas as pd
 
@@ -43,6 +43,12 @@ class PlayerSummary(BaseModel):
     primary_role: Optional[str] = None
     batting_style: Optional[str] = None
     bowling_style: Optional[str] = None
+    bowling_type: Optional[str] = None
+    bowling_arm: Optional[str] = None
+    bowling_speed_category: Optional[str] = None
+    bowling_style_source_value: Optional[str] = None
+    bowling_style_source: Optional[str] = None
+    bowling_style_confidence: Optional[str] = None
     player_image: Optional[str] = None
     data_source: Optional[str] = None
     data_availability: Optional[str] = None
@@ -54,18 +60,30 @@ BIO_ATTRIBUTE_TYPES = {
     "full_name": "full_name", "date_of_birth": "date_of_birth",
     "nationality": "nationality", "primary_role": "primary_role",
     "batting_style": "batting_style", "bowling_style": "bowling_style",
+    "bowling_type": "bowling_type", "bowling_arm": "bowling_arm",
+    "bowling_speed_category": "bowling_speed_category",
+    "bowling_style_source_value": "bowling_style_source_value",
     "player_image": "player_image",
 }
 
 
 def _player_bio_fields(db: Session, player_id: str, canonical_name: str, prefetched=None) -> dict:
-    rows = prefetched if prefetched is not None else db.execute(select(PlayerAttribute.attribute_type, PlayerAttribute.attribute_value)
+    rows = prefetched if prefetched is not None else db.execute(select(PlayerAttribute.attribute_type, PlayerAttribute.attribute_value,
+                                                                       PlayerAttribute.source, PlayerAttribute.confidence)
                       .where(PlayerAttribute.player_id == player_id,
                              PlayerAttribute.attribute_type.in_(BIO_ATTRIBUTE_TYPES.values()))
-                      .order_by(PlayerAttribute.confidence.desc())).all()
+                      .order_by(case((PlayerAttribute.confidence == "high", 3),
+                                     (PlayerAttribute.confidence == "medium", 2),
+                                     (PlayerAttribute.confidence == "low", 1), else_=0).desc(),
+                                PlayerAttribute.updated_at.desc())).all()
     attrs = {}
-    for attr_type, value in rows:
+    provenance = {}
+    for row in rows:
+        attr_type, value = row[0], row[1]
         attrs.setdefault(attr_type, value)
+        if len(row) > 2 and attr_type == "bowling_style":
+            provenance.setdefault("bowling_style_source", row[2])
+            provenance.setdefault("bowling_style_confidence", row[3])
     dob = None
     age = None
     raw_dob = attrs.get("date_of_birth")
@@ -80,6 +98,11 @@ def _player_bio_fields(db: Session, player_id: str, canonical_name: str, prefetc
         "full_name": attrs.get("full_name", canonical_name), "date_of_birth": dob, "age": age,
         "nationality": attrs.get("nationality"), "primary_role": attrs.get("primary_role"),
         "batting_style": attrs.get("batting_style"), "bowling_style": attrs.get("bowling_style"),
+        "bowling_type": attrs.get("bowling_type"), "bowling_arm": attrs.get("bowling_arm"),
+        "bowling_speed_category": attrs.get("bowling_speed_category"),
+        "bowling_style_source_value": attrs.get("bowling_style_source_value"),
+        "bowling_style_source": provenance.get("bowling_style_source"),
+        "bowling_style_confidence": provenance.get("bowling_style_confidence"),
         "player_image": attrs.get("player_image"),
     }
 
@@ -167,6 +190,9 @@ class PlayerFilterMetadataResponse(BaseModel):
     venues: List[VenueOption]
     teams: List[TeamOption]
     bowling_styles: List[str]
+    bowling_types: List[str] = []
+    bowling_arms: List[str] = []
+    bowling_speed_categories: List[str] = []
 
 
 class PlayerPerformanceItem(BaseModel):
@@ -367,6 +393,12 @@ class PlayerAnalyticsResponse(BaseModel):
     official_role: Optional[str] = None
     batting_style: Optional[str] = None
     bowling_style: Optional[str] = None
+    bowling_type: Optional[str] = None
+    bowling_arm: Optional[str] = None
+    bowling_speed_category: Optional[str] = None
+    bowling_style_source_value: Optional[str] = None
+    bowling_style_source: Optional[str] = None
+    bowling_style_confidence: Optional[str] = None
     player_image: Optional[str] = None
     primary_role: str
     role_source: str
@@ -415,6 +447,10 @@ def list_players(
     name: Optional[str] = Query(None),
     role: Optional[str] = Query(None),
     format: Optional[str] = Query(None),
+    bowling_type: Optional[str] = Query(None),
+    bowling_style: Optional[str] = Query(None),
+    bowling_arm: Optional[str] = Query(None),
+    bowling_speed_category: Optional[str] = Query(None),
     db: Session = Depends(get_db),
 ):
     alias_ids = (select(PlayerAlias.player_id.label("player_id"),
@@ -438,6 +474,16 @@ def list_players(
         ).where(Match.match_format == format, or_(Delivery.batter_id == Player.id, Delivery.bowler_id == Player.id)).exists()
         base_stmt = base_stmt.where(format_uses_player)
 
+    for attr_type, attr_value in (("bowling_type", bowling_type), ("bowling_style", bowling_style),
+                                  ("bowling_arm", bowling_arm), ("bowling_speed_category", bowling_speed_category)):
+        if attr_value:
+            has_attribute = select(PlayerAttribute.id).where(
+                PlayerAttribute.player_id == Player.id,
+                PlayerAttribute.attribute_type == attr_type,
+                PlayerAttribute.attribute_value.ilike(attr_value),
+            ).exists()
+            base_stmt = base_stmt.where(has_attribute)
+
     if role == "batter":
         # Only players who have faced at least one delivery
         batter_subq = select(Delivery.batter_id).distinct().subquery()
@@ -454,12 +500,17 @@ def list_players(
     total = db.execute(select(func.count()).select_from(base_stmt.subquery())).scalar() or 0
     base_stmt = base_stmt.order_by(Player.canonical_name).offset((page - 1) * page_size).limit(page_size)
     rows = db.execute(base_stmt).fetchall()
-    attr_rows = db.execute(select(PlayerAttribute.player_id, PlayerAttribute.attribute_type, PlayerAttribute.attribute_value)
+    attr_rows = db.execute(select(PlayerAttribute.player_id, PlayerAttribute.attribute_type, PlayerAttribute.attribute_value,
+                                  PlayerAttribute.source, PlayerAttribute.confidence)
                            .where(PlayerAttribute.player_id.in_([r[0] for r in rows]),
                                   PlayerAttribute.attribute_type.in_(BIO_ATTRIBUTE_TYPES.values()))
-                           .order_by(PlayerAttribute.confidence.desc())).all() if rows else []
+                           .order_by(case((PlayerAttribute.confidence == "high", 3),
+                                          (PlayerAttribute.confidence == "medium", 2),
+                                          (PlayerAttribute.confidence == "low", 1), else_=0).desc(),
+                                     PlayerAttribute.updated_at.desc())).all() if rows else []
     attrs_by_player: Dict[str, list] = {}
-    for pid, attr_type, value in attr_rows: attrs_by_player.setdefault(pid, []).append((attr_type, value))
+    for pid, attr_type, value, source, confidence in attr_rows:
+        attrs_by_player.setdefault(pid, []).append((attr_type, value, source, confidence))
     result = [PlayerSummary(id=r[0], name=r[1], source_player_id=r[2],
                             **_player_bio_fields(db, r[0], r[1], attrs_by_player.get(r[0], []))) for r in rows]
 
@@ -513,7 +564,18 @@ def get_player_filter_metadata(db: Session = Depends(get_db)):
         max_year=max_year,
         venues=venues,
         teams=teams,
-        bowling_styles=["pace", "spin"],
+        bowling_styles=list(db.scalars(select(PlayerAttribute.attribute_value).where(
+            PlayerAttribute.attribute_type == "bowling_style", PlayerAttribute.attribute_value != "Other / Unclassified"
+        ).distinct().order_by(PlayerAttribute.attribute_value)).all()),
+        bowling_types=list(db.scalars(select(PlayerAttribute.attribute_value).where(
+            PlayerAttribute.attribute_type == "bowling_type"
+        ).distinct().order_by(PlayerAttribute.attribute_value)).all()),
+        bowling_arms=list(db.scalars(select(PlayerAttribute.attribute_value).where(
+            PlayerAttribute.attribute_type == "bowling_arm"
+        ).distinct().order_by(PlayerAttribute.attribute_value)).all()),
+        bowling_speed_categories=list(db.scalars(select(PlayerAttribute.attribute_value).where(
+            PlayerAttribute.attribute_type == "bowling_speed_category"
+        ).distinct().order_by(PlayerAttribute.attribute_value)).all()),
     )
 
 
@@ -775,14 +837,14 @@ def get_player_performance(
             SUM(CASE WHEN d.phase = 'middle' AND d.is_ball_faced_by_batter THEN 1 ELSE 0 END) AS mid_balls,
             SUM(CASE WHEN d.phase = 'death' THEN d.batter_runs ELSE 0 END) AS death_runs,
             SUM(CASE WHEN d.phase = 'death' AND d.is_ball_faced_by_batter THEN 1 ELSE 0 END) AS death_balls,
-            SUM(CASE WHEN pa.attribute_value = 'pace' THEN d.batter_runs ELSE 0 END) AS pace_runs,
-            SUM(CASE WHEN pa.attribute_value = 'pace' AND d.is_ball_faced_by_batter THEN 1 ELSE 0 END) AS pace_balls,
-            SUM(CASE WHEN pa.attribute_value = 'spin' THEN d.batter_runs ELSE 0 END) AS spin_runs,
-            SUM(CASE WHEN pa.attribute_value = 'spin' AND d.is_ball_faced_by_batter THEN 1 ELSE 0 END) AS spin_balls
+            SUM(CASE WHEN LOWER(pa.attribute_value) = 'pace' THEN d.batter_runs ELSE 0 END) AS pace_runs,
+            SUM(CASE WHEN LOWER(pa.attribute_value) = 'pace' AND d.is_ball_faced_by_batter THEN 1 ELSE 0 END) AS pace_balls,
+            SUM(CASE WHEN LOWER(pa.attribute_value) = 'spin' THEN d.batter_runs ELSE 0 END) AS spin_runs,
+            SUM(CASE WHEN LOWER(pa.attribute_value) = 'spin' AND d.is_ball_faced_by_batter THEN 1 ELSE 0 END) AS spin_balls
         FROM deliveries d
         JOIN match_innings mi ON d.innings_id = mi.id
         JOIN filtered_matches m ON mi.match_id = m.id
-        LEFT JOIN player_attributes pa ON d.bowler_id = pa.player_id AND pa.attribute_type = 'bowling_style'
+        LEFT JOIN player_attributes pa ON d.bowler_id = pa.player_id AND pa.attribute_type = 'bowling_type'
         WHERE mi.is_super_over = FALSE
           {bat_vs_team_clause}
         GROUP BY d.batter_id
@@ -1052,8 +1114,11 @@ def get_player_analytics(
         bat_conds.append("d.phase = :phase")
         params["phase"] = phase
     if bowling_style:
-        bat_conds.append("pa.attribute_value = :bowling_style")
         params["bowling_style"] = bowling_style
+        if bowling_style.lower() in {"pace", "spin"}:
+            bat_conds.append("EXISTS (SELECT 1 FROM player_attributes style_category WHERE style_category.player_id = d.bowler_id AND style_category.attribute_type = 'bowling_type' AND LOWER(style_category.attribute_value) = :bowling_style)")
+        else:
+            bat_conds.append("pa.attribute_value = :bowling_style")
 
     bat_filter_sql = " AND ".join(bat_conds)
 
@@ -1199,7 +1264,7 @@ def get_player_analytics(
     # 3. Pace vs Spin Batting Splits
     sql_pace_spin = f"""
     SELECT 
-        pa.attribute_value as style,
+        LOWER(pa.attribute_value) as style,
         COALESCE(SUM(d.batter_runs), 0) as runs,
         COALESCE(SUM(CASE WHEN d.is_ball_faced_by_batter THEN 1 ELSE 0 END), 0) as balls,
         COALESCE(SUM(CASE WHEN d.is_boundary_four THEN 1 ELSE 0 END), 0) as fours,
@@ -1208,24 +1273,25 @@ def get_player_analytics(
     FROM deliveries d
     JOIN match_innings mi ON d.innings_id = mi.id
     JOIN matches m ON mi.match_id = m.id
-    JOIN player_attributes pa ON d.bowler_id = pa.player_id AND pa.attribute_type = 'bowling_style'
+    JOIN player_attributes pa ON d.bowler_id = pa.player_id AND pa.attribute_type = 'bowling_type'
     WHERE d.batter_id = :pid AND {match_filter_sql} AND mi.is_super_over = FALSE
-    GROUP BY pa.attribute_value
+    GROUP BY LOWER(pa.attribute_value)
+    HAVING LOWER(pa.attribute_value) IN ('pace', 'spin')
     """
     ps_rows = db.execute(text(sql_pace_spin), params).fetchall()
 
     sql_ps_wkts = f"""
     SELECT 
-        pa.attribute_value as style,
+        LOWER(pa.attribute_value) as style,
         COUNT(w.id) as dismissals
     FROM wickets w
     JOIN deliveries d ON w.delivery_id = d.id
     JOIN match_innings mi ON d.innings_id = mi.id
     JOIN matches m ON mi.match_id = m.id
-    JOIN player_attributes pa ON d.bowler_id = pa.player_id AND pa.attribute_type = 'bowling_style'
+    JOIN player_attributes pa ON d.bowler_id = pa.player_id AND pa.attribute_type = 'bowling_type'
     WHERE w.player_out_id = :pid AND w.is_batter_dismissed = TRUE
       AND {match_filter_sql} AND mi.is_super_over = FALSE
-    GROUP BY pa.attribute_value
+    GROUP BY LOWER(pa.attribute_value)
     """
     ps_wkt_map = {r[0]: r[1] for r in db.execute(text(sql_ps_wkts), params).fetchall()}
 
@@ -1365,10 +1431,7 @@ def get_player_analytics(
     # Bowler style splits are only emitted for known styles; unknown style metadata
     # is omitted instead of guessed as pace or spin.
     bowling_style_rows = db.execute(text(f"""
-      SELECT CASE
-               WHEN LOWER(pa.attribute_value) LIKE '%spin%' OR LOWER(pa.attribute_value) LIKE '%break%' OR LOWER(pa.attribute_value) LIKE '%orthodox%' THEN 'spin'
-               WHEN LOWER(pa.attribute_value) LIKE '%fast%' OR LOWER(pa.attribute_value) LIKE '%pace%' OR LOWER(pa.attribute_value) LIKE '%medium%' THEN 'pace'
-               ELSE NULL END AS style,
+      SELECT LOWER(pa.attribute_value) AS style,
              SUM(CASE WHEN d.is_legal_ball THEN 1 ELSE 0 END) AS legal_balls,
              SUM(d.bowling_runs) AS runs_conceded,
              SUM(CASE WHEN d.is_legal_ball AND d.batter_runs = 0 THEN 1 ELSE 0 END) AS dots,
@@ -1377,13 +1440,10 @@ def get_player_analytics(
       FROM deliveries d
       JOIN match_innings mi ON d.innings_id = mi.id
       JOIN matches m ON mi.match_id = m.id
-      JOIN player_attributes pa ON pa.player_id = d.bowler_id AND pa.attribute_type = 'bowling_style'
+      JOIN player_attributes pa ON pa.player_id = d.bowler_id AND pa.attribute_type = 'bowling_type'
       LEFT JOIN wickets w ON w.delivery_id = d.id AND w.is_bowler_wicket = TRUE
       WHERE d.bowler_id = :pid AND {match_filter_sql} AND mi.is_super_over = FALSE
-      GROUP BY 1 HAVING CASE
-               WHEN LOWER(pa.attribute_value) LIKE '%spin%' OR LOWER(pa.attribute_value) LIKE '%break%' OR LOWER(pa.attribute_value) LIKE '%orthodox%' THEN 'spin'
-               WHEN LOWER(pa.attribute_value) LIKE '%fast%' OR LOWER(pa.attribute_value) LIKE '%pace%' OR LOWER(pa.attribute_value) LIKE '%medium%' THEN 'pace'
-               ELSE NULL END IS NOT NULL
+      GROUP BY 1 HAVING LOWER(pa.attribute_value) IN ('pace','spin')
     """), params).mappings().all()
     bowling_pace_spin_items = []
     for row in bowling_style_rows:
@@ -1723,6 +1783,12 @@ def get_player_analytics(
         official_role=bio["primary_role"],
         batting_style=bio["batting_style"],
         bowling_style=bio["bowling_style"],
+        bowling_type=bio["bowling_type"],
+        bowling_arm=bio["bowling_arm"],
+        bowling_speed_category=bio["bowling_speed_category"],
+        bowling_style_source_value=bio["bowling_style_source_value"],
+        bowling_style_source=bio["bowling_style_source"],
+        bowling_style_confidence=bio["bowling_style_confidence"],
         player_image=bio["player_image"],
         primary_role=primary_role,
         role_source=role_source,

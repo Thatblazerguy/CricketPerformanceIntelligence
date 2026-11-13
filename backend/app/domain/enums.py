@@ -33,6 +33,7 @@ class TossDecision(str, Enum):
 class ResultType(str, Enum):
     WIN = "win"
     TIE = "tie"
+    DRAW = "draw"
     NO_RESULT = "no result"
 
 

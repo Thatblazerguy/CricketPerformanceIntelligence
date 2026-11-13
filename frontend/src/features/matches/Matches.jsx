@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { getMatches } from '../../services/api';
 import { LoadingSpinner, ErrorState, EmptyState, PageHeader, Badge } from '../../components/ui';
+import MatchCentreLink from '../../components/MatchCentreLink';
 
 const inputClass = 'bg-slate-800 border border-slate-700 rounded px-3 py-2 text-sm text-slate-200';
 
@@ -51,7 +51,7 @@ export default function Matches() {
     {error && <><ErrorState message={error} /><button onClick={()=>search(null,page)} className="text-sm text-indigo-300">Retry search</button></>}
     {data && !loading && <>
       <div className="flex justify-between items-center text-xs text-slate-400"><span>{data.total.toLocaleString()} matches · page {page} of {maxPage}</span><label>Rows <select className={inputClass} value={pageSize} onChange={e=>{setPageSize(+e.target.value);setTimeout(()=>search(null,1),0);}}><option>25</option><option>50</option><option>100</option></select></label></div>
-      {data.matches.length===0 ? <EmptyState message="No matches found for these filters."/> : <div className="overflow-x-auto rounded-xl border border-slate-800"><table className="w-full text-left text-sm"><thead className="bg-slate-800 text-slate-400"><tr>{['Date','Competition','Teams','Venue','Result','Format','Details'].map(h=><th className="p-3" key={h}>{h}</th>)}</tr></thead><tbody>{data.matches.map(m=><tr key={m.id} className="border-t border-slate-800 text-slate-300"><td className="p-3 whitespace-nowrap">{m.start_date}</td><td className="p-3">{m.competition||'—'}</td><td className="p-3">{m.team1} vs {m.team2}</td><td className="p-3">{m.venue||'—'}</td><td className="p-3">{m.winner?`${m.winner} won`:m.result_type||'—'}</td><td className="p-3"><Badge>{m.match_format}</Badge></td><td className="p-3"><Link to={`/matches/${m.id}`} className="text-indigo-300">Open</Link></td></tr>)}</tbody></table></div>}
+      {data.matches.length===0 ? <EmptyState message="No matches found for these filters."/> : <div className="overflow-x-auto rounded-xl border border-slate-800"><table className="w-full text-left text-sm"><thead className="bg-slate-800 text-slate-400"><tr>{['Date','Competition','Teams','Venue','Result','Format','Details'].map(h=><th className="p-3" key={h}>{h}</th>)}</tr></thead><tbody>{data.matches.map(m=><tr key={m.id} className="border-t border-slate-800 text-slate-300"><td className="p-3 whitespace-nowrap"><MatchCentreLink matchId={m.id}>{m.start_date}</MatchCentreLink></td><td className="p-3">{m.competition||'—'}</td><td className="p-3"><MatchCentreLink matchId={m.id}>{m.team1 || 'Team 1'} vs {m.team2 || 'Team 2'}</MatchCentreLink></td><td className="p-3">{m.venue||'—'}</td><td className="p-3">{m.winner?`${m.winner} won`:m.result_type||'—'}</td><td className="p-3"><Badge>{m.match_format}</Badge></td><td className="p-3"><MatchCentreLink matchId={m.id}>Open scorecard</MatchCentreLink></td></tr>)}</tbody></table></div>}
       <div className="flex justify-between"><button disabled={page<=1} onClick={()=>search(null,page-1)} className="text-slate-300 disabled:opacity-30">← Previous</button><button disabled={page>=maxPage} onClick={()=>search(null,page+1)} className="text-slate-300 disabled:opacity-30">Next →</button></div>
     </>}
   </div>;

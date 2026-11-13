@@ -26,6 +26,7 @@ from sqlalchemy import (
     UniqueConstraint,
     Index,
     JSON,
+    LargeBinary,
     func,
 )
 from sqlalchemy.dialects.postgresql import UUID
@@ -628,3 +629,144 @@ class AuctionHistoryImport(Base):
     rejected_rows: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
     report_json: Mapped[dict] = mapped_column(JSON, nullable=False, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=func.now())
+
+
+# ============================================================
+#  Win Probability (precomputed per-match curves and player WPA)
+# ============================================================
+
+class MatchWinProbability(Base):
+    __tablename__ = "match_win_probabilities"
+    __table_args__ = (Index("ix_match_wp_family_version", "format_family", "model_version"),)
+
+    match_id: Mapped[str] = mapped_column(String(36), ForeignKey("matches.id", ondelete="CASCADE"), primary_key=True)
+    match_format: Mapped[str] = mapped_column(String(32), nullable=False)
+    format_family: Mapped[str] = mapped_column(String(16), nullable=False)
+    model_version: Mapped[str] = mapped_column(String(64), nullable=False)
+    status: Mapped[str] = mapped_column(String(32), nullable=False)
+    delivery_count: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    predictions_gzip: Mapped[Optional[bytes]] = mapped_column(LargeBinary)
+    exclusion_reason: Mapped[Optional[str]] = mapped_column(Text)
+    built_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=func.now())
+
+
+class PlayerWinProbabilityImpact(Base):
+    __tablename__ = "player_win_probability_impact"
+    __table_args__ = (
+        UniqueConstraint("player_id", "match_format", name="uq_player_wpa_format"),
+        Index("ix_player_wpa_player", "player_id"),
+    )
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    player_id: Mapped[str] = mapped_column(String(36), ForeignKey("players.id", ondelete="CASCADE"), nullable=False)
+    match_format: Mapped[str] = mapped_column(String(32), nullable=False)
+    matches: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    batting_wpa: Mapped[float] = mapped_column(Float, nullable=False, default=0.0)
+    bowling_wpa: Mapped[float] = mapped_column(Float, nullable=False, default=0.0)
+    peak_delivery_impact: Mapped[float] = mapped_column(Float, nullable=False, default=0.0)
+    peak_match_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("matches.id", ondelete="SET NULL"))
+
+
+# ============================================================
+#  Cricsheet Auto-Sync
+# ============================================================
+
+class SyncSource(Base):
+    """One monitored Cricsheet archive (e.g. all_json.zip) and its last-seen HTTP/checksum state."""
+    __tablename__ = "sync_sources"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    source_key: Mapped[str] = mapped_column(String(80), unique=True, nullable=False)
+    label: Mapped[Optional[str]] = mapped_column(String(128))
+    archive_url: Mapped[str] = mapped_column(String(512), nullable=False)
+    latest_checksum: Mapped[Optional[str]] = mapped_column(String(64))   # sha256 of last fully imported archive
+    etag: Mapped[Optional[str]] = mapped_column(String(256))
+    last_modified: Mapped[Optional[str]] = mapped_column(String(256))
+    archive_size_bytes: Mapped[Optional[int]] = mapped_column(BigInteger)
+    last_checked_at: Mapped[Optional[datetime]] = mapped_column(DateTime)   # last *successful* upstream check
+    last_imported_at: Mapped[Optional[datetime]] = mapped_column(DateTime)  # last fully successful import
+    last_error: Mapped[Optional[str]] = mapped_column(Text)
+    enabled: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=func.now(), onupdate=func.now())
+
+
+class SyncHistory(Base):
+    """One synchronisation attempt for one source. Rows from the same cycle share run_id."""
+    __tablename__ = "sync_history"
+    __table_args__ = (
+        Index("ix_sync_history_started", "started_at"),
+        Index("ix_sync_history_run", "run_id"),
+        Index("ix_sync_history_status", "status"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    run_id: Mapped[str] = mapped_column(String(36), nullable=False)
+    source_key: Mapped[str] = mapped_column(String(80), nullable=False)
+    triggered_by: Mapped[str] = mapped_column(String(32), nullable=False, default="scheduler")  # scheduler | manual | startup
+    started_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=func.now())
+    completed_at: Mapped[Optional[datetime]] = mapped_column(DateTime)
+    # running | completed | no_changes | partial | failed | interrupted
+    status: Mapped[str] = mapped_column(String(32), nullable=False, default="running")
+    # checking_source | downloading | extracting | validating | importing | refreshing_statistics | completed | failed
+    phase: Mapped[str] = mapped_column(String(32), nullable=False, default="checking_source")
+    progress_current: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    progress_total: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    archive_changed: Mapped[Optional[bool]] = mapped_column(Boolean)
+    archive_checksum: Mapped[Optional[str]] = mapped_column(String(64))
+    matches_discovered: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    new_matches: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    updated_matches: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    unchanged_matches: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    failed_records: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    error_detail: Mapped[Optional[str]] = mapped_column(Text)
+    failed_files: Mapped[Optional[list]] = mapped_column(JSON)
+    stats_refresh: Mapped[Optional[dict]] = mapped_column(JSON)
+    duration_seconds: Mapped[Optional[float]] = mapped_column(Float)
+
+
+class SyncMatchRevision(Base):
+    """Audit row written whenever an already-imported match's source JSON checksum changes."""
+    __tablename__ = "sync_match_revisions"
+    __table_args__ = (
+        Index("ix_sync_revision_source_match", "source_match_id"),
+        Index("ix_sync_revision_revised_at", "revised_at"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    match_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("matches.id", ondelete="SET NULL"))
+    source_match_id: Mapped[str] = mapped_column(String(256), nullable=False)
+    source_key: Mapped[str] = mapped_column(String(80), nullable=False)
+    sync_history_id: Mapped[Optional[int]] = mapped_column(Integer, ForeignKey("sync_history.id", ondelete="SET NULL"))
+    previous_checksum: Mapped[Optional[str]] = mapped_column(String(64))
+    new_checksum: Mapped[str] = mapped_column(String(64), nullable=False)
+    revised_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=func.now())
+
+
+class SyncSettings(Base):
+    """Singleton row (id=1) holding user-editable scheduler settings and the manual-sync request flag."""
+    __tablename__ = "sync_settings"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    auto_sync_enabled: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+    interval_hours: Mapped[float] = mapped_column(Float, nullable=False, default=6.0)
+    check_on_start: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+    manual_requested_at: Mapped[Optional[datetime]] = mapped_column(DateTime)
+    # Set explicitly (UTC) only when a user edits settings; the worker treats a change as "reschedule".
+    updated_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=datetime.utcnow)
+
+
+class SyncWorkerState(Base):
+    """Singleton row (id=1) with the background worker's heartbeat and schedule."""
+    __tablename__ = "sync_worker_state"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    state: Mapped[str] = mapped_column(String(32), nullable=False, default="stopped")  # idle | syncing | stopped
+    pid: Mapped[Optional[int]] = mapped_column(Integer)
+    hostname: Mapped[Optional[str]] = mapped_column(String(256))
+    started_at: Mapped[Optional[datetime]] = mapped_column(DateTime)
+    heartbeat_at: Mapped[Optional[datetime]] = mapped_column(DateTime)
+    last_run_started_at: Mapped[Optional[datetime]] = mapped_column(DateTime)
+    last_success_at: Mapped[Optional[datetime]] = mapped_column(DateTime)
+    next_check_at: Mapped[Optional[datetime]] = mapped_column(DateTime)
+    last_error: Mapped[Optional[str]] = mapped_column(Text)

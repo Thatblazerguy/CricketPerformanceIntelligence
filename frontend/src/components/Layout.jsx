@@ -1,5 +1,5 @@
 /**
- * Root application layout.
+ * Root application layout. (Playing XIs are managed inside the Match Simulator.)
  */
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';

@@ -7,7 +7,8 @@ from pydantic import BaseModel
 from datetime import date as DateType
 
 from app.db.session import get_db
-from app.models.models import Match, Team, Venue, VenueAlias, Tournament, MatchInnings, Delivery, DeliveryExtra, Wicket, Player
+from app.models.models import Match, Team, TeamAlias, Venue, VenueAlias, Tournament, MatchInnings, Delivery, DeliveryExtra, Wicket, Player, PlayerAlias, RawMatch
+from app.analytics.scorecard import build_innings_scorecard
 
 router = APIRouter()
 
@@ -169,22 +170,81 @@ def get_match_details(match_id: str, db: Session = Depends(get_db)):
     wickets_by_delivery = {}
     for wicket in wicket_rows:
         wickets_by_delivery.setdefault(wicket.delivery_id, []).append({
-            "player_out": names.get(wicket.player_out_id), "kind": wicket.dismissal_type,
-            "fielder": names.get(wicket.fielder_id), "bowler_credited": wicket.is_bowler_wicket,
+            "player_out": names.get(wicket.player_out_id), "player_out_id": wicket.player_out_id,
+            "kind": wicket.dismissal_type, "fielder": names.get(wicket.fielder_id),
+            "bowler_credited": wicket.is_bowler_wicket,
+            "batter_dismissed": wicket.is_batter_dismissed,
         })
     batting_team_ids = {inn.batting_team_id for inn in innings if inn.batting_team_id}
     team_names = {t.id: t.canonical_name for t in db.execute(select(Team).where(Team.id.in_(batting_team_ids))).scalars().all()} if batting_team_ids else {}
+    raw_match = db.execute(select(RawMatch).where(
+        RawMatch.provider_id == match.provider_id,
+        RawMatch.source_match_id == match.source_match_id,
+    )).scalars().first()
+    raw_info = (raw_match.raw_json or {}).get("info", {}) if raw_match else {}
+    raw_rosters = raw_info.get("players", {}) or {}
+    registry_people = raw_info.get("registry", {}).get("people", {}) or {}
+    team_alias_rows = db.execute(select(TeamAlias, Team.canonical_name).join(Team, Team.id == TeamAlias.team_id).where(
+        TeamAlias.provider_id == match.provider_id,
+        TeamAlias.source_name.in_(list(raw_rosters.keys())) if raw_rosters else False,
+    )).all()
+    source_team_to_id = {alias.source_name.casefold(): alias.team_id for alias, _ in team_alias_rows}
+    roster_source_ids = {registry_people.get(name) for players in raw_rosters.values() for name in players if registry_people.get(name)}
+    roster_player_ids = {row.source_player_id: row.player_id for row in db.execute(select(PlayerAlias).where(
+        PlayerAlias.provider_id == match.provider_id, PlayerAlias.source_player_id.in_(roster_source_ids),
+    )).scalars().all()} if roster_source_ids else {}
+    rosters_by_team = {}
+    for source_team, source_players in raw_rosters.items():
+        team_id = source_team_to_id.get(source_team.casefold())
+        if team_id:
+            rosters_by_team[team_id] = [
+                {"player_id": roster_player_ids.get(registry_people.get(name)), "player": names.get(roster_player_ids.get(registry_people.get(name)), name)}
+                for name in source_players
+            ]
     by_innings = {i.id: [] for i in innings}
+    scorecards = []
     for d in deliveries:
-        by_innings[d.innings_id].append({
-            "over": d.over_number + 1, "ball": d.delivery_sequence + 1,
-            "batter": names.get(d.batter_id), "bowler": names.get(d.bowler_id),
+        extras_for_delivery = extras_by_delivery.get(d.id, [])
+        wickets_for_delivery = wickets_by_delivery.get(d.id, [])
+        delivery_info = {
+            "over": d.over_number + 1, "over_index": d.over_number, "ball": d.delivery_sequence + 1,
+            "over_display": f"{d.over_number + 1}.{d.delivery_sequence + 1}",
+            "batter": names.get(d.batter_id), "batter_id": d.batter_id,
+            "bowler": names.get(d.bowler_id), "bowler_id": d.bowler_id,
+            "non_striker": names.get(d.non_striker_id),
             "batter_runs": d.batter_runs, "extras": d.extras_runs, "total_runs": d.total_runs,
-            "extra_types": extras_by_delivery.get(d.id, []), "wickets": wickets_by_delivery.get(d.id, []),
-            "legal": d.is_legal_ball, "phase": d.phase,
-        })
-    return {"match": _build_match_summary(match, db).model_dump(), "innings": [
-        {"innings_number": inn.innings_number, "batting_team_id": inn.batting_team_id,
-         "batting_team": team_names.get(inn.batting_team_id),
-         "is_super_over": inn.is_super_over, "deliveries": by_innings[inn.id]} for inn in innings
-    ]}
+            "bowling_runs": d.bowling_runs,
+            "extra_types": extras_for_delivery, "wickets": wickets_for_delivery,
+            "legal": d.is_legal_ball, "faced": d.is_ball_faced_by_batter,
+            "four": d.is_boundary_four, "six": d.is_boundary_six, "phase": d.phase,
+        }
+        by_innings[d.innings_id].append(delivery_info)
+    for inn in innings:
+        innings_data = {
+            "innings_number": inn.innings_number, "batting_team_id": inn.batting_team_id,
+            "batting_team": team_names.get(inn.batting_team_id),
+            "is_super_over": inn.is_super_over, "match_format": match.match_format,
+            "deliveries": by_innings[inn.id],
+        }
+        roster = rosters_by_team.get(inn.batting_team_id, [])
+        appeared = {d.get("batter_id") for d in innings_data["deliveries"]}
+        appeared.update(w.get("player_out_id") for d in innings_data["deliveries"] for w in d.get("wickets", []))
+        # Only label DNB when the source registry ID resolves to a canonical player;
+        # unresolved aliases must not be mistaken for a player who never batted.
+        innings_data["did_not_bat"] = [
+            p["player"] for p in roster
+            if p.get("player_id") and p["player_id"] not in appeared
+        ] if roster else []
+        innings_data["scorecard"] = build_innings_scorecard(innings_data, match.match_format)
+        scorecards.append(innings_data)
+
+    player_of_match = raw_info.get("player_of_match", []) or []
+    toss_winner = db.get(Team, match.toss_winner_id).canonical_name if match.toss_winner_id else None
+    return {
+        "match": {**_build_match_summary(match, db).model_dump(),
+                  "toss_winner": toss_winner, "toss_decision": match.toss_decision,
+                  "player_of_match": player_of_match},
+        "innings": scorecards,
+        "integrity": {"stored_innings_totals_available": False,
+                      "note": "No separate innings-total records are stored; totals are reconstructed from deliveries."},
+    }

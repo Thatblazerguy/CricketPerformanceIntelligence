@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Installed by backend/scripts/install_launchd.sh, which substitutes __BACKEND_DIR__. -->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.cpi.syncworker</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>__BACKEND_DIR__/.venv/bin/python</string>
+        <string>__BACKEND_DIR__/worker.py</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>__BACKEND_DIR__</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <!-- Restart after crashes; a clean exit (e.g. another worker holds the lock) is final. -->
+    <key>KeepAlive</key>
+    <dict>
+        <key>SuccessfulExit</key>
+        <false/>
+    </dict>
+    <key>ThrottleInterval</key>
+    <integer>30</integer>
+    <key>ProcessType</key>
+    <string>Background</string>
+    <key>StandardOutPath</key>
+    <string>__BACKEND_DIR__/logs/sync_worker.launchd.log</string>
+    <key>StandardErrorPath</key>
+    <string>__BACKEND_DIR__/logs/sync_worker.launchd.log</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PYTHONUNBUFFERED</key>
+        <string>1</string>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+</dict>
+</plist>

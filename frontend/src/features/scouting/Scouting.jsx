@@ -9,7 +9,7 @@ const CATEGORIES = [
 ];
 const INITIAL = {
   format: 'T20', gender: 'male', category: 'BATTERS', preset: 'Reliable Performer', role: '', nationality: '', competition: '', season: '', team_id: '',
-  start_year: '', end_year: '', min_age: '', max_age: '', batting_style: '', bowling_style: '', pace_spin: '',
+  start_year: '', end_year: '', min_age: '', max_age: '', batting_style: '', bowling_style: '', pace_spin: '', bowling_arm: '', bowling_speed_category: '',
   minimum_matches: 5, minimum_innings: 5, minimum_balls_faced: 60, minimum_legal_balls: 60,
 };
 const METRICS = {
@@ -168,6 +168,7 @@ export default function Scouting() {
 
   return <div className="space-y-5">
     <PageHeader title="Scouting" subtitle="Format-specific, explainable player evaluation. Scores compare players within the selected role and competition filters." />
+
     <div className="grid grid-cols-1 xl:grid-cols-[340px_minmax(0,1fr)] gap-5">
       <form onSubmit={search} className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-3 h-fit">
         <div className="grid grid-cols-2 gap-3">
@@ -193,7 +194,9 @@ export default function Scouting() {
         {form.category !== 'BOWLERS' && <label className="block text-[11px] text-slate-400">Batting style<select className={`${selectClass} mt-1`} value={form.batting_style} onChange={e => update('batting_style', e.target.value)}><option value="">Any</option>{(options?.batting_styles || []).map(x => <option key={x}>{x}</option>)}</select></label>}
         {form.category !== 'BATTERS' && <>
           <label className="block text-[11px] text-slate-400">Bowling style<select className={`${selectClass} mt-1`} value={form.bowling_style} onChange={e => update('bowling_style', e.target.value)}><option value="">Any</option>{(options?.bowling_styles || []).map(x => <option key={x}>{x}</option>)}</select></label>
-          <label className="block text-[11px] text-slate-400">Pace or spin<select className={`${selectClass} mt-1`} value={form.pace_spin} onChange={e => update('pace_spin', e.target.value)}><option value="">Any style</option><option value="pace">Pace</option><option value="spin">Spin</option></select></label>
+          <div className="grid grid-cols-3 gap-2"><label className="block text-[11px] text-slate-400">Category<select className={`${selectClass} mt-1`} value={form.pace_spin} onChange={e => update('pace_spin', e.target.value)}><option value="">Any</option>{(options?.bowling_types || ['Pace','Spin']).map(x => <option key={x} value={x.toLowerCase()}>{x}</option>)}</select></label>
+          <label className="block text-[11px] text-slate-400">Bowling arm<select className={`${selectClass} mt-1`} value={form.bowling_arm} onChange={e => update('bowling_arm', e.target.value)}><option value="">Any</option>{(options?.bowling_arms || []).map(x => <option key={x}>{x}</option>)}</select></label>
+          <label className="block text-[11px] text-slate-400">Speed<select className={`${selectClass} mt-1`} value={form.bowling_speed_category} onChange={e => update('bowling_speed_category', e.target.value)}><option value="">Any</option>{(options?.bowling_speed_categories || []).map(x => <option key={x}>{x}</option>)}</select></label></div>
         </>}
         <div className="grid grid-cols-2 gap-3">
           <label className="text-[11px] text-slate-400">Team<select className={`${selectClass} mt-1`} value={form.team_id} onChange={e => update('team_id', e.target.value)}><option value="">Any</option>{(options?.teams || []).map(x => <option key={x.id} value={x.id}>{x.name}</option>)}</select></label>
@@ -266,7 +269,7 @@ export default function Scouting() {
               <tbody>{result.candidates.map(c => <tr key={c.player_id} className="border-t border-slate-800 hover:bg-slate-800/40 align-top">
                 <td className="p-2"><input aria-label={`Shortlist ${c.player_name}`} type="checkbox" checked={Boolean(shortlist[c.player_id])} onChange={e => setShortlist(old => { const next = { ...old }; if (e.target.checked) next[c.player_id] = c; else delete next[c.player_id]; return next; })} /></td>
                 <td className="p-2 text-indigo-300 font-mono">{c.rank}</td>
-                <td className="p-2 min-w-36"><Link className="text-white hover:text-indigo-300 font-semibold" to={`/players/${c.player_id}`}>{c.player_name}</Link><div className="text-[10px] text-slate-500 mt-0.5">{c.role}{c.stats.age != null ? ` · age ${c.stats.age}` : ''}</div><div className="mt-1 space-y-0.5">{c.strengths.slice(0,2).map((x,i)=><div key={i} className="text-[10px] text-emerald-300">+ {x}</div>)}{c.limitations.slice(0,1).map((x,i)=><div key={i} className="text-[10px] text-amber-300">! {x}</div>)}</div><details className="mt-1"><summary className="text-[10px] text-indigo-300 cursor-pointer">Metric scores & explanation</summary><div className="mt-1 space-y-0.5">{Object.entries(c.metric_scores).map(([metric, value]) => <div key={metric} className="text-[10px] text-slate-400">{label(metric)}: {fmt(value)}/100</div>)}<p className="text-[10px] text-slate-500 mt-1">{c.explanation}</p></div></details></td>
+                <td className="p-2 min-w-36"><Link className="text-white hover:text-indigo-300 font-semibold" to={`/players/${c.player_id}`}>{c.player_name}</Link><div className="text-[10px] text-slate-500 mt-0.5">{c.role}{c.stats.age != null ? ` · age ${c.stats.age}` : ''}</div>{c.bowling_type && <div className="mt-0.5 text-[10px] text-indigo-300">{c.bowling_style || 'Style not available'} · {c.bowling_type}{c.bowling_arm ? ` · ${c.bowling_arm}` : ''}{c.bowling_speed_category ? ` · ${c.bowling_speed_category}` : ''}</div>}<div className="mt-1 space-y-0.5">{c.strengths.slice(0,2).map((x,i)=><div key={i} className="text-[10px] text-emerald-300">+ {x}</div>)}{c.limitations.slice(0,1).map((x,i)=><div key={i} className="text-[10px] text-amber-300">! {x}</div>)}</div><details className="mt-1"><summary className="text-[10px] text-indigo-300 cursor-pointer">Metric scores & explanation</summary><div className="mt-1 space-y-0.5">{Object.entries(c.metric_scores).map(([metric, value]) => <div key={metric} className="text-[10px] text-slate-400">{label(metric)}: {fmt(value)}/100</div>)}<p className="text-[10px] text-slate-500 mt-1">{c.explanation}</p></div></details></td>
                 <td className="p-2">{c.matches}<div className="text-[10px] text-slate-500">{form.category === 'BOWLERS' ? c.bowling_innings : c.innings} inns</div></td>
                 {columns.map(([key]) => <td key={key} className="p-2 text-right">{fmt(c.stats[key] ?? c[key])}</td>)}
                 <td className="p-2 text-right"><b className="text-indigo-300 text-sm">{c.overall_score.toFixed(1)}</b><div className="text-[10px] text-slate-500">/100</div>{form.category === 'ALL_ROUNDERS' && <div className="text-[10px] whitespace-nowrap">Bat {fmt(c.batting_score)} · Bowl {fmt(c.bowling_score)}</div>}</td>

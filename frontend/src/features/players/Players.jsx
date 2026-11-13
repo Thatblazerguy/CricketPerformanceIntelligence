@@ -6,7 +6,7 @@
  */
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { getPlayers } from '../../services/api';
+import { getPlayerFilterMetadata, getPlayers } from '../../services/api';
 import { LoadingSpinner, ErrorState, EmptyState, PageHeader } from '../../components/ui';
 
 export default function Players() {
@@ -18,10 +18,17 @@ export default function Players() {
   const [sortDir, setSortDir] = useState('desc');
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(25);
+  const [bowlingType, setBowlingType] = useState('');
+  const [bowlingStyle, setBowlingStyle] = useState('');
+  const [bowlingArm, setBowlingArm] = useState('');
+  const [bowlingSpeed, setBowlingSpeed] = useState('');
+  const [filterMetadata, setFilterMetadata] = useState(null);
 
   const [playersData, setPlayersData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  useEffect(() => { getPlayerFilterMetadata().then(setFilterMetadata).catch(() => {}); }, []);
 
   const fetchPlayers = useCallback(async () => {
     if (!search.trim()) { setPlayersData(null); setLoading(false); return; }
@@ -34,6 +41,10 @@ export default function Players() {
         role: role === 'all' ? undefined : role,
         ...(format ? { format } : {}),
         ...(search ? { name: search } : {}),
+        ...(bowlingType ? { bowling_type: bowlingType } : {}),
+        ...(bowlingStyle ? { bowling_style: bowlingStyle } : {}),
+        ...(bowlingArm ? { bowling_arm: bowlingArm } : {}),
+        ...(bowlingSpeed ? { bowling_speed_category: bowlingSpeed } : {}),
       };
 
       const res = await getPlayers(queryParams);
@@ -43,7 +54,7 @@ export default function Players() {
     } finally {
       setLoading(false);
     }
-  }, [format, role, search, page, pageSize]);
+  }, [format, role, search, page, pageSize, bowlingType, bowlingStyle, bowlingArm, bowlingSpeed]);
 
   useEffect(() => {
     if (search) fetchPlayers();
@@ -120,6 +131,8 @@ export default function Players() {
         subtitle="Player directory across Test, ODI, T20 and T20I formats. Select any player to inspect their complete analytics profile."
       />
 
+      {/* Active XI Quick Access Table */}
+
       {/* Format & Role Controls */}
       <div className="bg-slate-900/90 border border-slate-800 p-2.5 rounded-xl flex flex-wrap items-center justify-between gap-3 shadow-md">
         {/* Format Selector */}
@@ -161,6 +174,15 @@ export default function Players() {
             </button>
           ))}
         </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3 rounded-xl border border-slate-800 bg-slate-900/70 p-3 md:grid-cols-4">
+        {[
+          ['Bowling category', bowlingType, setBowlingType, filterMetadata?.bowling_types || []],
+          ['Specific bowling style', bowlingStyle, setBowlingStyle, filterMetadata?.bowling_styles || []],
+          ['Bowling arm', bowlingArm, setBowlingArm, filterMetadata?.bowling_arms || []],
+          ['Bowling speed', bowlingSpeed, setBowlingSpeed, filterMetadata?.bowling_speed_categories || []],
+        ].map(([title, value, setter, options]) => <label key={title} className="text-[11px] text-slate-400">{title}<select className="mt-1 w-full rounded border border-slate-700 bg-slate-800 px-2 py-2 text-xs text-slate-200" value={value} onChange={event => { setter(event.target.value); setPage(1); }}><option value="">Any</option>{options.map(option => <option key={option} value={option}>{option}</option>)}</select></label>)}
       </div>
 
       {/* Search Bar & Results Summary */}
@@ -269,7 +291,7 @@ export default function Players() {
                         <td className="py-2.5 px-3 text-center">{p.age ?? '—'}</td>
                         <td className="py-2.5 px-3 text-center">{p.nationality ?? '—'}</td>
                         <td className="py-2.5 px-3 text-center">{p.batting_style ?? '—'}</td>
-                        <td className="py-2.5 px-3 text-center">{p.bowling_style ?? '—'}</td>
+                        <td className="py-2.5 px-3 text-center"><span>{p.bowling_style ?? 'Not Available'}</span>{p.bowling_type && <span className="ml-1 rounded bg-slate-800 px-1.5 py-0.5 text-[10px] text-indigo-300">{p.bowling_type}</span>}</td>
                         <td className="py-2.5 px-4 text-center font-sans">
                           <Link
                             to={`/players/${p.id}`}

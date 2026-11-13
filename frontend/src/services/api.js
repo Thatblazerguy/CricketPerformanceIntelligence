@@ -18,7 +18,12 @@ async function request(path, options = {}) {
 
   if (!response.ok) {
     const error = await response.json().catch(() => ({ detail: response.statusText }));
-    throw new Error(error.detail || `API error ${response.status}`);
+    const detail = error.detail;
+    const message = typeof detail === 'string' ? detail
+      : Array.isArray(detail?.errors) ? detail.errors.join('; ')
+      : Array.isArray(detail) ? detail.map(d => d.msg || JSON.stringify(d)).join('; ')
+      : detail ? JSON.stringify(detail) : '';
+    throw new Error(message || `API error ${response.status}`);
   }
 
   return response.json();
@@ -88,6 +93,21 @@ export const getMatches = (params = {}) => {
 };
 export const getMatch = (id) => request(`/matches/${id}`);
 export const getMatchDetails = (id) => request(`/matches/${id}/details`);
+export const getMatchWinProbability = (id) => request(`/matches/${id}/win-probability`);
+export const getPlayerWinProbabilityImpact = (id) => request(`/players/${id}/impact`);
+export const getWinProbabilityCoverage = () => request('/win-probability/coverage');
+export const simulateInnings = (state) => request('/simulator/simulate', { method: 'POST', body: JSON.stringify({ state }) });
+export const compareBattingOrders = (state, batting_orders) => request('/simulator/batting-order', { method: 'POST', body: JSON.stringify({ state, batting_orders }) });
+export const compareBowlingOptions = (state, options, overs_bowled = {}) => request('/simulator/bowling-options', { method: 'POST', body: JSON.stringify({ state, options, overs_bowled }) });
+export const analyseLiveMatchScreenshot = (file) => { const form = new FormData(); form.append('file', file); return request('/simulator/analyse-live-match', { method: 'POST', body: form, headers: {} }); };
+export const getSimulatorOptions = () => request('/simulator/options');
+export const getSimulatorWinProbability = (state) => request('/simulator/win-probability', { method: 'POST', body: JSON.stringify({ state }) });
+// Full-match simulation: validate the two XIs, then run one match or a Monte Carlo batch as a background job.
+export const getMatchSimOptions = (format = 'T20') => request(`/simulator/match/options?format=${encodeURIComponent(format)}`);
+export const validateMatchSim = (body) => request('/simulator/match/validate', { method: 'POST', body: JSON.stringify(body) });
+export const startMatchSim = (body) => request('/simulator/match/run', { method: 'POST', body: JSON.stringify(body) });
+export const startMonteCarloSim = (body) => request('/simulator/match/monte-carlo', { method: 'POST', body: JSON.stringify(body) });
+export const getSimJob = (id) => request(`/simulator/jobs/${encodeURIComponent(id)}`);
 
 // --- Matchups ---
 export const getMatchup = (batterId, bowlerId, params = {}) => {
@@ -189,3 +209,22 @@ export const generateAuctionXI = (id, team_id, style) => request(`/auction/scena
 // --- Ingestion ---
 export const triggerIngestion = (limit) =>
   request('/ingestion/run-sync', { method: 'POST', ...(limit ? { body: JSON.stringify({ limit }) } : {}) });
+
+// --- Playing XI ---
+export const resolveXi = (data) => request('/xi/resolve', { method: 'POST', body: JSON.stringify(data) });
+export const uploadXiFile = (file) => {
+  const body = new FormData();
+  body.append('file', file);
+  return request('/xi/upload-file', { method: 'POST', body, headers: {} });
+};
+export const getXiPresets = () => request('/xi/presets');
+export const searchPlayerForXi = (q) => request(`/xi/search-player?q=${encodeURIComponent(q)}`);
+
+// --- Data Sync / Settings (Cricsheet automatic synchronisation) ---
+export const getDataSyncStatus = () => request('/data-sync/status');
+export const getDataSyncHistory = (page = 1, pageSize = 20) =>
+  request(`/data-sync/history?page=${page}&page_size=${pageSize}`);
+export const triggerDataSync = () => request('/data-sync/trigger', { method: 'POST' });
+export const getDataSyncHealth = () => request('/data-sync/health');
+export const updateDataSyncSettings = (settings) =>
+  request('/data-sync/settings', { method: 'POST', body: JSON.stringify(settings) });

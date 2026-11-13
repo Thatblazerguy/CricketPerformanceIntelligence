@@ -13,6 +13,8 @@ import PlayerComparison from './features/comparisons/PlayerComparison';
 import Scouting from './features/scouting/Scouting';
 import Venues from './features/venues/Venues';
 import AuctionIntelligence from './features/auction/AuctionIntelligence';
+import MatchSimulator from './features/matches/MatchSimulator';
+import Settings from './features/settings/Settings';
 
 export default function App() {
   return (
@@ -24,11 +26,13 @@ export default function App() {
           <Route path="players/:id" element={<PlayerProfile />} />
           <Route path="matches" element={<Matches />} />
           <Route path="matches/:id" element={<MatchDetail />} />
+          <Route path="simulator" element={<MatchSimulator />} />
           <Route path="compare" element={<PlayerComparison />} />
           <Route path="matchups" element={<Matchups />} />
           <Route path="scouting" element={<Scouting />} />
           <Route path="venues" element={<Venues />} />
           <Route path="auction" element={<AuctionIntelligence />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -75,7 +75,7 @@ class MatchupSummaryResponse(BaseModel):
     matches_count: int
     innings_count: int
     dismissals: int
-    bowling_average: Optional[float]
+    batting_average: Optional[float]
     sample_warning: Optional[str]
     filters_applied: Dict[str, Any]
     matches_included: int
@@ -441,7 +441,7 @@ def matchup_summary(
     strike_rate = round((batter_runs / balls_faced) * 100, 2) if balls_faced > 0 else None
     dot_ball_pct = round((dot_balls / balls_faced) * 100, 1) if balls_faced > 0 else None
     boundary_pct = round((boundaries / balls_faced) * 100, 1) if balls_faced > 0 else None
-    bowling_average = round(batter_runs / dismissals, 2) if dismissals > 0 else None
+    batting_average = round(batter_runs / dismissals, 2) if dismissals > 0 else None
     sample_warning = (
         f"Small sample ({balls_faced} balls faced). Results may not be statistically meaningful."
         if balls_faced < 12 else None
@@ -469,7 +469,7 @@ def matchup_summary(
         matches_count=matches_count,
         innings_count=innings_count,
         dismissals=dismissals,
-        bowling_average=bowling_average,
+        batting_average=batting_average,
         sample_warning=sample_warning,
         filters_applied=filters_applied,
         matches_included=matches_count,

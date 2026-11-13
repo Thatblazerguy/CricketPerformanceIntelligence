@@ -19,12 +19,14 @@ import {
   getPlayerFilterMetadata,
   getPlayerSimilar,
   getPlayerSimilarBowlers,
-  getPlayerSimilarAllRounders
+  getPlayerSimilarAllRounders,
+  getPlayerWinProbabilityImpact
 } from '../../services/api';
 import {
   LoadingSpinner, ErrorState, EmptyState, StatCard, Badge
 } from '../../components/ui';
 import { BarChart, LineChart } from '../../components/charts';
+import MatchCentreLink from '../../components/MatchCentreLink';
 
 export default function PlayerProfile() {
   const { id } = useParams();
@@ -59,10 +61,22 @@ export default function PlayerProfile() {
   // Profile Analytics Data
   const [analytics, setAnalytics] = useState(null);
   const [playerBio, setPlayerBio] = useState(null);
+  const [winImpact, setWinImpact] = useState(null);
+  const [winImpactLoading, setWinImpactLoading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => { let active = true; getPlayer(id).then(data => { if (active) setPlayerBio(data); }).catch(() => {}); return () => { active = false; }; }, [id]);
+
+  useEffect(() => {
+    if (activeTab !== 'impact') return;
+    let active = true;
+    setWinImpactLoading(true);
+    getPlayerWinProbabilityImpact(id).then(result => { if (active) setWinImpact(result); })
+      .catch(() => { if (active) setWinImpact(null); })
+      .finally(() => { if (active) setWinImpactLoading(false); });
+    return () => { active = false; };
+  }, [id, activeTab]);
 
   // ML Similar Players
   const [similarData, setSimilarData] = useState(null);
@@ -311,7 +325,14 @@ export default function PlayerProfile() {
               {analytics?.nationality && <span>{analytics.nationality}</span>}
               {analytics?.official_role && <span>Board role: {analytics.official_role}</span>}
               {analytics?.batting_style && <span>{analytics.batting_style}</span>}
-              {analytics?.bowling_style && <span>{analytics.bowling_style}</span>}
+            </div>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              <span className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Bowling</span>
+              <span className="text-sm font-semibold text-white">{analytics?.bowling_style || 'Not Available'}</span>
+              {analytics?.bowling_type && <span className="rounded-full border border-indigo-700/60 bg-indigo-950/70 px-2 py-0.5 text-[10px] font-semibold text-indigo-300">{analytics.bowling_type}</span>}
+              {analytics?.bowling_arm && <span className="text-[10px] text-slate-400">{analytics.bowling_arm}</span>}
+              {analytics?.bowling_speed_category && <span className="text-[10px] text-slate-400">{analytics.bowling_speed_category}</span>}
+              {analytics?.bowling_style_source && <span className="text-[10px] text-slate-600">Source: {analytics.bowling_style_source} · {analytics.bowling_style_confidence || 'unspecified'} confidence</span>}
             </div>
             {analytics?.role_source && (
               <span className="text-[10px] text-slate-500 mt-1 inline-block">
@@ -454,6 +475,7 @@ export default function PlayerProfile() {
               <option value="">All Styles</option>
               <option value="pace">vs Pace Bowlers</option>
               <option value="spin">vs Spin Bowlers</option>
+              {(metadata?.bowling_styles || []).map(style => <option key={style} value={style}>{style}</option>)}
             </select>
           </div>
 
@@ -491,6 +513,7 @@ export default function PlayerProfile() {
           { id: 'splits', label: 'Pace vs Spin & Phase Analytics' },
           { id: 'opponents', label: 'Opponents & Venue Splits' },
           { id: 'trends', label: 'Career Trajectory & Form' },
+          { id: 'impact', label: 'Win Probability Impact' },
           { id: 'similar', label: 'ML Similar Profiles' },
         ].map(tab => (
           <button
@@ -930,12 +953,12 @@ export default function PlayerProfile() {
                     <tbody className="divide-y divide-slate-800 font-mono text-[11px]">
                       {analytics.recent_matches.map(m => (
                         <tr key={m.match_id} className="hover:bg-slate-800/40">
-                          <td className="py-2 px-4 text-slate-400">{m.match_date || '—'}</td>
+                          <td className="py-2 px-4 text-slate-400"><MatchCentreLink matchId={m.match_id} context={{ tab: 'scorecard', playerId: id, focus: 'batting' }}>{m.match_date || 'Open scorecard'}</MatchCentreLink></td>
                           <td className="py-2 px-2 font-sans font-medium text-indigo-300">{m.format}</td>
                           <td className="py-2 px-3 font-sans font-medium text-slate-200">{m.opponent_name}</td>
                           <td className="py-2 px-3 font-sans text-slate-400 truncate max-w-xs">{m.venue_name}</td>
                           <td className="py-2 px-3 text-right font-bold text-white">
-                            {m.runs} <span className="font-normal text-slate-500">({m.balls_faced})</span>
+                            <MatchCentreLink matchId={m.match_id} context={{ tab: 'scorecard', playerId: id, focus: 'batting' }}>{m.runs}</MatchCentreLink> <span className="font-normal text-slate-500">({m.balls_faced})</span>
                           </td>
                           <td className="py-2 px-3 text-right font-medium text-emerald-400">
                             {m.strike_rate != null ? m.strike_rate.toFixed(1) : '—'}
@@ -1040,6 +1063,14 @@ export default function PlayerProfile() {
                 <EmptyState message="No similar player models found with sufficient sample size." />
               )}
             </div>
+          )}
+
+          {activeTab === 'impact' && (
+            <section className="space-y-4 rounded-xl border border-slate-800 bg-slate-900/50 p-4 sm:p-5">
+              <div><h3 className="font-semibold text-white">Career Win Probability Added</h3><p className="mt-1 text-xs text-slate-500">Format-separated cumulative probability change across precomputed historical deliveries. Bowling impact is signed from the bowling team's perspective.</p></div>
+              {winImpactLoading ? <LoadingSpinner message="Loading precomputed player impact…" /> : winImpact?.formats?.length ? <div className="overflow-x-auto"><table className="w-full min-w-[760px] text-sm"><thead className="text-left text-xs uppercase tracking-wide text-slate-500"><tr><th className="py-2">Format</th><th className="py-2 text-right">Matches</th><th className="py-2 text-right">Batting WPA</th><th className="py-2 text-right">Bowling WPA</th><th className="py-2 text-right">Combined WPA</th><th className="py-2 text-right">Avg / match</th><th className="py-2 text-right">Peak delivery</th><th className="py-2 text-right">Peak match</th></tr></thead><tbody className="divide-y divide-slate-800">{winImpact.formats.map(row => <tr key={row.format}><td className="py-3 font-medium text-white">{row.format}</td><td className="py-3 text-right tabular-nums text-slate-300">{row.matches}</td><td className="py-3 text-right tabular-nums text-indigo-300">{row.batting_wpa.toFixed(3)}</td><td className="py-3 text-right tabular-nums text-emerald-300">{row.bowling_wpa.toFixed(3)}</td><td className="py-3 text-right tabular-nums text-white">{row.career_wpa.toFixed(3)}</td><td className="py-3 text-right tabular-nums text-slate-300">{row.average_wpa_per_match?.toFixed(4) ?? '—'}</td><td className="py-3 text-right tabular-nums text-slate-300">{row.peak_delivery_impact.toFixed(3)}</td><td className="py-3 text-right">{row.peak_match_id ? <MatchCentreLink matchId={row.peak_match_id} context={{ tab: 'summary', playerId: id }}>{'Open match'}</MatchCentreLink> : '—'}</td></tr>)}</tbody></table></div> : <EmptyState message="Win probability impact has not been precomputed for this player yet." />}
+              <p className="text-[11px] text-slate-500">WPA is shown separately by source format and must not be compared as an unadjusted raw total between formats. Values represent model probability changes, not a prediction of future performance.</p>
+            </section>
           )}
         </div>
       )}

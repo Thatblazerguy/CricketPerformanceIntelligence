@@ -6,7 +6,9 @@ import { getCoverage, getMatches } from '../../services/api';
 import { useApi } from '../../hooks/useApi';
 import { LoadingSpinner, ErrorState, StatCard, PageHeader, Table, Badge } from '../../components/ui';
 import { Link } from 'react-router-dom';
+import MatchCentreLink from '../../components/MatchCentreLink';
 import { BarChart, DonutChart, LineChart } from '../../components/charts';
+import DataFreshness from '../../components/DataFreshness';
 
 export default function Dashboard() {
   const { data: coverage, loading: covLoading, error: covError } = useApi(getCoverage);
@@ -23,6 +25,7 @@ export default function Dashboard() {
         title="Dashboard"
         subtitle="Cricket Performance Intelligence — dataset overview"
       />
+      <DataFreshness className="-mt-5 mb-6" />
 
       {/* Coverage stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
@@ -87,7 +90,7 @@ export default function Dashboard() {
             rows={(recentMatches?.matches || []).map(m => [
               m.start_date,
               m.competition || '—',
-              `${m.team1} vs ${m.team2}`,
+              <MatchCentreLink key={`match-${m.id}`} matchId={m.id}>{`${m.team1 || 'Team 1'} vs ${m.team2 || 'Team 2'}`}</MatchCentreLink>,
               m.winner
                 ? `${m.winner} won${m.result_margin_runs ? ` by ${m.result_margin_runs}R` : m.result_margin_wickets ? ` by ${m.result_margin_wickets}W` : ''}`
                 : m.result_type || '—',
