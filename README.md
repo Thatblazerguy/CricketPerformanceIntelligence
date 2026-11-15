@@ -14,7 +14,27 @@
 
 **Cricket analytics, scouting, match simulation and win probability, built on delivery-level Cricsheet data and the Laws of Cricket.**
 
+<br />
+
+<p align="center">
+  <img src="docs/screenshots/dashboard.png" alt="Cricket Performance Intelligence Dashboard" width="100%" />
+</p>
+
 </div>
+
+### What is CPI?
+A professional-grade cricket analytics and scouting intelligence platform combining ball-by-ball historical depth (over 23,000 matches), head-to-head matchup modeling, Monte Carlo match simulation, format-isolated scouting, and a calibrated win probability engine.
+
+### How to Run
+
+```bash
+# Quick demo with Docker (loads bundled 204-match sample dataset):
+docker compose down -v && docker compose up --build
+# Then open http://localhost:5173
+
+# Local development (with PostgreSQL):
+./start.sh
+```
 
 ---
 
@@ -104,6 +124,8 @@ Versioned auction scenarios with rules, franchises, retentions and player pools 
 
 ### Settings
 Data management: Cricsheet sync status, schedule, manual sync and import history.
+
+_Built with AI-assisted development ([Google Antigravity](https://antigravity.dev))._
 
 ---
 
@@ -360,6 +382,7 @@ The suite (337 unit tests across 28 test modules, plus 107 integration tests) co
 
 | Document | Contents |
 |---|---|
+| [docs/DESIGN_NOTES.md](docs/DESIGN_NOTES.md) | Engineering design notes, ML architecture & rationale |
 | [docs/cricket-rules.md](docs/cricket-rules.md) | Scoring rules reference |
 | [docs/data-dictionary.md](docs/data-dictionary.md) | Schema and field definitions |
 | [docs/DATA_SYNC.md](docs/DATA_SYNC.md) | Cricsheet sync worker & background updates |
