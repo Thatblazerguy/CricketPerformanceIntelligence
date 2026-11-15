@@ -2,6 +2,8 @@
 
 <div align="center">
 
+[![CI](https://github.com/Thatblazerguy/CricketPerformanceIntelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/Thatblazerguy/CricketPerformanceIntelligence/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
@@ -320,7 +322,7 @@ source .venv/bin/activate
 pytest -v
 ```
 
-The suite (about 340 tests across `tests/unit` and `tests/integration`) covers:
+The suite (337 unit tests across 28 test modules, plus 107 integration tests) covers:
 
 - Cricket rules: legal deliveries, balls faced, runs conceded, dismissal credit, zero-division handling
 - Cricsheet parsing, idempotent ingestion and sync
