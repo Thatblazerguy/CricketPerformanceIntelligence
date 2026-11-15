@@ -40,19 +40,66 @@ docker compose down -v && docker compose up --build
 
 ## Contents
 
-1. [Overview](#overview)
-2. [Dataset](#dataset)
-3. [Features](#features)
-4. [Win Probability Model](#win-probability-model)
-5. [Cricket Rules & Statistical Integrity](#cricket-rules--statistical-integrity)
-6. [Architecture](#architecture)
-7. [Tech Stack](#tech-stack)
-8. [Quick Start with Docker](#quick-start-with-docker)
-9. [Installation & Setup](#installation--setup)
-10. [Data Sync & Derived Tables](#data-sync--derived-tables)
-11. [Tests](#tests)
-12. [Further Documentation](#further-documentation)
-13. [License & Acknowledgements](#license--acknowledgements)
+1. [Screenshots](#screenshots)
+2. [Overview](#overview)
+3. [Dataset](#dataset)
+4. [Features](#features)
+5. [Win Probability Model](#win-probability-model)
+6. [Cricket Rules & Statistical Integrity](#cricket-rules--statistical-integrity)
+7. [Architecture](#architecture)
+8. [Tech Stack](#tech-stack)
+9. [Quick Start with Docker](#quick-start-with-docker)
+10. [Installation & Setup](#installation--setup)
+11. [Configuration](#configuration)
+12. [Data Sync & Derived Tables](#data-sync--derived-tables)
+13. [Tests](#tests)
+14. [Troubleshooting](#troubleshooting)
+15. [Further Documentation](#further-documentation)
+16. [License & Acknowledgements](#license--acknowledgements)
+
+---
+
+## Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/demo.gif" alt="30-second walkthrough of CPI" width="100%" />
+  <br /><em>30-second walkthrough</em>
+</p>
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="docs/screenshots/player-profile.png" alt="Player profile" />
+      <p align="center"><b>Player profile</b><br />Format, year, opponent, venue, bowling-style and phase filters, with batting and bowling deep dives.</p>
+    </td>
+    <td width="50%" valign="top">
+      <img src="docs/screenshots/matchup.png" alt="Batter vs bowler matchup" />
+      <p align="center"><b>Matchups</b><br />Any batter against any bowler: strike rate, dot and boundary %, dismissals and trend.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="docs/screenshots/scouting.png" alt="Scouting rankings" />
+      <p align="center"><b>Scouting</b><br />Role-based recruitment rankings, isolated by format and gender.</p>
+    </td>
+    <td width="50%" valign="top">
+      <img src="docs/screenshots/match-centre.png" alt="Match Centre" />
+      <p align="center"><b>Match Centre</b><br />Scorecards and ball-by-ball match views with win-probability curves.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="docs/screenshots/simulator.png" alt="Match Simulator" />
+      <p align="center"><b>Match Simulator</b><br />Upload both Playing XIs, set conditions and simulate one match or thousands.</p>
+    </td>
+    <td width="50%" valign="top">
+      <img src="docs/screenshots/venue.png" alt="Venue profile" />
+      <p align="center"><b>Venue analytics</b><br />Par scores, toss and chasing records, pitch conditions and venue trends.</p>
+    </td>
+  </tr>
+</table>
+
+To regenerate the screenshots, start the app, launch Chrome with `--remote-debugging-port=9222`, then run `node scripts/capture_screenshots.mjs`.
 
 ---
 
@@ -281,14 +328,20 @@ Schema migrations, sample ingestion, and derived-table building all run automati
 - Node.js 18+ and npm
 - PostgreSQL 14+
 
-### 2. Database
+### 2. Clone
+```bash
+git clone https://github.com/Thatblazerguy/CricketPerformanceIntelligence.git
+cd CricketPerformanceIntelligence
+```
+
+### 3. Database
 ```bash
 createuser -s cpi
 createdb -O cpi cpi_db
 psql -d cpi_db -c "ALTER USER cpi WITH PASSWORD 'cpi';"
 ```
 
-### 3. Backend
+### 4. Backend
 ```bash
 cd backend
 python3 -m venv .venv
@@ -298,7 +351,7 @@ cp ../.env.example .env
 alembic upgrade head
 ```
 
-### 4. Load match data
+### 5. Load match data
 ```bash
 python scripts/ingest.py --limit 100     # quick sample
 python scripts/ingest.py --ipl-only      # IPL only
@@ -307,7 +360,7 @@ python scripts/ingest.py                 # everything configured
 
 Then build the derived tables (see [Data Sync & Derived Tables](#data-sync--derived-tables)).
 
-### 5. Run
+### 6. Run
 
 Everything at once (API, Cricsheet sync worker and frontend):
 ```bash
@@ -329,6 +382,24 @@ npm run dev
 - API docs: `http://localhost:8000/api/docs`
 
 `start.sh` warns if the database schema is behind the code. Apply migrations with `alembic upgrade head`.
+
+---
+
+## Configuration
+
+Settings are read from `backend/.env` (copied from [`.env.example`](.env.example)).
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `DATABASE_URL` | `postgresql+psycopg://cpi:cpi@localhost:5432/cpi_db` | PostgreSQL connection string |
+| `ENVIRONMENT` | `development` | Runtime environment name |
+| `LOG_LEVEL` | `INFO` | Backend log verbosity |
+| `IPL_DATA_DIR` | `../data/raw/ipl/matches` | Folder of Cricsheet IPL JSON files |
+| `T20I_DATA_DIR` | `../data/raw/t20i/matches` | Folder of Cricsheet T20I JSON files |
+| `OPENCRICKET_API_KEY`, `OPENCRICKET_BASE_URL` | unset | Optional. Not needed when using only Cricsheet data |
+| `CRICKET_DATABASE_API_KEY`, `CRICKET_DATABASE_BASE_URL` | unset | Optional player enrichment, used only by the server |
+
+Cricsheet match files can be downloaded from [cricsheet.org/downloads](https://cricsheet.org/downloads/) and unzipped into `data/raw/<format>/matches/`.
 
 ---
 
@@ -363,7 +434,7 @@ source .venv/bin/activate
 pytest -v
 ```
 
-The suite (337 unit tests across 28 test modules, plus 107 integration tests) covers:
+The suite (381 unit tests across 28 test modules, plus 107 integration tests) covers:
 
 - Cricket rules: legal deliveries, balls faced, runs conceded, dismissal credit, zero-division handling
 - Cricsheet parsing, idempotent ingestion and sync
@@ -378,11 +449,25 @@ The suite (337 unit tests across 28 test modules, plus 107 integration tests) co
 
 ---
 
+## Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| Docker demo shows no data | Run `docker compose down -v && docker compose up --build`. The `-v` removes the old database volume so the sample data loads again. |
+| Port `5173`, `8000` or `5432` is already in use | Stop whatever is using the port (`lsof -i :8000`), or change the port mapping in `docker-compose.yml`. |
+| `start.sh` warns that the schema is out of date | `cd backend && source .venv/bin/activate && alembic upgrade head` |
+| `connection refused` when connecting to PostgreSQL | Check that PostgreSQL is running and that `DATABASE_URL` in `backend/.env` matches the user, password and database you created. |
+| Scouting or win-probability pages are empty | Build the derived tables listed under [Data Sync & Derived Tables](#data-sync--derived-tables). |
+
+---
+
 ## Further Documentation
 
 | Document | Contents |
 |---|---|
 | [docs/DESIGN_NOTES.md](docs/DESIGN_NOTES.md) | Engineering design notes, ML architecture & rationale |
+| [docs/HYBRID_DATA_ARCHITECTURE.md](docs/HYBRID_DATA_ARCHITECTURE.md) | Hybrid data engine & career coverage model |
+| [docs/SCORECARD_IMPORT_FORMAT.md](docs/SCORECARD_IMPORT_FORMAT.md) | Scorecard data interchange & import schema |
 | [docs/cricket-rules.md](docs/cricket-rules.md) | Scoring rules reference |
 | [docs/data-dictionary.md](docs/data-dictionary.md) | Schema and field definitions |
 | [docs/DATA_SYNC.md](docs/DATA_SYNC.md) | Cricsheet sync worker & background updates |

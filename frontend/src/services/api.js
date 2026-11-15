@@ -44,6 +44,13 @@ export const getPlayers = (params = {}) => {
   return request(`/players${q ? `?${q}` : ''}`);
 };
 export const getPlayerFilterMetadata = () => request('/players/filter-metadata');
+const cleanQuery = (params = {}) => new URLSearchParams(
+  Object.entries(params).filter(([, v]) => v !== undefined && v !== null && v !== ''),
+).toString();
+// Player directory search (fuzzy names/teams/styles, scoped career stats). `signal` cancels stale requests.
+export const searchPlayers = (params = {}, signal) => request(`/players/search?${cleanQuery(params)}`, { signal });
+export const suggestPlayers = (q, signal) => request(`/players/search/suggest?${cleanQuery({ q, limit: 7 })}`, { signal });
+export const getPlayerSearchOptions = (params = {}) => request(`/players/search/options?${cleanQuery(params)}`);
 export const getPlayerPerformance = (params = {}) => {
   // Clean empty or null params
   const cleanParams = {};
@@ -312,4 +319,22 @@ export const auctionAnalytics = {
   backtestPredictions: (season, version) => request(`/auction/backtest/predictions${v2qs({ season, version })}`),
   backtestRun: () => request('/auction/backtest/run', { method: 'POST' }),
   backtestStatus: () => request('/auction/backtest/status'),
+};
+
+// --- Hybrid data engine: coverage, reconciled careers, Data Health ---
+export const getPlayerCoverage = (id) => request(`/players/${id}/coverage`);
+export const getPlayerCareer = (id, params = {}) => request(`/players/${id}/career${qs(params)}`);
+export const getPlayerReconstruction = (id) => request(`/players/${id}/reconstruction`);
+export const dataHealth = {
+  overview: (params = {}) => request(`/data-health/overview${qs(params)}`),
+  competitions: (params = {}) => request(`/data-health/competitions${qs(params)}`),
+  players: (params = {}) => request(`/data-health/players${qs(params)}`),
+  inventory: (params = {}) => request(`/data-health/inventory${qs(params)}`),
+  duplicates: () => request('/data-health/duplicates'),
+  reconciliation: (params = {}) => request(`/data-health/reconciliation${qs(params)}`),
+  log: (params = {}) => request(`/data-health/log${qs(params)}`),
+  sources: () => request('/data-health/sources'),
+  action: (name, params = {}) => request(`/data-health/actions/${name}${qs(params)}`, { method: 'POST' }),
+  resolveFlag: (id, resolution) => request(`/data-health/reconciliation/${id}/resolve`, { method: 'POST', body: JSON.stringify({ resolution }) }),
+  importScorecards: (bundle) => request('/data-health/scorecards/import', { method: 'POST', body: JSON.stringify(bundle) }),
 };

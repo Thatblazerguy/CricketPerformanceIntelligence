@@ -518,6 +518,61 @@ def list_players(
     return PlayerListResponse(players=result, total=total, page=page, page_size=page_size)
 
 
+def _scope_gender(gender: Optional[str]) -> Optional[str]:
+    g = (gender or "").strip().lower()
+    if g in ("", "all"):
+        return None
+    if g not in ("male", "female"):
+        raise HTTPException(status_code=422, detail="gender must be 'male', 'female' or 'all'")
+    return g
+
+
+@router.get("/players/search")
+def search_players(
+    q: Optional[str] = Query(None, max_length=80),
+    format: Optional[str] = Query(None),
+    gender: Optional[str] = Query(None),
+    competition: Optional[str] = Query(None),
+    team_id: Optional[str] = Query(None),
+    nationality: Optional[str] = Query(None),
+    batting_style: Optional[str] = Query(None),
+    bowling_type: Optional[str] = Query(None),
+    bowling_style: Optional[str] = Query(None),
+    bowling_arm: Optional[str] = Query(None),
+    role: Optional[str] = Query(None),
+    status: Optional[str] = Query(None, pattern="^(active|inactive)$"),
+    min_matches: Optional[int] = Query(None, ge=1),
+    sort: str = Query("relevance"),
+    dir: str = Query("desc", pattern="^(asc|desc)$"),
+    page: int = Query(1, ge=1),
+    page_size: int = Query(24, ge=1, le=100),
+    db: Session = Depends(get_db),
+):
+    """Player directory search with fuzzy names, scoped career stats, filters and role-aware sorting."""
+    from app.services import player_search
+    return player_search.search(
+        db, q=q, match_format=format or None, gender=_scope_gender(gender), competition=competition or None,
+        team_id=team_id or None, nationality=nationality or None, batting_style=batting_style or None,
+        bowling_type=bowling_type or None, bowling_style=bowling_style or None, bowling_arm=bowling_arm or None,
+        role=role or None, status=status or None, min_matches=min_matches, sort=sort, direction=dir,
+        page=page, page_size=page_size,
+    )
+
+
+@router.get("/players/search/suggest")
+def suggest_players(q: str = Query(..., min_length=1, max_length=80), limit: int = Query(8, ge=1, le=20),
+                    db: Session = Depends(get_db)):
+    from app.services import player_search
+    return {"suggestions": player_search.suggest(db, q, limit)}
+
+
+@router.get("/players/search/options")
+def player_search_options(format: Optional[str] = Query(None), gender: Optional[str] = Query(None),
+                          db: Session = Depends(get_db)):
+    from app.services import player_search
+    return player_search.options(db, format or None, _scope_gender(gender))
+
+
 @router.get("/players/filter-metadata", response_model=PlayerFilterMetadataResponse)
 def get_player_filter_metadata(db: Session = Depends(get_db)):
     raw_formats = [

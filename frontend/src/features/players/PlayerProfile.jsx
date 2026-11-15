@@ -12,7 +12,7 @@
  * - Dynamic profile-level filters for Format, Years, Season, Opponent, Venue, Pace/Spin, Phase
  */
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useSearchParams, Link } from 'react-router-dom';
 import {
   getPlayer,
   getPlayerAnalytics,
@@ -29,13 +29,18 @@ import Icon from '../../components/icons';
 import { BarChart, LineChart } from '../../components/charts';
 import MatchCentreLink from '../../components/MatchCentreLink';
 import { BattingDeepDive, BowlingDeepDive } from './PlayerDeepAnalytics';
+import { AnalyticsBasisNote, DataCoverageTab, usePlayerCoverage } from './DataCoverage';
 import { Tabs } from '../../components/ui';
 
 export default function PlayerProfile() {
   const { id } = useParams();
+  const [searchParams] = useSearchParams();
 
-  // Filter State
-  const [format, setFormat] = useState('T20');
+  // Filter State (the directory links with ?format= so the profile opens in a format the player played)
+  const [format, setFormat] = useState(() => {
+    const requested = searchParams.get('format');
+    return ['T20', 'T20I', 'ODI', 'Test', 'ODM', 'MDM'].includes(requested) ? requested : 'T20';
+  });
   const [startYear, setStartYear] = useState('');
   const [endYear, setEndYear] = useState('');
   const [appliedStartYear, setAppliedStartYear] = useState('');
@@ -54,7 +59,8 @@ export default function PlayerProfile() {
       : null;
 
   // Active Tab
-  const [activeTab, setActiveTab] = useState('overview'); // 'overview', 'splits', 'opponents', 'trends', 'similar'
+  const [activeTab, setActiveTab] = useState('overview'); // 'overview', 'splits', 'opponents', 'trends', 'similar', 'coverage'
+  const { coverage } = usePlayerCoverage(id);
 
   // Metadata State (Venues, Teams, Years)
   const [metadata, setMetadata] = useState(null);
@@ -527,16 +533,20 @@ export default function PlayerProfile() {
         { id: 'trends', label: 'Trajectory & Form' },
         { id: 'impact', label: 'Win probability impact' },
         { id: 'similar', label: 'Similar profiles' },
+        { id: 'coverage', label: 'Career & data coverage' },
       ]} />
+
+      <AnalyticsBasisNote coverage={coverage} onOpen={() => setActiveTab('coverage')} />
+      {activeTab === 'coverage' && <DataCoverageTab playerId={id} coverage={coverage} />}
 
       {activeTab === 'batting' && <BattingDeepDive playerId={id} params={deepParams} />}
       {activeTab === 'bowling' && <BowlingDeepDive playerId={id} params={deepParams} bowlingStyle={analytics?.bowling_style} />}
 
       {/* Loading & Error States */}
-      {!['batting', 'bowling'].includes(activeTab) && loading && <LoadingSpinner message="Computing delivery-level performance analytics…" />}
-      {!['batting', 'bowling'].includes(activeTab) && error && <ErrorState message={error} onRetry={fetchAnalytics} />}
+      {!['batting', 'bowling', 'coverage'].includes(activeTab) && loading && <LoadingSpinner message="Computing delivery-level performance analytics…" />}
+      {!['batting', 'bowling', 'coverage'].includes(activeTab) && error && <ErrorState message={error} onRetry={fetchAnalytics} />}
 
-      {!['batting', 'bowling'].includes(activeTab) && !loading && !error && analytics && (
+      {!['batting', 'bowling', 'coverage'].includes(activeTab) && !loading && !error && analytics && (
         <div className="space-y-8">
           {/* TAB 1: OVERVIEW & BENCHMARKS */}
           {activeTab === 'overview' && (

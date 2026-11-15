@@ -21,7 +21,10 @@ export const NAV_GROUPS = [
     { to: '/venues', label: 'Venue Analytics', icon: 'venues', hint: 'Grounds, toss impact and conditions' },
   ] },
   { label: 'Markets', items: [{ to: '/auction', label: 'Auction Intelligence', icon: 'auction', hint: 'Valuation and auction rooms' }] },
-  { label: 'System', items: [{ to: '/settings', label: 'Settings', icon: 'settings', hint: 'Data sync and management' }] },
+  { label: 'System', items: [
+    { to: '/data-health', label: 'Data Health', icon: 'database', hint: 'Coverage, gaps and ingestion' },
+    { to: '/settings', label: 'Settings', icon: 'settings', hint: 'Data sync and management' },
+  ] },
 ];
 
 const FLAT = NAV_GROUPS.flatMap(g => g.items.map(i => ({ ...i, group: g.label })));
