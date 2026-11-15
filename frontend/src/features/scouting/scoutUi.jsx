@@ -79,7 +79,7 @@ export function MiniTable({ columns, rows, empty = 'No data in this scope.', den
     <div className="overflow-x-auto">
       <table className="min-w-full text-xs">
         <thead>
-          <tr className="border-b border-line text-left text-2xs uppercase tracking-wide text-slate-500">
+          <tr className="border-b border-line text-left text-2xs text-slate-500">
             {columns.map(c => <th key={c.key} className={`${dense ? 'px-2 py-1.5' : 'px-3 py-2'} font-medium ${c.align === 'right' ? 'text-right' : ''}`}>{c.label}</th>)}
           </tr>
         </thead>

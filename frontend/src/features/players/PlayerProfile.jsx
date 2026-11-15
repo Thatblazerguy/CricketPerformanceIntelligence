@@ -201,7 +201,7 @@ export default function PlayerProfile() {
 
   const applyYearFilters = () => {
     if (startYear && endYear && Number(startYear) > Number(endYear)) {
-      setYearFilterError('From Year must be earlier than or equal to To Year.');
+      setYearFilterError('From year must be earlier than or equal to To year.');
       return;
     }
     setYearFilterError('');
@@ -286,7 +286,7 @@ export default function PlayerProfile() {
   };
 
   const formatsList = [
-    { id: '', label: 'All Formats' },
+    { id: '', label: 'All formats' },
     { id: 'T20I', label: 'T20I (International)' },
     { id: 'T20', label: 'T20 (Franchise)' },
     { id: 'ODI', label: 'ODI' },
@@ -391,7 +391,7 @@ export default function PlayerProfile() {
               onClick={handleResetFilters}
               className="text-[11px] text-slate-400 hover:text-rose-400 transition-colors"
             >
-              Reset Filters
+              Reset filters
             </button>
           )}
         </div>
@@ -411,9 +411,9 @@ export default function PlayerProfile() {
             </select>
           </div>
 
-          {/* From Year */}
+          {/* From year */}
           <div>
-            <label className="mb-1.5 block text-2xs font-medium text-slate-500">From Year</label>
+            <label className="mb-1.5 block text-2xs font-medium text-slate-500">From year</label>
             <select
               value={startYear}
               onChange={e => setStartYear(e.target.value)}
@@ -427,9 +427,9 @@ export default function PlayerProfile() {
             </select>
           </div>
 
-          {/* To Year */}
+          {/* To year */}
           <div>
-            <label className="mb-1.5 block text-2xs font-medium text-slate-500">To Year</label>
+            <label className="mb-1.5 block text-2xs font-medium text-slate-500">To year</label>
             <select
               value={endYear}
               onChange={e => setEndYear(e.target.value)}
@@ -452,7 +452,7 @@ export default function PlayerProfile() {
               disabled={metadataLoading}
               className="h-9 w-full px-3 text-[13px]"
             >
-              <option value="">All Opponents</option>
+              <option value="">All opponents</option>
               {metadata?.teams?.map(t => (
                 <option key={t.id} value={t.id}>{t.name}</option>
               ))}
@@ -468,7 +468,7 @@ export default function PlayerProfile() {
               disabled={metadataLoading}
               className="h-9 w-full px-3 text-[13px]"
             >
-              <option value="">All Venues</option>
+              <option value="">All venues</option>
               {metadata?.venues?.map(v => (
                 <option key={v.id} value={v.id}>{v.name}</option>
               ))}
@@ -477,13 +477,13 @@ export default function PlayerProfile() {
 
           {/* Bowling Style (Pace vs Spin) */}
           <div>
-            <label className="mb-1.5 block text-2xs font-medium text-slate-500">Bowler Style</label>
+            <label className="mb-1.5 block text-2xs font-medium text-slate-500">Bowler style</label>
             <select
               value={bowlingStyle}
               onChange={e => setBowlingStyle(e.target.value)}
               className="h-9 w-full px-3 text-[13px]"
             >
-              <option value="">All Styles</option>
+              <option value="">All styles</option>
               <option value="pace">vs Pace Bowlers</option>
               <option value="spin">vs Spin Bowlers</option>
               {(metadata?.bowling_styles || []).map(style => <option key={style} value={style}>{style}</option>)}
@@ -492,13 +492,13 @@ export default function PlayerProfile() {
 
           {/* Phase */}
           <div>
-            <label className="mb-1.5 block text-2xs font-medium text-slate-500">Match Phase</label>
+            <label className="mb-1.5 block text-2xs font-medium text-slate-500">Match phase</label>
             <select
               value={phase}
               onChange={e => setPhase(e.target.value)}
               className="h-9 w-full px-3 text-[13px]"
             >
-              <option value="">All Overs</option>
+              <option value="">All overs</option>
               {phaseLabels ? <>
                 <option value="powerplay">{phaseLabels.powerplay}</option>
                 <option value="middle">{phaseLabels.middle}</option>
@@ -510,7 +510,7 @@ export default function PlayerProfile() {
         <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
           <div className="text-[11px] text-slate-500">
             {appliedStartYear || appliedEndYear ? `Showing ${appliedStartYear || 'all available years'}–${appliedEndYear || 'all available years'} · ${format || 'all formats'}` : `Showing all available years · ${format || 'all formats'}`}
-            {(yearFilterError || (invalidYearRange && 'From Year must be earlier than or equal to To Year.') || metadataError) && <span className="block text-rose-400 mt-1">{yearFilterError || (invalidYearRange ? 'From Year must be earlier than or equal to To Year.' : metadataError)}</span>}
+            {(yearFilterError || (invalidYearRange && 'From year must be earlier than or equal to To year.') || metadataError) && <span className="block text-rose-400 mt-1">{yearFilterError || (invalidYearRange ? 'From year must be earlier than or equal to To year.' : metadataError)}</span>}
           </div>
           <button onClick={applyYearFilters} disabled={invalidYearRange}
             className="btn btn-primary btn-sm">Apply year range</button>
@@ -520,13 +520,13 @@ export default function PlayerProfile() {
       {/* Navigation Tabs */}
       <Tabs value={activeTab} onChange={setActiveTab} tabs={[
         { id: 'overview', label: 'Overview' },
-        { id: 'batting', label: 'Batting Deep Dive' },
-        { id: 'bowling', label: 'Bowling Deep Dive' },
-        { id: 'splits', label: 'Pace/Spin & Phases' },
-        { id: 'opponents', label: 'Opponents & Venues' },
+        { id: 'batting', label: 'Batting deep dive' },
+        { id: 'bowling', label: 'Bowling deep dive' },
+        { id: 'splits', label: 'Pace/spin & phases' },
+        { id: 'opponents', label: 'Opponents & venues' },
         { id: 'trends', label: 'Trajectory & Form' },
-        { id: 'impact', label: 'Win Probability Impact' },
-        { id: 'similar', label: 'Similar Profiles' },
+        { id: 'impact', label: 'Win probability impact' },
+        { id: 'similar', label: 'Similar profiles' },
       ]} />
 
       {activeTab === 'batting' && <BattingDeepDive playerId={id} params={deepParams} />}
@@ -544,91 +544,91 @@ export default function PlayerProfile() {
               {/* Tactical Strengths & Weaknesses Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-emerald-950/20 border border-emerald-800/40 rounded-xl p-4">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-1.5">
-                    <span>✓</span> Key Strengths & Tactical Edges
+                  <h3 className="text-xs font-semibold text-emerald-400 mb-2 flex items-center gap-1.5">
+                    <span>✓</span> Key strengths & tactical edges
                   </h3>
                   {analytics.primary_role.includes('All-Rounder') ? <div className="grid sm:grid-cols-2 gap-3 text-xs text-slate-300">
                     {[['Batting', analytics.strengths_weaknesses.batting_strengths], ['Bowling', analytics.strengths_weaknesses.bowling_strengths]].map(([label, items]) => <div key={label}>
-                      <p className="text-[10px] uppercase tracking-wide text-emerald-300 mb-1">{label}</p>
+                      <p className="text-[10px] text-emerald-300 mb-1">{label}</p>
                       {items.map((s, i) => <p key={i} className="mb-1">• {s}</p>)}
                     </div>)}
                   </div> : <ul className="space-y-1.5 text-xs text-slate-300">
-                    {analytics.strengths_weaknesses.strengths.map((s, i) => <li key={i} className="flex items-start gap-2"><span className="text-emerald-400 font-bold">•</span><span>{s}</span></li>)}
+                    {analytics.strengths_weaknesses.strengths.map((s, i) => <li key={i} className="flex items-start gap-2"><span className="text-emerald-400 font-semibold">•</span><span>{s}</span></li>)}
                   </ul>}
                 </div>
 
                 <div className="bg-rose-950/20 border border-rose-800/40 rounded-xl p-4">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-rose-400 mb-2 flex items-center gap-1.5">
-                    <span>⚠</span> Caveats & Matchup Vulnerabilities
+                  <h3 className="text-xs font-semibold text-rose-400 mb-2 flex items-center gap-1.5">
+                    <span>⚠</span> Caveats & matchup vulnerabilities
                   </h3>
                   {analytics.primary_role.includes('All-Rounder') ? <div className="grid sm:grid-cols-2 gap-3 text-xs text-slate-300">
                     {[['Batting', analytics.strengths_weaknesses.batting_weaknesses], ['Bowling', analytics.strengths_weaknesses.bowling_weaknesses]].map(([label, items]) => <div key={label}>
-                      <p className="text-[10px] uppercase tracking-wide text-rose-300 mb-1">{label}</p>
+                      <p className="text-[10px] text-rose-300 mb-1">{label}</p>
                       {items.map((w, i) => <p key={i} className="mb-1">• {w}</p>)}
                     </div>)}
                   </div> : <ul className="space-y-1.5 text-xs text-slate-300">
-                    {analytics.strengths_weaknesses.weaknesses.map((w, i) => <li key={i} className="flex items-start gap-2"><span className="text-rose-400 font-bold">•</span><span>{w}</span></li>)}
+                    {analytics.strengths_weaknesses.weaknesses.map((w, i) => <li key={i} className="flex items-start gap-2"><span className="text-rose-400 font-semibold">•</span><span>{w}</span></li>)}
                   </ul>}
                 </div>
               </div>
 
-              {/* Complete Batting Benchmarks */}
+              {/* Complete batting benchmarks */}
               <section className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Complete Batting Benchmarks</h3>
+                  <h3 className="text-xs font-semibold text-slate-400">Complete batting benchmarks</h3>
                   <span className="text-[11px] text-slate-500 font-mono">
                     {analytics.batting.sample_note}
                   </span>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3">
                   <StatCard label="Runs" value={analytics.batting.runs.toLocaleString()} highlight />
-                  <StatCard label="Batting Avg" value={analytics.batting.average != null ? analytics.batting.average.toFixed(2) : '—'} highlight />
-                  <StatCard label="Strike Rate" value={analytics.batting.strike_rate != null ? analytics.batting.strike_rate.toFixed(1) : '—'} highlight />
-                  <StatCard label="Highest Score" value={<MatchCentreLink matchId={analytics.batting.highest_score_match_id} context={{ playerId: id, focus: 'batting' }}>{analytics.batting.highest_score}</MatchCentreLink>} />
+                  <StatCard label="Batting avg" value={analytics.batting.average != null ? analytics.batting.average.toFixed(2) : '—'} highlight />
+                  <StatCard label="Strike rate" value={analytics.batting.strike_rate != null ? analytics.batting.strike_rate.toFixed(1) : '—'} highlight />
+                  <StatCard label="Highest score" value={<MatchCentreLink matchId={analytics.batting.highest_score_match_id} context={{ playerId: id, focus: 'batting' }}>{analytics.batting.highest_score}</MatchCentreLink>} />
                   <StatCard label="Innings / NO" value={`${analytics.batting.innings} / ${analytics.batting.not_outs}`} />
-                  <StatCard label="Balls Faced" value={analytics.batting.balls_faced.toLocaleString()} />
+                  <StatCard label="Balls faced" value={analytics.batting.balls_faced.toLocaleString()} />
                   <StatCard label="Boundaries (4s/6s)" value={`${analytics.batting.fours} / ${analytics.batting.sixes}`} />
                   <StatCard label="Boundary %" value={analytics.batting.boundary_percentage != null ? `${analytics.batting.boundary_percentage.toFixed(1)}%` : '—'} />
-                  <StatCard label="Dot Ball %" value={analytics.batting.dot_ball_percentage != null ? `${analytics.batting.dot_ball_percentage.toFixed(1)}%` : '—'} />
+                  <StatCard label="Dot ball %" value={analytics.batting.dot_ball_percentage != null ? `${analytics.batting.dot_ball_percentage.toFixed(1)}%` : '—'} />
                   <StatCard label="Dismissals" value={analytics.batting.dismissals} />
                 </div>
               </section>
 
-              {/* Complete Bowling Benchmarks (if bowled) */}
+              {/* Complete bowling benchmarks (if bowled) */}
               {analytics.bowling.legal_balls > 0 && (
                 <section className="space-y-3 pt-4 border-t border-slate-800">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Complete Bowling Benchmarks</h3>
+                    <h3 className="text-xs font-semibold text-slate-400">Complete bowling benchmarks</h3>
                     <span className="text-[11px] text-slate-500 font-mono">
                       {analytics.bowling.sample_note}
                     </span>
                   </div>
                   <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3">
                     <StatCard label="Wickets" value={analytics.bowling.wickets} highlight />
-                    <StatCard label="Economy Rate" value={analytics.bowling.economy_rate != null ? analytics.bowling.economy_rate.toFixed(2) : '—'} highlight />
-                    <StatCard label="Bowling Avg" value={analytics.bowling.bowling_average != null ? analytics.bowling.bowling_average.toFixed(2) : '—'} />
+                    <StatCard label="Economy rate" value={analytics.bowling.economy_rate != null ? analytics.bowling.economy_rate.toFixed(2) : '—'} highlight />
+                    <StatCard label="Bowling avg" value={analytics.bowling.bowling_average != null ? analytics.bowling.bowling_average.toFixed(2) : '—'} />
                     <StatCard label="Bowling SR" value={analytics.bowling.bowling_strike_rate != null ? analytics.bowling.bowling_strike_rate.toFixed(1) : '—'} />
-                    <StatCard label="Overs Bowled" value={analytics.bowling.overs_display} />
-                    <StatCard label="Runs Conceded" value={analytics.bowling.runs_conceded.toLocaleString()} />
-                    <StatCard label="Dot Ball %" value={analytics.bowling.dot_ball_percentage != null ? `${analytics.bowling.dot_ball_percentage.toFixed(1)}%` : '—'} />
-                    <StatCard label="Innings Bowled" value={analytics.bowling.innings_bowled} />
+                    <StatCard label="Overs bowled" value={analytics.bowling.overs_display} />
+                    <StatCard label="Runs conceded" value={analytics.bowling.runs_conceded.toLocaleString()} />
+                    <StatCard label="Dot ball %" value={analytics.bowling.dot_ball_percentage != null ? `${analytics.bowling.dot_ball_percentage.toFixed(1)}%` : '—'} />
+                    <StatCard label="Innings bowled" value={analytics.bowling.innings_bowled} />
                   </div>
                 </section>
               )}
 
               {/* Format-by-Format Breakdown Table */}
               <section className="space-y-3 pt-4 border-t border-slate-800">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Multi-Format Comparison (Test, ODI, T20, T20I)</h3>
+                <h3 className="text-xs font-semibold text-slate-400">Multi-format comparison (Test, ODI, T20, T20I)</h3>
                 <div className="panel overflow-x-auto">
                   <table className="w-full text-left text-xs text-slate-300">
-                    <thead className="bg-slate-800 text-[11px] uppercase tracking-wider text-slate-400">
+                    <thead className="bg-slate-800 text-[11px] text-slate-400">
                       <tr>
                         <th className="py-2.5 px-4 font-semibold">Format</th>
                         <th className="py-2.5 px-3 text-right">Matches</th>
                         <th className="py-2.5 px-3 text-right">Innings</th>
                         <th className="py-2.5 px-3 text-right">Runs</th>
-                        <th className="py-2.5 px-3 text-right">Bat Avg</th>
-                        <th className="py-2.5 px-3 text-right">Strike Rate</th>
+                        <th className="py-2.5 px-3 text-right">Bat avg</th>
+                        <th className="py-2.5 px-3 text-right">Strike rate</th>
                         <th className="py-2.5 px-3 text-right">Overs</th>
                         <th className="py-2.5 px-3 text-right">Wickets</th>
                         <th className="py-2.5 px-3 text-right">Economy</th>
@@ -649,11 +649,11 @@ export default function PlayerProfile() {
                           </td>
                           <td className="py-2 px-3 text-right text-slate-400">{f.matches}</td>
                           <td className="py-2 px-3 text-right text-slate-400">{f.innings_batted}</td>
-                          <td className="py-2 px-3 text-right font-bold text-white">{f.runs > 0 ? f.runs.toLocaleString() : '—'}</td>
+                          <td className="py-2 px-3 text-right font-semibold text-white">{f.runs > 0 ? f.runs.toLocaleString() : '—'}</td>
                           <td className="py-2 px-3 text-right font-medium text-indigo-300">{f.batting_average != null ? f.batting_average.toFixed(2) : '—'}</td>
                           <td className="py-2 px-3 text-right font-medium text-emerald-400">{f.batting_strike_rate != null ? f.batting_strike_rate.toFixed(1) : '—'}</td>
                           <td className="py-2 px-3 text-right text-slate-400">{f.overs_bowled !== '0.0' ? f.overs_bowled : '—'}</td>
-                          <td className="py-2 px-3 text-right font-bold text-amber-300">{f.wickets > 0 ? f.wickets : '—'}</td>
+                          <td className="py-2 px-3 text-right font-semibold text-amber-300">{f.wickets > 0 ? f.wickets : '—'}</td>
                           <td className="py-2 px-3 text-right text-slate-300">{f.economy_rate != null ? f.economy_rate.toFixed(2) : '—'}</td>
                         </tr>
                       ))}
@@ -675,7 +675,7 @@ export default function PlayerProfile() {
             <div className="space-y-6">
               {/* Pace vs Spin Section */}
               <section className="space-y-3">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Batting Splits: Pace versus Spin</h3>
+                <h3 className="text-xs font-semibold text-slate-400">Batting splits: pace versus spin</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {analytics.pace_spin.map(ps => (
                     <div
@@ -687,7 +687,7 @@ export default function PlayerProfile() {
                       }`}
                     >
                       <div className="flex items-center justify-between mb-3">
-                        <span className="font-bold text-sm uppercase tracking-wide text-white">
+                        <span className="font-semibold text-sm text-white">
                           vs {ps.style} Bowling
                         </span>
                         <span className={`text-xs px-2 py-0.5 rounded font-semibold ${
@@ -699,18 +699,18 @@ export default function PlayerProfile() {
 
                       <div className="grid grid-cols-3 gap-2 mb-3">
                         <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 text-center">
-                          <span className="block text-[10px] text-slate-500 uppercase">Runs</span>
-                          <span className="font-bold text-base text-white">{ps.runs.toLocaleString()}</span>
+                          <span className="block text-[10px] text-slate-500">Runs</span>
+                          <span className="font-semibold text-base text-white">{ps.runs.toLocaleString()}</span>
                         </div>
                         <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 text-center">
-                          <span className="block text-[10px] text-slate-500 uppercase">Strike Rate</span>
-                          <span className="font-bold text-base text-emerald-400">
+                          <span className="block text-[10px] text-slate-500">Strike rate</span>
+                          <span className="font-semibold text-base text-emerald-400">
                             {ps.strike_rate != null ? ps.strike_rate.toFixed(1) : '—'}
                           </span>
                         </div>
                         <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 text-center">
-                          <span className="block text-[10px] text-slate-500 uppercase">Average</span>
-                          <span className="font-bold text-base text-indigo-300">
+                          <span className="block text-[10px] text-slate-500">Average</span>
+                          <span className="font-semibold text-base text-indigo-300">
                             {ps.average != null ? ps.average.toFixed(2) : '—'}
                           </span>
                         </div>
@@ -737,7 +737,7 @@ export default function PlayerProfile() {
 
               {/* Phase-wise Breakdown */}
               <section className="space-y-3 pt-4 border-t border-slate-800">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Phase-by-Phase Batting Breakdown</h3>
+                <h3 className="text-xs font-semibold text-slate-400">Phase-by-phase batting breakdown</h3>
                 {phaseLabels && <BarChart title="Runs by innings phase" subtitle="Format-specific phase rules; delivery totals come from the filtered player analytics." data={analytics.phases.map(p => ({ label: phaseLabels[p.phase] || p.phase, value: p.runs }))} formatter={value => `${Math.round(value).toLocaleString()} runs`} color="var(--c2)" />}
                 {phaseLabels && <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                   <BarChart title="Phase batting strike rate" subtitle="Runs per 100 faced balls; unavailable phases are omitted." data={analytics.phases.filter(p=>p.strike_rate!=null).map(p=>({label:phaseLabels[p.phase]||p.phase,value:p.strike_rate}))} formatter={value=>Number(value).toFixed(1)} color="var(--c4)" />
@@ -745,12 +745,12 @@ export default function PlayerProfile() {
                 </div>}
                 {!phaseLabels ? <p className="text-xs text-slate-500">Select T20, T20I, ODI or ODM to view comparable phase breakdowns. Test and multi-day cricket use innings progression instead of powerplay phases.</p> : <div className="panel overflow-x-auto">
                   <table className="w-full text-left text-xs text-slate-300">
-                    <thead className="bg-slate-800 text-[11px] uppercase tracking-wider text-slate-400">
+                    <thead className="bg-slate-800 text-[11px] text-slate-400">
                       <tr>
-                        <th className="py-2.5 px-4 font-semibold">Match Phase</th>
+                        <th className="py-2.5 px-4 font-semibold">Match phase</th>
                         <th className="py-2.5 px-3 text-right">Runs</th>
                         <th className="py-2.5 px-3 text-right">Balls</th>
-                        <th className="py-2.5 px-3 text-right">Strike Rate</th>
+                        <th className="py-2.5 px-3 text-right">Strike rate</th>
                         <th className="py-2.5 px-3 text-right">Average</th>
                         <th className="py-2.5 px-3 text-right">4s / 6s</th>
                         <th className="py-2.5 px-3 text-right">Dot Ball %</th>
@@ -763,9 +763,9 @@ export default function PlayerProfile() {
                           <td className="py-2.5 px-4 font-sans font-semibold text-white capitalize">
                             {phaseLabels?.[p.phase] || p.phase.replace('_', ' ')}
                           </td>
-                          <td className="py-2.5 px-3 text-right font-bold text-white">{p.runs.toLocaleString()}</td>
+                          <td className="py-2.5 px-3 text-right font-semibold text-white">{p.runs.toLocaleString()}</td>
                           <td className="py-2.5 px-3 text-right text-slate-400">{p.balls.toLocaleString()}</td>
-                          <td className="py-2.5 px-3 text-right font-bold text-emerald-400">
+                          <td className="py-2.5 px-3 text-right font-semibold text-emerald-400">
                             {p.strike_rate != null ? p.strike_rate.toFixed(1) : '—'}
                           </td>
                           <td className="py-2.5 px-3 text-right font-medium text-indigo-300">
@@ -785,7 +785,7 @@ export default function PlayerProfile() {
                 </div>}
               </section>
               <section className="space-y-3 pt-4 border-t border-slate-800">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Bowling Phases & Economy</h3>
+                <h3 className="text-xs font-semibold text-slate-400">Bowling phases & economy</h3>
                 {!analytics.bowling_phases?.length ? <p className="text-xs text-slate-500">No phase or innings-progression bowling sample is available for this format and range.</p> : <>
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                     <BarChart title="Bowler-credit wickets by phase" subtitle="Super overs and non-bowler dismissals are excluded by the analytics API." data={analytics.bowling_phases.map(p => ({ label: p.phase.replaceAll('_', ' '), value: p.wickets }))} formatter={value => `${Math.round(value)} wickets`} color="var(--c3)" />
@@ -811,8 +811,8 @@ export default function PlayerProfile() {
                   {['Test', 'MDM'].includes(format) && <p className="text-[10px] text-slate-500">Test/MDM periods are thirds of each innings by recorded over progression, not powerplay phases.</p>}
                 </>}
                 {analytics.bowling_pace_spin?.length > 0 && <div className="rounded-lg border border-slate-800 overflow-x-auto">
-                  <div className="px-3 py-2 text-[10px] font-bold uppercase tracking-wide text-slate-400">Bowling effectiveness by style</div>
-                  <table className="w-full text-xs text-slate-300"><thead className="bg-slate-800 text-[10px] uppercase text-slate-400"><tr><th className="p-2 text-left">Style</th><th className="p-2 text-right">Overs</th><th className="p-2 text-right">Wkts</th><th className="p-2 text-right">Economy</th><th className="p-2 text-right">Average</th><th className="p-2 text-right">SR</th><th className="p-2 text-right">Dots</th><th className="p-2 text-right">Boundaries</th></tr></thead>
+                  <div className="px-3 py-2 text-[10px] font-semibold text-slate-400">Bowling effectiveness by style</div>
+                  <table className="w-full text-xs text-slate-300"><thead className="bg-slate-800 text-[10px] text-slate-400"><tr><th className="p-2 text-left">Style</th><th className="p-2 text-right">Overs</th><th className="p-2 text-right">Wkts</th><th className="p-2 text-right">Economy</th><th className="p-2 text-right">Average</th><th className="p-2 text-right">SR</th><th className="p-2 text-right">Dots</th><th className="p-2 text-right">Boundaries</th></tr></thead>
                     <tbody>{analytics.bowling_pace_spin.map(s => <tr key={s.style} className="border-t border-slate-800"><td className="p-2 capitalize">{s.style}</td><td className="p-2 text-right">{s.overs}</td><td className="p-2 text-right">{s.wickets}</td><td className="p-2 text-right">{s.economy?.toFixed(2) ?? '—'}</td><td className="p-2 text-right">{s.bowling_average?.toFixed(1) ?? '—'}</td><td className="p-2 text-right">{s.bowling_strike_rate?.toFixed(1) ?? '—'}</td><td className="p-2 text-right">{s.dot_ball_percentage?.toFixed(1) ?? '—'}%</td><td className="p-2 text-right">{s.boundary_percentage?.toFixed(1) ?? '—'}%</td></tr>)}</tbody>
                   </table>
                 </div>}
@@ -825,14 +825,14 @@ export default function PlayerProfile() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Opponent Teams */}
               <div className="space-y-3">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Performance by Opponent Team</h3>
+                <h3 className="text-xs font-semibold text-slate-400">Performance by opponent team</h3>
                 <div className="grid grid-cols-1 gap-3">
                   <BarChart title="Runs by opponent" subtitle="Top opponent samples in this filtered format and date range." data={[...analytics.by_opponent].filter(o=>Number(o.runs)>0).sort((a,b)=>b.runs-a.runs).slice(0,8).map(o=>({label:`${o.opponent_name} · ${o.matches} matches`,value:o.runs}))} formatter={value=>Math.round(value).toLocaleString()} color="var(--c1)" />
                   <BarChart title="Strike rate by opponent" subtitle="Only opponent splits with recorded faced-ball denominators." data={[...analytics.by_opponent].filter(o=>o.batting_strike_rate!=null).sort((a,b)=>b.batting_strike_rate-a.batting_strike_rate).slice(0,8).map(o=>({label:`${o.opponent_name} · ${o.matches} matches`,value:o.batting_strike_rate}))} formatter={value=>Number(value).toFixed(1)} color="var(--c2)" />
                 </div>
                 <div className="panel overflow-x-auto">
                   <table className="w-full text-left text-xs text-slate-300">
-                    <thead className="bg-slate-800 text-[11px] uppercase tracking-wider text-slate-400">
+                    <thead className="bg-slate-800 text-[11px] text-slate-400">
                       <tr>
                         <th className="py-2.5 px-3 font-semibold">Opponent</th>
                         <th className="py-2.5 px-2 text-right">Mat</th>
@@ -846,7 +846,7 @@ export default function PlayerProfile() {
                         <tr key={o.opponent_id} className="hover:bg-slate-800/40">
                           <td className="py-2 px-3 font-sans font-medium text-slate-200">{o.opponent_name}</td>
                           <td className="py-2 px-2 text-right text-slate-400">{o.matches}</td>
-                          <td className="py-2 px-2 text-right font-bold text-white">{o.runs.toLocaleString()}</td>
+                          <td className="py-2 px-2 text-right font-semibold text-white">{o.runs.toLocaleString()}</td>
                           <td className="py-2 px-2 text-right text-slate-400">{o.balls_faced}</td>
                           <td className="py-2 px-2 text-right font-medium text-emerald-400">
                             {o.batting_strike_rate != null ? o.batting_strike_rate.toFixed(1) : '—'}
@@ -860,14 +860,14 @@ export default function PlayerProfile() {
 
               {/* Top Venues */}
               <div className="space-y-3">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Performance by Venue</h3>
+                <h3 className="text-xs font-semibold text-slate-400">Performance by venue</h3>
                 <div className="grid grid-cols-1 gap-3">
                   <BarChart title="Runs by venue" subtitle="Top venue totals in the selected format and date range." data={[...analytics.by_venue].filter(v=>Number(v.runs)>0).sort((a,b)=>b.runs-a.runs).slice(0,8).map(v=>({label:`${v.venue_name} · ${v.matches} matches`,value:v.runs}))} formatter={value=>Math.round(value).toLocaleString()} color="var(--c5)" />
                   <BarChart title="Strike rate by venue" subtitle="Venue splits with observed balls faced only." data={[...analytics.by_venue].filter(v=>v.batting_strike_rate!=null).sort((a,b)=>b.batting_strike_rate-a.batting_strike_rate).slice(0,8).map(v=>({label:`${v.venue_name} · ${v.matches} matches`,value:v.batting_strike_rate}))} formatter={value=>Number(value).toFixed(1)} color="var(--c4)" />
                 </div>
                 <div className="panel overflow-x-auto">
                   <table className="w-full text-left text-xs text-slate-300">
-                    <thead className="bg-slate-800 text-[11px] uppercase tracking-wider text-slate-400">
+                    <thead className="bg-slate-800 text-[11px] text-slate-400">
                       <tr>
                         <th className="py-2.5 px-3 font-semibold">Venue</th>
                         <th className="py-2.5 px-2 text-right">Mat</th>
@@ -883,7 +883,7 @@ export default function PlayerProfile() {
                             {v.venue_name} {v.city ? <span className="text-slate-500 text-[10px]">({v.city})</span> : ''}
                           </td>
                           <td className="py-2 px-2 text-right text-slate-400">{v.matches}</td>
-                          <td className="py-2 px-2 text-right font-bold text-white">{v.runs.toLocaleString()}</td>
+                          <td className="py-2 px-2 text-right font-semibold text-white">{v.runs.toLocaleString()}</td>
                           <td className="py-2 px-2 text-right text-slate-400">{v.balls_faced}</td>
                           <td className="py-2 px-2 text-right font-medium text-emerald-400">
                             {v.batting_strike_rate != null ? v.batting_strike_rate.toFixed(1) : '—'}
@@ -902,7 +902,7 @@ export default function PlayerProfile() {
             <div className="space-y-6">
               {/* Year Trends */}
               <section className="space-y-3">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Year-by-Year Performance Trajectory</h3>
+                <h3 className="text-xs font-semibold text-slate-400">Year-by-year performance trajectory</h3>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                   <LineChart title="Runs by year" subtitle="Runs from the selected format and applied date filters." data={analytics.year_trends.map(y => ({ label: y.year, value: y.runs }))} formatter={value => Math.round(value).toLocaleString()} color="var(--c1)" />
                   <LineChart title="Batting strike rate by year" subtitle="Years without faced-ball data are omitted rather than treated as zero." data={analytics.year_trends.filter(y => y.batting_strike_rate != null).map(y => ({ label: y.year, value: y.batting_strike_rate }))} formatter={value => Number(value).toFixed(1)} color="var(--c2)" />
@@ -911,21 +911,21 @@ export default function PlayerProfile() {
                 <LineChart title="Runs in recent matches" subtitle="Latest ten batting appearances, shown oldest to newest; these are match-level totals from the filtered analytics API." data={[...(analytics.recent_matches || [])].reverse().map(m=>({label:(m.match_date || '').slice(0,10),value:m.runs}))} formatter={value=>Math.round(value).toLocaleString()} color="var(--c5)" />
                 <div className="panel overflow-x-auto">
                   <table className="w-full text-left text-xs text-slate-300">
-                    <thead className="bg-slate-800 text-[11px] uppercase tracking-wider text-slate-400">
+                    <thead className="bg-slate-800 text-[11px] text-slate-400">
                       <tr>
                         <th className="py-2.5 px-4 font-semibold">Year</th>
                         <th className="py-2.5 px-3 text-right">Matches</th>
                         <th className="py-2.5 px-3 text-right">Runs</th>
-                        <th className="py-2.5 px-3 text-right">Balls Faced</th>
-                        <th className="py-2.5 px-3 text-right">Strike Rate</th>
+                        <th className="py-2.5 px-3 text-right">Balls faced</th>
+                        <th className="py-2.5 px-3 text-right">Strike rate</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-800 font-mono text-[12px]">
                       {analytics.year_trends.map(y => (
                         <tr key={y.year} className="hover:bg-slate-800/40">
-                          <td className="py-2 px-4 font-sans font-bold text-indigo-300">{y.year}</td>
+                          <td className="py-2 px-4 font-sans font-semibold text-indigo-300">{y.year}</td>
                           <td className="py-2 px-3 text-right text-slate-400">{y.matches}</td>
-                          <td className="py-2 px-3 text-right font-bold text-white">{y.runs.toLocaleString()}</td>
+                          <td className="py-2 px-3 text-right font-semibold text-white">{y.runs.toLocaleString()}</td>
                           <td className="py-2 px-3 text-right text-slate-400">{y.balls_faced}</td>
                           <td className="py-2 px-3 text-right font-medium text-emerald-400">
                             {y.batting_strike_rate != null ? y.batting_strike_rate.toFixed(1) : '—'}
@@ -939,17 +939,17 @@ export default function PlayerProfile() {
 
               {/* Recent Matches */}
               <section className="space-y-3 pt-4 border-t border-slate-800">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Recent Match Logs (Last 10 Matches)</h3>
+                <h3 className="text-xs font-semibold text-slate-400">Recent match logs (last 10 matches)</h3>
                 <div className="panel overflow-x-auto">
                   <table className="w-full text-left text-xs text-slate-300">
-                    <thead className="bg-slate-800 text-[11px] uppercase tracking-wider text-slate-400">
+                    <thead className="bg-slate-800 text-[11px] text-slate-400">
                       <tr>
                         <th className="py-2.5 px-4 font-semibold">Date</th>
                         <th className="py-2.5 px-2">Format</th>
                         <th className="py-2.5 px-3">Opponent</th>
                         <th className="py-2.5 px-3">Venue</th>
                         <th className="py-2.5 px-3 text-right">Runs (Balls)</th>
-                        <th className="py-2.5 px-3 text-right">Strike Rate</th>
+                        <th className="py-2.5 px-3 text-right">Strike rate</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-800 font-mono text-[11px]">
@@ -959,7 +959,7 @@ export default function PlayerProfile() {
                           <td className="py-2 px-2 font-sans font-medium text-indigo-300">{m.format}</td>
                           <td className="py-2 px-3 font-sans font-medium text-slate-200">{m.opponent_name}</td>
                           <td className="py-2 px-3 font-sans text-slate-400 truncate max-w-xs">{m.venue_name}</td>
-                          <td className="py-2 px-3 text-right font-bold text-white">
+                          <td className="py-2 px-3 text-right font-semibold text-white">
                             <MatchCentreLink matchId={m.match_id} context={{ tab: 'scorecard', playerId: id, focus: 'batting' }}>{m.runs}</MatchCentreLink> <span className="font-normal text-slate-500">({m.balls_faced})</span>
                           </td>
                           <td className="py-2 px-3 text-right font-medium text-emerald-400">
@@ -979,7 +979,7 @@ export default function PlayerProfile() {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-indigo-400">Role-aware player similarity</h3>
+                  <h3 className="text-xs font-semibold text-indigo-400">Role-aware player similarity</h3>
                   <p className="text-xs text-slate-500 mt-0.5">
                     {similarMode === 'bowler' ? 'Bowling-only profiles, compared within the selected format.' : similarMode === 'all_rounder' ? 'Batting and bowling are scored separately and weighted equally.' : 'Batting profiles, compared within the selected format.'}
                   </p>
@@ -1009,11 +1009,11 @@ export default function PlayerProfile() {
                       <div className="flex items-center justify-between">
                         <Link
                           to={`/players/${sp.player_id}`}
-                          className="font-bold text-white hover:text-indigo-400 transition-colors text-sm"
+                          className="font-semibold text-white hover:text-indigo-400 transition-colors text-sm"
                         >
                           {sp.player_name}
                         </Link>
-                        <span className="bg-emerald-950 text-emerald-300 border border-emerald-800/80 px-2 py-0.5 rounded text-[11px] font-bold">
+                        <span className="bg-emerald-950 text-emerald-300 border border-emerald-800/80 px-2 py-0.5 rounded text-[11px] font-semibold">
                           {Math.round(sp.similarity_score)}% match
                         </span>
                       </div>
@@ -1045,7 +1045,7 @@ export default function PlayerProfile() {
                         <div className="text-[11px] text-slate-400 space-y-1 pt-1">
                           {[...(sp.explanations || []).slice(0, 2), ...(sp.differences || []).slice(0, 1)].map((exp, idx) => (
                             <p key={idx} className="flex items-start gap-1.5">
-                              <span className="text-indigo-400 font-bold">•</span>
+                              <span className="text-indigo-400 font-semibold">•</span>
                               <span>{exp}</span>
                             </p>
                           ))}
@@ -1069,8 +1069,8 @@ export default function PlayerProfile() {
 
           {activeTab === 'impact' && (
             <section className="panel space-y-4 p-4 sm:p-5">
-              <div><h3 className="font-semibold text-white">Career Win Probability Added</h3><p className="mt-1 text-xs text-slate-500">Format-separated cumulative probability change across precomputed historical deliveries. Bowling impact is signed from the bowling team's perspective.</p></div>
-              {winImpactLoading ? <LoadingSpinner message="Loading precomputed player impact…" /> : winImpact?.formats?.length ? <div className="overflow-x-auto"><table className="w-full min-w-[760px] text-sm"><thead className="text-left text-xs uppercase tracking-wide text-slate-500"><tr><th className="py-2">Format</th><th className="py-2 text-right">Matches</th><th className="py-2 text-right">Batting WPA</th><th className="py-2 text-right">Bowling WPA</th><th className="py-2 text-right">Combined WPA</th><th className="py-2 text-right">Avg / match</th><th className="py-2 text-right">Peak delivery</th><th className="py-2 text-right">Peak match</th></tr></thead><tbody className="divide-y divide-slate-800">{winImpact.formats.map(row => <tr key={row.format}><td className="py-3 font-medium text-white">{row.format}</td><td className="py-3 text-right tabular-nums text-slate-300">{row.matches}</td><td className="py-3 text-right tabular-nums text-indigo-300">{row.batting_wpa.toFixed(3)}</td><td className="py-3 text-right tabular-nums text-emerald-300">{row.bowling_wpa.toFixed(3)}</td><td className="py-3 text-right tabular-nums text-white">{row.career_wpa.toFixed(3)}</td><td className="py-3 text-right tabular-nums text-slate-300">{row.average_wpa_per_match?.toFixed(4) ?? '—'}</td><td className="py-3 text-right tabular-nums text-slate-300">{row.peak_delivery_impact.toFixed(3)}</td><td className="py-3 text-right">{row.peak_match_id ? <MatchCentreLink matchId={row.peak_match_id} context={{ tab: 'summary', playerId: id }}>{'Open match'}</MatchCentreLink> : '—'}</td></tr>)}</tbody></table></div> : <EmptyState message="Win probability impact has not been precomputed for this player yet." />}
+              <div><h3 className="font-semibold text-white">Career win probability added</h3><p className="mt-1 text-xs text-slate-500">Format-separated cumulative probability change across precomputed historical deliveries. Bowling impact is signed from the bowling team's perspective.</p></div>
+              {winImpactLoading ? <LoadingSpinner message="Loading precomputed player impact…" /> : winImpact?.formats?.length ? <div className="overflow-x-auto"><table className="w-full min-w-[760px] text-sm"><thead className="text-left text-xs text-slate-500"><tr><th className="py-2">Format</th><th className="py-2 text-right">Matches</th><th className="py-2 text-right">Batting WPA</th><th className="py-2 text-right">Bowling WPA</th><th className="py-2 text-right">Combined WPA</th><th className="py-2 text-right">Avg / match</th><th className="py-2 text-right">Peak delivery</th><th className="py-2 text-right">Peak match</th></tr></thead><tbody className="divide-y divide-slate-800">{winImpact.formats.map(row => <tr key={row.format}><td className="py-3 font-medium text-white">{row.format}</td><td className="py-3 text-right tabular-nums text-slate-300">{row.matches}</td><td className="py-3 text-right tabular-nums text-indigo-300">{row.batting_wpa.toFixed(3)}</td><td className="py-3 text-right tabular-nums text-emerald-300">{row.bowling_wpa.toFixed(3)}</td><td className="py-3 text-right tabular-nums text-white">{row.career_wpa.toFixed(3)}</td><td className="py-3 text-right tabular-nums text-slate-300">{row.average_wpa_per_match?.toFixed(4) ?? '—'}</td><td className="py-3 text-right tabular-nums text-slate-300">{row.peak_delivery_impact.toFixed(3)}</td><td className="py-3 text-right">{row.peak_match_id ? <MatchCentreLink matchId={row.peak_match_id} context={{ tab: 'summary', playerId: id }}>{'Open match'}</MatchCentreLink> : '—'}</td></tr>)}</tbody></table></div> : <EmptyState message="Win probability impact has not been precomputed for this player yet." />}
               <p className="text-[11px] text-slate-500">WPA is shown separately by source format and must not be compared as an unadjusted raw total between formats. Values represent model probability changes, not a prediction of future performance.</p>
             </section>
           )}

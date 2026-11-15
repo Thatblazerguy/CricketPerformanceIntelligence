@@ -232,8 +232,8 @@ export default function XiEditor({ teamKey, team, onChange, flags = {}, format, 
                       <div className="flex flex-wrap items-center gap-1.5">
                         {p.id ? <Link to={`/players/${p.id}`} className="font-semibold text-white hover:text-indigo-300">{p.name}</Link>
                           : <span className="font-semibold text-amber-300">{p.input_name || p.name}</span>}
-                        {p.is_captain && <span className="rounded bg-amber-500/20 px-1 text-[10px] font-bold text-amber-300">C</span>}
-                        {p.is_wicketkeeper && <span className="rounded bg-cyan-500/20 px-1 text-[10px] font-bold text-cyan-300">WK</span>}
+                        {p.is_captain && <span className="rounded bg-amber-500/20 px-1 text-[10px] font-semibold text-amber-300">C</span>}
+                        {p.is_wicketkeeper && <span className="rounded bg-cyan-500/20 px-1 text-[10px] font-semibold text-cyan-300">WK</span>}
                         {flag && <span className="rounded bg-red-900/50 px-1.5 text-[10px] font-semibold text-red-300">{FLAG_TEXT[flag]}</span>}
                         {p.confidence && !['exact', 'alias', 'user_selected', 'unmatched'].includes(p.confidence) && p.id && <span className="rounded bg-slate-800 px-1.5 text-[10px] text-slate-400" title={p.input_name ? `Typed: ${p.input_name}` : ''}>{p.confidence.replace('_', ' ')} match — check</span>}
                       </div>

@@ -263,7 +263,7 @@ export default function Venues() {
               {/* Left Column: Team Directory */}
               <div className="panel lg:col-span-5 p-4 flex flex-col h-[650px]">
                 <div className="flex justify-between items-center mb-3">
-                  <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  <h3 className="text-xs font-semibold text-slate-400">
                     Select a Team
                   </h3>
                   <span className="text-xs text-slate-500 font-mono">
@@ -313,7 +313,7 @@ export default function Venues() {
                     {/* Header with format switcher & export */}
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 pb-4 border-b border-slate-800">
                       <div>
-                        <h2 className="text-xl font-bold text-white">{selectedTeam.canonical_name}</h2>
+                        <h2 className="text-xl font-semibold text-white">{selectedTeam.canonical_name}</h2>
                         <span className="text-xs text-slate-500 font-mono">ID: {selectedTeam.id}</span>
                         <p className="text-xs text-slate-400 mt-1">{teamGender==='all' ? "Men's and women's records combined" : `${teamGender==='male' ? "Men's" : "Women's"} match records`}{selectedTeamStats?.team_country ? ` · Country: ${selectedTeamStats.team_country}` : ''}</p>
                       </div>
@@ -394,7 +394,7 @@ export default function Venues() {
 
                         {/* Batting First vs Chasing Splits */}
                         <div className="bg-slate-800/40 border border-slate-800 rounded-lg p-4 space-y-4">
-                          <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                          <h4 className="text-xs font-semibold text-slate-300">
                             Batting First vs Chasing Disparity
                           </h4>
 
@@ -454,7 +454,7 @@ export default function Venues() {
                         </div>
                         <TeamBreakdowns stats={selectedTeamStats} />
                         <section className="overflow-hidden rounded-xl border border-slate-800">
-                          <h3 className="bg-slate-900 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-slate-300">Recent matches · selected filters</h3>
+                          <h3 className="bg-slate-900 px-4 py-3 text-xs font-semibold text-slate-300">Recent matches · selected filters</h3>
                           <div className="overflow-x-auto"><table className="w-full min-w-[560px] text-left text-xs"><thead className="text-slate-500"><tr>{['Date','Format','Match','Venue','Result'].map(label=><th key={label} className="px-3 py-2">{label}</th>)}</tr></thead><tbody>{(selectedTeamStats.recent_matches || []).map(match=><tr key={match.match_id} className="border-t border-slate-800/80 text-slate-300"><td className="px-3 py-2"><MatchCentreLink matchId={match.match_id}>{match.date || 'Open scorecard'}</MatchCentreLink></td><td className="px-3 py-2">{match.format}</td><td className="px-3 py-2"><MatchCentreLink matchId={match.match_id}>{match.team1 || 'Team 1'} vs {match.team2 || 'Team 2'}</MatchCentreLink></td><td className="px-3 py-2 text-slate-400">{match.venue || 'N/A'}</td><td className="px-3 py-2">{match.winner ? `${match.winner} won` : match.result_type || 'Result unavailable'}</td></tr>)}</tbody></table>{!selectedTeamStats.recent_matches?.length && <p className="px-3 py-4 text-xs text-slate-500">No match records for the selected filters.</p>}</div>
                         </section>
                       </div>
@@ -502,8 +502,8 @@ function GroundAnalyticsView({ data }) {
   return <div className="space-y-5 min-w-0">
     <div className="panel p-5">
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
-        <div><p className="text-[11px] uppercase tracking-wider text-indigo-300">Ground analysis · {data.format}</p>
-          <h2 className="text-2xl font-bold text-white mt-1">{venue.name}</h2>
+        <div><p className="text-[11px] text-indigo-300">Ground analysis · {data.format}</p>
+          <h2 className="text-2xl font-semibold text-white mt-1">{venue.name}</h2>
           <p className="text-sm text-slate-400 mt-1">{[venue.city,venue.country].filter(Boolean).join(', ') || 'Location unavailable'}</p></div>
         <div className="flex gap-2 flex-wrap">{data.format_match_counts.map(item => <Badge key={item.format}>{item.format} · {item.matches} matches</Badge>)}</div>
       </div>
@@ -629,8 +629,8 @@ function TeamBreakdowns({ stats }) {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
       <StatCard label="Ties" value={stats.ties} /><StatCard label="No results" value={stats.no_results} /><StatCard label="Unresolved results" value={stats.unresolved} />
     </div>
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">{rows.map(([title, values])=><div key={title} className="rounded-lg border border-slate-800 bg-slate-800/30 p-4 overflow-auto max-h-96"><h3 className="text-xs uppercase tracking-wide text-slate-300 mb-3">{title}</h3><table className="w-full text-xs text-left"><thead className="text-slate-500"><tr><th className="py-1">Name / choice</th><th>W-L-T-NR</th><th>Win %</th><th>n</th></tr></thead><tbody>{values.map(row=><tr key={row.name} className="border-t border-slate-800 text-slate-300"><td className="py-2 pr-2">{row.name}</td><td>{row.wins}-{row.losses}-{row.ties}-{row.no_results}</td><td>{displayMetric(row.win_percentage,'%')}</td><td>{row.matches}</td></tr>)}{!values.length&&<tr><td colSpan="4" className="py-3 text-slate-500">No records for this filter.</td></tr>}</tbody></table></div>)}</div>
-    <div className="rounded-lg border border-slate-800 bg-slate-800/30 p-4"><h3 className="text-xs uppercase tracking-wide text-slate-300 mb-2">Home / away / neutral</h3><div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs text-slate-300">{Object.entries(stats.home_away).map(([kind,row])=><div key={kind}><span className="capitalize">{kind}</span><div className="text-slate-500 mt-1">{row.wins}/{row.matches} wins</div></div>)}</div><p className="text-[11px] text-slate-500 mt-2">Classification compares venue country with both teams’ stored country mappings. CPI currently has no ground-country values for its 543 venue records; {stats.home_away_coverage.ground_country_missing} selected matches therefore remain unknown until that reference data is available. {stats.home_away_coverage.team_country_missing} matches also have at least one unmapped team.</p></div>
-    <div className="rounded-lg border border-indigo-900/60 bg-indigo-950/20 p-4"><h3 className="text-xs uppercase tracking-wide text-indigo-200 mb-2">Team insights · n={stats.filters.sample_matches}</h3>{stats.insights.length?<ul className="list-disc pl-5 space-y-1 text-sm text-slate-300">{stats.insights.map((s,i)=><li key={i}>{s}</li>)}</ul>:<p className="text-xs text-slate-500">Insufficient sample size for a reliable team insight.</p>}</div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">{rows.map(([title, values])=><div key={title} className="rounded-lg border border-slate-800 bg-slate-800/30 p-4 overflow-auto max-h-96"><h3 className="text-xs text-slate-300 mb-3">{title}</h3><table className="w-full text-xs text-left"><thead className="text-slate-500"><tr><th className="py-1">Name / choice</th><th>W-L-T-NR</th><th>Win %</th><th>n</th></tr></thead><tbody>{values.map(row=><tr key={row.name} className="border-t border-slate-800 text-slate-300"><td className="py-2 pr-2">{row.name}</td><td>{row.wins}-{row.losses}-{row.ties}-{row.no_results}</td><td>{displayMetric(row.win_percentage,'%')}</td><td>{row.matches}</td></tr>)}{!values.length&&<tr><td colSpan="4" className="py-3 text-slate-500">No records for this filter.</td></tr>}</tbody></table></div>)}</div>
+    <div className="rounded-lg border border-slate-800 bg-slate-800/30 p-4"><h3 className="text-xs text-slate-300 mb-2">Home / away / neutral</h3><div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs text-slate-300">{Object.entries(stats.home_away).map(([kind,row])=><div key={kind}><span className="capitalize">{kind}</span><div className="text-slate-500 mt-1">{row.wins}/{row.matches} wins</div></div>)}</div><p className="text-[11px] text-slate-500 mt-2">Classification compares venue country with both teams’ stored country mappings. CPI currently has no ground-country values for its 543 venue records; {stats.home_away_coverage.ground_country_missing} selected matches therefore remain unknown until that reference data is available. {stats.home_away_coverage.team_country_missing} matches also have at least one unmapped team.</p></div>
+    <div className="rounded-lg border border-indigo-900/60 bg-indigo-950/20 p-4"><h3 className="text-xs text-indigo-200 mb-2">Team insights · n={stats.filters.sample_matches}</h3>{stats.insights.length?<ul className="list-disc pl-5 space-y-1 text-sm text-slate-300">{stats.insights.map((s,i)=><li key={i}>{s}</li>)}</ul>:<p className="text-xs text-slate-500">Insufficient sample size for a reliable team insight.</p>}</div>
   </div>;
 }

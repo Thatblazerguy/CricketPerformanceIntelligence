@@ -222,7 +222,7 @@ function BatFirstChase({ d }) {
 }
 
 function Mini({ label, value, sub }) {
-  return <div className="rounded-lg border border-line bg-surface-sunken/60 px-3 py-2"><div className="truncate text-3xs uppercase tracking-wide text-slate-500">{label}</div><div className="num mt-0.5 text-base font-semibold text-slate-100">{value}</div>{sub && <div className="truncate text-3xs text-slate-500">{sub}</div>}</div>;
+  return <div className="rounded-lg border border-line bg-surface-sunken/60 px-3 py-2"><div className="truncate text-3xs text-slate-500">{label}</div><div className="num mt-0.5 text-base font-semibold text-slate-100">{value}</div>{sub && <div className="truncate text-3xs text-slate-500">{sub}</div>}</div>;
 }
 
 /* ---------------------------------------------------------------- conditions */
@@ -245,7 +245,7 @@ function Conditions({ d }) {
       <div className="grid gap-4 lg:grid-cols-5">
         <Panel className="lg:col-span-3" eyebrow="Measured" title="Scoring conditions" subtitle={`From ${fmtInt(m.balls)} legal balls across ${m.innings} innings. Δ = difference from the format baseline (all venues, same filters).`}>
           <table className="w-full text-[13px]">
-            <thead><tr className="text-left text-3xs uppercase tracking-wide text-slate-500"><th className="py-1.5 font-medium">Metric</th><th className="text-right font-medium">Venue (Δ)</th><th className="text-right font-medium">Format</th></tr></thead>
+            <thead><tr className="text-left text-3xs text-slate-500"><th className="py-1.5 font-medium">Metric</th><th className="text-right font-medium">Venue (Δ)</th><th className="text-right font-medium">Format</th></tr></thead>
             <tbody>{measuredRows.map(([l, v, bl, f, neutral]) => (
               <tr key={l} className="border-t border-line-soft"><td className="py-2 text-slate-300">{l}</td><td className="text-right"><BaselineDelta value={v} baseline={bl} format={f} neutral={neutral} /></td><td className="num text-right text-slate-500">{isNum(bl) ? f(bl) : DASH}</td></tr>
             ))}</tbody>

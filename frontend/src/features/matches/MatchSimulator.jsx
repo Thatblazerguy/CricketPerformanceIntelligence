@@ -670,16 +670,16 @@ function InningsTools({ sim }) {
               <div className="flex flex-wrap gap-6">
                 <div>
                   <p className="text-xs text-slate-500">Expected final score</p>
-                  <p className="text-3xl font-bold text-white">{result.expected_final_score}</p>
+                  <p className="text-3xl font-semibold text-white">{result.expected_final_score}</p>
                 </div>
                 <div>
                   <p className="text-xs text-slate-500">Median</p>
-                  <p className="text-3xl font-bold text-indigo-300">{result.median_projected_score}</p>
+                  <p className="text-3xl font-semibold text-indigo-300">{result.median_projected_score}</p>
                 </div>
                 {result.target_reach_probability != null && (
                   <div>
                     <p className="text-xs text-slate-500">Target reached</p>
-                    <p className="text-3xl font-bold text-emerald-300">
+                    <p className="text-3xl font-semibold text-emerald-300">
                       {(result.target_reach_probability * 100).toFixed(1)}%
                     </p>
                   </div>
@@ -694,7 +694,7 @@ function InningsTools({ sim }) {
               )}
               {winProb && winProb.available && (
                 <div className="rounded-lg border border-indigo-800/50 bg-indigo-950/30 p-3">
-                  <p className="text-xs font-semibold uppercase text-indigo-400">
+                  <p className="text-xs font-semibold text-indigo-400">
                     ML Win Probability · {winProb.model_version}
                     {winProb.status === 'decided' && <span className="ml-2 normal-case text-slate-400">match decided</span>}
                     {winProb.confidence === 'low' && <span className="ml-2 rounded bg-amber-900/60 px-1.5 py-0.5 normal-case text-amber-300">low confidence</span>}
@@ -702,20 +702,20 @@ function InningsTools({ sim }) {
                   <div className="mt-2 flex flex-wrap gap-6">
                     <div>
                       <p className="text-xs text-slate-500">{state.team1_name || 'Team batting first'} wins</p>
-                      <p className="text-2xl font-bold text-indigo-300">
+                      <p className="text-2xl font-semibold text-indigo-300">
                         {(winProb.team1_win * 100).toFixed(1)}%
                       </p>
                     </div>
                     <div>
                       <p className="text-xs text-slate-500">{state.team2_name || 'Team batting second'} wins</p>
-                      <p className="text-2xl font-bold text-amber-300">
+                      <p className="text-2xl font-semibold text-amber-300">
                         {(winProb.team2_win * 100).toFixed(1)}%
                       </p>
                     </div>
                     {winProb.draw_or_tie > 0.005 && (
                       <div>
                         <p className="text-xs text-slate-500">Draw / tie</p>
-                        <p className="text-2xl font-bold text-slate-300">
+                        <p className="text-2xl font-semibold text-slate-300">
                           {(winProb.draw_or_tie * 100).toFixed(1)}%
                         </p>
                       </div>
@@ -752,7 +752,7 @@ function InningsTools({ sim }) {
                       </div>
                     </div>
                   ))}
-                  <h4 className="mt-4 text-xs font-semibold uppercase text-slate-500">
+                  <h4 className="mt-4 text-xs font-semibold text-slate-500">
                     Wicket count probabilities
                   </h4>
                   <div className="mt-2 flex flex-wrap gap-2">

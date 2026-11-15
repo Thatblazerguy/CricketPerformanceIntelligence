@@ -70,19 +70,18 @@ function Hero({ c, years, lastYear, prevYear, yoy, formats, activeCount }) {
         )}
       </div>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-2">
-        <StatCard label="Players indexed" icon="players" value={fmtInt(c.total_players)} sub="Unique identities" />
-        <StatCard label="Teams" icon="teams" value={fmtInt(c.total_teams)} sub="International and franchise" />
-        <StatCard label="Competitions" icon="tournaments" value={fmtInt(c.total_tournaments)} sub={activeCount ? `${activeCount}+ active in last 90 days` : 'Stored tournaments'} />
-        <StatCard label="Venues" icon="venues" value={fmtInt(c.total_venues)} sub="Grounds with matches" />
-        <StatCard label="Seasons" icon="calendar" value={fmtInt(c.seasons?.length)} sub={c.seasons?.length ? `${c.seasons[0]} – ${c.seasons[c.seasons.length - 1]}` : null} />
-        <StatCard label="Latest import" icon="database" value={c.last_ingestion ? new Date(c.last_ingestion).toLocaleDateString('en', { day: 'numeric', month: 'short' }) : null} sub={c.last_ingestion ? new Date(c.last_ingestion).toLocaleTimeString('en', { hour: '2-digit', minute: '2-digit' }) : 'Not recorded'} />
+        <StatCard label="Players indexed" value={fmtInt(c.total_players)} sub="Unique identities" />
+        <StatCard label="Teams" value={fmtInt(c.total_teams)} sub="International and franchise" />
+        <StatCard label="Competitions" value={fmtInt(c.total_tournaments)} sub={activeCount ? `${activeCount}+ active in last 90 days` : 'Stored tournaments'} />
+        <StatCard label="Venues" value={fmtInt(c.total_venues)} sub="Grounds with matches" />
+        <StatCard label="Seasons" value={fmtInt(c.seasons?.length)} sub={c.seasons?.length ? `${c.seasons[0]} – ${c.seasons[c.seasons.length - 1]}` : null} />
+        <StatCard label="Latest import" value={c.last_ingestion ? new Date(c.last_ingestion).toLocaleDateString('en', { day: 'numeric', month: 'short' }) : null} sub={c.last_ingestion ? new Date(c.last_ingestion).toLocaleTimeString('en', { hour: '2-digit', minute: '2-digit' }) : 'Not recorded'} />
       </div>
     </section>
   );
 }
 
 const EXPLORE = ['/players', '/matches', '/simulator', '/tournaments', '/scouting', '/auction'];
-const EXPLORE_TINT = { '/players': 'text-[var(--c1)]', '/matches': 'text-[var(--c2)]', '/simulator': 'text-[var(--c4)]', '/tournaments': 'text-[var(--c3)]', '/scouting': 'text-[var(--c5)]', '/auction': 'text-[var(--c8)]' };
 
 /** Quick routes into the major sections (labels and hints from the nav model). */
 function Explore() {
@@ -91,7 +90,7 @@ function Explore() {
     <nav aria-label="Explore CPI" className="scrollbar-none -mx-4 flex gap-3 overflow-x-auto px-4 pb-1 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 xl:grid-cols-6">
       {items.map(i => (
         <Link key={i.to} to={i.to} className="panel card-link group flex w-[11.5rem] shrink-0 flex-col gap-3 p-4 sm:w-auto">
-          <span className={`grid h-9 w-9 place-items-center rounded-xl bg-white/[0.06] ${EXPLORE_TINT[i.to] || 'text-accent'}`}><Icon name={i.icon} size={18} /></span>
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-white/[0.06] text-slate-300"><Icon name={i.icon} size={18} /></span>
           <span>
             <span className="flex items-center justify-between text-[14px] font-semibold tracking-[-0.01em] text-white">{i.label}<Icon name="arrowRight" size={14} className="text-slate-600 transition-[transform,color] duration-200 group-hover:translate-x-0.5 group-hover:text-accent" /></span>
             <span className="mt-0.5 block text-xs text-slate-500">{i.hint}</span>
@@ -118,7 +117,7 @@ function RecentMatches({ matches, loading }) {
                     <div className="row-link grid grid-cols-[auto_1fr_auto] items-center gap-x-4 px-5 py-3">
                       <div className="grid h-11 w-11 place-items-center rounded-xl bg-white/[0.05] text-center">
                         <div className="num text-[15px] font-semibold leading-none text-white">{m.start_date?.slice(8, 10)}</div>
-                        <div className="-mt-1 text-3xs font-medium uppercase tracking-wider text-slate-500">{m.start_date ? new Date(m.start_date).toLocaleString('en', { month: 'short' }) : ''}</div>
+                        <div className="-mt-1 text-3xs font-medium text-slate-500">{m.start_date ? new Date(m.start_date).toLocaleString('en', { month: 'short' }) : ''}</div>
                       </div>
                       <div className="min-w-0">
                         <div className="truncate text-[13px] text-slate-100">
@@ -305,7 +304,7 @@ export default function Dashboard() {
     return { spotlight: spot, active: recentList.slice(0, 8), through: ref };
   }, [tourn]);
 
-  if (loading) return <><PageHeader eyebrow="Overview" title="Cricket intelligence overview" subtitle="Loading dataset state…" /><DashboardSkeleton /></>;
+  if (loading) return <><PageHeader eyebrow="Overview" title="Ball-by-ball cricket archive" subtitle="Loading dataset state…" /><DashboardSkeleton /></>;
   if (error) return <ErrorState message={error} onRetry={refetch} />;
 
   const years = c.year_counts || [];
@@ -317,8 +316,8 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6">
-      <PageHeader eyebrow="Overview" title="Cricket intelligence overview"
-        subtitle={`Ball-by-ball coverage across ${formats.length} formats and ${fmtInt(c.total_tournaments)} competitions${latest ? `, with matches through ${latest}` : ''}.`}
+      <PageHeader eyebrow="Overview" title="Ball-by-ball cricket archive"
+        subtitle={`Every delivery across ${formats.length} formats and ${fmtInt(c.total_tournaments)} competitions${latest ? `, with matches through ${latest}` : ''}.`}
         actions={<>
           <Button as={Link} to="/players" variant="secondary" size="sm" icon="players">Explore players</Button>
           <Button as={Link} to="/simulator" variant="primary" size="sm" icon="simulator">Simulate a match</Button>

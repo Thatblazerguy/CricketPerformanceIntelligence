@@ -14,7 +14,7 @@ function MetricBreakdown({ cand }) {
       <div className="overflow-x-auto">
         <table className="min-w-full text-2xs">
           <thead>
-            <tr className="border-b border-line text-left uppercase tracking-wide text-slate-500">
+            <tr className="border-b border-line text-left text-slate-500">
               <th className="px-2 py-1 font-medium">Metric</th><th className="px-2 py-1 text-right font-medium">Observed</th>
               <th className="px-2 py-1 text-right font-medium" title="Shrunk towards the comparison-group mean in proportion to sample size">Shrunk</th>
               <th className="px-2 py-1 text-right font-medium">95% CI</th><th className="px-2 py-1 text-right font-medium">Sample</th>
@@ -43,11 +43,11 @@ function MetricBreakdown({ cand }) {
       </div>
       <div className="space-y-3 text-2xs leading-relaxed">
         <div>
-          <div className="mb-1 font-semibold uppercase tracking-wide text-pos-soft">Strengths</div>
+          <div className="mb-1 font-semibold text-pos-soft">Strengths</div>
           {cand.strengths?.length ? cand.strengths.map((s, i) => <p key={i} className="text-slate-300">+ {s}</p>) : <p className="text-slate-500">No metric at or above the 75th percentile.</p>}
         </div>
         <div>
-          <div className="mb-1 font-semibold uppercase tracking-wide text-neg-soft">Weaknesses</div>
+          <div className="mb-1 font-semibold text-neg-soft">Weaknesses</div>
           {cand.weaknesses?.length ? cand.weaknesses.map((s, i) => <p key={i} className="text-slate-300">− {s}</p>) : <p className="text-slate-500">No metric at or below the 25th percentile.</p>}
         </div>
         {cand.allrounder_type && <p className="text-slate-400">Classification: <b className="text-slate-200">{cand.allrounder_type}</b> · batting {fmt(cand.batting?.score)} / bowling {fmt(cand.bowling?.score)} · {cand.dual_matches} matches using both disciplines.</p>}
@@ -97,7 +97,7 @@ export default function RankingTable({ result, shortlist, toggleShortlist, onRep
     <div className="panel overflow-hidden">
       <div className="overflow-x-auto">
         <table className="min-w-full text-xs">
-          <thead className="bg-surface-raised text-2xs uppercase tracking-wide text-slate-500">
+          <thead className="bg-surface-raised text-2xs text-slate-500">
             <tr>
               <th className="w-8 px-2 py-2" aria-label="Shortlist" />
               {th('rank', '#', 'left')}
@@ -172,7 +172,7 @@ export function MethodologyPanel({ result }) {
             <div className="mb-1.5 font-semibold text-slate-200">{d === 'bat' ? 'Batting' : 'Bowling'} comparison group · {fmtInt(cg.size)} players</div>
             {cg.note && <p className="mb-1.5 text-warn-soft">{cg.note}</p>}
             <table className="w-full">
-              <thead><tr className="text-left text-3xs uppercase tracking-wide text-slate-600"><th>Metric</th><th>Group</th><th className="text-right">Weight</th><th className="text-right" title="Prior strength m in sample units, estimated from the cohort">Prior m</th></tr></thead>
+              <thead><tr className="text-left text-3xs text-slate-600"><th>Metric</th><th>Group</th><th className="text-right">Weight</th><th className="text-right" title="Prior strength m in sample units, estimated from the cohort">Prior m</th></tr></thead>
               <tbody>
                 {result.weights[d].map(w => {
                   const prior = cg.priors?.[w.metric] || cg.priors?.[{ sr_index: 'strike_rate', econ_index: 'economy', pp_sr_index: 'pp_sr', mid_sr_index: 'mid_sr', death_sr_index: 'death_sr' }[w.metric]];

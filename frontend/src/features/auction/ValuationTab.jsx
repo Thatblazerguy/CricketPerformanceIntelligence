@@ -33,7 +33,7 @@ export default function ValuationTab({ context, onPlayer }) {
           bodyClassName={`p-0 ${loading ? 'opacity-60' : ''}`}>
           <div className="overflow-x-auto">
             <table className="w-full text-[13px]">
-              <thead className="bg-surface-raised text-left text-2xs uppercase tracking-wide text-slate-500">
+              <thead className="bg-surface-raised text-left text-2xs text-slate-500">
                 <tr>
                   <th className="px-4 py-2.5">Player</th><th className="px-3">Profile</th><th className="px-3 text-right">Base</th>
                   <th className="px-3">Predicted range (p10–p90)</th><th className="px-3 text-right">Market value</th>

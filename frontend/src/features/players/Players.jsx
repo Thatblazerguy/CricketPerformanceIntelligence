@@ -110,7 +110,7 @@ export default function Players() {
   };
 
   const formatsList = [
-    { id: '', label: 'All Formats' },
+    { id: '', label: 'All formats' },
     { id: 'T20I', label: 'T20I (International)' },
     { id: 'T20', label: 'T20 (Franchise/Domestic)' },
     { id: 'ODI', label: 'ODI' },
@@ -186,7 +186,7 @@ export default function Players() {
           ) : (
             <div className="panel overflow-x-auto">
               <table className="w-full min-w-[820px] text-left text-[13px] text-slate-300">
-                <thead className="sticky top-0 bg-surface-raised text-3xs font-semibold uppercase tracking-[0.08em] text-slate-500">
+                <thead className="sticky top-0 bg-surface-raised text-3xs font-semibold text-slate-500">
                   <tr className="border-b border-line">
                     <th className="px-4 py-2.5">Player</th>
                     <th className="px-3 py-2.5">Role</th>

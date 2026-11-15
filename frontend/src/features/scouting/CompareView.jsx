@@ -23,7 +23,7 @@ function Row({ label, values, hint }) {
 function Section({ title, children, players }) {
   return (
     <>
-      <tr className="bg-surface-raised/60"><td colSpan={players.length + 1} className="px-2 py-1 text-3xs font-semibold uppercase tracking-wide text-slate-500">{title}</td></tr>
+      <tr className="bg-surface-raised/60"><td colSpan={players.length + 1} className="px-2 py-1 text-3xs font-semibold text-slate-500">{title}</td></tr>
       {children}
     </>
   );

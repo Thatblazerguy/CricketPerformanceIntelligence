@@ -208,7 +208,7 @@ function Scorecard({ innings, matchId, focusPlayerId, focusSide }) {
       </div>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[640px] text-[13px]">
-          <thead className="text-3xs uppercase tracking-[0.08em] text-slate-500"><tr className="border-b border-line">{['Batter', 'Dismissal', 'R', 'B', '4s', '6s', 'SR'].map((h, i) => <th key={h} className={`px-3 py-2 font-semibold first:pl-4 last:pr-4 sm:first:pl-5 sm:last:pr-5 ${i > 1 ? 'text-right' : 'text-left'} ${h === 'R' ? 'text-slate-300' : ''}`}>{h}</th>)}</tr></thead>
+          <thead className="text-3xs text-slate-500"><tr className="border-b border-line">{['Batter', 'Dismissal', 'R', 'B', '4s', '6s', 'SR'].map((h, i) => <th key={h} className={`px-3 py-2 font-semibold first:pl-4 last:pr-4 sm:first:pl-5 sm:last:pr-5 ${i > 1 ? 'text-right' : 'text-left'} ${h === 'R' ? 'text-slate-300' : ''}`}>{h}</th>)}</tr></thead>
           <tbody>
             {s.batting.map((b, idx) => (
               <tr id={b.player_id && focusSide !== 'bowling' ? `player-${b.player_id}` : undefined} key={`${b.player}-${idx}`} className={`border-t border-line-soft transition-colors hover:bg-surface-hover/50 ${focus(b.player_id, 'batting') ? 'bg-accent-muted/40' : ''}`}>
@@ -222,7 +222,7 @@ function Scorecard({ innings, matchId, focusPlayerId, focusSide }) {
               </tr>
             ))}
             <tr className="border-t border-line bg-surface-sunken/50"><td className="py-2 pl-4 pr-3 text-slate-300 sm:pl-5">Extras</td><td className="num px-3 py-2 text-2xs text-slate-500">{extras || 'none recorded'}</td><td className="num px-3 py-2 text-right font-semibold text-slate-200">{extrasTotal}</td><td colSpan={4} /></tr>
-            <tr className="border-t border-line-strong bg-surface-sunken/50"><td className="py-2.5 pl-4 pr-3 font-semibold text-white sm:pl-5">Total</td><td className="num px-3 py-2.5 text-2xs text-slate-400">{s.wickets} wkts · {s.overs} ov · RR {fmtDec(runRate(s))}</td><td className="mono-num px-3 py-2.5 text-right text-base font-bold text-white">{s.total}</td><td colSpan={4} /></tr>
+            <tr className="border-t border-line-strong bg-surface-sunken/50"><td className="py-2.5 pl-4 pr-3 font-semibold text-white sm:pl-5">Total</td><td className="num px-3 py-2.5 text-2xs text-slate-400">{s.wickets} wkts · {s.overs} ov · RR {fmtDec(runRate(s))}</td><td className="mono-num px-3 py-2.5 text-right text-base font-semibold text-white">{s.total}</td><td colSpan={4} /></tr>
           </tbody>
         </table>
       </div>
@@ -245,7 +245,7 @@ function Scorecard({ innings, matchId, focusPlayerId, focusSide }) {
         <div className="eyebrow px-4 pb-1 pt-3 sm:px-5">Bowling</div>
         <div className="overflow-x-auto">
           <table className="w-full min-w-[760px] text-[13px]">
-            <thead className="text-3xs uppercase tracking-[0.08em] text-slate-500"><tr className="border-b border-line">{['Bowler', 'O', 'M', 'R', 'W', 'Econ', 'Dots', 'Dot %', '4s', '6s', 'Wd', 'Nb'].map((h, i) => <th key={h} className={`px-3 py-2 font-semibold first:pl-4 last:pr-4 sm:first:pl-5 sm:last:pr-5 ${i ? 'text-right' : 'text-left'} ${h === 'W' ? 'text-slate-300' : ''}`}>{h}</th>)}</tr></thead>
+            <thead className="text-3xs text-slate-500"><tr className="border-b border-line">{['Bowler', 'O', 'M', 'R', 'W', 'Econ', 'Dots', 'Dot %', '4s', '6s', 'Wd', 'Nb'].map((h, i) => <th key={h} className={`px-3 py-2 font-semibold first:pl-4 last:pr-4 sm:first:pl-5 sm:last:pr-5 ${i ? 'text-right' : 'text-left'} ${h === 'W' ? 'text-slate-300' : ''}`}>{h}</th>)}</tr></thead>
             <tbody>
               {s.bowling.map((b, idx) => (
                 <tr id={b.player_id && focusSide === 'bowling' ? `player-${b.player_id}` : undefined} key={`${b.player}-${idx}`} className={`border-t border-line-soft transition-colors hover:bg-surface-hover/50 ${focus(b.player_id, 'bowling') ? 'bg-accent-muted/40' : ''}`}>

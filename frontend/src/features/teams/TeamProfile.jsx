@@ -176,7 +176,7 @@ function HomeAway({ d, search }) {
       </Panel>
       <div className="grid gap-4 lg:grid-cols-2">
         <Panel title="Home vs away — performance" subtitle="Teal = home, indigo = away; the brighter bar is the better value.">
-          <div className="mb-2 grid grid-cols-[1fr_auto_1fr] text-3xs uppercase tracking-wide text-slate-500"><span className="text-right" style={{ color: SIDE_COLORS.home }}>Home</span><span className="w-32 sm:w-40" /><span style={{ color: SIDE_COLORS.away }}>Away</span></div>
+          <div className="mb-2 grid grid-cols-[1fr_auto_1fr] text-3xs text-slate-500"><span className="text-right" style={{ color: SIDE_COLORS.home }}>Home</span><span className="w-32 sm:w-40" /><span style={{ color: SIDE_COLORS.away }}>Away</span></div>
           {rows.map(r => <VersusRow aColor={SIDE_COLORS.home} bColor={SIDE_COLORS.away} key={r.label} label={r.label} a={r.k(h)} b={r.k(a)} format={r.f} better={r.better} />)}
         </Panel>
         {d.limited_overs ? (
@@ -243,7 +243,7 @@ function Batting({ d }) {
       {d.limited_overs && b.phases && <Panel title="Phase detail — batting" bodyClassName="p-3"><PhaseTable phases={b.phases} side="bat" /></Panel>}
       {d.limited_overs ? (
         <Panel title="Setting a target vs chasing" subtitle="Batting in innings 1 (setting) vs innings 2 (chasing). Complete innings only for averages.">
-          <div className="mb-2 grid grid-cols-[1fr_auto_1fr] text-3xs uppercase tracking-wide text-slate-500"><span className="text-right text-accent-soft">Setting (1st)</span><span className="w-32 sm:w-40" /><span className="text-pos">Chasing (2nd)</span></div>
+          <div className="mb-2 grid grid-cols-[1fr_auto_1fr] text-3xs text-slate-500"><span className="text-right text-accent-soft">Setting (1st)</span><span className="w-32 sm:w-40" /><span className="text-pos">Chasing (2nd)</span></div>
           {[['Avg score', 'average_score', v => fmtDec(v, 1)], ['Median score', 'median_score', v => fmtDec(v, 0)], ['Run rate', 'run_rate', v => fmtDec(v)], ['Runs per wicket', 'runs_per_wicket', v => fmtDec(v)], ['Wickets lost / inn', 'wickets_per_innings', v => fmtDec(v), 'low'], ['Boundary %', 'boundary_percentage', v => fmtPct(v)], ['Dot %', 'dot_percentage', v => fmtPct(v), 'low']]
             .map(([l, k, f, better = 'high']) => <VersusRow key={k} label={l} a={b.first_innings[k]} b={b.second_innings[k]} format={f} better={k === 'average_score' || k === 'median_score' ? null : better} sub={k === 'average_score' ? `n=${b.first_innings.complete_innings} / ${b.second_innings.complete_innings}` : null} />)}
           <p className="mt-3 text-2xs text-slate-500">Chasing totals are capped by the target, so lower chasing averages are expected; compare run rate and wickets instead. Chase win rates are under Match situations.</p>
@@ -299,7 +299,7 @@ function Bowling({ d }) {
       {d.limited_overs && w.phases && <Panel title="Phase detail — bowling" bodyClassName="p-3"><PhaseTable phases={w.phases} side="bowl" /></Panel>}
       <div className="grid gap-4 lg:grid-cols-2">
         <Panel title={d.limited_overs ? 'Defending vs bowling first' : 'Bowling by innings'} subtitle={d.limited_overs ? 'Bowling in innings 2 (defending a total) vs innings 1 (before chasing).' : 'Opponent innings 1 vs 2.'}>
-          <div className="mb-2 grid grid-cols-[1fr_auto_1fr] text-3xs uppercase tracking-wide text-slate-500"><span className="text-right text-accent-soft">{d.limited_overs ? 'Defending' : 'Opp. inns 2'}</span><span className="w-32 sm:w-40" /><span className="text-pos">{d.limited_overs ? 'Bowling first' : 'Opp. inns 1'}</span></div>
+          <div className="mb-2 grid grid-cols-[1fr_auto_1fr] text-3xs text-slate-500"><span className="text-right text-accent-soft">{d.limited_overs ? 'Defending' : 'Opp. inns 2'}</span><span className="w-32 sm:w-40" /><span className="text-pos">{d.limited_overs ? 'Bowling first' : 'Opp. inns 1'}</span></div>
           {[['Avg conceded', 'average_score', v => fmtDec(v, 1), 'low'], ['Economy', 'run_rate', v => fmtDec(v), 'low'], ['Wickets / innings', 'wickets_per_innings', v => fmtDec(v), 'high'], ['Strike rate', 'balls_per_wicket', v => fmtDec(v, 1), 'low'], ['Bowling avg', 'runs_per_wicket', v => fmtDec(v), 'low'], ['Dot %', 'dot_percentage', v => fmtPct(v), 'high'], ['Bowled-out %', 'all_out_percentage', v => fmtPct(v), 'high']]
             .map(([l, k, f, better]) => <VersusRow key={k} label={l} a={w.defending[k]} b={w.bowling_first[k]} format={f} better={k === 'average_score' ? null : better} />)}
           {d.limited_overs && <p className="mt-3 text-2xs text-slate-500">When defending, the chase stops at the target, so conceded totals are capped; economy and wickets are the fairer comparison.</p>}
@@ -369,7 +369,7 @@ function Situations({ d, search }) {
 }
 
 function Mini({ label, value }) {
-  return <div className="rounded-lg border border-line bg-surface-sunken/60 px-3 py-2"><div className="truncate text-3xs uppercase tracking-wide text-slate-500">{label}</div><div className="num mt-0.5 text-base font-semibold text-slate-100">{value}</div></div>;
+  return <div className="rounded-lg border border-line bg-surface-sunken/60 px-3 py-2"><div className="truncate text-3xs text-slate-500">{label}</div><div className="num mt-0.5 text-base font-semibold text-slate-100">{value}</div></div>;
 }
 
 /* ---------------------------------------------------------------- trends */

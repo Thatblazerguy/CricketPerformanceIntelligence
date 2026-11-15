@@ -2,15 +2,15 @@
 import { Histogram, Panel, TEAM_COLORS } from './charts';
 import { PlayerLink, TeamLink } from './MatchResult';
 
-const th = 'px-2 py-1.5 text-left text-[10px] font-semibold uppercase tracking-wider text-slate-500';
+const th = 'px-2 py-1.5 text-left text-[10px] font-semibold text-slate-500';
 const td = 'px-2 py-1.5';
 const fmt = (v, d = 1) => (v === null || v === undefined ? '—' : Number(v).toFixed(d));
 
 function Stat({ label, value, sub }) {
   return (
     <div className="panel p-3">
-      <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">{label}</p>
-      <p className="mt-1 font-mono text-xl font-bold text-white">{value}</p>
+      <p className="text-[10px] font-semibold text-slate-500">{label}</p>
+      <p className="mt-1 font-mono text-xl font-semibold text-white">{value}</p>
       {sub && <p className="mt-0.5 text-[11px] text-slate-400">{sub}</p>}
     </div>
   );
@@ -25,7 +25,7 @@ export default function MonteCarloResults({ mc, names }) {
     <div className="space-y-4">
       <section className="rounded-xl border border-indigo-900/50 bg-slate-900 p-5">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h2 className="text-lg font-bold text-white">{mc.simulations.toLocaleString()} simulated matches</h2>
+          <h2 className="text-lg font-semibold text-white">{mc.simulations.toLocaleString()} simulated matches</h2>
           <p className="text-[11px] text-slate-500">seed {mc.seed} · {mc.elapsed_seconds}s{mc.requested > mc.simulations ? ` · capped at ${mc.capped_at}` : ''}</p>
         </div>
         <div className="mt-4 flex h-9 overflow-hidden rounded-full text-xs font-semibold" role="img" aria-label={`${names.A} ${mc.win_pct.A}%, ${names.B} ${mc.win_pct.B}%`}>

@@ -233,7 +233,7 @@ export default function PlayerReport({ playerId, scope, roleKey, roles, onRoleCh
         </div>
         <div className="flex flex-col items-end gap-2">
           <div className="text-right">
-            <div className="text-3xs uppercase tracking-wide text-slate-500">12 · {rec.role} suitability</div>
+            <div className="text-3xs text-slate-500">12 · {rec.role} suitability</div>
             <div className="num text-3xl font-semibold text-white">{fmt(rec.score)}</div>
             <div className="text-2xs text-slate-500">vs {fmtInt(rec.comparison_group)} in comparison group</div>
           </div>
