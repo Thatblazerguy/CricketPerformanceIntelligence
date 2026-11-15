@@ -1,0 +1,3350 @@
+{
+  "meta": {
+    "data_version": "1.3.0",
+    "created": "2022-04-01",
+    "revision": 2
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Benoni",
+    "dates": [
+      "2016-11-18"
+    ],
+    "event": {
+      "name": "CSA T20 Challenge"
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "officials": {
+      "match_referees": [
+        "S Wadvalla"
+      ],
+      "reserve_umpires": [
+        "GH Pienaar"
+      ],
+      "tv_umpires": [
+        "AT Holdstock"
+      ],
+      "umpires": [
+        "CD Isaacs",
+        "S George"
+      ]
+    },
+    "outcome": {
+      "winner": "Titans",
+      "by": {
+        "wickets": 3
+      }
+    },
+    "overs": 20,
+    "player_of_match": [
+      "JA Morkel",
+      "DA Miller"
+    ],
+    "players": {
+      "Knights": [
+        "PE Kruger",
+        "LLL Sesele",
+        "PJ van Biljon",
+        "DA Miller",
+        "DS Rosier",
+        "TM Bodibe",
+        "M de Lange",
+        "D du Preez",
+        "SC van Schalkwyk",
+        "D Olivier",
+        "T Ntuli"
+      ],
+      "Titans": [
+        "H Klaasen",
+        "TG Mokoena",
+        "HG Kuhn",
+        "MQ Adams",
+        "F Behardien",
+        "JA Morkel",
+        "D Wiese",
+        "S von Berg",
+        "MP Siboto",
+        "CJ Dala",
+        "L Ngidi"
+      ]
+    },
+    "registry": {
+      "people": {
+        "AT Holdstock": "6fa3258c",
+        "CD Isaacs": "c0215bbd",
+        "CJ Dala": "1cb14aa4",
+        "D Olivier": "a8e56914",
+        "D Wiese": "aa8d28ae",
+        "D du Preez": "d7a57f75",
+        "DA Miller": "d67d5f00",
+        "DS Rosier": "f8e6dbdd",
+        "F Behardien": "dce2019b",
+        "GH Pienaar": "3516e46b",
+        "H Klaasen": "235c2bb6",
+        "HG Kuhn": "ede05b97",
+        "JA Morkel": "c3d35165",
+        "L Ngidi": "f834dcfc",
+        "LLL Sesele": "22b70cb8",
+        "M de Lange": "d4eef961",
+        "MP Siboto": "9d50c7e1",
+        "MQ Adams": "59a7fc89",
+        "PE Kruger": "39181592",
+        "PJ van Biljon": "4025c262",
+        "S George": "6d9e5a54",
+        "S Wadvalla": "c1a1acf3",
+        "S von Berg": "ffd3fc37",
+        "SC van Schalkwyk": "97b0e4ff",
+        "T Ntuli": "8e6827f7",
+        "TG Mokoena": "0827b38d",
+        "TM Bodibe": "ed982dfa"
+      },
+      "venues": {
+        "Willowmoore Park, Benoni": "c3e37c1f"
+      }
+    },
+    "season": "2016/17",
+    "team_type": "club",
+    "teams": [
+      "Knights",
+      "Titans"
+    ],
+    "toss": {
+      "decision": "bat",
+      "winner": "Knights"
+    },
+    "venue": "Willowmoore Park, Benoni"
+  },
+  "innings": [
+    {
+      "team": "Knights",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "actual_delivery": "0.1",
+              "batter": "PE Kruger",
+              "bowler": "JA Morkel",
+              "non_striker": "LLL Sesele",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.2",
+              "batter": "PE Kruger",
+              "bowler": "JA Morkel",
+              "non_striker": "LLL Sesele",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "PE Kruger",
+                  "fielders": [
+                    {
+                      "name": "H Klaasen"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "0.3",
+              "batter": "PJ van Biljon",
+              "bowler": "JA Morkel",
+              "non_striker": "LLL Sesele",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "0.4",
+              "batter": "PJ van Biljon",
+              "bowler": "JA Morkel",
+              "non_striker": "LLL Sesele",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.5",
+              "batter": "PJ van Biljon",
+              "bowler": "JA Morkel",
+              "non_striker": "LLL Sesele",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.6",
+              "batter": "PJ van Biljon",
+              "bowler": "JA Morkel",
+              "non_striker": "LLL Sesele",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "actual_delivery": "1.1",
+              "batter": "LLL Sesele",
+              "bowler": "D Wiese",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.2",
+              "batter": "LLL Sesele",
+              "bowler": "D Wiese",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.3",
+              "batter": "LLL Sesele",
+              "bowler": "D Wiese",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "1.4",
+              "batter": "LLL Sesele",
+              "bowler": "D Wiese",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "LLL Sesele",
+                  "kind": "bowled"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.6",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "actual_delivery": "2.1",
+              "batter": "DA Miller",
+              "bowler": "JA Morkel",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "2.2",
+              "batter": "DA Miller",
+              "bowler": "JA Morkel",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.3",
+              "batter": "DA Miller",
+              "bowler": "JA Morkel",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "DA Miller",
+              "bowler": "JA Morkel",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "DA Miller",
+              "bowler": "JA Morkel",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.6",
+              "batter": "PJ van Biljon",
+              "bowler": "JA Morkel",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "actual_delivery": "3.1",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.2",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.4",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.6",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "actual_delivery": "4.1",
+              "batter": "PJ van Biljon",
+              "bowler": "L Ngidi",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "PJ van Biljon",
+              "bowler": "L Ngidi",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.3",
+              "batter": "PJ van Biljon",
+              "bowler": "L Ngidi",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "DA Miller",
+              "bowler": "L Ngidi",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.5",
+              "batter": "DA Miller",
+              "bowler": "L Ngidi",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.6",
+              "batter": "DA Miller",
+              "bowler": "L Ngidi",
+              "extras": {
+                "legbyes": 1
+              },
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "actual_delivery": "5.1",
+              "batter": "DA Miller",
+              "bowler": "MP Siboto",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "PJ van Biljon",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.3",
+              "batter": "PJ van Biljon",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.4",
+              "batter": "PJ van Biljon",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "PJ van Biljon",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.6",
+              "batter": "PJ van Biljon",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "actual_delivery": "6.1",
+              "batter": "DA Miller",
+              "bowler": "L Ngidi",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "DA Miller",
+              "bowler": "L Ngidi",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "PJ van Biljon",
+              "bowler": "L Ngidi",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "PJ van Biljon",
+              "bowler": "L Ngidi",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "6.4",
+              "batter": "PJ van Biljon",
+              "bowler": "L Ngidi",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.5",
+              "batter": "PJ van Biljon",
+              "bowler": "L Ngidi",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.6",
+              "batter": "PJ van Biljon",
+              "bowler": "L Ngidi",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "actual_delivery": "7.1",
+              "batter": "DA Miller",
+              "bowler": "JA Morkel",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.2",
+              "batter": "PJ van Biljon",
+              "bowler": "JA Morkel",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.3",
+              "batter": "PJ van Biljon",
+              "bowler": "JA Morkel",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.4",
+              "batter": "PJ van Biljon",
+              "bowler": "JA Morkel",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "PJ van Biljon",
+              "bowler": "JA Morkel",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.6",
+              "batter": "DA Miller",
+              "bowler": "JA Morkel",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "actual_delivery": "8.1",
+              "batter": "PJ van Biljon",
+              "bowler": "CJ Dala",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.2",
+              "batter": "PJ van Biljon",
+              "bowler": "CJ Dala",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "extras": {
+                "legbyes": 1
+              },
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.6",
+              "batter": "PJ van Biljon",
+              "bowler": "CJ Dala",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "actual_delivery": "9.1",
+              "batter": "DA Miller",
+              "bowler": "S von Berg",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "9.2",
+              "batter": "DA Miller",
+              "bowler": "S von Berg",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "PJ van Biljon",
+              "bowler": "S von Berg",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "DA Miller",
+              "bowler": "S von Berg",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "DA Miller",
+              "bowler": "S von Berg",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "9.6",
+              "batter": "DA Miller",
+              "bowler": "S von Berg",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "actual_delivery": "10.1",
+              "batter": "PJ van Biljon",
+              "bowler": "CJ Dala",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.3",
+              "batter": "PJ van Biljon",
+              "bowler": "CJ Dala",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "10.6",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "actual_delivery": "11.1",
+              "batter": "PJ van Biljon",
+              "bowler": "JA Morkel",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.2",
+              "batter": "PJ van Biljon",
+              "bowler": "JA Morkel",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.3",
+              "batter": "DA Miller",
+              "bowler": "JA Morkel",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "PJ van Biljon",
+              "bowler": "JA Morkel",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "DA Miller",
+              "bowler": "JA Morkel",
+              "non_striker": "PJ van Biljon",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.6",
+              "batter": "PJ van Biljon",
+              "bowler": "JA Morkel",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "PJ van Biljon",
+                  "fielders": [
+                    {
+                      "name": "MQ Adams"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "actual_delivery": "12.1",
+              "batter": "DA Miller",
+              "bowler": "MP Siboto",
+              "non_striker": "DS Rosier",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              },
+              "wickets": [
+                {
+                  "player_out": "DS Rosier",
+                  "fielders": [
+                    {
+                      "name": "H Klaasen"
+                    },
+                    {
+                      "name": "CJ Dala"
+                    }
+                  ],
+                  "kind": "run out"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "TM Bodibe",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "DA Miller",
+              "bowler": "MP Siboto",
+              "non_striker": "TM Bodibe",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "TM Bodibe",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.5",
+              "batter": "DA Miller",
+              "bowler": "MP Siboto",
+              "non_striker": "TM Bodibe",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.6",
+              "batter": "TM Bodibe",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "actual_delivery": "13.1",
+              "batter": "TM Bodibe",
+              "bowler": "D Wiese",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "TM Bodibe",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "TM Bodibe",
+              "bowler": "D Wiese",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.4",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "TM Bodibe",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.5",
+              "batter": "TM Bodibe",
+              "bowler": "D Wiese",
+              "extras": {
+                "legbyes": 1
+              },
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.6",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "TM Bodibe",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "actual_delivery": "14.1",
+              "batter": "TM Bodibe",
+              "bowler": "L Ngidi",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "TM Bodibe",
+              "bowler": "L Ngidi",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "TM Bodibe",
+              "bowler": "L Ngidi",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "TM Bodibe",
+              "bowler": "L Ngidi",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "DA Miller",
+              "bowler": "L Ngidi",
+              "non_striker": "TM Bodibe",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "DA Miller",
+              "bowler": "L Ngidi",
+              "non_striker": "TM Bodibe",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "DA Miller",
+              "bowler": "L Ngidi",
+              "non_striker": "TM Bodibe",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "actual_delivery": "15.1",
+              "batter": "TM Bodibe",
+              "bowler": "CJ Dala",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.2",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "TM Bodibe",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "TM Bodibe",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "15.4",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "TM Bodibe",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.5",
+              "batter": "TM Bodibe",
+              "bowler": "CJ Dala",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.6",
+              "batter": "TM Bodibe",
+              "bowler": "CJ Dala",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.6",
+              "batter": "TM Bodibe",
+              "bowler": "CJ Dala",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "actual_delivery": "16.1",
+              "batter": "TM Bodibe",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "TM Bodibe",
+                  "kind": "bowled"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "16.2",
+              "batter": "M de Lange",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "M de Lange",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.4",
+              "batter": "M de Lange",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.5",
+              "batter": "DA Miller",
+              "bowler": "MP Siboto",
+              "non_striker": "M de Lange",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "16.6",
+              "batter": "DA Miller",
+              "bowler": "MP Siboto",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "M de Lange",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.6",
+              "batter": "DA Miller",
+              "bowler": "MP Siboto",
+              "non_striker": "M de Lange",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "actual_delivery": "17.1",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "M de Lange",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "M de Lange",
+              "bowler": "D Wiese",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "M de Lange",
+                  "fielders": [
+                    {
+                      "name": "F Behardien"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "17.3",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "D du Preez",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.3",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "D du Preez",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "D du Preez",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "17.5",
+              "batter": "DA Miller",
+              "bowler": "D Wiese",
+              "non_striker": "D du Preez",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.6",
+              "batter": "D du Preez",
+              "bowler": "D Wiese",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "actual_delivery": "18.1",
+              "batter": "DA Miller",
+              "bowler": "MP Siboto",
+              "non_striker": "D du Preez",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.2",
+              "batter": "D du Preez",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.3",
+              "batter": "DA Miller",
+              "bowler": "MP Siboto",
+              "non_striker": "D du Preez",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.4",
+              "batter": "D du Preez",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "18.5",
+              "batter": "D du Preez",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "18.6",
+              "batter": "D du Preez",
+              "bowler": "MP Siboto",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.6",
+              "batter": "D du Preez",
+              "bowler": "MP Siboto",
+              "non_striker": "DA Miller",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "actual_delivery": "19.1",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "D du Preez",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "19.2",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "D du Preez",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "19.3",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "D du Preez",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "19.4",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "D du Preez",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "19.5",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "D du Preez",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "19.6",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "D du Preez",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.6",
+              "batter": "DA Miller",
+              "bowler": "CJ Dala",
+              "non_striker": "D du Preez",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        }
+      ],
+      "powerplays": [
+        {
+          "from": 0.1,
+          "to": 5.6,
+          "type": "mandatory"
+        }
+      ]
+    },
+    {
+      "team": "Titans",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "actual_delivery": "0.1",
+              "batter": "H Klaasen",
+              "bowler": "M de Lange",
+              "non_striker": "TG Mokoena",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "0.2",
+              "batter": "H Klaasen",
+              "bowler": "M de Lange",
+              "non_striker": "TG Mokoena",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.3",
+              "batter": "H Klaasen",
+              "bowler": "M de Lange",
+              "non_striker": "TG Mokoena",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.4",
+              "batter": "TG Mokoena",
+              "bowler": "M de Lange",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.5",
+              "batter": "TG Mokoena",
+              "bowler": "M de Lange",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.6",
+              "batter": "TG Mokoena",
+              "bowler": "M de Lange",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "actual_delivery": "1.1",
+              "batter": "H Klaasen",
+              "bowler": "D du Preez",
+              "non_striker": "TG Mokoena",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.2",
+              "batter": "TG Mokoena",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.3",
+              "batter": "TG Mokoena",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.4",
+              "batter": "TG Mokoena",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "TG Mokoena",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "1.6",
+              "batter": "TG Mokoena",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "actual_delivery": "2.1",
+              "batter": "TG Mokoena",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.2",
+              "batter": "H Klaasen",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "TG Mokoena",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "2.3",
+              "batter": "H Klaasen",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "TG Mokoena",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "H Klaasen",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "TG Mokoena",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "H Klaasen",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "TG Mokoena",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.6",
+              "batter": "TG Mokoena",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "actual_delivery": "3.1",
+              "batter": "TG Mokoena",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.2",
+              "batter": "TG Mokoena",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "TG Mokoena",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.4",
+              "batter": "TG Mokoena",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "TG Mokoena",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.6",
+              "batter": "TG Mokoena",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "actual_delivery": "4.1",
+              "batter": "H Klaasen",
+              "bowler": "D Olivier",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "TG Mokoena",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.1",
+              "batter": "H Klaasen",
+              "bowler": "D Olivier",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "TG Mokoena",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.1",
+              "batter": "H Klaasen",
+              "bowler": "D Olivier",
+              "extras": {
+                "legbyes": 1
+              },
+              "non_striker": "TG Mokoena",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "TG Mokoena",
+              "bowler": "D Olivier",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "TG Mokoena",
+              "bowler": "D Olivier",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.3",
+              "batter": "TG Mokoena",
+              "bowler": "D Olivier",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "TG Mokoena",
+              "bowler": "D Olivier",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.5",
+              "batter": "TG Mokoena",
+              "bowler": "D Olivier",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.6",
+              "batter": "TG Mokoena",
+              "bowler": "D Olivier",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "actual_delivery": "5.1",
+              "batter": "TG Mokoena",
+              "bowler": "M de Lange",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "TG Mokoena",
+              "bowler": "M de Lange",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "5.3",
+              "batter": "TG Mokoena",
+              "bowler": "M de Lange",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "TG Mokoena",
+                  "fielders": [
+                    {
+                      "name": "DA Miller"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "5.4",
+              "batter": "HG Kuhn",
+              "bowler": "M de Lange",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "H Klaasen",
+              "bowler": "M de Lange",
+              "non_striker": "HG Kuhn",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "5.6",
+              "batter": "H Klaasen",
+              "bowler": "M de Lange",
+              "non_striker": "HG Kuhn",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "actual_delivery": "6.1",
+              "batter": "HG Kuhn",
+              "bowler": "T Ntuli",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "HG Kuhn",
+              "bowler": "T Ntuli",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "H Klaasen",
+              "bowler": "T Ntuli",
+              "non_striker": "HG Kuhn",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.4",
+              "batter": "H Klaasen",
+              "bowler": "T Ntuli",
+              "non_striker": "HG Kuhn",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "6.5",
+              "batter": "H Klaasen",
+              "bowler": "T Ntuli",
+              "non_striker": "HG Kuhn",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "6.6",
+              "batter": "H Klaasen",
+              "bowler": "T Ntuli",
+              "non_striker": "HG Kuhn",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "actual_delivery": "7.1",
+              "batter": "H Klaasen",
+              "bowler": "SC van Schalkwyk",
+              "extras": {
+                "legbyes": 1
+              },
+              "non_striker": "HG Kuhn",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.2",
+              "batter": "HG Kuhn",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.3",
+              "batter": "H Klaasen",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "HG Kuhn",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.4",
+              "batter": "HG Kuhn",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "HG Kuhn",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.6",
+              "batter": "HG Kuhn",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "actual_delivery": "8.1",
+              "batter": "HG Kuhn",
+              "bowler": "DS Rosier",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "8.2",
+              "batter": "HG Kuhn",
+              "bowler": "DS Rosier",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "HG Kuhn",
+              "bowler": "DS Rosier",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "HG Kuhn",
+              "bowler": "DS Rosier",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "HG Kuhn",
+                  "fielders": [
+                    {
+                      "name": "PE Kruger"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "H Klaasen",
+              "bowler": "DS Rosier",
+              "non_striker": "MQ Adams",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.6",
+              "batter": "MQ Adams",
+              "bowler": "DS Rosier",
+              "extras": {
+                "noballs": 1
+              },
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 4,
+                "extras": 1,
+                "total": 5
+              }
+            },
+            {
+              "actual_delivery": "8.6",
+              "batter": "MQ Adams",
+              "bowler": "DS Rosier",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "actual_delivery": "9.1",
+              "batter": "H Klaasen",
+              "bowler": "D Olivier",
+              "non_striker": "MQ Adams",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "9.2",
+              "batter": "H Klaasen",
+              "bowler": "D Olivier",
+              "non_striker": "MQ Adams",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "H Klaasen",
+              "bowler": "D Olivier",
+              "non_striker": "MQ Adams",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "H Klaasen",
+              "bowler": "D Olivier",
+              "non_striker": "MQ Adams",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "H Klaasen",
+              "bowler": "D Olivier",
+              "non_striker": "MQ Adams",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.6",
+              "batter": "MQ Adams",
+              "bowler": "D Olivier",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "actual_delivery": "10.1",
+              "batter": "H Klaasen",
+              "bowler": "PE Kruger",
+              "non_striker": "MQ Adams",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "MQ Adams",
+              "bowler": "PE Kruger",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.3",
+              "batter": "H Klaasen",
+              "bowler": "PE Kruger",
+              "non_striker": "MQ Adams",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "MQ Adams",
+              "bowler": "PE Kruger",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "H Klaasen",
+              "bowler": "PE Kruger",
+              "non_striker": "MQ Adams",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.6",
+              "batter": "H Klaasen",
+              "bowler": "PE Kruger",
+              "non_striker": "MQ Adams",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "actual_delivery": "11.1",
+              "batter": "H Klaasen",
+              "bowler": "D du Preez",
+              "non_striker": "MQ Adams",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.2",
+              "batter": "MQ Adams",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.3",
+              "batter": "MQ Adams",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "MQ Adams",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "MQ Adams",
+                  "fielders": [
+                    {
+                      "name": "T Ntuli"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "F Behardien",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.6",
+              "batter": "F Behardien",
+              "bowler": "D du Preez",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "actual_delivery": "12.1",
+              "batter": "H Klaasen",
+              "bowler": "D Olivier",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "F Behardien",
+              "bowler": "D Olivier",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "F Behardien",
+              "bowler": "D Olivier",
+              "non_striker": "H Klaasen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "H Klaasen",
+              "bowler": "D Olivier",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "H Klaasen",
+                  "fielders": [
+                    {
+                      "name": "TM Bodibe"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "JA Morkel",
+              "bowler": "D Olivier",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "12.5",
+              "batter": "JA Morkel",
+              "bowler": "D Olivier",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.6",
+              "batter": "F Behardien",
+              "bowler": "D Olivier",
+              "non_striker": "JA Morkel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "actual_delivery": "13.1",
+              "batter": "JA Morkel",
+              "bowler": "M de Lange",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "F Behardien",
+              "bowler": "M de Lange",
+              "non_striker": "JA Morkel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "JA Morkel",
+              "bowler": "M de Lange",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "13.4",
+              "batter": "JA Morkel",
+              "bowler": "M de Lange",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "13.5",
+              "batter": "JA Morkel",
+              "bowler": "M de Lange",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "13.6",
+              "batter": "JA Morkel",
+              "bowler": "M de Lange",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "actual_delivery": "14.1",
+              "batter": "F Behardien",
+              "bowler": "PE Kruger",
+              "non_striker": "JA Morkel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "F Behardien",
+              "bowler": "PE Kruger",
+              "extras": {
+                "wides": 2
+              },
+              "non_striker": "JA Morkel",
+              "runs": {
+                "batter": 0,
+                "extras": 2,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "JA Morkel",
+              "bowler": "PE Kruger",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "JA Morkel",
+              "bowler": "PE Kruger",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "F Behardien",
+              "bowler": "PE Kruger",
+              "non_striker": "JA Morkel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "F Behardien",
+              "bowler": "PE Kruger",
+              "non_striker": "JA Morkel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "JA Morkel",
+              "bowler": "PE Kruger",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "JA Morkel",
+                  "kind": "bowled"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "actual_delivery": "15.1",
+              "batter": "F Behardien",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "D Wiese",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.2",
+              "batter": "D Wiese",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "F Behardien",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "D Wiese",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.4",
+              "batter": "D Wiese",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.5",
+              "batter": "F Behardien",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "D Wiese",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.6",
+              "batter": "D Wiese",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "actual_delivery": "16.1",
+              "batter": "F Behardien",
+              "bowler": "PE Kruger",
+              "non_striker": "D Wiese",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "16.2",
+              "batter": "F Behardien",
+              "bowler": "PE Kruger",
+              "non_striker": "D Wiese",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "F Behardien",
+              "bowler": "PE Kruger",
+              "non_striker": "D Wiese",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.4",
+              "batter": "D Wiese",
+              "bowler": "PE Kruger",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "16.5",
+              "batter": "D Wiese",
+              "bowler": "PE Kruger",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.6",
+              "batter": "F Behardien",
+              "bowler": "PE Kruger",
+              "non_striker": "D Wiese",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "actual_delivery": "17.1",
+              "batter": "D Wiese",
+              "bowler": "D du Preez",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "D Wiese",
+              "bowler": "D du Preez",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "17.3",
+              "batter": "D Wiese",
+              "bowler": "D du Preez",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "D Wiese",
+              "bowler": "D du Preez",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "17.5",
+              "batter": "D Wiese",
+              "bowler": "D du Preez",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "17.6",
+              "batter": "D Wiese",
+              "bowler": "D du Preez",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "actual_delivery": "18.1",
+              "batter": "F Behardien",
+              "bowler": "M de Lange",
+              "non_striker": "D Wiese",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.2",
+              "batter": "D Wiese",
+              "bowler": "M de Lange",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "18.3",
+              "batter": "D Wiese",
+              "bowler": "M de Lange",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "18.4",
+              "batter": "D Wiese",
+              "bowler": "M de Lange",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.5",
+              "batter": "F Behardien",
+              "bowler": "M de Lange",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "D Wiese",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.5",
+              "batter": "F Behardien",
+              "bowler": "M de Lange",
+              "non_striker": "D Wiese",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.6",
+              "batter": "D Wiese",
+              "bowler": "M de Lange",
+              "non_striker": "F Behardien",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "D Wiese",
+                  "fielders": [
+                    {
+                      "name": "TM Bodibe"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "actual_delivery": "19.1",
+              "batter": "F Behardien",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "S von Berg",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              },
+              "wickets": [
+                {
+                  "player_out": "F Behardien",
+                  "fielders": [
+                    {
+                      "name": "PE Kruger"
+                    }
+                  ],
+                  "kind": "run out"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "19.2",
+              "batter": "MP Siboto",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "S von Berg",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.3",
+              "batter": "S von Berg",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "MP Siboto",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "19.4",
+              "batter": "S von Berg",
+              "bowler": "SC van Schalkwyk",
+              "non_striker": "MP Siboto",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.5",
+              "batter": "MP Siboto",
+              "bowler": "SC van Schalkwyk",
+              "extras": {
+                "byes": 1
+              },
+              "non_striker": "S von Berg",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.6",
+              "batter": "S von Berg",
+              "bowler": "SC van Schalkwyk",
+              "extras": {
+                "noballs": 1
+              },
+              "non_striker": "MP Siboto",
+              "runs": {
+                "batter": 1,
+                "extras": 1,
+                "total": 2
+              }
+            }
+          ]
+        }
+      ],
+      "powerplays": [
+        {
+          "from": 0.1,
+          "to": 5.6,
+          "type": "mandatory"
+        }
+      ],
+      "target": {
+        "overs": 20,
+        "runs": 186
+      }
+    }
+  ]
+}

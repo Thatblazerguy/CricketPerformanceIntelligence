@@ -1,0 +1,79 @@
+# Cricket Performance Intelligence — Docker Compose Demo
+#
+# Loads 204 real Cricsheet matches (all formats, men's & women's) from data/sample/.
+# The Cricsheet sync worker is DISABLED in this environment — use the full local
+# setup (see README §Installation) for live synchronisation.
+#
+# Usage:
+#   docker compose down -v && docker compose up --build
+# Then open http://localhost:5173
+#
+# Services:
+#   db        PostgreSQL 16
+#   backend   FastAPI (migrates → ingests sample → starts uvicorn)
+#   frontend  Vite build served by nginx (proxies /api → backend)
+
+services:
+  # ── Database ────────────────────────────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB:       cpi_db
+      POSTGRES_USER:     cpi
+      POSTGRES_PASSWORD: cpi
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cpi -d cpi_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # ── Backend ─────────────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL:              postgresql+psycopg://cpi:cpi@db:5432/cpi_db
+      DB_HOST:                   db
+      DB_PORT:                   5432
+      DB_USER:                   cpi
+      ENVIRONMENT:               docker
+      LOG_LEVEL:                 INFO
+      SAMPLE_DATA_DIR:           /app/data/sample/matches
+      # Disable Cricsheet auto-sync — no outbound network in Docker demo
+      SYNC_ENABLE_ALL_JSON:      "false"
+      SYNC_ENABLE_IPL_JSON:      "false"
+      SYNC_ENABLE_T20I_JSON:     "false"
+    volumes:
+      # Mount sample data read-only into the container
+      - ./data/sample:/app/data/sample:ro
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/health')\""]
+      interval: 10s
+      timeout: 10s
+      retries: 15
+      start_period: 90s
+
+  # ── Frontend ─────────────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "5173:80"
+
+volumes:
+  postgres_data:

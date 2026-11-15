@@ -27,11 +27,12 @@
 5. [Cricket Rules & Statistical Integrity](#cricket-rules--statistical-integrity)
 6. [Architecture](#architecture)
 7. [Tech Stack](#tech-stack)
-8. [Installation & Setup](#installation--setup)
-9. [Data Sync & Derived Tables](#data-sync--derived-tables)
-10. [Tests](#tests)
-11. [Further Documentation](#further-documentation)
-12. [License & Acknowledgements](#license--acknowledgements)
+8. [Quick Start with Docker](#quick-start-with-docker)
+9. [Installation & Setup](#installation--setup)
+10. [Data Sync & Derived Tables](#data-sync--derived-tables)
+11. [Tests](#tests)
+12. [Further Documentation](#further-documentation)
+13. [License & Acknowledgements](#license--acknowledgements)
 
 ---
 
@@ -230,6 +231,24 @@ Every calculation follows the Laws of Cricket and standard scoring conventions. 
 - **ML / data**: scikit-learn, pandas, NumPy, joblib
 - **Frontend**: React 18, Vite 5, Tailwind CSS 3, React Router 6
 - **Testing**: pytest, pytest-cov, FastAPI TestClient
+
+---
+
+## Quick Start with Docker
+
+> Requires [Docker Desktop 4.x](https://docs.docker.com/get-docker/) (or Docker Engine + Compose v2).
+
+```bash
+docker compose down -v && docker compose up --build
+```
+
+Then open **http://localhost:5173**.
+
+This loads **204 real Cricsheet matches** (all formats — T20, T20I, ODI, Test, ODM, MDM; men's & women's) from the bundled `data/sample/` directory.  
+Schema migrations, sample ingestion, and derived-table building all run automatically on first start.
+
+> **Note:** The Cricsheet automatic sync worker is disabled in the Docker demo.  
+> To ingest your full local dataset, use the native setup below.
 
 ---
 
