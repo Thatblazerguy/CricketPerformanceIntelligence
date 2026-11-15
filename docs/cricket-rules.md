@@ -173,18 +173,18 @@ A bowler receives wicket credit **only** for:
 
 ---
 
-## 14. Phase Assignment (T20)
+## 14. Phase Assignment (Format-Aware)
 
-Phases are determined by the zero-based `over` integer from each over object:
+Phases are determined by the zero-based `over_number` integer from each over object, tailored to each format family:
 
-| Phase    | Over indices (0-based) | Over numbers (display) |
-|----------|------------------------|------------------------|
-| Powerplay| 0 – 5                  | 1 – 6                  |
-| Middle   | 6 – 14                 | 7 – 15                 |
-| Death    | 15 – 19                | 16 – 20                |
+| Format | Powerplay (0-indexed / display) | Middle (0-indexed / display) | Death (0-indexed / display) |
+|--------|---------------------------------|------------------------------|-----------------------------|
+| **T20, T20I** | 0 – 5 (overs 1 – 6) | 6 – 14 (overs 7 – 15) | 15 – 19 (overs 16 – 20) |
+| **ODI, ODM** | 0 – 9 (overs 1 – 10) | 10 – 39 (overs 11 – 40) | 40 – 49 (overs 41 – 50) |
+| **Test, MDM, Multi-day** | Not applicable (`unknown`) | Not applicable (`unknown`) | Not applicable (`unknown`) |
 
-> **Super overs** are excluded from phase calculations.  
-> **Shortened innings:** Phases are still assigned by over index, not by total overs. A match reduced to 10 overs has overs 0–5 as powerplay and 6–9 as middle (no death phase).
+> **Super overs** are labeled separately as `super_over` and excluded from standard phase calculations.  
+> **Shortened innings:** Phases are still assigned by over index, not by total overs. A T20 match reduced to 10 overs has overs 0–5 as powerplay and 6–9 as middle (no death phase). Overs outside standard regulation boundaries receive `unknown`. Full documentation is available in [docs/PHASE_RULES.md](PHASE_RULES.md).
 
 ---
 

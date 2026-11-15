@@ -57,9 +57,9 @@ backend/artifacts/win_probability/cache/
 # Audit, Architecture, and Internal Methodology Documents
 *AUDIT*.md
 *audit*.md
-AUCTION_ARCHITECTURE.md
+/AUCTION_ARCHITECTURE.md
 SCOUTING_METHODOLOGY.md
-PHASE_RULES.md
+/PHASE_RULES.md
 PRD.md
 PROGRESS.md
 implementation.md
