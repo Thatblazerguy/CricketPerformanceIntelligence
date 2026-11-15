@@ -50,7 +50,7 @@ export default function HistoryTab() {
               data={data.base_vs_final.map(r => ({ ...r, name: `${r.name} (${r.season})`, group: roleLabel(r.role), color: { BAT: PALETTE[0], BOWL: PALETTE[5], AR: PALETTE[2], WK: PALETTE[3] }[r.role] || PALETTE[7], detail: `${r.franchise || ''}` }))}
               xKey="base" yKey="final" xLabel="Base price (L)" yLabel="Final price (L)" formatX={v => Math.round(v)} formatY={v => Math.round(v)} />
             <Panel title="Price distribution by role" subtitle="Recorded sale prices (lakh)" actions={<Prov kind="actual" />}>
-              <table className="w-full text-xs"><thead className="text-left text-2xs uppercase text-slate-500"><tr><th className="py-1">Role</th><th className="text-right">n</th><th className="text-right">p25</th><th className="text-right">Median</th><th className="text-right">p75</th><th className="text-right">p90</th><th className="text-right">Max</th></tr></thead>
+              <table className="w-full text-xs"><thead className="text-left text-2xs text-slate-500"><tr><th className="py-1">Role</th><th className="text-right">n</th><th className="text-right">p25</th><th className="text-right">Median</th><th className="text-right">p75</th><th className="text-right">p90</th><th className="text-right">Max</th></tr></thead>
                 <tbody>{Object.entries(data.by_role).map(([k, d]) => <tr key={k} className="border-t border-line-soft"><td className="py-1.5 text-slate-200">{roleLabel(k)}</td>{['n', 'p25', 'median', 'p75', 'p90', 'max'].map(c => <td key={c} className="num text-right">{c === 'n' ? d.n : fmtL(d[c])}</td>)}</tr>)}</tbody></table>
               <div className="mt-4 grid grid-cols-2 gap-3 text-xs">{Object.entries(data.mega_vs_mini).map(([k, v]) => (
                 <div key={k} className="rounded-2xl border border-line p-3"><p className="mb-1 font-medium text-white">{k === 'MEGA' ? 'Mega auctions' : 'Mini auctions'}</p>
@@ -63,7 +63,7 @@ export default function HistoryTab() {
             <TopList title="Most expensive overseas players" rows={data.most_expensive_overseas} />
           </div>
           <Panel title="Season summary" bodyClassName="p-0">
-            <div className="overflow-x-auto"><table className="w-full text-xs"><thead className="bg-surface-raised text-left text-2xs uppercase text-slate-500"><tr><th className="px-4 py-2">Season</th><th>Type</th><th className="text-right">Sold</th><th className="text-right">Unsold recorded</th><th className="text-right">Spend</th><th className="text-right">Max</th><th className="text-right">Uncapped spend</th><th className="px-4 text-right">Purse</th></tr></thead>
+            <div className="overflow-x-auto"><table className="w-full text-xs"><thead className="bg-surface-raised text-left text-2xs text-slate-500"><tr><th className="px-4 py-2">Season</th><th>Type</th><th className="text-right">Sold</th><th className="text-right">Unsold recorded</th><th className="text-right">Spend</th><th className="text-right">Max</th><th className="text-right">Uncapped spend</th><th className="px-4 text-right">Purse</th></tr></thead>
               <tbody>{data.by_season.map(s => <tr key={s.season} className="border-t border-line-soft"><td className="px-4 py-1.5 text-slate-200">{s.season}</td><td>{s.auction_type}</td><td className="num text-right">{s.sold}</td><td className="num text-right">{s.unsold_recorded || DASH}</td><td className="num text-right">{fmtL(s.total_spend_lakh)}</td><td className="num text-right">{fmtL(s.max_price_lakh)}</td><td className="num text-right">{s.uncapped_known ? fmtL(s.uncapped_spend_lakh) : DASH}</td><td className="num px-4 text-right">{fmtL(s.purse_lakh)}</td></tr>)}</tbody></table></div>
           </Panel>
           <RecordsTable filters={f} />
@@ -99,7 +99,7 @@ function RecordsTable({ filters }) {
       <Select value={status} onChange={v => { setStatus(v); setPage(1); }} placeholder="Any status" options={['SOLD', 'UNSOLD']} className="h-8" /></div>} bodyClassName="p-0">
       {!data ? <div className="p-5"><PanelSkeleton rows={4} /></div> : (
         <>
-          <div className="overflow-x-auto"><table className="w-full text-xs"><thead className="bg-surface-raised text-left text-2xs uppercase text-slate-500"><tr><th className="px-4 py-2">Season</th><th>Player</th><th>Status</th><th>Franchise</th><th>Role</th><th className="text-right">Base</th><th className="text-right">Price</th><th>Set</th><th className="px-4">Verification</th></tr></thead>
+          <div className="overflow-x-auto"><table className="w-full text-xs"><thead className="bg-surface-raised text-left text-2xs text-slate-500"><tr><th className="px-4 py-2">Season</th><th>Player</th><th>Status</th><th>Franchise</th><th>Role</th><th className="text-right">Base</th><th className="text-right">Price</th><th>Set</th><th className="px-4">Verification</th></tr></thead>
             <tbody>{data.items.map(r => (
               <Fragment key={r.id}>
                 <tr onClick={() => setOpen(open === r.id ? null : r.id)} className="cursor-pointer border-t border-line-soft hover:bg-surface-hover">

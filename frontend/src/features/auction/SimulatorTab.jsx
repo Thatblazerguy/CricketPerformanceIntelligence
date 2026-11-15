@@ -158,7 +158,7 @@ export default function SimulatorTab({ context, contextInfo, strategies, onPlaye
 
       <Panel title="Franchises" subtitle="Live purse, squad and needs — recalculated after every purchase." bodyClassName="p-0">
         <div className="overflow-x-auto"><table className="w-full text-[13px]">
-          <thead className="bg-surface-raised text-left text-2xs uppercase tracking-wide text-slate-500"><tr><th className="px-4 py-2">Team</th><th className="px-3 text-right">Purse</th><th className="px-3 text-right">Spent</th><th className="px-3 text-right">Squad</th><th className="px-3 text-right">OS</th><th className="px-3 text-right">Max bid</th><th className="px-3 text-right">XI</th><th className="px-3">Open needs</th><th className="px-3">Bought</th></tr></thead>
+          <thead className="bg-surface-raised text-left text-2xs text-slate-500"><tr><th className="px-4 py-2">Team</th><th className="px-3 text-right">Purse</th><th className="px-3 text-right">Spent</th><th className="px-3 text-right">Squad</th><th className="px-3 text-right">OS</th><th className="px-3 text-right">Max bid</th><th className="px-3 text-right">XI</th><th className="px-3">Open needs</th><th className="px-3">Bought</th></tr></thead>
           <tbody>{sim.teams.map(t => (
             <tr key={t.code} className={`border-b border-line-soft ${t.is_user ? 'bg-accent/[0.07]' : ''}`}>
               <td className="px-4 py-2 font-medium text-white">{t.code}{t.rtm_cards ? <Badge className="ml-1.5">RTM {t.rtm_cards}</Badge> : null}</td>
@@ -173,7 +173,7 @@ export default function SimulatorTab({ context, contextInfo, strategies, onPlaye
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
         <Panel title="Results" subtitle="Simulated price vs CPI range — and the recorded outcome where this is a replay" bodyClassName="p-0">
           <div className="max-h-[24rem] overflow-y-auto"><table className="w-full text-xs">
-            <thead className="sticky top-0 bg-surface-raised text-left text-2xs uppercase text-slate-500"><tr><th className="px-4 py-2">Player</th><th className="px-2">Simulated</th><th className="px-2 text-right">Price</th><th className="px-2">Actual</th></tr></thead>
+            <thead className="sticky top-0 bg-surface-raised text-left text-2xs text-slate-500"><tr><th className="px-4 py-2">Player</th><th className="px-2">Simulated</th><th className="px-2 text-right">Price</th><th className="px-2">Actual</th></tr></thead>
             <tbody>{[...sim.results].reverse().map(r => (
               <tr key={r.player_key} className="border-t border-line-soft"><td className="px-4 py-1.5 text-slate-200">{r.name}{r.rtm && <Badge variant="amber" className="ml-1" title={r.rtm}>RTM</Badge>}</td>
                 <td className="px-2">{r.status === 'SOLD' ? r.franchise : <span className="text-slate-500">unsold</span>}</td>

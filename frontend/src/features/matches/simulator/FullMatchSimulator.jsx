@@ -25,7 +25,7 @@ function Step({ n, title, status, children, right }) {
           <span className={`grid h-6 w-6 place-items-center rounded-full border text-2xs font-semibold ${tone}`}>
             {status === 'done' ? <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" /></svg> : n}
           </span>
-          <span><span className="mr-2 text-3xs font-medium uppercase tracking-[0.12em] text-slate-500">Step {n}</span>{title}</span>
+          <span><span className="mr-2 text-3xs font-medium text-slate-500">Step {n}</span>{title}</span>
           <span className={`hidden text-3xs font-medium sm:inline ${status === 'done' ? 'text-pos/80' : status === 'blocked' ? 'text-warn/90' : 'text-slate-500'}`}>· {caption}</span>
         </h2>
         {right}
@@ -68,8 +68,8 @@ function TeamCard({ k, team, issues, flags, onEdit, editing }) {
     <div className={`rounded-xl border p-3 ${editing ? 'border-indigo-500 bg-indigo-950/20' : 'border-slate-800 bg-slate-950/60'}`}>
       <div className="flex items-start justify-between gap-2">
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: TEAM_COLORS[k] }}>Team {k}</p>
-          <p className="text-base font-bold text-white">{team.name || `Team ${k}`}</p>
+          <p className="text-[10px] font-semibold" style={{ color: TEAM_COLORS[k] }}>Team {k}</p>
+          <p className="text-base font-semibold text-white">{team.name || `Team ${k}`}</p>
           <p className="text-xs text-slate-400">{players.length}/11 players · {matched} matched{captain ? ` · C ${captain.name}` : ''}{keeper ? ` · WK ${keeper.name}` : ''}</p>
         </div>
         <button type="button" onClick={onEdit} className={`rounded-full px-3 py-1.5 text-xs font-semibold ${editing ? 'bg-slate-800 text-slate-200' : 'bg-accent text-on-accent hover:bg-accent-strong'}`}>
@@ -235,7 +235,7 @@ export default function FullMatchSimulator({ sim }) {
                     <div key={k} className="rounded-lg border border-slate-800 bg-slate-950/60 p-3 text-xs">
                       <p className="font-semibold" style={{ color: TEAM_COLORS[k] }}>{t.name}</p>
                       <div className="overflow-x-auto"><table className="mt-2 w-full min-w-[420px]">
-                        <thead><tr className="text-[10px] uppercase text-slate-500"><th className="text-left">#</th><th className="text-left">Player</th><th className="text-left">CPI role</th><th className="text-right">Avg / SR</th><th className="text-right">Econ</th></tr></thead>
+                        <thead><tr className="text-[10px] text-slate-500"><th className="text-left">#</th><th className="text-left">Player</th><th className="text-left">CPI role</th><th className="text-right">Avg / SR</th><th className="text-right">Econ</th></tr></thead>
                         <tbody className="text-slate-300">
                           {t.players.map(p => (
                             <tr key={p.id}><td className="pr-1 font-mono text-slate-500">{p.position}</td>

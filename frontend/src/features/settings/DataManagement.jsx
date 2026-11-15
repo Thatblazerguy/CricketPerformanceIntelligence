@@ -105,7 +105,7 @@ function PhaseTracker({ run }) {
       {!failed && pct !== null && (
         <div className="mt-4">
           <div className="h-1.5 overflow-hidden rounded bg-slate-800">
-            <div className="h-full bg-sky-500 transition-all" style={{ width: `${pct}%` }} />
+            <div className="h-full origin-left bg-sky-500 transition-transform duration-350 ease-out" style={{ transform: `scaleX(${pct / 100})` }} />
           </div>
           <p className="mt-1.5 text-xs text-slate-500">{PHASE_LABEL[source.phase]} · {progressText}</p>
         </div>
@@ -123,7 +123,7 @@ function HistoryTable({ items }) {
     <div className="overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
-          <tr className="border-b border-slate-800 text-left text-xs uppercase tracking-wider text-slate-500">
+          <tr className="border-b border-slate-800 text-left text-xs text-slate-500">
             <th className="py-2 pr-4 font-medium">Started</th>
             <th className="py-2 pr-4 font-medium">Source</th>
             <th className="py-2 pr-4 font-medium">Trigger</th>

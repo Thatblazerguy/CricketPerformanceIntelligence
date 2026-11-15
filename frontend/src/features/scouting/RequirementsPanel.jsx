@@ -221,7 +221,7 @@ export default function RequirementsPanel({ options, form, setForm, onSubmit, lo
           )}
           {allGroups.map(g => (
             <div key={g.name}>
-              <div className="mb-1 text-3xs font-semibold uppercase tracking-wide text-slate-500">{g.name}</div>
+              <div className="mb-1 text-3xs font-semibold text-slate-500">{g.name}</div>
               {g.metrics.filter(k => limited || !metricMap[k]?.limited_overs_only).map(k => (
                 <label key={k} className="block text-2xs text-slate-400">
                   <span className="flex justify-between"><span>{metricMap[k]?.label}</span><span className="num text-slate-300">{totalWeight ? Math.round(100 * (weights[k] || 0) / totalWeight) : 0}%</span></span>

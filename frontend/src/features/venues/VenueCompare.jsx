@@ -104,7 +104,7 @@ function Comparison({ venues, search }) {
       </div>
       <Panel title="Side-by-side" subtitle="Best value in each row is highlighted. Bracketed numbers are decided-match samples." bodyClassName="overflow-x-auto p-0">
         <table className="w-full min-w-[40rem] text-[13px]">
-          <thead className="bg-surface-raised"><tr><th className="px-4 py-2 text-left text-3xs font-medium uppercase tracking-wide text-slate-500">Metric</th>{short.map((n, i) => <th key={i} className="px-4 py-2 text-right text-3xs font-medium uppercase tracking-wide" style={{ color: COLORS[i] }} title={names[i]}>{n}</th>)}</tr></thead>
+          <thead className="bg-surface-raised"><tr><th className="px-4 py-2 text-left text-3xs font-medium text-slate-500">Metric</th>{short.map((n, i) => <th key={i} className="px-4 py-2 text-right text-3xs font-medium" style={{ color: COLORS[i] }} title={names[i]}>{n}</th>)}</tr></thead>
           <tbody>
             {metrics.map(([group, rows]) => [
               <tr key={group}><td colSpan={venues.length + 1} className="eyebrow bg-surface-sunken/60 px-4 py-1.5">{group}</td></tr>,

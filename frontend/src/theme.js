@@ -7,6 +7,7 @@
  * while switching).
  */
 import { useSyncExternalStore } from 'react';
+import { flushSync } from 'react-dom';
 
 const KEY = 'cpi.theme';
 const MODES = ['light', 'dark', 'system'];
@@ -21,18 +22,38 @@ let pref = readPref();
 const resolve = p => (p === 'system' ? (media?.matches ? 'dark' : 'light') : p);
 let snapshot = { preference: pref, resolved: resolve(pref) };
 
-function apply(animate) {
+function commit() {
   const root = document.documentElement;
   const resolved = resolve(pref);
-  if (animate && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
-    root.classList.add('theme-switching');
-    window.clearTimeout(apply.t);
-    apply.t = window.setTimeout(() => root.classList.remove('theme-switching'), 320);
-  }
   root.setAttribute('data-theme', resolved);
   root.setAttribute('data-theme-pref', pref);
   snapshot = { preference: pref, resolved };
-  listeners.forEach(l => l());
+  // Render subscribers synchronously so the new frame is complete when the
+  // view transition captures it.
+  flushSync(() => listeners.forEach(l => l()));
+}
+
+function apply(animate) {
+  const root = document.documentElement;
+  const changesColours = resolve(pref) !== root.getAttribute('data-theme');
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  if (!animate || !changesColours || reduced) { commit(); return; }
+
+  // Preferred: one composited cross-fade of the whole page. Every surface,
+  // gradient, chart and blur changes together instead of element by element.
+  if (document.startViewTransition) {
+    apply.vt?.skipTransition?.();
+    root.classList.add('theme-vt');
+    apply.vt = document.startViewTransition(commit);
+    apply.vt.finished.finally(() => root.classList.remove('theme-vt'));
+    return;
+  }
+
+  // Fallback: transition colour properties on every element briefly.
+  root.classList.add('theme-switching');
+  window.clearTimeout(apply.t);
+  apply.t = window.setTimeout(() => root.classList.remove('theme-switching'), 420);
+  commit();
 }
 
 media?.addEventListener?.('change', () => { if (pref === 'system') apply(true); });

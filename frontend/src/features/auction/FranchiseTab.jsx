@@ -19,7 +19,7 @@ export default function FranchiseTab({ context, onPlayer }) {
         actions={<Prov kind="calculated" />} bodyClassName="p-0">
         <div className="overflow-x-auto">
           <table className="w-full text-[13px]">
-            <thead className="bg-surface-raised text-left text-2xs uppercase tracking-wide text-slate-500"><tr>
+            <thead className="bg-surface-raised text-left text-2xs text-slate-500"><tr>
               <th className="px-4 py-2.5">Franchise</th><th className="px-3 text-right">Purse</th><th className="px-3">Basis</th><th className="px-3 text-right">Squad</th>
               <th className="px-3 text-right">Slots</th><th className="px-3 text-right">Overseas slots</th><th className="px-3 text-right">Max bid</th><th className="px-3 text-right">XI score</th><th className="px-3">Biggest gaps</th></tr></thead>
             <tbody>{list.data.franchises.map(f => (
@@ -52,7 +52,7 @@ export default function FranchiseTab({ context, onPlayer }) {
             <Callout tone="warn">Filling every Critical/High need with the cheapest adequate player still costs more than the remaining purse — {d.code} must accept weaker options in some roles.</Callout>)}
           <div className="grid grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
             <Panel title="Squad requirements" subtitle="Priority list calculated from the actual squad and how many players IPL teams really use per role." actions={<Prov kind="calculated" />} bodyClassName="p-0">
-              <table className="w-full text-[13px]"><thead className="text-left text-2xs uppercase tracking-wide text-slate-500"><tr><th className="px-5 py-2">Requirement</th><th>Priority</th><th className="text-right">Have / target</th><th className="px-5">Reason</th></tr></thead>
+              <table className="w-full text-[13px]"><thead className="text-left text-2xs text-slate-500"><tr><th className="px-5 py-2">Requirement</th><th>Priority</th><th className="text-right">Have / target</th><th className="px-5">Reason</th></tr></thead>
                 <tbody>{d.needs.map(n => <tr key={n.key} className="border-t border-line-soft"><td className="px-5 py-2 text-slate-200">{n.label}</td><td><PriorityBadge priority={n.priority} /></td>
                   <td className="num text-right">{n.have} / {n.target}</td><td className="px-5 text-xs text-slate-400" title={n.target_basis}>{n.reason}</td></tr>)}</tbody></table>
             </Panel>

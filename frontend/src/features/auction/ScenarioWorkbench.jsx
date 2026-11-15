@@ -206,7 +206,7 @@ export default function ScenarioWorkbench({ onChanged }) {
           {label:'Training rows',value:history.latest_price_model.training_rows},
           {label:'Validation rows',value:history.latest_price_model.validation_rows},
         ]} formatter={value => Math.round(value).toLocaleString()} color="var(--c2)" />
-        {history.latest_price_model.evaluation.r2 != null && <div className="panel p-4"><p className="text-sm font-semibold text-slate-200">Holdout R²</p><p className="mt-2 text-3xl font-bold text-indigo-300">{Number(history.latest_price_model.evaluation.r2).toFixed(3)}</p><p className="mt-1 text-xs text-slate-500">Calculated on {history.latest_price_model.validation_rows} held-out auction transactions.</p></div>}
+        {history.latest_price_model.evaluation.r2 != null && <div className="panel p-4"><p className="text-sm font-semibold text-slate-200">Holdout R²</p><p className="mt-2 text-3xl font-semibold text-indigo-300">{Number(history.latest_price_model.evaluation.r2).toFixed(3)}</p><p className="mt-1 text-xs text-slate-500">Calculated on {history.latest_price_model.validation_rows} held-out auction transactions.</p></div>}
       </div>}
     </section>
   </div>;

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { OverBars, Panel, TEAM_COLORS, WinProbabilityChart, WormChart } from './charts';
 
-const th = 'px-2 py-2 text-left text-3xs font-semibold uppercase tracking-[0.08em] text-slate-500';
+const th = 'px-2 py-2 text-left text-3xs font-semibold text-slate-500';
 const td = 'px-2 py-1.5';
 const PHASE_LABEL = { powerplay: 'Powerplay', middle: 'Middle overs', death: 'Death overs', new_ball: 'New ball (0-20)', old_ball: 'Old ball (80+)', super_over: 'Super over' };
 
@@ -138,7 +138,7 @@ export default function MatchResult({ result, names }) {
   const current = innings[Math.min(tab, innings.length - 1)];
   return (
     <div className="space-y-4">
-      <section className="rounded-xl border border-indigo-900/50 bg-gradient-to-r from-slate-900 via-indigo-950/30 to-slate-900 p-5">
+      <section className="panel p-5">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <p className="eyebrow text-accent-soft/80">Simulated result · <span className="num normal-case tracking-normal">seed {result.seed}</span></p>
@@ -161,7 +161,7 @@ export default function MatchResult({ result, names }) {
           {potm && (
             <div className="min-w-[13rem] rounded-xl border border-warn/25 bg-warn-muted/30 p-4 text-sm">
               <p className="eyebrow text-warn/90">Player of the match</p>
-              <PlayerLink id={potm.player_id} name={potm.name} className="mt-1 block text-base font-bold" />
+              <PlayerLink id={potm.player_id} name={potm.name} className="mt-1 block text-base font-semibold" />
               <p className="text-xs text-slate-400"><TeamLink name={names[potm.team]} /></p>
               <p className="mt-1 num text-xs text-slate-300">
                 {potm.balls ? `${potm.runs} (${potm.balls})` : ''}{potm.balls && potm.bowled ? ' · ' : ''}{potm.bowled ? `${potm.wickets}/${potm.conceded}` : ''}{potm.field ? ` · ${potm.field} ct/ro` : ''}

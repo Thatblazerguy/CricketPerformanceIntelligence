@@ -177,7 +177,7 @@ export function Unavailable({ title, reason }) {
     <div className="flex items-start gap-3 rounded-xl border border-dashed border-line-strong bg-surface-sunken/60 px-4 py-3">
       <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-line-strong text-slate-500"><Icon name="info" size={12} /></span>
       <div className="min-w-0">
-        <p className="text-[13px] font-medium text-slate-300">{title} <span className="ml-1 text-2xs font-normal uppercase tracking-wide text-slate-500">unavailable</span></p>
+        <p className="text-[13px] font-medium text-slate-300">{title} <span className="ml-1 text-2xs font-normal text-slate-500">unavailable</span></p>
         <p className="mt-0.5 text-2xs leading-relaxed text-slate-500">{reason}</p>
       </div>
     </div>
@@ -200,7 +200,7 @@ export function FormStrip({ results = [], items, size = 'md' }) {
         const cls = `grid place-items-center rounded px-1 font-semibold ${sz} ${RESULT_STYLE[r.result] || RESULT_STYLE.unknown}`;
         const letter = RESULT_LETTER[r.result] || '?';
         return r.match_id
-          ? <Link key={i} to={matchUrl(r.match_id)} title={r.label || 'Open match details'} onClick={e => e.stopPropagation()} className={`${cls} transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60`}>{letter}</Link>
+          ? <Link key={i} to={matchUrl(r.match_id)} title={r.label || 'Open match details'} onClick={e => e.stopPropagation()} className={`${cls} transition-opacity hover:opacity-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60`}>{letter}</Link>
           : <span key={i} className={cls}>{letter}</span>;
       })}
     </span>
@@ -254,7 +254,7 @@ export function PaceSpin({ ps, title = 'Pace vs spin', subtitle }) {
         <>
           <StackedBar rows={[{ label: 'Share of overs', segments: [{ name: 'Pace', value: s.pace?.balls, color: PALETTE[3] }, { name: 'Spin', value: s.spin?.balls, color: PALETTE[4] }, { name: 'Unclassified', value: ps.unclassified_balls, color: 'var(--chart-dim)' }] }]} percent formatter={v => `${fmtInt(v / 6)} ov`} className="!border-0 !p-0" />
           <table className="mt-3 w-full text-[13px]">
-            <thead><tr className="text-left text-3xs uppercase tracking-wide text-slate-500"><th className="py-1.5 font-medium">Style</th><th className="text-right font-medium">Overs</th><th className="text-right font-medium">Wkts</th><th className="text-right font-medium">Econ (Δ)</th><th className="text-right font-medium">SR</th><th className="text-right font-medium">Avg</th><th className="text-right font-medium">Wkt share</th></tr></thead>
+            <thead><tr className="text-left text-3xs text-slate-500"><th className="py-1.5 font-medium">Style</th><th className="text-right font-medium">Overs</th><th className="text-right font-medium">Wkts</th><th className="text-right font-medium">Econ (Δ)</th><th className="text-right font-medium">SR</th><th className="text-right font-medium">Avg</th><th className="text-right font-medium">Wkt share</th></tr></thead>
             <tbody>{['pace', 'spin'].map(k => s[k] && (
               <tr key={k} className="border-t border-line-soft">
                 <td className="py-2 capitalize text-slate-200"><i className="mr-2 inline-block h-2 w-2 rounded-sm" style={{ backgroundColor: k === 'pace' ? PALETTE[3] : PALETTE[4] }} />{k}</td>

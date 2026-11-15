@@ -12,11 +12,11 @@ import { NAV_GROUPS } from './navigation';
 import Icon from './icons';
 import ThemeSwitcher from './ThemeSwitcher';
 
-/** CPI mark: three stumps and bails inside a softly lit tile. */
+/** CPI mark: three stumps and bails on a flat accent tile. */
 export function BrandMark({ size = 32 }) {
   return (
-    <span className="relative grid shrink-0 place-items-center overflow-hidden rounded-[10px] bg-gradient-to-br from-[#3aa0ff] via-[#2f7cf6] to-[#5b55e8] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_4px_12px_-4px_rgba(41,120,255,0.55)]" style={{ width: size, height: size }}>
-      <svg width={size * 0.56} height={size * 0.56} viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.3" strokeLinecap="round" aria-hidden="true">
+    <span className="relative grid shrink-0 place-items-center overflow-hidden rounded-[10px] bg-accent text-on-accent" style={{ width: size, height: size }}>
+      <svg width={size * 0.56} height={size * 0.56} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" aria-hidden="true">
         <path d="M7.5 8v12M12 8v12M16.5 8v12M6.5 5h4.6M12.9 5h4.6" />
       </svg>
     </span>
@@ -63,7 +63,7 @@ export default function Sidebar({ open, onClose, collapsed, onToggleCollapsed })
           <nav className="scrollbar-none flex-1 overflow-y-auto px-2.5 pb-3">
             {NAV_GROUPS.map((group, gi) => (
               <div key={group.label} className={gi ? 'mt-4' : 'mt-1'}>
-                <div className={`mb-1 px-3 text-[10.5px] font-semibold uppercase tracking-[0.08em] text-slate-500 ${collapsed ? 'lg:hidden' : ''}`}>{group.label}</div>
+                <div className={`mb-1 px-3 text-[10.5px] font-semibold text-slate-500 ${collapsed ? 'lg:hidden' : ''}`}>{group.label}</div>
                 {collapsed && gi > 0 && <div className="mx-4 mb-2 hidden border-t border-line lg:block" aria-hidden="true" />}
                 <ul className="space-y-0.5">
                   {group.items.map(({ to, label, icon }) => (

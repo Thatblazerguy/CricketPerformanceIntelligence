@@ -165,9 +165,6 @@
   --glass-fallback: rgb(26 28 35);
 
   /* Ambient light */
-  --ambient-1: rgba(70, 92, 255, 0.13);
-  --ambient-2: rgba(140, 90, 255, 0.08);
-  --ambient-3: rgba(41, 151, 255, 0.07);
 
   --skeleton: rgba(255,255,255,0.05);
   --skeleton-sheen: rgba(255,255,255,0.06);
@@ -321,9 +318,6 @@
   --glass-blur: blur(24px) saturate(180%);
   --glass-fallback: rgb(250 250 252);
 
-  --ambient-1: rgba(0, 113, 227, 0.07);
-  --ambient-2: rgba(160, 120, 255, 0.06);
-  --ambient-3: rgba(255, 170, 120, 0.05);
 
   --skeleton: rgba(0,0,0,0.05);
   --skeleton-sheen: rgba(255,255,255,0.7);
@@ -361,9 +355,26 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Smooth theme change: colours cross-fade only while switching. */
+/* Smooth theme change.
+   Preferred path: a single View Transition cross-fade of the whole page.
+   The old frame stays fully opaque underneath while the new one fades in on
+   top, so there is no dip in brightness halfway through. */
+html.theme-vt::view-transition-old(root),
+html.theme-vt::view-transition-new(root) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  mix-blend-mode: normal;
+}
+html.theme-vt::view-transition-old(root) { animation-name: none; }
+html.theme-vt::view-transition-new(root) { animation-name: theme-fade-in; }
+@keyframes theme-fade-in { from { opacity: 0; } to { opacity: 1; } }
+/* Element transitions would replay inside the new frame; switch them off. */
+html.theme-vt *, html.theme-vt *::before, html.theme-vt *::after { transition: none !important; }
+
+/* Fallback for browsers without View Transitions: one shared duration and
+   curve so colours, borders and fills move together. */
 html.theme-switching, html.theme-switching *, html.theme-switching *::before, html.theme-switching *::after {
-  transition: background-color 280ms var(--ease-out), border-color 280ms var(--ease-out), color 200ms var(--ease-out), fill 280ms var(--ease-out), stroke 280ms var(--ease-out), box-shadow 280ms var(--ease-out) !important;
+  transition: background-color 360ms var(--ease-out), border-color 360ms var(--ease-out), color 360ms var(--ease-out), fill 360ms var(--ease-out), stroke 360ms var(--ease-out), box-shadow 360ms var(--ease-out) !important;
 }
 
 @layer base {
@@ -454,7 +465,7 @@ html.theme-switching, html.theme-switching *, html.theme-switching *::before, ht
   }
 
   /* ---- Type ---- */
-  .eyebrow { @apply text-2xs font-semibold uppercase tracking-[0.1em] text-slate-500; }
+  .eyebrow { @apply text-2xs font-semibold text-slate-500; }
   .label { @apply text-2xs font-medium text-slate-400; }
   .display-num { @apply font-semibold tracking-tight text-white; font-variant-numeric: tabular-nums; font-feature-settings: 'tnum'; letter-spacing: -0.03em; }
   .title-xl { @apply text-[28px] font-bold leading-[1.1] tracking-[-0.03em] text-white sm:text-[34px]; }
@@ -524,14 +535,6 @@ html.theme-switching, html.theme-switching *, html.theme-switching *::before, ht
 /* ==========================================================================
    Ambient canvas: soft light behind the app; a faint 22-yard strip motif.
    ========================================================================== */
-.app-ambient {
-  position: fixed; inset: 0; pointer-events: none; z-index: 0;
-  background:
-    radial-gradient(60rem 40rem at 12% -10%, var(--ambient-1), transparent 70%),
-    radial-gradient(50rem 36rem at 95% 0%, var(--ambient-2), transparent 70%),
-    radial-gradient(60rem 50rem at 60% 120%, var(--ambient-3), transparent 70%);
-}
-
 @keyframes fade-up { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 @keyframes shimmer { from { background-position: -400px 0; } to { background-position: 400px 0; } }
 

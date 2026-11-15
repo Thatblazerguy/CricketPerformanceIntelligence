@@ -146,7 +146,7 @@ export function Collapsible({ title, subtitle, children, defaultOpen = false, cl
 export function StatCard({ label, value, sub, highlight = false, tone, title, icon }) {
   const toneClass = tone === 'pos' ? 'text-pos' : tone === 'neg' ? 'text-neg' : tone === 'warn' ? 'text-warn' : highlight ? 'text-white' : 'text-slate-50';
   return (
-    <div title={title} className={`relative min-w-0 overflow-hidden rounded-[18px] border px-4 py-3.5 shadow-card ${highlight ? 'border-accent/25 bg-surface bg-[radial-gradient(120%_140%_at_0%_0%,rgb(var(--accent)/0.12),transparent_60%)]' : 'border-line bg-surface'}`}>
+    <div title={title} className={`relative min-w-0 overflow-hidden rounded-[18px] border px-4 py-3.5 shadow-card ${highlight ? 'border-line-strong bg-surface-raised' : 'border-line bg-surface'}`}>
       <div className="mb-2 flex items-center gap-1.5">
         {icon && <Icon name={icon} size={13} className="text-slate-500" />}
         <p className="truncate text-xs font-medium text-slate-500">{label}</p>

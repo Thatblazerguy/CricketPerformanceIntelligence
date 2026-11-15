@@ -290,7 +290,7 @@ export function MultiSeriesLine({ title, subtitle, series = [], xLabel, yLabel, 
     setHoverX(best);
     const hits = usable.map(s => ({ s, p: s.points.find(p => key(p) === best) })).filter(h => h.p);
     const content = hits.length === 1 && hits[0].p.tip ? hits[0].p.tip
-      : hits.some(h => h.p.tip) ? <div className="space-y-2">{hits.map(h => <div key={h.s.name}><div className="mb-0.5 flex items-center gap-1.5 text-3xs uppercase tracking-wide text-slate-500"><i className="h-[2px] w-3 rounded-full" style={{ backgroundColor: h.s.color }} />{h.s.name}</div>{h.p.tip || yFormatter(Number(h.p.y))}</div>)}</div>
+      : hits.some(h => h.p.tip) ? <div className="space-y-2">{hits.map(h => <div key={h.s.name}><div className="mb-0.5 flex items-center gap-1.5 text-3xs text-slate-500"><i className="h-[2px] w-3 rounded-full" style={{ backgroundColor: h.s.color }} />{h.s.name}</div>{h.p.tip || yFormatter(Number(h.p.y))}</div>)}</div>
       : <TipRows title={hits[0]?.p.label || `${xLabel || ''} ${xFormatter(best)}`.trim()} rows={hits.map(h => [h.s.name, yFormatter(Number(h.p.y)), h.s.color])} />;
     tt.show(evt, content);
   };

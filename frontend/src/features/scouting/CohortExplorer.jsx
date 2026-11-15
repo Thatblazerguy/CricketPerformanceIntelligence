@@ -260,7 +260,7 @@ export default function CohortExplorer({ embedded = false }) {
           </div>}
           {!result.candidates.length ? <EmptyState message="No eligible players in this format and filter set. Reduce the sample thresholds or widen the filters." /> : <div className="overflow-x-auto rounded-lg border border-slate-800 bg-slate-900">
             <table className="min-w-full text-xs text-left text-slate-300">
-              <thead className="bg-slate-800 text-[10px] uppercase text-slate-400"><tr>
+              <thead className="bg-slate-800 text-[10px] text-slate-400"><tr>
                 <th className="p-2">Compare</th><th className="p-2">Rank</th><th className="p-2">Player</th>
                 <th className="p-2 cursor-pointer" onClick={() => sort('matches')}>Matches ↕</th>
                 {columns.map(([key, title]) => <th key={key} className="p-2 text-right cursor-pointer" onClick={() => sort(key)}>{title} ↕</th>)}

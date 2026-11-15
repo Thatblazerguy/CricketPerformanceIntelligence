@@ -97,7 +97,7 @@ function Comparison({ d, search }) {
       </div>
       <div className="grid gap-4 lg:grid-cols-5">
         <Panel className="lg:col-span-3" title="Tale of the tape" subtitle="Brighter bar = better value for that metric.">
-          <div className="mb-1 grid grid-cols-[1fr_auto_1fr] text-3xs uppercase tracking-wide"><span className="truncate text-right" style={{ color: A }}>{a.team.name}</span><span className="w-32 sm:w-40" /><span className="truncate" style={{ color: B }}>{b.team.name}</span></div>
+          <div className="mb-1 grid grid-cols-[1fr_auto_1fr] text-3xs"><span className="truncate text-right" style={{ color: A }}>{a.team.name}</span><span className="w-32 sm:w-40" /><span className="truncate" style={{ color: B }}>{b.team.name}</span></div>
           {rows.map(([group, items]) => (
             <div key={group} className="border-t border-line-soft pt-2 first:border-0">
               <div className="eyebrow mb-1 mt-1 text-center">{group}</div>

@@ -159,7 +159,7 @@ function TeamSide({ t, r, m, color, right }) {
 }
 
 const Mini = ({ label, value, sub }) => (
-  <div className="min-w-0"><div className="text-3xs uppercase tracking-wide text-slate-500">{label}</div><div className="num text-[17px] font-semibold text-slate-50">{value}</div>{sub && <div className="text-3xs text-slate-500">{sub}</div>}</div>
+  <div className="min-w-0"><div className="text-3xs text-slate-500">{label}</div><div className="num text-[17px] font-semibold text-slate-50">{value}</div>{sub && <div className="text-3xs text-slate-500">{sub}</div>}</div>
 );
 
 /* ------------------------------------------------------------------ overview */
@@ -332,7 +332,7 @@ function BattingBowling({ d }) {
   return (
     <div className="space-y-5">
       <Panel title="Tale of the tape" subtitle="Each team's batting and bowling in this fixture only. Brighter bar = better value.">
-        <div className="mb-1 grid grid-cols-[1fr_auto_1fr] text-3xs uppercase tracking-wide"><span className="truncate text-right" style={{ color: COLOR_A }}>{A.name}</span><span className="w-32 sm:w-40" /><span className="truncate" style={{ color: COLOR_B }}>{B.name}</span></div>
+        <div className="mb-1 grid grid-cols-[1fr_auto_1fr] text-3xs"><span className="truncate text-right" style={{ color: COLOR_A }}>{A.name}</span><span className="w-32 sm:w-40" /><span className="truncate" style={{ color: COLOR_B }}>{B.name}</span></div>
         {rows.map(([group, items]) => (
           <div key={group} className="border-t border-line-soft pt-2 first:border-0">
             <div className="eyebrow mb-1 mt-1 text-center">{group}</div>

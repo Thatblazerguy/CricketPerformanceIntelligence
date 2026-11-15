@@ -1,6 +1,5 @@
 /**
  * Root application layout.
- *  - Ambient canvas behind everything (soft theme-aware light).
  *  - Floating glass navigation rail (lg+) / floating tab bar + sheet (< lg).
  *  - Sticky glass header inside the scroll area: breadcrumbs, quick search,
  *    data freshness and the appearance switcher.
@@ -34,7 +33,6 @@ export default function Layout() {
 
   return (
     <div className="relative flex h-[100dvh] overflow-hidden text-slate-100">
-      <div className="app-ambient" aria-hidden="true" />
       <Sidebar open={navOpen} onClose={() => setNavOpen(false)} collapsed={collapsed} onToggleCollapsed={() => setCollapsed(c => !c)} />
       <main ref={mainRef} onScroll={e => setScrolled(e.currentTarget.scrollTop > 4)} className="relative z-[1] min-w-0 flex-1 overflow-y-auto overflow-x-hidden">
         <header className="sticky top-0 z-header px-3 pt-2.5 sm:px-5 lg:px-6 lg:pt-3">

@@ -53,7 +53,7 @@ export default function OptimizerTab({ context, onPlayer }) {
           ]} />
           <div className="grid grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
             <Panel title="Recommended purchases" subtitle="Robustness = share of price draws in which the optimiser still picks the player" actions={<Prov kind="model" />} bodyClassName="p-0">
-              <table className="w-full text-[13px]"><thead className="text-left text-2xs uppercase text-slate-500"><tr><th className="px-5 py-2">Player</th><th>Role</th><th className="text-right">Quality</th><th className="text-right">Expected price</th><th className="px-5 text-right">Robustness</th></tr></thead>
+              <table className="w-full text-[13px]"><thead className="text-left text-2xs text-slate-500"><tr><th className="px-5 py-2">Player</th><th>Role</th><th className="text-right">Quality</th><th className="text-right">Expected price</th><th className="px-5 text-right">Robustness</th></tr></thead>
                 <tbody>{result.recommended.sort((a, b) => b.expected_price_lakh - a.expected_price_lakh).map(r => (
                   <tr key={r.player_id || r.name} onClick={() => onPlayer(r.player_id || `name:${r.name}`)} className="cursor-pointer border-t border-line-soft hover:bg-surface-hover">
                     <td className="px-5 py-2 text-white">{r.name}{r.overseas && <Badge variant="blue" className="ml-1.5">OS</Badge>}</td><td className="text-slate-400">{roleLabel(r.role)}</td>
@@ -112,7 +112,7 @@ function ScenarioCompare({ context, code }) {
       {error && <div className="mt-3"><ErrorState message={error} /></div>}
       {result && (
         <div className="mt-4 overflow-x-auto"><table className="w-full text-xs">
-          <thead className="text-left text-2xs uppercase text-slate-500"><tr><th className="py-2">Scenario</th><th className="text-right">Spend</th><th className="text-right">Purse left</th><th className="text-right">XI after buys</th><th className="text-right">Best reachable XI</th><th>Critical needs still open</th><th>Then buy</th></tr></thead>
+          <thead className="text-left text-2xs text-slate-500"><tr><th className="py-2">Scenario</th><th className="text-right">Spend</th><th className="text-right">Purse left</th><th className="text-right">XI after buys</th><th className="text-right">Best reachable XI</th><th>Critical needs still open</th><th>Then buy</th></tr></thead>
           <tbody>{result.results.map(r => (
             <tr key={r.name} className="border-t border-line-soft align-top">
               <td className="py-2 font-medium text-white">{r.name}{r.verdict && <Badge variant="green" className="ml-1.5">{r.verdict}</Badge>}{r.warnings.map(w => <p key={w} className="text-warn-soft">{w}</p>)}</td>

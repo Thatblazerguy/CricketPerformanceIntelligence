@@ -38,7 +38,7 @@ function PlayerPicker({ onSelect, currentIds }) {
     return () => { active = false; clearTimeout(timer); };
   }, [query]);
   return <div className="relative w-full max-w-xl">
-    <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-300">Add a player (up to 3)</label>
+    <label className="mb-1.5 block text-xs font-semibold text-slate-300">Add a player (up to 3)</label>
     <input className={selectClass} placeholder="Search player name or alias…" value={query} onFocus={() => setOpen(true)} onChange={e => { setQuery(e.target.value); setOpen(true); }} />
     {loading && <span className="absolute right-3 top-9 text-xs text-slate-500">Searching…</span>}
     {open && query.trim().length >= 2 && <div className="absolute z-30 mt-1 max-h-64 w-full overflow-y-auto rounded-lg border border-slate-700 bg-slate-900 shadow-xl">
@@ -50,7 +50,7 @@ function PlayerPicker({ onSelect, currentIds }) {
 }
 
 function MetricTiles({ title, rows, color }) {
-  return <div className="space-y-2"><h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400">{title}</h4><div className="grid grid-cols-2 gap-2">{rows.map(([label, value]) => <div key={label} className="rounded-lg border border-slate-800 bg-slate-800/50 p-2.5"><span className="block text-[10px] text-slate-500">{label}</span><strong className={`text-sm ${color}`}>{fmt(value)}</strong></div>)}</div></div>;
+  return <div className="space-y-2"><h4 className="text-xs font-semibold text-slate-400">{title}</h4><div className="grid grid-cols-2 gap-2">{rows.map(([label, value]) => <div key={label} className="rounded-lg border border-slate-800 bg-slate-800/50 p-2.5"><span className="block text-[10px] text-slate-500">{label}</span><strong className={`text-sm ${color}`}>{fmt(value)}</strong></div>)}</div></div>;
 }
 
 function PlayerCard({ item, discipline, onRemove, format }) {
@@ -69,7 +69,7 @@ function PlayerCard({ item, discipline, onRemove, format }) {
       {showBat && <MetricTiles title={role.toLowerCase().includes('all-rounder') ? 'Batting contribution' : 'Batting'} color="text-indigo-200" rows={[["Runs", batting.runs], ['Innings', batting.innings], ['Average', batting.average], ['Strike rate', batting.strike_rate], ['Boundary %', batting.boundary_percentage], ['Dot-ball %', batting.dot_ball_percentage]]} />}
       {showBowl && <MetricTiles title={role.toLowerCase().includes('all-rounder') ? 'Bowling contribution' : 'Bowling'} color="text-emerald-200" rows={[["Wickets", bowling.wickets], ['Overs', bowling.overs_display], ['Economy', bowling.economy_rate], ['Bowling average', bowling.bowling_average], ['Bowling strike rate', bowling.bowling_strike_rate], ['Dot-ball %', bowling.dot_ball_percentage], ['Boundary % conceded', bowling.boundary_percentage]]} />}
       {!showBat && !showBowl && <p className="text-xs text-slate-500">This role is not eligible for the selected {discipline} comparison.</p>}
-      {phases.length > 0 && (discipline === 'all' || (discipline === 'batting' && showBat) || (discipline === 'bowling' && showBowl)) && <div className="border-t border-slate-800 pt-3"><h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">{showBowl && !showBat ? 'Bowling phase profile' : 'Batting phase profile'}</h4><div className="space-y-1.5">{phases.map(p => <div key={p.phase} className="flex justify-between gap-2 text-[11px]"><span className="text-slate-500">{p.phase.replaceAll('_', ' ')}</span><span className="text-slate-300">{showBowl && !showBat ? `${p.wickets ?? '—'} wkts · ${fmt(p.economy)} econ · ${fmt(p.dot_ball_percentage)}% dots` : `${fmt(p.runs)} runs · ${fmt(p.strike_rate)} SR`}</span></div>)}</div></div>}
+      {phases.length > 0 && (discipline === 'all' || (discipline === 'batting' && showBat) || (discipline === 'bowling' && showBowl)) && <div className="border-t border-slate-800 pt-3"><h4 className="mb-2 text-xs font-semibold text-slate-400">{showBowl && !showBat ? 'Bowling phase profile' : 'Batting phase profile'}</h4><div className="space-y-1.5">{phases.map(p => <div key={p.phase} className="flex justify-between gap-2 text-[11px]"><span className="text-slate-500">{p.phase.replaceAll('_', ' ')}</span><span className="text-slate-300">{showBowl && !showBat ? `${p.wickets ?? '—'} wkts · ${fmt(p.economy)} econ · ${fmt(p.dot_ball_percentage)}% dots` : `${fmt(p.runs)} runs · ${fmt(p.strike_rate)} SR`}</span></div>)}</div></div>}
       <p className="text-[10px] text-slate-600">{batting.matches ?? bowling.matches ?? '—'} match sample · filters applied on match dates in CPI analytics</p>
     </div>
   </article>;
