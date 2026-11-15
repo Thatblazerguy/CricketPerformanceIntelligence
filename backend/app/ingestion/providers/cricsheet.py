@@ -45,6 +45,25 @@ logger = logging.getLogger(__name__)
 PROVIDER_NAME = "cricsheet"
 
 
+def _missing_markers(raw) -> List[str]:
+    """Flatten Cricsheet ``info.missing`` (strings or {field: detail} dicts) into field names."""
+    out: List[str] = []
+    for item in raw or []:
+        if isinstance(item, str):
+            out.append(item)
+        elif isinstance(item, dict):
+            out.extend(str(k) for k in item)
+    return sorted(set(out))
+
+
+def _last_date(dates):
+    from datetime import date as _date
+    try:
+        return _date.fromisoformat(str(dates[-1])) if dates else None
+    except (ValueError, TypeError):
+        return None
+
+
 class CricsheetParseError(Exception):
     """Raised when a required field is missing or malformed."""
     pass
@@ -234,6 +253,10 @@ class CricsheetParser:
             venue_registry=venue_registry,
             innings=innings,
             players=players_by_team,
+            missing_fields=_missing_markers(info.get("missing")),
+            balls_per_over=info.get("balls_per_over"),
+            end_date=_last_date(info.get("dates")),
+            result_method=(info.get("outcome") or {}).get("method"),
         )
 
     def _parse_outcome(
@@ -352,6 +375,8 @@ class CricsheetParser:
             target_overs=target_overs,
             absent_hurt=absent_hurt,
             deliveries=deliveries,
+            declared=bool(inn_raw.get("declared")),
+            forfeited=bool(inn_raw.get("forfeited")),
         )
 
     def _parse_delivery(

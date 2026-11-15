@@ -67,6 +67,11 @@ def clear_analytics_caches() -> None:
         sim_calibration.clear_profile_cache()  # simulator player/venue profiles
     except Exception:  # pragma: no cover
         logger.debug("simulator profile cache not cleared", exc_info=True)
+    try:
+        from app.services import player_search
+        player_search.clear_cache()  # player directory search index + scoped career stats
+    except Exception:  # pragma: no cover
+        logger.debug("player search cache not cleared", exc_info=True)
     logger.info("Analytics caches cleared after a data change")
 
 

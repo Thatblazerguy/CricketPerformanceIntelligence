@@ -98,7 +98,21 @@ class MatchImporter:
         # The hook is scoped to this match, so importing domestic/franchise data adds no inference cost.
         from app.services.nationality import record_match_nationalities
         record_match_nationalities(self.db, db_match.id)
+        self._register_hybrid(db_match.id, match)
         return "inserted" if created else "updated"
+
+    def _register_hybrid(self, match_id: str, match: CanonicalMatch) -> None:
+        """Keep the canonical match registry and coverage current (incremental, one match).
+
+        Runs in a savepoint: a registry problem is logged and never blocks the
+        ball-by-ball import itself; the backfill script can repair it later.
+        """
+        from app.hybrid.registry import register_ball_by_ball
+        try:
+            with self.db.begin_nested():
+                register_ball_by_ball(self.db, match_id, match)
+        except Exception:  # noqa: BLE001
+            logger.exception("Hybrid registry update failed for %s", match.source_match_id)
 
     # ------------------------------------------------------------------ #
     #  Provider                                                            #

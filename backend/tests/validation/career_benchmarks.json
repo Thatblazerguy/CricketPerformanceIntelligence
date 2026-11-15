@@ -1,0 +1,15 @@
+{
+  "_purpose": "External published career totals used ONLY to measure how much of a career CPI's sources cover. Never written to the database, never used in any calculation.",
+  "_source": "Published final international career totals (retired players), as widely reported by official records.",
+  "players": [
+    {"cricsheet_name": "SR Tendulkar", "cricinfo_id": "35320", "TEST": {"runs": 15921}, "ODI": {"runs": 18426}, "INTERNATIONAL_TEST_ODI": {"runs": 34347}},
+    {"cricsheet_name": "R Dravid", "TEST": {"runs": 13288}, "ODI": {"runs": 10889}},
+    {"cricsheet_name": "RT Ponting", "TEST": {"runs": 13378}, "ODI": {"runs": 13704}},
+    {"cricsheet_name": "JH Kallis", "TEST": {"runs": 13289}, "ODI": {"runs": 11579}},
+    {"cricsheet_name": "KC Sangakkara", "TEST": {"runs": 12400}, "ODI": {"runs": 14234}},
+    {"cricsheet_name": "BC Lara", "TEST": {"runs": 11953}, "ODI": {"runs": 10405}},
+    {"cricsheet_name": "AN Cook", "TEST": {"runs": 12472}, "ODI": {"runs": 3204}},
+    {"cricsheet_name": "MS Dhoni", "cricinfo_id": "28081", "TEST": {"runs": 4876}, "ODI": {"runs": 10773}, "T20I": {"runs": 1617}},
+    {"cricsheet_name": "AB de Villiers", "TEST": {"runs": 8765}, "ODI": {"runs": 9577}, "T20I": {"runs": 1672}}
+  ]
+}

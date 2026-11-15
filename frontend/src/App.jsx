@@ -18,6 +18,7 @@ const VenueCompare = lazy(() => import('./features/venues/VenueCompare'));
 const AuctionIntelligence = lazy(() => import('./features/auction/AuctionIntelligence'));
 const MatchSimulator = lazy(() => import('./features/matches/MatchSimulator'));
 const Settings = lazy(() => import('./features/settings/Settings'));
+const DataHealth = lazy(() => import('./features/datahealth/DataHealth'));
 const Tournaments = lazy(() => import('./features/tournaments/Tournaments'));
 const TeamAnalytics = lazy(() => import('./features/teams/TeamAnalytics'));
 const TeamProfile = lazy(() => import('./features/teams/TeamProfile'));
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="teams/compare" element={<TeamCompare />} />
           <Route path="teams/:id" element={<TeamProfile />} />
           <Route path="auction" element={<AuctionIntelligence />} />
+          <Route path="data-health" element={<DataHealth />} />
           <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>

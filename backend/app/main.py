@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
 from app.api.routes import health, players, matches, analytics, scouting, ingestion, teams, matchups, auction, auction_extras, win_probability, simulator, xi
-from app.api.routes import data_sync, insights, scouting_v2, competition, auction_analytics
+from app.api.routes import data_sync, insights, scouting_v2, competition, auction_analytics, data_health
 
 logging.basicConfig(
     level=getattr(logging, settings.LOG_LEVEL.upper(), logging.INFO),
@@ -38,6 +38,8 @@ prefix = settings.API_V1_PREFIX
 app.include_router(health.router, prefix=prefix, tags=["Health"])
 # Insight routes first so /players/compare/metrics is not captured by /players/{player_id}.
 app.include_router(insights.router, prefix=prefix, tags=["Insights"])
+# Hybrid coverage routes (/players/{id}/coverage|career|reconstruction) before the generic players router.
+app.include_router(data_health.router, prefix=prefix, tags=["Data Health"])
 app.include_router(players.router, prefix=prefix, tags=["Players"])
 app.include_router(matches.router, prefix=prefix, tags=["Matches"])
 app.include_router(win_probability.router, prefix=prefix, tags=["Win Probability"])
@@ -65,3 +67,12 @@ async def _refresh_caches_after_sync(request: Request, call_next):
     from app.services.data_version import maybe_invalidate_caches
     await run_in_threadpool(maybe_invalidate_caches, engine)
     return await call_next(request)
+
+
+@app.on_event("startup")
+def _warm_player_search() -> None:
+    """Build the player search index in the background so the first directory search is fast."""
+    import threading
+    from app.db.session import SessionLocal
+    from app.services.player_search import warm_cache
+    threading.Thread(target=warm_cache, args=(SessionLocal,), daemon=True, name="player-search-warm").start()

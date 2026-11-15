@@ -82,6 +82,8 @@ class CanonicalInnings:
     target_overs: Optional[int]
     absent_hurt: List[str] = field(default_factory=list)
     deliveries: List[CanonicalDelivery] = field(default_factory=list)
+    declared: bool = False
+    forfeited: bool = False           # forfeited innings legitimately have no deliveries
 
 
 @dataclass
@@ -113,4 +115,8 @@ class CanonicalMatch:
     venue_registry: Dict[str, str] = field(default_factory=dict)
     innings: List[CanonicalInnings] = field(default_factory=list)
     players: Dict[str, List[str]] = field(default_factory=dict)  # {team: [player_names]}
+    missing_fields: List[str] = field(default_factory=list)      # Cricsheet info.missing markers
+    balls_per_over: Optional[int] = None
+    end_date: Optional[date] = None
+    result_method: Optional[str] = None                          # e.g. D/L, Awarded
 

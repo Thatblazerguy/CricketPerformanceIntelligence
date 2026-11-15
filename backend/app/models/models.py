@@ -903,3 +903,252 @@ class SyncWorkerState(Base):
     last_success_at: Mapped[Optional[datetime]] = mapped_column(DateTime)
     next_check_at: Mapped[Optional[datetime]] = mapped_column(DateTime)
     last_error: Mapped[Optional[str]] = mapped_column(Text)
+
+
+# ============================================================
+#  Hybrid data engine: canonical match identity, scorecard layer, coverage
+# ============================================================
+#
+# Design rule: the ball-by-ball layer (matches / match_innings / deliveries) is
+# untouched. Every existing analytics module keeps reading only those tables, so
+# scorecard-only data physically cannot leak into delivery-level metrics.
+# canonical_matches gives every real-world match exactly one CPI identity; it
+# links to a ``matches`` row when (and only when) delivery data exists.
+
+class CanonicalMatchRecord(Base):
+    __tablename__ = "canonical_matches"
+    __table_args__ = (
+        Index("ix_canonical_match_date", "start_date"),
+        Index("ix_canonical_match_scope", "format_class", "gender", "start_date"),
+        Index("ix_canonical_match_coverage", "coverage_status"),
+    )
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    # Ball-by-ball layer link; NULL for scorecard-only / metadata-only matches.
+    match_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("matches.id", ondelete="SET NULL"), unique=True)
+    start_date: Mapped[date] = mapped_column(Date, nullable=False)
+    end_date: Mapped[Optional[date]] = mapped_column(Date)
+    gender: Mapped[str] = mapped_column(String(16), nullable=False)
+    match_format: Mapped[str] = mapped_column(String(32), nullable=False)   # source format (Test, ODI, MDM, ...)
+    format_class: Mapped[str] = mapped_column(String(24), nullable=False)   # TEST/ODI/T20I/FIRST_CLASS/LIST_A/T20_DOMESTIC/MULTI_DAY/ONE_DAY
+    season: Mapped[Optional[str]] = mapped_column(String(16))
+    competition_name: Mapped[Optional[str]] = mapped_column(String(256))
+    tournament_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("tournaments.id"))
+    venue_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("venues.id"))
+    venue_name: Mapped[Optional[str]] = mapped_column(String(512))
+    country: Mapped[Optional[str]] = mapped_column(String(128))
+    team1_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("teams.id"))
+    team2_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("teams.id"))
+    team1_name: Mapped[str] = mapped_column(String(256), nullable=False)
+    team2_name: Mapped[str] = mapped_column(String(256), nullable=False)
+    toss_winner_name: Mapped[Optional[str]] = mapped_column(String(256))
+    toss_decision: Mapped[Optional[str]] = mapped_column(String(16))
+    winner_name: Mapped[Optional[str]] = mapped_column(String(256))
+    result_type: Mapped[Optional[str]] = mapped_column(String(32))
+    # Coverage (FULL_BALL_BY_BALL / PARTIAL_BALL_BY_BALL / SCORECARD_ONLY / METADATA_ONLY / UNKNOWN)
+    coverage_status: Mapped[str] = mapped_column(String(24), nullable=False, default="UNKNOWN")
+    innings_available: Mapped[int] = mapped_column(SmallInteger, nullable=False, default=0)
+    innings_expected: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    deliveries_imported: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    source_count: Mapped[int] = mapped_column(SmallInteger, nullable=False, default=0)
+    missing_fields: Mapped[list] = mapped_column(JSON, nullable=False, default=list)
+    coverage_notes: Mapped[list] = mapped_column(JSON, nullable=False, default=list)
+    validation_status: Mapped[str] = mapped_column(String(24), nullable=False, default="unvalidated")
+    last_ingested_at: Mapped[Optional[datetime]] = mapped_column(DateTime)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=func.now(), onupdate=func.now())
+
+
+class MatchSourceRef(Base):
+    """One external source's record of a canonical match (many per match, never merged blindly)."""
+    __tablename__ = "match_source_refs"
+    __table_args__ = (
+        UniqueConstraint("source_key", "source_match_id", name="uq_match_source_ref"),
+        Index("ix_match_source_ref_canonical", "canonical_match_id"),
+    )
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    canonical_match_id: Mapped[str] = mapped_column(String(36), ForeignKey("canonical_matches.id", ondelete="CASCADE"), nullable=False)
+    source_key: Mapped[str] = mapped_column(String(64), nullable=False)
+    source_match_id: Mapped[str] = mapped_column(String(256), nullable=False)
+    data_level: Mapped[str] = mapped_column(String(16), nullable=False)  # ball_by_ball / scorecard / metadata
+    match_method: Mapped[str] = mapped_column(String(32), nullable=False, default="primary")  # primary / matched / manual
+    match_confidence: Mapped[Optional[float]] = mapped_column(Float)
+    match_evidence: Mapped[dict] = mapped_column(JSON, nullable=False, default=dict)
+    source_url: Mapped[Optional[str]] = mapped_column(String(512))
+    attribution: Mapped[Optional[str]] = mapped_column(String(512))
+    checksum: Mapped[Optional[str]] = mapped_column(String(64))
+    retrieved_at: Mapped[datetime] = mapped_column(DateTime, default=func.now())
+
+
+class PlayerExternalId(Base):
+    """Cross-provider person identifiers (Cricsheet people.csv keys). Kept apart from player_aliases on purpose."""
+    __tablename__ = "player_external_ids"
+    __table_args__ = (
+        UniqueConstraint("id_scheme", "external_id", name="uq_player_external_id"),
+        Index("ix_player_external_id_player", "player_id"),
+    )
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    player_id: Mapped[str] = mapped_column(String(36), ForeignKey("players.id", ondelete="CASCADE"), nullable=False)
+    id_scheme: Mapped[str] = mapped_column(String(32), nullable=False)   # cricinfo / cricketarchive / bcci / cricbuzz ...
+    external_id: Mapped[str] = mapped_column(String(128), nullable=False)
+    source: Mapped[str] = mapped_column(String(128), nullable=False, default="Cricsheet people.csv")
+
+
+class ScorecardInnings(Base):
+    __tablename__ = "scorecard_innings"
+    __table_args__ = (
+        UniqueConstraint("source_ref_id", "innings_number", name="uq_scorecard_innings_ref_number"),
+        Index("ix_scorecard_innings_canonical", "canonical_match_id"),
+    )
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    canonical_match_id: Mapped[str] = mapped_column(String(36), ForeignKey("canonical_matches.id", ondelete="CASCADE"), nullable=False)
+    source_ref_id: Mapped[str] = mapped_column(String(36), ForeignKey("match_source_refs.id", ondelete="CASCADE"), nullable=False)
+    innings_number: Mapped[int] = mapped_column(SmallInteger, nullable=False)
+    batting_team_name: Mapped[str] = mapped_column(String(256), nullable=False)
+    batting_team_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("teams.id"))
+    total_runs: Mapped[Optional[int]] = mapped_column(Integer)
+    wickets: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    overs: Mapped[Optional[str]] = mapped_column(String(16))          # as printed, e.g. "49.3"
+    balls_per_over: Mapped[Optional[int]] = mapped_column(SmallInteger)  # NULL when the source does not say
+    extras_total: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    byes: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    leg_byes: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    wides: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    no_balls: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    penalty_runs: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    declared: Mapped[Optional[bool]] = mapped_column(Boolean)
+    forfeited: Mapped[Optional[bool]] = mapped_column(Boolean)
+    validation_status: Mapped[str] = mapped_column(String(24), nullable=False, default="unvalidated")
+    validation_issues: Mapped[list] = mapped_column(JSON, nullable=False, default=list)
+
+
+class ScorecardBatting(Base):
+    __tablename__ = "scorecard_batting"
+    __table_args__ = (
+        Index("ix_scorecard_batting_player", "player_id"),
+        Index("ix_scorecard_batting_innings", "scorecard_innings_id"),
+    )
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    scorecard_innings_id: Mapped[str] = mapped_column(String(36), ForeignKey("scorecard_innings.id", ondelete="CASCADE"), nullable=False)
+    canonical_match_id: Mapped[str] = mapped_column(String(36), ForeignKey("canonical_matches.id", ondelete="CASCADE"), nullable=False)
+    player_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("players.id"))
+    identity_status: Mapped[str] = mapped_column(String(16), nullable=False, default="unresolved")
+    source_player_name: Mapped[str] = mapped_column(String(256), nullable=False)
+    source_player_id: Mapped[Optional[str]] = mapped_column(String(128))
+    batting_position: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    did_not_bat: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    runs: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    balls_faced: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    minutes: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    fours: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    sixes: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    is_out: Mapped[Optional[bool]] = mapped_column(Boolean)           # NULL = source does not say
+    dismissal_type: Mapped[Optional[str]] = mapped_column(String(64))
+    dismissal_text: Mapped[Optional[str]] = mapped_column(String(256))
+
+
+class ScorecardBowling(Base):
+    __tablename__ = "scorecard_bowling"
+    __table_args__ = (
+        Index("ix_scorecard_bowling_player", "player_id"),
+        Index("ix_scorecard_bowling_innings", "scorecard_innings_id"),
+    )
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    scorecard_innings_id: Mapped[str] = mapped_column(String(36), ForeignKey("scorecard_innings.id", ondelete="CASCADE"), nullable=False)
+    canonical_match_id: Mapped[str] = mapped_column(String(36), ForeignKey("canonical_matches.id", ondelete="CASCADE"), nullable=False)
+    player_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("players.id"))
+    identity_status: Mapped[str] = mapped_column(String(16), nullable=False, default="unresolved")
+    source_player_name: Mapped[str] = mapped_column(String(256), nullable=False)
+    source_player_id: Mapped[Optional[str]] = mapped_column(String(128))
+    overs: Mapped[Optional[str]] = mapped_column(String(16))
+    legal_balls: Mapped[Optional[int]] = mapped_column(SmallInteger)  # only when balls-per-over is known
+    maidens: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    runs_conceded: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    wickets: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    wides: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    no_balls: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    economy_reported: Mapped[Optional[float]] = mapped_column(Float)
+
+
+class SourceInventoryItem(Base):
+    """What an external source says exists, compared against what CPI holds."""
+    __tablename__ = "source_inventory"
+    __table_args__ = (
+        UniqueConstraint("source_key", "source_match_id", name="uq_source_inventory"),
+        Index("ix_source_inventory_status", "source_key", "status"),
+    )
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    source_key: Mapped[str] = mapped_column(String(64), nullable=False)
+    source_match_id: Mapped[str] = mapped_column(String(256), nullable=False)
+    start_date: Mapped[Optional[date]] = mapped_column(Date)
+    match_type: Mapped[Optional[str]] = mapped_column(String(32))
+    team_type: Mapped[Optional[str]] = mapped_column(String(32))
+    gender: Mapped[Optional[str]] = mapped_column(String(16))
+    teams: Mapped[Optional[str]] = mapped_column(String(512))
+    # available (listed, not yet compared) / imported / missing / failed
+    status: Mapped[str] = mapped_column(String(16), nullable=False, default="available")
+    attempts: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    last_error: Mapped[Optional[str]] = mapped_column(Text)
+    first_seen_at: Mapped[datetime] = mapped_column(DateTime, default=func.now())
+    last_seen_at: Mapped[datetime] = mapped_column(DateTime, default=func.now())
+    last_attempt_at: Mapped[Optional[datetime]] = mapped_column(DateTime)
+
+
+class ReconciliationFlag(Base):
+    """A disagreement between sources for one player/innings/metric. Both values are kept."""
+    __tablename__ = "reconciliation_flags"
+    __table_args__ = (
+        UniqueConstraint("canonical_match_id", "innings_number", "player_id", "metric", name="uq_reconciliation_flag"),
+        Index("ix_reconciliation_flag_status", "status"),
+        Index("ix_reconciliation_flag_player", "player_id"),
+    )
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    canonical_match_id: Mapped[str] = mapped_column(String(36), ForeignKey("canonical_matches.id", ondelete="CASCADE"), nullable=False)
+    innings_number: Mapped[int] = mapped_column(SmallInteger, nullable=False)
+    player_id: Mapped[str] = mapped_column(String(36), ForeignKey("players.id", ondelete="CASCADE"), nullable=False)
+    metric: Mapped[str] = mapped_column(String(32), nullable=False)
+    values: Mapped[dict] = mapped_column(JSON, nullable=False)        # {source_key: value}
+    status: Mapped[str] = mapped_column(String(16), nullable=False, default="open")  # open / resolved
+    resolution: Mapped[Optional[str]] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=func.now(), onupdate=func.now())
+
+
+class HybridIngestionEvent(Base):
+    """Ingestion log for the hybrid engine (inventory refreshes, scorecard imports, retries, reconciliation)."""
+    __tablename__ = "hybrid_ingestion_events"
+    __table_args__ = (Index("ix_hybrid_ingestion_event_created", "created_at"),)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    source_key: Mapped[str] = mapped_column(String(64), nullable=False)
+    action: Mapped[str] = mapped_column(String(48), nullable=False)
+    status: Mapped[str] = mapped_column(String(16), nullable=False)
+    detail: Mapped[Optional[str]] = mapped_column(Text)
+    counts: Mapped[dict] = mapped_column(JSON, nullable=False, default=dict)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=func.now())
+
+
+class MatchAppearance(Base):
+    """A player's selection in a canonical match (playing XI), from any source.
+
+    Deliveries only show players who batted, bowled or took a dismissal; this
+    table records everyone who played, so match counts are not under-stated.
+    """
+    __tablename__ = "match_appearances"
+    __table_args__ = (
+        UniqueConstraint("canonical_match_id", "player_id", name="uq_match_appearance"),
+        Index("ix_match_appearance_player", "player_id"),
+    )
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    canonical_match_id: Mapped[str] = mapped_column(String(36), ForeignKey("canonical_matches.id", ondelete="CASCADE"), nullable=False)
+    player_id: Mapped[str] = mapped_column(String(36), ForeignKey("players.id", ondelete="CASCADE"), nullable=False)
+    team_name: Mapped[Optional[str]] = mapped_column(String(256))
+    source_key: Mapped[str] = mapped_column(String(64), nullable=False)
