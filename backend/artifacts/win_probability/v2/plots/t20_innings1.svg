@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="530" height="360" font-family="sans-serif" font-size="11">
+<rect width="100%" height="100%" fill="white"/>
+<text x="48" y="20" font-size="13" font-weight="bold">T20 innings 1 (test partition)</text>
+<line x1="48" y1="312" x2="312" y2="48" stroke="#9ca3af" stroke-dasharray="4 3"/>
+<rect x="48" y="48" width="264" height="264" fill="none" stroke="#374151"/>
+<text x="48" y="326" text-anchor="middle">0</text>
+<text x="42" y="316" text-anchor="end">0</text>
+<text x="114.0" y="326" text-anchor="middle">0.25</text>
+<text x="42" y="250.0" text-anchor="end">0.25</text>
+<text x="180.0" y="326" text-anchor="middle">0.5</text>
+<text x="42" y="184.0" text-anchor="end">0.5</text>
+<text x="246.0" y="326" text-anchor="middle">0.75</text>
+<text x="42" y="118.0" text-anchor="end">0.75</text>
+<text x="312" y="326" text-anchor="middle">1</text>
+<text x="42" y="52" text-anchor="end">1</text>
+<text x="180.0" y="352" text-anchor="middle">Predicted probability</text>
+<text x="12" y="180.0" transform="rotate(-90 12 180.0)" text-anchor="middle">Observed frequency</text>
+<polyline points="60.8,303.5 88.1,277.7 114.9,255.7 140.9,231.3 166.9,206.1 193.2,178.0 219.3,151.5 245.6,119.1 271.4,89.8 294.6,58.8" fill="none" stroke="#2563eb" stroke-width="2"/>
+<circle cx="60.8" cy="303.5" r="2.5" fill="#2563eb"/>
+<circle cx="88.1" cy="277.7" r="2.5" fill="#2563eb"/>
+<circle cx="114.9" cy="255.7" r="2.5" fill="#2563eb"/>
+<circle cx="140.9" cy="231.3" r="2.5" fill="#2563eb"/>
+<circle cx="166.9" cy="206.1" r="2.5" fill="#2563eb"/>
+<circle cx="193.2" cy="178.0" r="2.5" fill="#2563eb"/>
+<circle cx="219.3" cy="151.5" r="2.5" fill="#2563eb"/>
+<circle cx="245.6" cy="119.1" r="2.5" fill="#2563eb"/>
+<circle cx="271.4" cy="89.8" r="2.5" fill="#2563eb"/>
+<circle cx="294.6" cy="58.8" r="2.5" fill="#2563eb"/>
+<rect x="364" y="39" width="10" height="10" fill="#2563eb"/>
+<text x="378" y="48">model</text>
+<polyline points="60.8,303.5 88.1,277.7 114.9,255.7 140.9,231.3 166.9,206.1 193.2,178.0 219.3,151.5 245.6,119.1 271.4,89.8 294.6,58.8" fill="none" stroke="#93c5fd" stroke-width="2"/>
+<circle cx="60.8" cy="303.5" r="2.5" fill="#93c5fd"/>
+<circle cx="88.1" cy="277.7" r="2.5" fill="#93c5fd"/>
+<circle cx="114.9" cy="255.7" r="2.5" fill="#93c5fd"/>
+<circle cx="140.9" cy="231.3" r="2.5" fill="#93c5fd"/>
+<circle cx="166.9" cy="206.1" r="2.5" fill="#93c5fd"/>
+<circle cx="193.2" cy="178.0" r="2.5" fill="#93c5fd"/>
+<circle cx="219.3" cy="151.5" r="2.5" fill="#93c5fd"/>
+<circle cx="245.6" cy="119.1" r="2.5" fill="#93c5fd"/>
+<circle cx="271.4" cy="89.8" r="2.5" fill="#93c5fd"/>
+<circle cx="294.6" cy="58.8" r="2.5" fill="#93c5fd"/>
+<rect x="364" y="57" width="10" height="10" fill="#93c5fd"/>
+<text x="378" y="66">model_uncalibrated</text>
+<polyline points="150.3,305.9 170.6,208.1 185.9,122.4 213.1,88.6 240.5,102.3" fill="none" stroke="#dc2626" stroke-width="2"/>
+<circle cx="150.3" cy="305.9" r="2.5" fill="#dc2626"/>
+<circle cx="170.6" cy="208.1" r="2.5" fill="#dc2626"/>
+<circle cx="185.9" cy="122.4" r="2.5" fill="#dc2626"/>
+<circle cx="213.1" cy="88.6" r="2.5" fill="#dc2626"/>
+<circle cx="240.5" cy="102.3" r="2.5" fill="#dc2626"/>
+<rect x="364" y="75" width="10" height="10" fill="#dc2626"/>
+<text x="378" y="84">legacy_v1_logistic</text>
+<polyline points="72.8,312.0 92.1,284.2 117.2,249.6 141.5,228.5 167.3,194.9 192.1,162.6 218.0,141.3 244.6,86.1 266.5,48.0" fill="none" stroke="#16a34a" stroke-width="2"/>
+<circle cx="72.8" cy="312.0" r="2.5" fill="#16a34a"/>
+<circle cx="92.1" cy="284.2" r="2.5" fill="#16a34a"/>
+<circle cx="117.2" cy="249.6" r="2.5" fill="#16a34a"/>
+<circle cx="141.5" cy="228.5" r="2.5" fill="#16a34a"/>
+<circle cx="167.3" cy="194.9" r="2.5" fill="#16a34a"/>
+<circle cx="192.1" cy="162.6" r="2.5" fill="#16a34a"/>
+<circle cx="218.0" cy="141.3" r="2.5" fill="#16a34a"/>
+<circle cx="244.6" cy="86.1" r="2.5" fill="#16a34a"/>
+<circle cx="266.5" cy="48.0" r="2.5" fill="#16a34a"/>
+<rect x="364" y="93" width="10" height="10" fill="#16a34a"/>
+<text x="378" y="102">elo</text>
+<polyline points="70.6,215.4 90.1,239.8 116.4,264.6 141.9,247.5 167.2,211.5 192.7,165.9 218.1,127.2 244.4,102.3 270.0,106.5 297.8,122.1" fill="none" stroke="#a16207" stroke-width="2"/>
+<circle cx="70.6" cy="215.4" r="2.5" fill="#a16207"/>
+<circle cx="90.1" cy="239.8" r="2.5" fill="#a16207"/>
+<circle cx="116.4" cy="264.6" r="2.5" fill="#a16207"/>
+<circle cx="141.9" cy="247.5" r="2.5" fill="#a16207"/>
+<circle cx="167.2" cy="211.5" r="2.5" fill="#a16207"/>
+<circle cx="192.7" cy="165.9" r="2.5" fill="#a16207"/>
+<circle cx="218.1" cy="127.2" r="2.5" fill="#a16207"/>
+<circle cx="244.4" cy="102.3" r="2.5" fill="#a16207"/>
+<circle cx="270.0" cy="106.5" r="2.5" fill="#a16207"/>
+<circle cx="297.8" cy="122.1" r="2.5" fill="#a16207"/>
+<rect x="364" y="111" width="10" height="10" fill="#a16207"/>
+<text x="378" y="120">venue_par</text>
+</svg>

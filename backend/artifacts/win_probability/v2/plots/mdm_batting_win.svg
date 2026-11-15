@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="530" height="360" font-family="sans-serif" font-size="11">
+<rect width="100%" height="100%" fill="white"/>
+<text x="48" y="20" font-size="13" font-weight="bold">MDM batting_win (test partition)</text>
+<line x1="48" y1="312" x2="312" y2="48" stroke="#9ca3af" stroke-dasharray="4 3"/>
+<rect x="48" y="48" width="264" height="264" fill="none" stroke="#374151"/>
+<text x="48" y="326" text-anchor="middle">0</text>
+<text x="42" y="316" text-anchor="end">0</text>
+<text x="114.0" y="326" text-anchor="middle">0.25</text>
+<text x="42" y="250.0" text-anchor="end">0.25</text>
+<text x="180.0" y="326" text-anchor="middle">0.5</text>
+<text x="42" y="184.0" text-anchor="end">0.5</text>
+<text x="246.0" y="326" text-anchor="middle">0.75</text>
+<text x="42" y="118.0" text-anchor="end">0.75</text>
+<text x="312" y="326" text-anchor="middle">1</text>
+<text x="42" y="52" text-anchor="end">1</text>
+<text x="180.0" y="352" text-anchor="middle">Predicted probability</text>
+<text x="12" y="180.0" transform="rotate(-90 12 180.0)" text-anchor="middle">Observed frequency</text>
+<polyline points="59.3,298.3 88.1,247.2 113.2,230.0 139.2,227.5 166.0,208.1 192.6,166.5 218.2,134.5 241.1,118.2 276.1,75.2 291.1,70.8" fill="none" stroke="#2563eb" stroke-width="2"/>
+<circle cx="59.3" cy="298.3" r="2.5" fill="#2563eb"/>
+<circle cx="88.1" cy="247.2" r="2.5" fill="#2563eb"/>
+<circle cx="113.2" cy="230.0" r="2.5" fill="#2563eb"/>
+<circle cx="139.2" cy="227.5" r="2.5" fill="#2563eb"/>
+<circle cx="166.0" cy="208.1" r="2.5" fill="#2563eb"/>
+<circle cx="192.6" cy="166.5" r="2.5" fill="#2563eb"/>
+<circle cx="218.2" cy="134.5" r="2.5" fill="#2563eb"/>
+<circle cx="241.1" cy="118.2" r="2.5" fill="#2563eb"/>
+<circle cx="276.1" cy="75.2" r="2.5" fill="#2563eb"/>
+<circle cx="291.1" cy="70.8" r="2.5" fill="#2563eb"/>
+<rect x="364" y="39" width="10" height="10" fill="#2563eb"/>
+<text x="378" y="48">model</text>
+<polyline points="63.6,309.0 87.9,268.1 114.2,246.1 139.6,225.6 165.6,221.8 193.3,193.1 218.3,138.1 242.6,116.1 275.3,83.5 289.9,64.8" fill="none" stroke="#93c5fd" stroke-width="2"/>
+<circle cx="63.6" cy="309.0" r="2.5" fill="#93c5fd"/>
+<circle cx="87.9" cy="268.1" r="2.5" fill="#93c5fd"/>
+<circle cx="114.2" cy="246.1" r="2.5" fill="#93c5fd"/>
+<circle cx="139.6" cy="225.6" r="2.5" fill="#93c5fd"/>
+<circle cx="165.6" cy="221.8" r="2.5" fill="#93c5fd"/>
+<circle cx="193.3" cy="193.1" r="2.5" fill="#93c5fd"/>
+<circle cx="218.3" cy="138.1" r="2.5" fill="#93c5fd"/>
+<circle cx="242.6" cy="116.1" r="2.5" fill="#93c5fd"/>
+<circle cx="275.3" cy="83.5" r="2.5" fill="#93c5fd"/>
+<circle cx="289.9" cy="64.8" r="2.5" fill="#93c5fd"/>
+<rect x="364" y="57" width="10" height="10" fill="#93c5fd"/>
+<text x="378" y="66">model_uncalibrated</text>
+<polyline points="125.7,311.6 132.2,235.6" fill="none" stroke="#dc2626" stroke-width="2"/>
+<circle cx="125.7" cy="311.6" r="2.5" fill="#dc2626"/>
+<circle cx="132.2" cy="235.6" r="2.5" fill="#dc2626"/>
+<rect x="364" y="75" width="10" height="10" fill="#dc2626"/>
+<text x="378" y="84">legacy_v1_logistic</text>
+</svg>

@@ -1,0 +1,1521 @@
+{
+  "model_version_prefix": "cpi-wp-v1",
+  "coverage": {
+    "MDM": {
+      "matches": 2242,
+      "deliveries": 3812844
+    },
+    "ODI": {
+      "matches": 3237,
+      "deliveries": 1713385
+    },
+    "ODM": {
+      "matches": 2094,
+      "deliveries": 1077804
+    },
+    "T20": {
+      "matches": 8576,
+      "deliveries": 1966637
+    },
+    "T20I": {
+      "matches": 6169,
+      "deliveries": 1391544
+    },
+    "Test": {
+      "matches": 923,
+      "deliveries": 1777274
+    }
+  },
+  "supported_families": [
+    "T20",
+    "ODI",
+    "Test"
+  ],
+  "families": {
+    "T20": {
+      "formats": [
+        "T20",
+        "T20I"
+      ],
+      "features": [
+        "team1_batting",
+        "female_match",
+        "is_super_over",
+        "innings_number",
+        "score",
+        "wickets_lost",
+        "wickets_remaining",
+        "legal_balls",
+        "balls_remaining",
+        "innings_run_rate",
+        "batting_team_prior_runs",
+        "opposition_prior_runs",
+        "target_runs",
+        "runs_required",
+        "required_run_rate",
+        "recent_runs_12_balls",
+        "recent_wickets_12_balls",
+        "is_powerplay",
+        "is_middle",
+        "is_death"
+      ],
+      "benchmarks": {
+        "LogisticRegression": {
+          "validation": {
+            "samples": 89513,
+            "brier_score": 0.4804146520562995,
+            "log_loss": 0.71769880387655,
+            "accuracy": 0.617094723671422,
+            "roc_auc_ovr": 0.6560631382987095,
+            "calibration": {
+              "team1_win": [
+                {
+                  "mean_predicted": 0.3785457150120374,
+                  "observed_rate": 0.07760141093474426,
+                  "samples": 1701
+                },
+                {
+                  "mean_predicted": 0.4792884492165418,
+                  "observed_rate": 0.4936968206908188,
+                  "samples": 82974
+                },
+                {
+                  "mean_predicted": 0.6343748127139589,
+                  "observed_rate": 0.9228511530398323,
+                  "samples": 4770
+                },
+                {
+                  "mean_predicted": 0.8776647220639622,
+                  "observed_rate": 1.0,
+                  "samples": 68
+                }
+              ],
+              "team2_win": [
+                {
+                  "mean_predicted": 0.12495260617949745,
+                  "observed_rate": 0.0,
+                  "samples": 77
+                },
+                {
+                  "mean_predicted": 0.3640375885545822,
+                  "observed_rate": 0.09142394822006472,
+                  "samples": 6180
+                },
+                {
+                  "mean_predicted": 0.5120623065693873,
+                  "observed_rate": 0.5017880601372062,
+                  "samples": 82212
+                },
+                {
+                  "mean_predicted": 0.620933968902091,
+                  "observed_rate": 0.9626436781609196,
+                  "samples": 1044
+                }
+              ],
+              "draw_or_tie": [
+                {
+                  "mean_predicted": 0.011279602235031591,
+                  "observed_rate": 0.012556835320009384,
+                  "samples": 89513
+                }
+              ]
+            },
+            "validation_match_weighted_log_loss": 0.7088892738520886
+          },
+          "validation_match_weighted": {
+            "samples": 89513,
+            "brier_score": 0.47601153199728274,
+            "log_loss": 0.7088892741097488,
+            "accuracy": 0.6343094124317398,
+            "roc_auc_ovr": 0.6623646866035715,
+            "calibration": {
+              "team1_win": [
+                {
+                  "mean_predicted": 0.37672833116974647,
+                  "observed_rate": 0.06967644685791155,
+                  "samples": 1701
+                },
+                {
+                  "mean_predicted": 0.47794190749485244,
+                  "observed_rate": 0.46112436492124176,
+                  "samples": 82974
+                },
+                {
+                  "mean_predicted": 0.6344780306446646,
+                  "observed_rate": 0.9154779227100694,
+                  "samples": 4770
+                },
+                {
+                  "mean_predicted": 0.8775418195564315,
+                  "observed_rate": 1.0,
+                  "samples": 68
+                }
+              ],
+              "team2_win": [
+                {
+                  "mean_predicted": 0.1255095312284895,
+                  "observed_rate": 0.0,
+                  "samples": 77
+                },
+                {
+                  "mean_predicted": 0.3639920816072389,
+                  "observed_rate": 0.10050728798331314,
+                  "samples": 6180
+                },
+                {
+                  "mean_predicted": 0.5134233102366179,
+                  "observed_rate": 0.5363076039567288,
+                  "samples": 82212
+                },
+                {
+                  "mean_predicted": 0.6225459976760982,
+                  "observed_rate": 0.9632007496263112,
+                  "samples": 1044
+                }
+              ],
+              "draw_or_tie": [
+                {
+                  "mean_predicted": 0.011267769468266077,
+                  "observed_rate": 0.010919337794998239,
+                  "samples": 89513
+                }
+              ]
+            }
+          }
+        }
+      },
+      "selected_model": "LogisticRegression",
+      "candidate_availability": {
+        "LightGBM": "not installed",
+        "XGBoost": "not installed",
+        "LogisticRegression": "available and evaluated"
+      },
+      "chronological_split": {
+        "train_end": "2023-03-06",
+        "validation_end": "2025-01-01",
+        "test_start": "2025-01-01",
+        "matches": {
+          "all": 14456,
+          "train": 8233,
+          "validation": 2839,
+          "test": 3384
+        }
+      },
+      "samples": {
+        "train_states": 257183,
+        "validation_states": 89513,
+        "test_states": 106620,
+        "test_match_weighted_count": 3384
+      },
+      "test": {
+        "samples": 106620,
+        "brier_score": 0.4700031112106645,
+        "log_loss": 0.6976730705530607,
+        "accuracy": 0.6180641530669668,
+        "roc_auc_ovr": 0.6553036311370712,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.38119453515882146,
+              "observed_rate": 0.2626044367617401,
+              "samples": 6942
+            },
+            {
+              "mean_predicted": 0.4762545550807116,
+              "observed_rate": 0.4836475784859748,
+              "samples": 88519
+            },
+            {
+              "mean_predicted": 0.6503109481671285,
+              "observed_rate": 0.8742317218603798,
+              "samples": 10901
+            },
+            {
+              "mean_predicted": 0.8651010280893755,
+              "observed_rate": 1.0,
+              "samples": 258
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.13513934586246312,
+              "observed_rate": 0.0,
+              "samples": 290
+            },
+            {
+              "mean_predicted": 0.3474653005221281,
+              "observed_rate": 0.13797160561612676,
+              "samples": 12749
+            },
+            {
+              "mean_predicted": 0.5184401807412053,
+              "observed_rate": 0.5164913984308619,
+              "samples": 90623
+            },
+            {
+              "mean_predicted": 0.6293820729523273,
+              "observed_rate": 0.8891142663962136,
+              "samples": 2958
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.011162888858035567,
+              "observed_rate": 0.00937927929617888,
+              "samples": 106618
+            },
+            {
+              "mean_predicted": 0.21449535340070724,
+              "observed_rate": 1.0,
+              "samples": 2
+            }
+          ]
+        }
+      },
+      "test_match_weighted": {
+        "samples": 106620,
+        "brier_score": 0.46644898731219187,
+        "log_loss": 0.6920018925762133,
+        "accuracy": 0.6327435882361909,
+        "roc_auc_ovr": 0.6597596494972403,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.37903287737671715,
+              "observed_rate": 0.23282062604122894,
+              "samples": 6942
+            },
+            {
+              "mean_predicted": 0.4749366145570735,
+              "observed_rate": 0.4514829321883225,
+              "samples": 88519
+            },
+            {
+              "mean_predicted": 0.6505248793556582,
+              "observed_rate": 0.8629604988249042,
+              "samples": 10901
+            },
+            {
+              "mean_predicted": 0.8645647174599712,
+              "observed_rate": 1.0,
+              "samples": 258
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.13580574982754376,
+              "observed_rate": 0.0,
+              "samples": 290
+            },
+            {
+              "mean_predicted": 0.3472919095198611,
+              "observed_rate": 0.1503124940360854,
+              "samples": 12749
+            },
+            {
+              "mean_predicted": 0.5197815805402117,
+              "observed_rate": 0.5498879208862555,
+              "samples": 90623
+            },
+            {
+              "mean_predicted": 0.6317771425783755,
+              "observed_rate": 0.8982163414801276,
+              "samples": 2958
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.01114559311119914,
+              "observed_rate": 0.00855142862419888,
+              "samples": 106618
+            },
+            {
+              "mean_predicted": 0.21449535340070724,
+              "observed_rate": 1.0,
+              "samples": 2
+            }
+          ]
+        }
+      },
+      "database_delivery_rows_scanned": 3358181,
+      "model_version": "cpi-wp-v1-t20-d1969b68bfb6",
+      "feature_preprocessing": "Per-family median imputation (missingness indicators), StandardScaler, multinomial LogisticRegression; tree models use imputation without scaling when installed.",
+      "matches_precomputed_this_run": 0
+    },
+    "ODI": {
+      "formats": [
+        "ODI",
+        "ODM"
+      ],
+      "features": [
+        "team1_batting",
+        "female_match",
+        "is_super_over",
+        "innings_number",
+        "score",
+        "wickets_lost",
+        "wickets_remaining",
+        "legal_balls",
+        "balls_remaining",
+        "innings_run_rate",
+        "batting_team_prior_runs",
+        "opposition_prior_runs",
+        "target_runs",
+        "runs_required",
+        "required_run_rate",
+        "recent_runs_12_balls",
+        "recent_wickets_12_balls",
+        "is_powerplay",
+        "is_middle",
+        "is_death"
+      ],
+      "benchmarks": {
+        "LogisticRegression": {
+          "validation": {
+            "samples": 52566,
+            "brier_score": 0.503511573390323,
+            "log_loss": 0.7447287513174633,
+            "accuracy": 0.5015979910969067,
+            "roc_auc_ovr": 0.6315061141917918,
+            "calibration": {
+              "team1_win": [
+                {
+                  "mean_predicted": 0.5357242589211247,
+                  "observed_rate": 0.49513151602104255,
+                  "samples": 52275
+                },
+                {
+                  "mean_predicted": 0.6106696554885287,
+                  "observed_rate": 1.0,
+                  "samples": 291
+                }
+              ],
+              "team2_win": [
+                {
+                  "mean_predicted": 0.3891932443813395,
+                  "observed_rate": 0.0027624309392265192,
+                  "samples": 724
+                },
+                {
+                  "mean_predicted": 0.4552388783337493,
+                  "observed_rate": 0.4957563365610895,
+                  "samples": 51842
+                }
+              ],
+              "draw_or_tie": [
+                {
+                  "mean_predicted": 0.009531642526772419,
+                  "observed_rate": 0.013107331735342237,
+                  "samples": 52566
+                }
+              ]
+            },
+            "validation_match_weighted_log_loss": 0.7405800107571736
+          },
+          "validation_match_weighted": {
+            "samples": 52566,
+            "brier_score": 0.5050771632084632,
+            "log_loss": 0.74058001050975,
+            "accuracy": 0.47575288016550304,
+            "roc_auc_ovr": 0.6421985376792616,
+            "calibration": {
+              "team1_win": [
+                {
+                  "mean_predicted": 0.534632288747879,
+                  "observed_rate": 0.4670195319797249,
+                  "samples": 52275
+                },
+                {
+                  "mean_predicted": 0.610493738254605,
+                  "observed_rate": 1.0,
+                  "samples": 291
+                }
+              ],
+              "team2_win": [
+                {
+                  "mean_predicted": 0.3892724026397088,
+                  "observed_rate": 0.0027946664213124345,
+                  "samples": 724
+                },
+                {
+                  "mean_predicted": 0.45632372770806795,
+                  "observed_rate": 0.5259372474321232,
+                  "samples": 51842
+                }
+              ],
+              "draw_or_tie": [
+                {
+                  "mean_predicted": 0.009531417747742273,
+                  "observed_rate": 0.011160714285714288,
+                  "samples": 52566
+                }
+              ]
+            }
+          }
+        }
+      },
+      "selected_model": "LogisticRegression",
+      "candidate_availability": {
+        "LightGBM": "not installed",
+        "XGBoost": "not installed",
+        "LogisticRegression": "available and evaluated"
+      },
+      "chronological_split": {
+        "train_end": "2022-02-23",
+        "validation_end": "2024-07-22",
+        "test_start": "2024-07-22",
+        "matches": {
+          "all": 5122,
+          "train": 3142,
+          "validation": 896,
+          "test": 1084
+        }
+      },
+      "samples": {
+        "train_states": 186931,
+        "validation_states": 52566,
+        "test_states": 64103,
+        "test_match_weighted_count": 1084
+      },
+      "test": {
+        "samples": 64103,
+        "brier_score": 0.5001936454060465,
+        "log_loss": 0.7340647741541914,
+        "accuracy": 0.5316131850303418,
+        "roc_auc_ovr": 0.6194395307561708,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.5210894931414715,
+              "observed_rate": 0.4824924877431599,
+              "samples": 63230
+            },
+            {
+              "mean_predicted": 0.6149283819500058,
+              "observed_rate": 0.8632183908045977,
+              "samples": 870
+            },
+            {
+              "mean_predicted": 0.9163189729054769,
+              "observed_rate": 1.0,
+              "samples": 3
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.10813774913549423,
+              "observed_rate": 0.0,
+              "samples": 4
+            },
+            {
+              "mean_predicted": 0.38397390999771813,
+              "observed_rate": 0.14361702127659576,
+              "samples": 1504
+            },
+            {
+              "mean_predicted": 0.469742758078491,
+              "observed_rate": 0.5103123252655963,
+              "samples": 62595
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.00991058425444687,
+              "observed_rate": 0.010639127653931954,
+              "samples": 64103
+            }
+          ]
+        }
+      },
+      "test_match_weighted": {
+        "samples": 64103,
+        "brier_score": 0.49995547167778376,
+        "log_loss": 0.7297093104046433,
+        "accuracy": 0.5213610019003138,
+        "roc_auc_ovr": 0.6302179701305888,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.5196387456739628,
+              "observed_rate": 0.4569033203337026,
+              "samples": 63230
+            },
+            {
+              "mean_predicted": 0.6152543915494932,
+              "observed_rate": 0.8631547320503242,
+              "samples": 870
+            },
+            {
+              "mean_predicted": 0.9207302019974896,
+              "observed_rate": 1.0,
+              "samples": 3
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.10341701606944825,
+              "observed_rate": 0.0,
+              "samples": 4
+            },
+            {
+              "mean_predicted": 0.38371946322162315,
+              "observed_rate": 0.1445766956710052,
+              "samples": 1504
+            },
+            {
+              "mean_predicted": 0.47115994930186156,
+              "observed_rate": 0.5373438049448878,
+              "samples": 62595
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.009909742816058421,
+              "observed_rate": 0.00922509225092251,
+              "samples": 64103
+            }
+          ]
+        }
+      },
+      "database_delivery_rows_scanned": 2791189,
+      "model_version": "cpi-wp-v1-odi-6813ed0ed0fd",
+      "feature_preprocessing": "Per-family median imputation (missingness indicators), StandardScaler, multinomial LogisticRegression; tree models use imputation without scaling when installed.",
+      "matches_precomputed_this_run": 0
+    },
+    "Test": {
+      "formats": [
+        "Test",
+        "MDM"
+      ],
+      "features": [
+        "team1_batting",
+        "female_match",
+        "is_test_match",
+        "is_super_over",
+        "innings_number",
+        "innings_runs",
+        "wickets_lost",
+        "wickets_remaining",
+        "legal_balls",
+        "innings_run_rate",
+        "team1_runs",
+        "team2_runs",
+        "lead_from_team1",
+        "current_innings_lead",
+        "batting_team_prior_runs",
+        "opposition_prior_runs"
+      ],
+      "benchmarks": {
+        "LogisticRegression": {
+          "validation": {
+            "samples": 89311,
+            "brier_score": 0.6637576677716434,
+            "log_loss": 1.0938731799708807,
+            "accuracy": 0.31169732731690386,
+            "roc_auc_ovr": 0.6852451283435738,
+            "calibration": {
+              "team1_win": [
+                {
+                  "mean_predicted": 0.37637423616881066,
+                  "observed_rate": 0.25520812950860305,
+                  "samples": 76659
+                },
+                {
+                  "mean_predicted": 0.40890295234534585,
+                  "observed_rate": 0.5445779323427126,
+                  "samples": 12652
+                }
+              ],
+              "team2_win": [
+                {
+                  "mean_predicted": 0.31329037543017046,
+                  "observed_rate": 0.3561487386772066,
+                  "samples": 89311
+                }
+              ],
+              "draw_or_tie": [
+                {
+                  "mean_predicted": 0.30572729626157896,
+                  "observed_rate": 0.34765034542217643,
+                  "samples": 89311
+                }
+              ]
+            },
+            "validation_match_weighted_log_loss": 1.0934366528008492
+          },
+          "validation_match_weighted": {
+            "samples": 89311,
+            "brier_score": 0.6635020397238355,
+            "log_loss": 1.0934366528008492,
+            "accuracy": 0.3084329126487097,
+            "roc_auc_ovr": 0.6954498771738643,
+            "calibration": {
+              "team1_win": [
+                {
+                  "mean_predicted": 0.3760940315156552,
+                  "observed_rate": 0.25148225538887237,
+                  "samples": 76659
+                },
+                {
+                  "mean_predicted": 0.40879280766056947,
+                  "observed_rate": 0.5572205886939137,
+                  "samples": 12652
+                }
+              ],
+              "team2_win": [
+                {
+                  "mean_predicted": 0.3139034217213282,
+                  "observed_rate": 0.36904761904761907,
+                  "samples": 89311
+                }
+              ],
+              "draw_or_tie": [
+                {
+                  "mean_predicted": 0.30570481590707993,
+                  "observed_rate": 0.3392857142857143,
+                  "samples": 89311
+                }
+              ]
+            }
+          }
+        }
+      },
+      "selected_model": "LogisticRegression",
+      "candidate_availability": {
+        "LightGBM": "not installed",
+        "XGBoost": "not installed",
+        "LogisticRegression": "available and evaluated"
+      },
+      "chronological_split": {
+        "train_end": "2021-09-21",
+        "validation_end": "2024-03-11",
+        "test_start": "2024-03-16",
+        "matches": {
+          "all": 3165,
+          "train": 1920,
+          "validation": 504,
+          "test": 741
+        }
+      },
+      "samples": {
+        "train_states": 346492,
+        "validation_states": 89311,
+        "test_states": 124046,
+        "test_match_weighted_count": 741
+      },
+      "test": {
+        "samples": 124046,
+        "brier_score": 0.6536117204645525,
+        "log_loss": 1.0789791520756262,
+        "accuracy": 0.39268497170404526,
+        "roc_auc_ovr": 0.7125601345834394,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.36221192401213015,
+              "observed_rate": 0.317293853262745,
+              "samples": 118811
+            },
+            {
+              "mean_predicted": 0.40919069001780684,
+              "observed_rate": 0.6817574021012417,
+              "samples": 5235
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.32177792125406895,
+              "observed_rate": 0.2929842813707225,
+              "samples": 123993
+            },
+            {
+              "mean_predicted": 0.4054163975764993,
+              "observed_rate": 0.41509433962264153,
+              "samples": 53
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.3139918173485986,
+              "observed_rate": 0.37428857036905666,
+              "samples": 124046
+            }
+          ]
+        }
+      },
+      "test_match_weighted": {
+        "samples": 124046,
+        "brier_score": 0.655152432247488,
+        "log_loss": 1.0812182344400716,
+        "accuracy": 0.3767474940484889,
+        "roc_auc_ovr": 0.7235202025614585,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.36147575646393243,
+              "observed_rate": 0.2930924299164875,
+              "samples": 118811
+            },
+            {
+              "mean_predicted": 0.40921779283333154,
+              "observed_rate": 0.6812502869588791,
+              "samples": 5235
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.3228213613301576,
+              "observed_rate": 0.30763280518755476,
+              "samples": 123993
+            },
+            {
+              "mean_predicted": 0.40565323002232384,
+              "observed_rate": 0.4342306137258987,
+              "samples": 53
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.3138682171650749,
+              "observed_rate": 0.3846153846153847,
+              "samples": 124046
+            }
+          ]
+        }
+      },
+      "database_delivery_rows_scanned": 5590118,
+      "model_version": "cpi-wp-v1-test-e81a37b9b3c2",
+      "feature_preprocessing": "Per-family median imputation (missingness indicators), StandardScaler, multinomial LogisticRegression; tree models use imputation without scaling when installed.",
+      "matches_precomputed_this_run": 3165
+    }
+  },
+  "unsupported_formats": [],
+  "limitations": [
+    "Match records do not contain Test declarations, follow-on decisions, scheduled match duration, remaining-time estimates, or sessions; Test features use innings progression and score state only.",
+    "DLS revised targets are used only when present in MatchInnings.target_runs/target_overs; revision timestamps are not stored, so historical revisions cannot be replayed exactly.",
+    "Matches without a resolved winner or explicit tie/draw are excluded from outcome training and saved as no-result/unlabelled.",
+    "Super-over deliveries carry an explicit feature and are included separately; the recorded final match outcome is used as the label.",
+    "Historical predictions are retrospective model estimates; calibration is assessed on later-held-out matches, not a claim of future certainty."
+  ],
+  "player_impact_rows": 23283,
+  "precomputed_match_status": {
+    "unlabelled_no_result": 498,
+    "available": 22743
+  },
+  "match_status_by_format": {
+    "MDM": {
+      "available": 2242
+    },
+    "ODI": {
+      "unlabelled_no_result": 122,
+      "available": 3115
+    },
+    "ODM": {
+      "unlabelled_no_result": 87,
+      "available": 2007
+    },
+    "T20": {
+      "unlabelled_no_result": 165,
+      "available": 8411
+    },
+    "T20I": {
+      "unlabelled_no_result": 124,
+      "available": 6045
+    },
+    "Test": {
+      "available": 923
+    }
+  },
+  "outcome_counts_by_format": {
+    "MDM": {
+      "win": 1381,
+      "draw": 859,
+      "tie": 2
+    },
+    "ODI": {
+      "no result": 122,
+      "win": 3081,
+      "tie": 34
+    },
+    "ODM": {
+      "no result": 87,
+      "win": 1991,
+      "tie": 16
+    },
+    "T20": {
+      "no result": 165,
+      "win": 8309,
+      "tie": 102
+    },
+    "T20I": {
+      "no result": 124,
+      "win": 5994,
+      "tie": 51
+    },
+    "Test": {
+      "win": 744,
+      "draw": 179
+    }
+  },
+  "source_metadata_gaps": {
+    "matches": 23241,
+    "missing_venue": 0,
+    "missing_team_identity": 0
+  },
+  "total_deliveries_precomputed": 11671030,
+  "training_run_scope": "Test",
+  "source_format_evaluations": {
+    "T20": {
+      "format_family": "T20",
+      "test_matches": 1544,
+      "test_states": 355149,
+      "test_start": "2025-01-02",
+      "state_weighted_metrics": {
+        "samples": 355149,
+        "brier_score": 0.48558906176432903,
+        "log_loss": 0.7209908711872892,
+        "accuracy": 0.5837944074177317,
+        "roc_auc_ovr": 0.6024315012853819,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.385942801825955,
+              "observed_rate": 0.3055276381909548,
+              "samples": 11940
+            },
+            {
+              "mean_predicted": 0.48153069564680384,
+              "observed_rate": 0.4180341411511238,
+              "samples": 302626
+            },
+            {
+              "mean_predicted": 0.6463404965372463,
+              "observed_rate": 0.7824437888891643,
+              "samples": 40339
+            },
+            {
+              "mean_predicted": 0.866433833810924,
+              "observed_rate": 0.9959016393442623,
+              "samples": 244
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.1354310501666903,
+              "observed_rate": 0.0035587188612099642,
+              "samples": 281
+            },
+            {
+              "mean_predicted": 0.3511045258009477,
+              "observed_rate": 0.22977941176470587,
+              "samples": 47872
+            },
+            {
+              "mean_predicted": 0.511947929946466,
+              "observed_rate": 0.5770371205688813,
+              "samples": 301504
+            },
+            {
+              "mean_predicted": 0.6146467618926059,
+              "observed_rate": 0.7467225054624909,
+              "samples": 5492
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.011141450008276326,
+              "observed_rate": 0.01156134467505188,
+              "samples": 355149
+            }
+          ]
+        }
+      },
+      "match_weighted_metrics": {
+        "samples": 355149,
+        "brier_score": 0.4835584401113471,
+        "log_loss": 0.7192580392795267,
+        "accuracy": 0.5937447918218495,
+        "roc_auc_ovr": 0.6071875123260431,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.3845291722740101,
+              "observed_rate": 0.2663599993004611,
+              "samples": 11940
+            },
+            {
+              "mean_predicted": 0.4803548352717597,
+              "observed_rate": 0.406583945941337,
+              "samples": 302626
+            },
+            {
+              "mean_predicted": 0.6462131663401369,
+              "observed_rate": 0.7851444486657546,
+              "samples": 40339
+            },
+            {
+              "mean_predicted": 0.865846189233661,
+              "observed_rate": 0.9961037525782803,
+              "samples": 244
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.13553122218431854,
+              "observed_rate": 0.0034055165254547387,
+              "samples": 281
+            },
+            {
+              "mean_predicted": 0.35124545677834396,
+              "observed_rate": 0.22772702228420902,
+              "samples": 47872
+            },
+            {
+              "mean_predicted": 0.5131057938601524,
+              "observed_rate": 0.5889048453175685,
+              "samples": 301504
+            },
+            {
+              "mean_predicted": 0.616234520089384,
+              "observed_rate": 0.7863799550324174,
+              "samples": 5492
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.011138274924703484,
+              "observed_rate": 0.011658031088082905,
+              "samples": 355149
+            }
+          ]
+        }
+      },
+      "note": "Uses the family model and the same chronological held-out date boundary; matches remain intact within the held-out set."
+    },
+    "T20I": {
+      "format_family": "T20",
+      "test_matches": 1840,
+      "test_states": 419577,
+      "test_start": "2025-01-02",
+      "state_weighted_metrics": {
+        "samples": 419577,
+        "brier_score": 0.4675091279413066,
+        "log_loss": 0.6884976183363971,
+        "accuracy": 0.605938838401533,
+        "roc_auc_ovr": 0.6645114146025338,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.3728625942788816,
+              "observed_rate": 0.19051929633988113,
+              "samples": 33141
+            },
+            {
+              "mean_predicted": 0.46898467375206826,
+              "observed_rate": 0.5340546804314382,
+              "samples": 350363
+            },
+            {
+              "mean_predicted": 0.6550779085700015,
+              "observed_rate": 0.9126317618440867,
+              "samples": 34532
+            },
+            {
+              "mean_predicted": 0.8691220618214445,
+              "observed_rate": 1.0,
+              "samples": 1541
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.1311045535154016,
+              "observed_rate": 0.0,
+              "samples": 1715
+            },
+            {
+              "mean_predicted": 0.3431308255907521,
+              "observed_rate": 0.0970939570367396,
+              "samples": 39848
+            },
+            {
+              "mean_predicted": 0.5243324281885795,
+              "observed_rate": 0.4704143171522485,
+              "samples": 357166
+            },
+            {
+              "mean_predicted": 0.6292894745416946,
+              "observed_rate": 0.8789811972371451,
+              "samples": 20848
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.011086183528853814,
+              "observed_rate": 0.006849919083245346,
+              "samples": 419567
+            },
+            {
+              "mean_predicted": 0.21548534842854714,
+              "observed_rate": 1.0,
+              "samples": 10
+            }
+          ]
+        }
+      },
+      "match_weighted_metrics": {
+        "samples": 419577,
+        "brier_score": 0.4617676836314201,
+        "log_loss": 0.6802534007739858,
+        "accuracy": 0.6253631717532203,
+        "roc_auc_ovr": 0.6752149313489412,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.3688435982832205,
+              "observed_rate": 0.16545716061894145,
+              "samples": 33141
+            },
+            {
+              "mean_predicted": 0.4670934224844458,
+              "observed_rate": 0.5067709254344478,
+              "samples": 350363
+            },
+            {
+              "mean_predicted": 0.655065974333708,
+              "observed_rate": 0.9103913141909994,
+              "samples": 34532
+            },
+            {
+              "mean_predicted": 0.8681670479132929,
+              "observed_rate": 1.0,
+              "samples": 1541
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.13205212795647117,
+              "observed_rate": 0.0,
+              "samples": 1715
+            },
+            {
+              "mean_predicted": 0.34316749695945337,
+              "observed_rate": 0.10011062113033846,
+              "samples": 39848
+            },
+            {
+              "mean_predicted": 0.5262740264069276,
+              "observed_rate": 0.49941770092881604,
+              "samples": 357166
+            },
+            {
+              "mean_predicted": 0.6336793397676751,
+              "observed_rate": 0.8924810596730641,
+              "samples": 20848
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.011074524494770763,
+              "observed_rate": 0.005958102654580114,
+              "samples": 419567
+            },
+            {
+              "mean_predicted": 0.21548534842854714,
+              "observed_rate": 1.0,
+              "samples": 10
+            }
+          ]
+        }
+      },
+      "note": "Uses the family model and the same chronological held-out date boundary; matches remain intact within the held-out set."
+    },
+    "ODI": {
+      "format_family": "ODI",
+      "test_matches": 444,
+      "test_states": 237027,
+      "test_start": "2024-07-24",
+      "state_weighted_metrics": {
+        "samples": 237027,
+        "brier_score": 0.4944668104354466,
+        "log_loss": 0.725949368950391,
+        "accuracy": 0.5576115801153455,
+        "roc_auc_ovr": 0.6128252986766061,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.5210819843421258,
+              "observed_rate": 0.504766210281581,
+              "samples": 232260
+            },
+            {
+              "mean_predicted": 0.6151765513914683,
+              "observed_rate": 0.840765671013883,
+              "samples": 4754
+            },
+            {
+              "mean_predicted": 0.8763283218330832,
+              "observed_rate": 1.0,
+              "samples": 13
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.13237995553196202,
+              "observed_rate": 0.0,
+              "samples": 16
+            },
+            {
+              "mean_predicted": 0.38438453588969407,
+              "observed_rate": 0.17677060391793206,
+              "samples": 8627
+            },
+            {
+              "mean_predicted": 0.47024898367315665,
+              "observed_rate": 0.4900649782821914,
+              "samples": 228384
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.009910302900428212,
+              "observed_rate": 0.009838541600745907,
+              "samples": 237027
+            }
+          ]
+        }
+      },
+      "match_weighted_metrics": {
+        "samples": 237027,
+        "brier_score": 0.49393285430464645,
+        "log_loss": 0.7229936475245092,
+        "accuracy": 0.5544873154068631,
+        "roc_auc_ovr": 0.6248434081293389,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.5192923217990246,
+              "observed_rate": 0.4841662446448138,
+              "samples": 232260
+            },
+            {
+              "mean_predicted": 0.6156963548646748,
+              "observed_rate": 0.8485796985313749,
+              "samples": 4754
+            },
+            {
+              "mean_predicted": 0.8756763368710888,
+              "observed_rate": 1.0,
+              "samples": 13
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.1310050097359403,
+              "observed_rate": 0.0,
+              "samples": 16
+            },
+            {
+              "mean_predicted": 0.3839656375063754,
+              "observed_rate": 0.16923395136788016,
+              "samples": 8627
+            },
+            {
+              "mean_predicted": 0.4719447590097501,
+              "observed_rate": 0.511480393585356,
+              "samples": 228384
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.009910411284739606,
+              "observed_rate": 0.009009009009009009,
+              "samples": 237027
+            }
+          ]
+        }
+      },
+      "note": "Uses the family model and the same chronological held-out date boundary; matches remain intact within the held-out set."
+    },
+    "ODM": {
+      "format_family": "ODI",
+      "test_matches": 640,
+      "test_states": 338261,
+      "test_start": "2024-07-24",
+      "state_weighted_metrics": {
+        "samples": 338261,
+        "brier_score": 0.5081045571143261,
+        "log_loss": 0.7430209436258058,
+        "accuracy": 0.5000192159308936,
+        "roc_auc_ovr": 0.5968544338215985,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.5198947540679512,
+              "observed_rate": 0.4523393006684568,
+              "samples": 335549
+            },
+            {
+              "mean_predicted": 0.6130919574326309,
+              "observed_rate": 0.847063169560399,
+              "samples": 2707
+            },
+            {
+              "mean_predicted": 0.8578067796354389,
+              "observed_rate": 1.0,
+              "samples": 5
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.13545833954796474,
+              "observed_rate": 0.0,
+              "samples": 5
+            },
+            {
+              "mean_predicted": 0.3840684449724907,
+              "observed_rate": 0.13747991737434015,
+              "samples": 4357
+            },
+            {
+              "mean_predicted": 0.4705678526050478,
+              "observed_rate": 0.5387737010293532,
+              "samples": 333899
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.009905686086096259,
+              "observed_rate": 0.010896910965201427,
+              "samples": 338261
+            }
+          ]
+        }
+      },
+      "match_weighted_metrics": {
+        "samples": 338261,
+        "brier_score": 0.5059232053021624,
+        "log_loss": 0.7363593981596851,
+        "accuracy": 0.5030035724947606,
+        "roc_auc_ovr": 0.6104578427513934,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.5180948638793954,
+              "observed_rate": 0.43906470704009687,
+              "samples": 335549
+            },
+            {
+              "mean_predicted": 0.6130860764387907,
+              "observed_rate": 0.8580505602495156,
+              "samples": 2707
+            },
+            {
+              "mean_predicted": 0.8590218215029727,
+              "observed_rate": 1.0,
+              "samples": 5
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.1342754507641873,
+              "observed_rate": 0.0,
+              "samples": 5
+            },
+            {
+              "mean_predicted": 0.38400442921723227,
+              "observed_rate": 0.1293250557681725,
+              "samples": 4357
+            },
+            {
+              "mean_predicted": 0.47234384554847963,
+              "observed_rate": 0.5534860188997355,
+              "samples": 333899
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.009904887970877796,
+              "observed_rate": 0.009375000000000001,
+              "samples": 338261
+            }
+          ]
+        }
+      },
+      "note": "Uses the family model and the same chronological held-out date boundary; matches remain intact within the held-out set."
+    },
+    "Test": {
+      "format_family": "Test",
+      "test_matches": 105,
+      "test_states": 177130,
+      "test_start": "2024-03-22",
+      "state_weighted_metrics": {
+        "samples": 177130,
+        "brier_score": 0.6178939639159932,
+        "log_loss": 1.0271090380748458,
+        "accuracy": 0.6301868684017389,
+        "roc_auc_ovr": 0.7221713111035429,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.3697668666746468,
+              "observed_rate": 0.5165925618656262,
+              "samples": 154286
+            },
+            {
+              "mean_predicted": 0.41129415251748697,
+              "observed_rate": 0.8738837331465593,
+              "samples": 22844
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.3194264750405543,
+              "observed_rate": 0.35066086760054227,
+              "samples": 177040
+            },
+            {
+              "mean_predicted": 0.40334867880425945,
+              "observed_rate": 1.0,
+              "samples": 90
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.30540835017136475,
+              "observed_rate": 0.08633771806018178,
+              "samples": 177130
+            }
+          ]
+        }
+      },
+      "match_weighted_metrics": {
+        "samples": 177130,
+        "brier_score": 0.6190084466446699,
+        "log_loss": 1.0285254613152044,
+        "accuracy": 0.6150764257307512,
+        "roc_auc_ovr": 0.7367406266294463,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.3687162110682938,
+              "observed_rate": 0.48732434128073615,
+              "samples": 154286
+            },
+            {
+              "mean_predicted": 0.41146721297013733,
+              "observed_rate": 0.8923720207399439,
+              "samples": 22844
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.321592519259727,
+              "observed_rate": 0.39958894724823013,
+              "samples": 177040
+            },
+            {
+              "mean_predicted": 0.4033486788042595,
+              "observed_rate": 1.0,
+              "samples": 90
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.3047792510132838,
+              "observed_rate": 0.06666666666666667,
+              "samples": 177130
+            }
+          ]
+        }
+      },
+      "note": "Uses the family model and the same chronological held-out date boundary; matches remain intact within the held-out set."
+    },
+    "MDM": {
+      "format_family": "Test",
+      "test_matches": 636,
+      "test_states": 1050322,
+      "test_start": "2024-03-16",
+      "state_weighted_metrics": {
+        "samples": 1050322,
+        "brier_score": 0.6610049308256073,
+        "log_loss": 1.089720267908882,
+        "accuracy": 0.3419970256740314,
+        "roc_auc_ovr": 0.6848506965618505,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.36108246698722973,
+              "observed_rate": 0.2802611684117667,
+              "samples": 1022482
+            },
+            {
+              "mean_predicted": 0.40725828572621725,
+              "observed_rate": 0.49579741379310344,
+              "samples": 27840
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.32195322013122635,
+              "observed_rate": 0.27565475719906696,
+              "samples": 1049893
+            },
+            {
+              "mean_predicted": 0.40551033306134143,
+              "observed_rate": 0.28205128205128205,
+              "samples": 429
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.315706240790185,
+              "observed_rate": 0.43836842415944827,
+              "samples": 1050322
+            }
+          ]
+        }
+      },
+      "match_weighted_metrics": {
+        "samples": 1050322,
+        "brier_score": 0.6614462158466707,
+        "log_loss": 1.0904054725051906,
+        "accuracy": 0.3361035765082431,
+        "roc_auc_ovr": 0.6968295839385771,
+        "calibration": {
+          "team1_win": [
+            {
+              "mean_predicted": 0.36031481941486665,
+              "observed_rate": 0.2648013177036265,
+              "samples": 1022482
+            },
+            {
+              "mean_predicted": 0.4071932518837398,
+              "observed_rate": 0.5078832404938813,
+              "samples": 27840
+            }
+          ],
+          "team2_win": [
+            {
+              "mean_predicted": 0.32316822580755583,
+              "observed_rate": 0.29246223573980346,
+              "samples": 1049893
+            },
+            {
+              "mean_predicted": 0.40586645650122616,
+              "observed_rate": 0.26939510478177,
+              "samples": 429
+            }
+          ],
+          "draw_or_tie": [
+            {
+              "mean_predicted": 0.3153957644931661,
+              "observed_rate": 0.4371069182389935,
+              "samples": 1050322
+            }
+          ]
+        }
+      },
+      "note": "Uses the family model and the same chronological held-out date boundary; matches remain intact within the held-out set."
+    }
+  }
+}

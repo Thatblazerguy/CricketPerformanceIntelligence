@@ -1,0 +1,56 @@
+{
+  "T20": {
+    "innings_1": {
+      "A_v1_as_shipped_C=1e-4": 0.6644756771399131,
+      "B_v1_C=1": 0.6046726181429881,
+      "C_batting_oriented_C=1": 0.5931724632486484,
+      "D_plus_derived_targets": 0.5931724632486484,
+      "E_v2_features_LR_C=1": 0.5607845888599181,
+      "validation_states": 124098
+    },
+    "innings_2": {
+      "A_v1_as_shipped_C=1e-4": 0.5895265699581383,
+      "B_v1_C=1": 0.41950039582572746,
+      "C_batting_oriented_C=1": 0.3463607703982469,
+      "D_plus_derived_targets": 0.34419727844714704,
+      "E_v2_features_LR_C=1": 0.3325509052551405,
+      "validation_states": 107692
+    }
+  },
+  "ODI": {
+    "innings_1": {
+      "A_v1_as_shipped_C=1e-4": 0.6856894746997731,
+      "B_v1_C=1": 0.6610746863991,
+      "C_batting_oriented_C=1": 0.6170559046315258,
+      "D_plus_derived_targets": 0.6170559046315258,
+      "E_v2_features_LR_C=1": 0.5433110840029808,
+      "validation_states": 65894
+    },
+    "innings_2": {
+      "A_v1_as_shipped_C=1e-4": 0.68047268275691,
+      "B_v1_C=1": 0.6229115021261311,
+      "C_batting_oriented_C=1": 0.4031674442589033,
+      "D_plus_derived_targets": 0.3590857325284345,
+      "E_v2_features_LR_C=1": 0.334345403123743,
+      "validation_states": 57523
+    }
+  },
+  "ODM": {
+    "innings_1": {
+      "A_v1_as_shipped_C=1e-4": 0.6864408966471592,
+      "B_v1_C=1": 0.6222103918950328,
+      "C_batting_oriented_C=1": 0.6096601070966876,
+      "D_plus_derived_targets": 0.6096601070966876,
+      "E_v2_features_LR_C=1": 0.5914360903418,
+      "validation_states": 39427
+    },
+    "innings_2": {
+      "A_v1_as_shipped_C=1e-4": 0.6699267053090457,
+      "B_v1_C=1": 0.4415119464828494,
+      "C_batting_oriented_C=1": 0.3883016413441536,
+      "D_plus_derived_targets": 0.3895630097540474,
+      "E_v2_features_LR_C=1": 0.36946256966905416,
+      "validation_states": 32714
+    }
+  }
+}

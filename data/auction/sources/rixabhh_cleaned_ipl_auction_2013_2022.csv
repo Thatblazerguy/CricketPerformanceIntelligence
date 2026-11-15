@@ -1,0 +1,971 @@
+Player,Role,Amount,Team,Year,Player_Origin,Amount_Cr,Count,Repeated
+Aaron Finch,Batsman,40000000,Sunrisers Hyderabad,2014,Overseas,4.0,5,True
+Aaron Finch,Batsman,32000000,Mumbai Indians,2015,Overseas,3.2,5,True
+Aaron Finch,Batsman,10000000,Gujarat Lions,2016,Overseas,1.0,5,True
+Aaron Finch,Batsman,62000000,Kings XI Punjab,2018,Overseas,6.2,5,True
+Aaron Finch,Batsman,44000000,Royal Challengers Bangalore,2020,Overseas,4.4,5,True
+Abdul Samad,All-Rounder,2000000,Sunrisers Hyderabad,2020,Indian,0.2,1,False
+Abhijeet Tomar,Batsman,4000000,Kolkata Knight Riders,2022,Indian,0.4,1,False
+Abhimanyu Mithun,Bowler,3000000,Mumbai Indians,2015,Indian,0.3,2,True
+Abhimanyu Mithun,Bowler,3000000,Sunrisers Hyderabad,2016,Indian,0.3,2,True
+Abhinav Sadarangani,Batsman,26000000,Gujarat Titans,2022,Indian,2.6,1,False
+Abhishek Nayar,All-Rounder,50625000,Pune Warriors India,2013,Indian,5.0625,2,True
+Abhishek Nayar,All-Rounder,10000000,Rajasthan Royals,2014,Indian,1.0,2,True
+Abhishek Sharma,All-Rounder,5500000,Delhi Daredevils,2018,Indian,0.55,2,True
+Abhishek Sharma,All-Rounder,65000000,Sunrisers Hyderabad,2022,Indian,6.5,2,True
+Abu Nechim Ahmed,Bowler,3000000,Royal Challengers Bangalore,2014,Indian,0.3,1,False
+Adam Milne,Bowler,7000000,Royal Challengers Bangalore,2015,Overseas,0.7,3,True
+Adam Milne,Bowler,32000000,Mumbai Indians,2021,Overseas,3.2,3,True
+Adam Milne,Bowler,19000000,Chennai Super Kings,2022,Overseas,1.9,3,True
+Adam Zampa,Bowler,3000000,Rising Pune Supergiant,2016,Overseas,0.3,1,False
+Aditya Garhwal,All-Rounder,2500000,Kolkata Knight Riders,2015,Indian,0.25,1,False
+Aditya Tare,Wicket Keeper,16000000,Mumbai Indians,2014,Indian,1.6,4,True
+Aditya Tare,Wicket Keeper,12000000,Sunrisers Hyderabad,2016,Indian,1.2,4,True
+Aditya Tare,Wicket Keeper,2500000,Delhi Daredevils,2017,Indian,0.25,4,True
+Aditya Tare,Wicket Keeper,2000000,Mumbai Indians,2018,Indian,0.2,4,True
+Agnivesh Ayachi,All-Rounder,2000000,Kings XI Punjab,2019,Indian,0.2,1,False
+Aiden Blizzard,Batsman,3000000,Mumbai Indians,2015,Overseas,0.3,1,False
+Aiden Markram,Batsman,26000000,Sunrisers Hyderabad,2022,Overseas,2.6,1,False
+Ajantha Mendis,Bowler,54375000,Pune Warriors India,2013,Overseas,5.4375,1,False
+Ajinkya Rahane,Batsman,40000000,Rajasthan Royals,2018,Indian,4.0,2,True
+Ajinkya Rahane,Batsman,10000000,Kolkata Knight Riders,2022,Indian,1.0,2,True
+Akash Deep,Bowler,2000000,Royal Challengers Bangalore,2022,Indian,0.2,1,False
+Akash Singh,Bowler,2000000,Rajasthan Royals,2020,Indian,0.2,2,True
+Akash Singh,Bowler,2000000,Rajasthan Royals,2021,Indian,0.2,2,True
+Akhil Arvind Herwadkar,All-Rounder,1000000,Delhi Daredevils,2016,Indian,0.1,1,False
+Akila Dananjaya,All-Rounder,1500000,Chennai Super Kings,2013,Overseas,0.15,1,False
+Akila Dhananjaya,Bowler,5000000,Mumbai Indians,2018,Overseas,0.5,1,False
+Akshar Rajesh Patel,All-Rounder,7500000,Kings XI Punjab,2014,Indian,0.75,1,False
+Akshay Karnewar,All-Rounder,1000000,Royal Challengers Bangalore,2016,Indian,0.1,1,False
+Akshay Wakhare,Bowler,1000000,Mumbai Indians,2015,Indian,0.1,1,False
+Akshdeep Nath,All-Rounder,1000000,Gujarat Lions,2016,Indian,0.1,4,True
+Akshdeep Nath,All-Rounder,1000000,Gujarat Lions,2017,Indian,0.1,4,True
+Akshdeep Nath,All-Rounder,10000000,Kings XI Punjab,2018,Indian,1.0,4,True
+Akshdeep Nath,All-Rounder,36000000,Royal Challengers Bangalore,2019,Indian,3.6,4,True
+Albie Morkel,All-Rounder,24000000,Royal Challengers Bangalore,2014,Overseas,2.4,2,True
+Albie Morkel,All-Rounder,3000000,Delhi Daredevils,2015,Overseas,0.3,2,True
+Alex Carey,Wicket Keeper,24000000,Delhi Capitals,2020,Overseas,2.4,1,False
+Alex Hales,Batsman,15000000,Kolkata Knight Riders,2022,Overseas,1.5,1,False
+Alzarri Joseph,Bowler,24000000,Gujarat Titans,2022,Overseas,2.4,1,False
+Aman Khan,All-Rounder,2000000,Kolkata Knight Riders,2022,Indian,0.2,1,False
+Ambati Rayudu,Wicket Keeper,22000000,Chennai Super Kings,2018,Indian,2.2,2,True
+Ambati Rayudu,Wicket Keeper,67500000,Chennai Super Kings,2022,Indian,6.75,2,True
+Amit Mishra,Bowler,1000000,Rajasthan Royals,2014,Indian,0.1,5,True
+Amit Mishra,Bowler,47500000,Sunrisers Hyderabad,2014,Indian,4.75,5,True
+Amit Mishra,Bowler,35000000,Delhi Daredevils,2015,Indian,3.5,5,True
+Amit Mishra,Bowler,1000000,Gujarat Lions,2016,Indian,0.1,5,True
+Amit Mishra,Bowler,40000000,Delhi Daredevils,2018,Indian,4.0,5,True
+Amit Paunikar,Wicket Keeper,2000000,Sunrisers Hyderabad,2014,Indian,0.2,1,False
+Andre Russell,All-Rounder,6000000,Kolkata Knight Riders,2014,Overseas,0.6,1,False
+Andrew Tye,Bowler,2000000,Chennai Super Kings,2015,Overseas,0.2,4,True
+Andrew Tye,All-Rounder,5000000,Gujarat Lions,2016,Overseas,0.5,4,True
+Andrew Tye,Bowler,72000000,Kings XI Punjab,2018,Overseas,7.2,4,True
+Andrew Tye,Bowler,10000000,Rajasthan Royals,2020,Overseas,1.0,4,True
+Aneeshwar Gautam,All-Rounder,2000000,Royal Challengers Bangalore,2022,Indian,0.2,1,False
+Angelo Mathews,All-Rounder,75000000,Delhi Daredevils,2015,Overseas,7.5,2,True
+Angelo Mathews,All-Rounder,20000000,Delhi Daredevils,2017,Overseas,2.0,2,True
+Aniket Choudhary,Bowler,20000000,Royal Challengers Bangalore,2017,Indian,2.0,2,True
+Aniket Choudhary,Bowler,3000000,Royal Challengers Bangalore,2018,Indian,0.3,2,True
+Anirudha Ashok Joshi,All-Rounder,2000000,Royal Challengers Bangalore,2018,Indian,0.2,2,True
+Anirudha Ashok Joshi,All-Rounder,2000000,Rajasthan Royals,2020,Indian,0.2,2,True
+Ankeet Bawane,Batsman,1000000,Delhi Daredevils,2017,Indian,0.1,1,False
+Ankit Nagendra Sharma,Bowler,1000000,Rajasthan Royals,2014,Indian,0.1,1,False
+Ankit Sharma,All-Rounder,1000000,Rising Pune Supergiant,2016,Indian,0.1,2,True
+Ankit Sharma,All-Rounder,2000000,Rajasthan Royals,2018,Indian,0.2,2,True
+Ankit Singh Rajpoot,Bowler,15000000,Kolkata Knight Riders,2016,Indian,1.5,3,True
+Ankit Singh Rajpoot,Bowler,30000000,Kings XI Punjab,2018,Indian,3.0,3,True
+Ankit Singh Rajpoot,Bowler,5000000,Lucknow Super Giants,2022,Indian,0.5,3,True
+Ankush Bains,Wicket Keeper,1000000,Rajasthan Royals,2014,Indian,0.1,4,True
+Ankush Bains,Wicket Keeper,1000000,Chennai Super Kings,2015,Indian,0.1,4,True
+Ankush Bains,Wicket Keeper,1000000,Rising Pune Supergiant,2016,Indian,0.1,4,True
+Ankush Bains,Wicket Keeper,2000000,Delhi Capitals,2019,Indian,0.2,4,True
+Anmolpreet Singh,Batsman,8000000,Mumbai Indians,2019,Indian,0.8,2,True
+Anmolpreet Singh,Batsman,2000000,Mumbai Indians,2022,Indian,0.2,2,True
+Anrich Nortje,Bowler,2000000,Kolkata Knight Riders,2019,Overseas,0.2,1,False
+Ansh Patel,All-Rounder,2000000,Punjab Kings,2022,Indian,0.2,1,False
+Anuj Rawat,Wicket Keeper,8000000,Rajasthan Royals,2020,Indian,0.8,2,True
+Anuj Rawat,Wicket Keeper,34000000,Royal Challengers Bangalore,2022,Indian,3.4,2,True
+Anukul Roy,All-Rounder,2000000,Mumbai Indians,2018,Indian,0.2,2,True
+Anukul Roy,All-Rounder,2000000,Kolkata Knight Riders,2022,Indian,0.2,2,True
+Anunay Singh,All-Rounder,2000000,Rajasthan Royals,2022,Indian,0.2,1,False
+Anureet Singh,Bowler,2000000,Kings XI Punjab,2014,Indian,0.2,2,True
+Anureet Singh,Bowler,3000000,Rajasthan Royals,2018,Indian,0.3,2,True
+Apoorv Vijay Wankhade,Batsman,1000000,Mumbai Indians,2014,Indian,0.1,2,True
+Apoorv Vijay Wankhade,Batsman,2000000,Kolkata Knight Riders,2018,Indian,0.2,2,True
+Arjun Tendulkar,All-Rounder,2000000,Mumbai Indians,2021,Indian,0.2,2,True
+Arjun Tendulkar,All-Rounder,3000000,Mumbai Indians,2022,Indian,0.3,2,True
+Armaan Jaffer,Batsman,1000000,Kings XI Punjab,2016,Indian,0.1,1,False
+Arshdeep Singh,Bowler,2000000,Kings XI Punjab,2019,Indian,0.2,1,False
+Aryaman Vikram Birla,All-Rounder,3000000,Rajasthan Royals,2018,Indian,0.3,1,False
+Aryan Juyal,Wicket Keeper,2000000,Mumbai Indians,2022,Indian,0.2,1,False
+Asela Gunarathna,Batsman,3000000,Mumbai Indians,2017,Overseas,0.3,1,False
+Ashish Nehra,Bowler,20000000,Chennai Super Kings,2014,Indian,2.0,2,True
+Ashish Nehra,Bowler,55000000,Sunrisers Hyderabad,2016,Indian,5.5,2,True
+Ashish Reddy,Bowler,2000000,Sunrisers Hyderabad,2014,Indian,0.2,1,False
+Ashok Dinda,Bowler,15000000,Royal Challengers Bangalore,2014,Indian,1.5,2,True
+Ashok Dinda,Bowler,5000000,Rising Pune Supergiant,2016,Indian,0.5,2,True
+Ashok Sharma,Bowler,5500000,Kolkata Knight Riders,2022,Indian,0.55,1,False
+Ashton Turner,All-Rounder,5000000,Rajasthan Royals,2019,Indian,0.5,1,False
+Ashwin Hebbar,Batsman,2000000,Delhi Capitals,2022,Indian,0.2,1,False
+Asif K M,Bowler,4000000,Chennai Super Kings,2018,Indian,0.4,1,False
+Atharva Taide,All-Rounder,2000000,Punjab Kings,2022,Indian,0.2,1,False
+Avesh Khan,Bowler,7000000,Delhi Daredevils,2018,Indian,0.7,2,True
+Avesh Khan,Bowler,100000000,Lucknow Super Giants,2022,Indian,10.0,2,True
+Axar Rajesh Patel,All-Rounder,50000000,Delhi Capitals,2019,Indian,5.0,1,False
+Ayush Badoni,All-Rounder,2000000,Lucknow Super Giants,2022,Indian,0.2,1,False
+B. Sai Sudharsan,All-Rounder,2000000,Gujarat Titans,2022,Indian,0.2,1,False
+Baba Aparajith,Batsman,1000000,Chennai Super Kings,2014,Indian,0.1,2,True
+Baba Aparajith,All-Rounder,1000000,Rising Pune Supergiant,2016,Indian,0.1,2,True
+Baba Indrajith,Wicket Keeper,2000000,Kolkata Knight Riders,2022,Indian,0.2,1,False
+Baltej Dhanda,Bowler,2000000,Punjab Kings,2022,Indian,0.2,1,False
+Bandaru Ayyappa,Bowler,2000000,Delhi Capitals,2019,Indian,0.2,1,False
+Barinder Singh Saran,Bowler,1000000,Rajasthan Royals,2015,Indian,0.1,1,False
+Barinder Singh Sran,Bowler,12000000,Sunrisers Hyderabad,2016,Indian,1.2,3,True
+Barinder Singh Sran,Bowler,22000000,Kings XI Punjab,2018,Indian,2.2,3,True
+Barinder Singh Sran,Bowler,34000000,Mumbai Indians,2019,Indian,3.4,3,True
+Basil Thampi,Bowler,8500000,Gujarat Lions,2017,Indian,0.85,3,True
+Basil Thampi,Bowler,9500000,Sunrisers Hyderabad,2018,Indian,0.95,3,True
+Basil Thampi,Bowler,3000000,Mumbai Indians,2022,Indian,0.3,3,True
+Ben Cutting,Bowler,8000000,Rajasthan Royals,2014,Overseas,0.8,4,True
+Ben Cutting,All-Rounder,5000000,Sunrisers Hyderabad,2016,Overseas,0.5,4,True
+Ben Cutting,All-Rounder,22000000,Mumbai Indians,2018,Overseas,2.2,4,True
+Ben Cutting,All-Rounder,7500000,Kolkata Knight Riders,2021,Overseas,0.75,4,True
+Ben Dunk,Wicket Keeper,2000000,Mumbai Indians,2014,Overseas,0.2,1,False
+Ben Dwarshuis,Bowler,14000000,Kings XI Punjab,2018,Overseas,1.4,1,False
+Ben Hilfenhaus,Bowler,10000000,Chennai Super Kings,2014,Overseas,1.0,1,False
+Ben Laughlin,Bowler,1500000,Chennai Super Kings,2013,Overseas,0.15,3,True
+Ben Laughlin,Bowler,3000000,Sunrisers Hyderabad,2017,Overseas,0.3,3,True
+Ben Laughlin,Bowler,5000000,Rajasthan Royals,2018,Overseas,0.5,3,True
+Benjamin Stokes,All-Rounder,145000000,Rising Pune Supergiant,2017,Overseas,14.5,2,True
+Benjamin Stokes,All-Rounder,125000000,Rajasthan Royals,2018,Overseas,12.5,2,True
+Benny Howell,All-Rounder,4000000,Punjab Kings,2022,Overseas,0.4,1,False
+Beuran Hendricks,Bowler,18000000,Kings XI Punjab,2014,Overseas,1.8,1,False
+Bhanuka Rajapaksa,Batsman,5000000,Punjab Kings,2022,Overseas,0.5,1,False
+Bhuvneshwar Kumar,Bowler,42500000,Sunrisers Hyderabad,2014,Overseas,4.25,2,True
+Bhuvneshwar Kumar,Bowler,42000000,Sunrisers Hyderabad,2022,Indian,4.2,2,True
+Billy Stanlake,Bowler,3000000,Royal Challengers Bangalore,2017,Overseas,0.3,2,True
+Billy Stanlake,Batsman,5000000,Sunrisers Hyderabad,2018,Overseas,0.5,2,True
+Bipul Sharma,All-Rounder,2000000,Sunrisers Hyderabad,2018,Indian,0.2,1,False
+Brad Hodge,Batsman,24000000,Rajasthan Royals,2014,Overseas,2.4,1,False
+Brad Hogg,Bowler,5000000,Kolkata Knight Riders,2015,Overseas,0.5,1,False
+Brendan Taylor,Wicket Keeper,3000000,Sunrisers Hyderabad,2014,Overseas,0.3,1,False
+Brendon McCullum,Wicket Keeper,32500000,Chennai Super Kings,2014,Overseas,3.25,2,True
+Brendon McCullum,Batsman,36000000,Royal Challengers Bangalore,2018,Overseas,3.6,2,True
+C Hari Nishaanth,Batsman,2000000,Chennai Super Kings,2021,Indian,0.2,1,False
+C.Hari Nishaanth,Batsman,2000000,Chennai Super Kings,2022,Indian,0.2,1,False
+C.M. Gautam,Wicket Keeper,2000000,Mumbai Indians,2014,Indian,0.2,2,True
+C.M. Gautam,Wicket Keeper,2000000,Delhi Daredevils,2015,Indian,0.2,2,True
+Cameron Delport,All-Rounder,3000000,Kolkata Knight Riders,2018,Overseas,0.3,1,False
+Carlos Brathwaite,All-Rounder,42000000,Delhi Daredevils,2016,Overseas,4.2,3,True
+Carlos Brathwaite,All-Rounder,20000000,Sunrisers Hyderabad,2018,Overseas,2.0,3,True
+Carlos Brathwaite,All-Rounder,50000000,Kolkata Knight Riders,2019,Overseas,5.0,3,True
+Chaitanya Bishnoi,All-Rounder,2000000,Chennai Super Kings,2018,Indian,0.2,1,False
+Chama Milind,Bowler,1000000,Sunrisers Hyderabad,2014,Indian,0.1,3,True
+Chama Milind,Bowler,1000000,Delhi Daredevils,2016,Indian,0.1,3,True
+Chama Milind,Bowler,2500000,Royal Challengers Bangalore,2022,Indian,0.25,3,True
+Chamika Karunaratne,All-Rounder,5000000,Kolkata Knight Riders,2022,Overseas,0.5,1,False
+Chetan Sakariya,Bowler,12000000,Rajasthan Royals,2021,Indian,1.2,2,True
+Chetan Sakariya,Bowler,42000000,Delhi Capitals,2022,Indian,4.2,2,True
+Cheteshwar Pujara,Batsman,19000000,Kings XI Punjab,2014,Indian,1.9,2,True
+Cheteshwar Pujara,Batsman,5000000,Chennai Super Kings,2021,Indian,0.5,2,True
+Chirag Suri,Batsman,1000000,Gujarat Lions,2017,Indian,0.1,1,False
+Chris Green,All-Rounder,2000000,Kolkata Knight Riders,2020,Overseas,0.2,1,False
+Chris Jordan,All-Rounder,5000000,Sunrisers Hyderabad,2017,Overseas,0.5,4,True
+Chris Jordan,All-Rounder,10000000,Sunrisers Hyderabad,2018,Overseas,1.0,4,True
+Chris Jordan,All-Rounder,30000000,Kings XI Punjab,2020,Overseas,3.0,4,True
+Chris Jordan,All-Rounder,36000000,Chennai Super Kings,2022,Overseas,3.6,4,True
+Chris Lynn,Batsman,13000000,Kolkata Knight Riders,2014,Overseas,1.3,3,True
+Chris Lynn,Batsman,96000000,Kolkata Knight Riders,2018,Overseas,9.6,3,True
+Chris Lynn,Batsman,20000000,Mumbai Indians,2020,Overseas,2.0,3,True
+Chris Woakes,All-Rounder,42000000,Kolkata Knight Riders,2017,Overseas,4.2,3,True
+Chris Woakes,All-Rounder,74000000,Royal Challengers Bangalore,2018,Overseas,7.4,3,True
+Chris Woakes,All-Rounder,15000000,Delhi Capitals,2020,Overseas,1.5,3,True
+Christopher Barnwell,All-Rounder,3750000,Royal Challengers Bangalore,2013,Overseas,0.375,1,False
+Christopher Gayle,Batsman,20000000,Kings XI Punjab,2018,Overseas,2.0,1,False
+Christopher Morris,All-Rounder,46875000,Chennai Super Kings,2013,Overseas,4.6875,5,True
+Christopher Morris,All-Rounder,14000000,Rajasthan Royals,2015,Overseas,1.4,5,True
+Christopher Morris,All-Rounder,70000000,Delhi Daredevils,2016,Overseas,7.0,5,True
+Christopher Morris,All-Rounder,100000000,Royal Challengers Bangalore,2020,Overseas,10.0,5,True
+Christopher Morris,All-Rounder,162500000,Rajasthan Royals,2021,Overseas,16.25,5,True
+Clinton McKay,Bowler,7500000,Sunrisers Hyderabad,2013,Overseas,0.75,1,False
+Colin De Grandhomme,All-Rounder,22000000,Royal Challengers Bangalore,2018,Overseas,2.2,1,False
+Colin Ingram,Batsman,64000000,Delhi Capitals,2019,Overseas,6.4,1,False
+Colin Munro,All-Rounder,3000000,Kolkata Knight Riders,2016,Overseas,0.3,2,True
+Colin Munro,All-Rounder,19000000,Delhi Daredevils,2018,Overseas,1.9,2,True
+Corey Anderson,All-Rounder,45000000,Mumbai Indians,2014,Overseas,4.5,2,True
+Corey Anderson,All-Rounder,10000000,Delhi Daredevils,2017,Overseas,1.0,2,True
+Dale Steyn,Bowler,23000000,Gujarat Lions,2016,Overseas,2.3,2,True
+Dale Steyn,Bowler,20000000,Royal Challengers Bangalore,2020,Overseas,2.0,2,True
+Dan Christian,All-Rounder,48000000,Royal Challengers Bangalore,2021,Overseas,4.8,1,False
+Daniel Christian,All-Rounder,7500000,Royal Challengers Bangalore,2013,Overseas,0.75,3,True
+Daniel Christian,All-Rounder,10000000,Rising Pune Supergiant,2017,Overseas,1.0,3,True
+Daniel Christian,All-Rounder,15000000,Delhi Daredevils,2018,Overseas,1.5,3,True
+Daniel Sams,All-Rounder,26000000,Mumbai Indians,2022,Overseas,2.6,1,False
+Darcy Short,All-Rounder,40000000,Rajasthan Royals,2018,Overseas,4.0,1,False
+Darren Bravo,Batsman,5000000,Kolkata Knight Riders,2017,Overseas,0.5,1,False
+Darren Sammy,All-Rounder,31875000,Sunrisers Hyderabad,2013,Overseas,3.1875,4,True
+Darren Sammy,All-Rounder,35000000,Sunrisers Hyderabad,2014,Overseas,3.5,4,True
+Darren Sammy,All-Rounder,28000000,Royal Challengers Bangalore,2015,Overseas,2.8,4,True
+Darren Sammy,All-Rounder,3000000,Kings XI Punjab,2017,Overseas,0.3,4,True
+Darshan Nalkande,All-Rounder,3000000,Kings XI Punjab,2019,Indian,0.3,2,True
+Darshan Nalkande,All-Rounder,2000000,Gujarat Titans,2022,Indian,0.2,2,True
+Daryl Mitchell,All-Rounder,7500000,Rajasthan Royals,2022,Overseas,0.75,1,False
+David Miller,Batsman,30000000,Kings XI Punjab,2018,Overseas,3.0,3,True
+David Miller,Batsman,7500000,Rajasthan Royals,2020,Overseas,0.75,3,True
+David Miller,Batsman,30000000,Gujarat Titans,2022,Overseas,3.0,3,True
+David Warner,Batsman,55000000,Sunrisers Hyderabad,2014,Overseas,5.5,2,True
+David Warner,Batsman,62500000,Delhi Capitals,2022,Overseas,6.25,2,True
+David Wiese,All-Rounder,28000000,Royal Challengers Bangalore,2015,Overseas,2.8,1,False
+David Willey,All-Rounder,20000000,Royal Challengers Bangalore,2022,Overseas,2.0,1,False
+Dawid Malan,All-Rounder,15000000,Punjab Kings,2021,Overseas,1.5,1,False
+Debabrata Das,Wicket Keeper,2000000,Kolkata Knight Riders,2014,Indian,0.2,1,False
+Deepak Chahar,All-Rounder,1000000,Rising Pune Supergiant,2016,Indian,0.1,3,True
+Deepak Chahar,All-Rounder,8000000,Chennai Super Kings,2018,Indian,0.8,3,True
+Deepak Chahar,Bowler,140000000,Chennai Super Kings,2022,Indian,14.0,3,True
+Deepak Hooda,Bowler,4000000,Rajasthan Royals,2014,Indian,0.4,5,True
+Deepak Hooda,All-Rounder,42000000,Sunrisers Hyderabad,2016,Indian,4.2,5,True
+Deepak Hooda,All-Rounder,36000000,Sunrisers Hyderabad,2018,Indian,3.6,5,True
+Deepak Hooda,All-Rounder,5000000,Kings XI Punjab,2020,Indian,0.5,5,True
+Deepak Hooda,All-Rounder,57500000,Lucknow Super Giants,2022,Indian,5.75,5,True
+Deepak Punia,All-Rounder,1000000,Mumbai Indians,2016,Indian,0.1,1,False
+Devdutt Padikkal,Batsman,2000000,Royal Challengers Bangalore,2019,Indian,0.2,2,True
+Devdutt Padikkal,Batsman,77500000,Rajasthan Royals,2022,Indian,7.75,2,True
+Devon Conway,Batsman,10000000,Chennai Super Kings,2022,Overseas,1.0,1,False
+Dewald Brevis,Batsman,30000000,Mumbai Indians,2022,Overseas,3.0,1,False
+Dhawal Kulkarni,Bowler,11000000,Rajasthan Royals,2014,Indian,1.1,3,True
+Dhawal Kulkarni,Bowler,20000000,Gujarat Lions,2016,Indian,2.0,3,True
+Dhawal Kulkarni,Bowler,7500000,Rajasthan Royals,2018,Indian,0.75,3,True
+Dhruv Jurel,Wicket Keeper,2000000,Rajasthan Royals,2022,Indian,0.2,1,False
+Dhruv Shorey,All-Rounder,2000000,Chennai Super Kings,2018,Indian,0.2,1,False
+Digvijay Deshmukh,All-Rounder,2000000,Mumbai Indians,2020,Indian,0.2,1,False
+Dinesh Karthik,Wicket Keeper,125000000,Delhi Daredevils,2014,Indian,12.5,5,True
+Dinesh Karthik,Wicket Keeper,105000000,Royal Challengers Bangalore,2015,Indian,10.5,5,True
+Dinesh Karthik,Wicket Keeper,23000000,Gujarat Lions,2016,Indian,2.3,5,True
+Dinesh Karthik,Wicket Keeper,74000000,Kolkata Knight Riders,2018,Indian,7.4,5,True
+Dinesh Karthik,Wicket Keeper,55000000,Royal Challengers Bangalore,2022,Indian,5.5,5,True
+Dinesh Salunkhe,All-Rounder,1000000,Rajasthan Royals,2015,Indian,0.1,1,False
+Dirk Nannes,Bowler,45000000,Chennai Super Kings,2013,Overseas,4.5,1,False
+Dishant Yagnik,Wicket Keeper,3000000,Rajasthan Royals,2014,Indian,0.3,1,False
+Dominic Drakes,All-Rounder,11000000,Gujarat Titans,2022,Overseas,1.1,1,False
+Domnic Joseph Muthuswamy,Bowler,7500000,Delhi Daredevils,2015,Overseas,0.75,1,False
+Dushmanta Chameera,Bowler,20000000,Lucknow Super Giants,2022,Overseas,2.0,1,False
+Dushmantha Chameera,Bowler,5000000,Rajasthan Royals,2018,Overseas,0.5,1,False
+Dwaine Pretorius,All-Rounder,5000000,Chennai Super Kings,2022,Overseas,0.5,1,False
+Dwayne Bravo,All-Rounder,64000000,Chennai Super Kings,2018,Overseas,6.4,2,True
+Dwayne Bravo,All-Rounder,44000000,Chennai Super Kings,2022,Overseas,4.4,2,True
+Dwayne Smith,Batsman,45000000,Chennai Super Kings,2014,Overseas,4.5,2,True
+Dwayne Smith,All-Rounder,23000000,Gujarat Lions,2016,Overseas,2.3,2,True
+Eklavya Dwivedi,Wicket Keeper,1000000,Chennai Super Kings,2015,Indian,0.1,3,True
+Eklavya Dwivedi,Wicket Keeper,10000000,Gujarat Lions,2016,Indian,1.0,3,True
+Eklavya Dwivedi,Wicket Keeper,7500000,Sunrisers Hyderabad,2017,Indian,0.75,3,True
+Eoin Morgan,Batsman,15000000,Sunrisers Hyderabad,2015,Overseas,1.5,3,True
+Eoin Morgan,Batsman,20000000,Kings XI Punjab,2017,Overseas,2.0,3,True
+Eoin Morgan,Batsman,52500000,Kolkata Knight Riders,2020,Overseas,5.25,3,True
+Evin Lewis,Batsman,38000000,Mumbai Indians,2018,Overseas,3.8,2,True
+Evin Lewis,Batsman,20000000,Lucknow Super Giants,2022,Overseas,2.0,2,True
+Fabian Allen,All-Rounder,5000000,Sunrisers Hyderabad,2020,Overseas,0.5,3,True
+Fabian Allen,All-Rounder,7500000,Punjab Kings,2021,Overseas,0.75,3,True
+Fabian Allen,All-Rounder,7500000,Mumbai Indians,2022,Overseas,0.75,3,True
+Faf Du Plessis,Batsman,47500000,Chennai Super Kings,2014,Overseas,4.75,3,True
+Faf Du Plessis,Batsman,16000000,Chennai Super Kings,2018,Overseas,1.6,3,True
+Faf Du Plessis,Batsman,70000000,Royal Challengers Bangalore,2022,Overseas,7.0,3,True
+Farhaan Behardien,All-Rounder,3000000,Kings XI Punjab,2016,Overseas,0.3,1,False
+Fazalhaq Farooqi,Bowler,5000000,Sunrisers Hyderabad,2022,Overseas,0.5,1,False
+Fidel Edwards,Bowler,15750000,Rajasthan Royals,2013,Overseas,1.575,1,False
+Finn Allen,Batsman,8000000,Royal Challengers Bangalore,2022,Overseas,0.8,1,False
+Gautam Gambhir,Batsman,28000000,Delhi Daredevils,2018,Indian,2.8,1,False
+George Bailey,Batsman,32500000,Kings XI Punjab,2014,Overseas,3.25,1,False
+Glenn Maxwell,All-Rounder,75000000,Mumbai Indians,2013,Overseas,7.5,5,True
+Glenn Maxwell,All-Rounder,60000000,Kings XI Punjab,2014,Overseas,6.0,5,True
+Glenn Maxwell,All-Rounder,90000000,Delhi Daredevils,2018,Overseas,9.0,5,True
+Glenn Maxwell,All-Rounder,107500000,Kings XI Punjab,2020,Overseas,10.75,5,True
+Glenn Maxwell,All-Rounder,142500000,Royal Challengers Bangalore,2021,Overseas,14.25,5,True
+Glenn Phillips,Wicket Keeper,15000000,Sunrisers Hyderabad,2022,Overseas,1.5,1,False
+Gurinder Sandhu,Bowler,17000000,Delhi Daredevils,2015,Indian,1.7,1,False
+Gurkeerat Singh Mann,All-Rounder,5000000,Gujarat Titans,2022,Indian,0.5,4,True
+Gurkeerat Singh Mann,All-Rounder,7500000,Delhi Daredevils,2018,Indian,0.75,4,True
+Gurkeerat Singh Mann,All-Rounder,5000000,Royal Challengers Bangalore,2019,Indian,0.5,4,True
+Gurkeerat Singh Mann,Batsman,13000000,Kings XI Punjab,2014,Indian,1.3,4,True
+Hanuma Vihari,Batsman,1000000,Sunrisers Hyderabad,2015,Indian,0.1,2,True
+Hanuma Vihari,Batsman,20000000,Delhi Capitals,2019,Indian,2.0,2,True
+Harbhajan Singh,Bowler,20000000,Chennai Super Kings,2018,Indian,2.0,2,True
+Harbhajan Singh,Bowler,20000000,Kolkata Knight Riders,2021,Indian,2.0,2,True
+Hardik Pandya,All-Rounder,1000000,Mumbai Indians,2015,Indian,0.1,1,False
+Hardus Viljoen,Bowler,7500000,Kings XI Punjab,2019,Overseas,0.75,1,False
+Harpreet Brar,All-Rounder,2000000,Kings XI Punjab,2019,Indian,0.2,2,True
+Harpreet Brar,All-Rounder,38000000,Punjab Kings,2022,Indian,3.8,2,True
+Harry Gurney,Bowler,7500000,Kolkata Knight Riders,2019,Overseas,0.75,1,False
+Harshal Patel,Bowler,4000000,Royal Challengers Bangalore,2014,Indian,0.4,3,True
+Harshal Patel,All-Rounder,2000000,Delhi Daredevils,2018,Indian,0.2,3,True
+Harshal Patel,All-Rounder,107500000,Royal Challengers Bangalore,2022,Indian,10.75,3,True
+Heinrich Klaasen,Wicket Keeper,5000000,Royal Challengers Bangalore,2019,Overseas,0.5,1,False
+Himmat Singh,Batsman,6500000,Royal Challengers Bangalore,2019,Indian,0.65,1,False
+Hrithik Shokeen,All-Rounder,2000000,Mumbai Indians,2022,Indian,0.2,1,False
+HS Sharath,Bowler,1000000,Delhi Daredevils,2014,Indian,0.1,1,False
+Imran Tahir,Bowler,10000000,Chennai Super Kings,2018,Overseas,1.0,1,False
+Iqbal Abdullah,All-Rounder,6500000,Rajasthan Royals,2014,Indian,0.65,2,True
+Iqbal Abdullah,All-Rounder,1000000,Royal Challengers Bangalore,2016,Indian,0.1,2,True
+Irfan Pathan,All-Rounder,24000000,Sunrisers Hyderabad,2014,Indian,2.4,3,True
+Irfan Pathan,All-Rounder,15000000,Chennai Super Kings,2015,Indian,1.5,3,True
+Irfan Pathan,All-Rounder,10000000,Rising Pune Supergiant,2016,Indian,1.0,3,True
+Ishan Kishan,Wicket Keeper,3500000,Gujarat Lions,2016,Indian,0.35,3,True
+Ishan Kishan,Wicket Keeper,62000000,Mumbai Indians,2018,Indian,6.2,3,True
+Ishan Kishan,Wicket Keeper,152500000,Mumbai Indians,2022,Indian,15.25,3,True
+Ishan Porel,Bowler,2500000,Punjab Kings,2022,Indian,0.25,2,True
+Ishan Porel,Bowler,2000000,Kings XI Punjab,2022,Indian,0.2,2,True
+Ishank Jaggi,Batsman,1000000,Kolkata Knight Riders,2017,Indian,0.1,2,True
+Ishank Jaggi,Batsman,2000000,Kolkata Knight Riders,2018,Indian,0.2,2,True
+Ishant Sharma,Bowler,26000000,Sunrisers Hyderabad,2014,Indian,2.6,3,True
+Ishant Sharma,Bowler,38000000,Rising Pune Supergiant,2016,Indian,3.8,3,True
+Ishant Sharma,Bowler,11000000,Delhi Capitals,2019,Indian,1.1,3,True
+Ishwar Chandra Pandey,Bowler,15000000,Chennai Super Kings,2014,Indian,1.5,2,True
+Ishwar Chandra Pandey,Bowler,2000000,Rising Pune Supergiant,2016,Indian,0.2,2,True
+Isuru Udana,All-Rounder,5000000,Royal Challengers Bangalore,2020,Overseas,0.5,1,False
+J Suchith,Bowler,3000000,Sunrisers Hyderabad,2021,Indian,0.3,2,True
+J Suchith,All-Rounder,1000000,Mumbai Indians,2015,Indian,0.1,2,True
+Jacob Oram,All-Rounder,3750000,Mumbai Indians,2013,Overseas,0.375,1,False
+Jacques Kallis,All-Rounder,55000000,Kolkata Knight Riders,2014,Overseas,5.5,1,False
+Jagadeesha Suchith,Bowler,2000000,Sunrisers Hyderabad,2022,Indian,0.2,1,False
+Jalaj Saxena,All-Rounder,9000000,Mumbai Indians,2014,Indian,0.9,4,True
+Jalaj Saxena,All-Rounder,1000000,Royal Challengers Bangalore,2015,Indian,0.1,4,True
+Jalaj Saxena,All-Rounder,2000000,Delhi Capitals,2019,Indian,0.2,4,True
+Jalaj Saxena,All-Rounder,3000000,Punjab Kings,2021,Indian,0.3,4,True
+James Faulkner,All-Rounder,30000000,Rajasthan Royals,2013,Overseas,3.0,1,False
+James Neesham,All-Rounder,10000000,Delhi Daredevils,2014,Overseas,1.0,5,True
+James Neesham,All-Rounder,5000000,Kolkata Knight Riders,2015,Overseas,0.5,5,True
+James Neesham,All-Rounder,5000000,Kings XI Punjab,2020,Overseas,0.5,5,True
+James Neesham,All-Rounder,5000000,Mumbai Indians,2021,Overseas,0.5,5,True
+James Neesham,All-Rounder,15000000,Rajasthan Royals,2022,Overseas,1.5,5,True
+Jaskaran Singh,Bowler,1000000,Rising Pune Supergiant,2016,Indian,0.1,1,False
+Jason Behrendorff,Bowler,15000000,Mumbai Indians,2018,Overseas,1.5,2,True
+Jason Behrendorff,Bowler,7500000,Royal Challengers Bangalore,2022,Overseas,0.75,2,True
+Jason Holder,Bowler,1500000,Chennai Super Kings,2013,Overseas,0.15,4,True
+Jason Holder,Bowler,7500000,Sunrisers Hyderabad,2014,Overseas,0.75,4,True
+Jason Holder,All-Rounder,7000000,Kolkata Knight Riders,2016,Overseas,0.7,4,True
+Jason Holder,All-Rounder,87500000,Lucknow Super Giants,2022,Overseas,8.75,4,True
+Jason Roy,Batsman,10000000,Gujarat Lions,2017,Overseas,1.0,4,True
+Jason Roy,Batsman,15000000,Delhi Daredevils,2018,Overseas,1.5,4,True
+Jason Roy,Batsman,15000000,Delhi Capitals,2020,Overseas,1.5,4,True
+Jason Roy,Batsman,20000000,Gujarat Titans,2022,Overseas,2.0,4,True
+Jasprit Bumrah,Bowler,12000000,Mumbai Indians,2014,Indian,1.2,1,False
+Jatin Saxena,All-Rounder,2000000,Rajasthan Royals,2018,Indian,0.2,1,False
+Javon Searless,All-Rounder,3000000,Kolkata Knight Riders,2018,Indian,0.3,1,False
+Jayant Yadav,All-Rounder,1000000,Delhi Daredevils,2014,Indian,0.1,3,True
+Jayant Yadav,All-Rounder,5000000,Delhi Daredevils,2018,Indian,0.5,3,True
+Jayant Yadav,All-Rounder,17000000,Gujarat Titans,2022,Indian,1.7,3,True
+Jaydev Shah,All-Rounder,2000000,Gujarat Lions,2016,Indian,0.2,1,False
+Jaydev Unadkat,Bowler,39375000,Royal Challengers Bangalore,2013,Indian,3.9375,9,True
+Jaydev Unadkat,Bowler,28000000,Delhi Daredevils,2014,Indian,2.8,9,True
+Jaydev Unadkat,Bowler,11000000,Delhi Daredevils,2015,Indian,1.1,9,True
+Jaydev Unadkat,Bowler,16000000,Kolkata Knight Riders,2016,Indian,1.6,9,True
+Jaydev Unadkat,Bowler,3000000,Rising Pune Supergiant,2017,Indian,0.3,9,True
+Jaydev Unadkat,Bowler,115000000,Rajasthan Royals,2018,Indian,11.5,9,True
+Jaydev Unadkat,Bowler,84000000,Rajasthan Royals,2019,Indian,8.4,9,True
+Jaydev Unadkat,Bowler,30000000,Rajasthan Royals,2020,Indian,3.0,9,True
+Jaydev Unadkat,Bowler,13000000,Mumbai Indians,2022,Indian,1.3,9,True
+Jean-Paul Duminy,Batsman,22000000,Delhi Daredevils,2014,Overseas,2.2,2,True
+Jean-Paul Duminy,All-Rounder,10000000,Mumbai Indians,2018,Overseas,1.0,2,True
+Jeevan Mendis,All-Rounder,3750000,Delhi Daredevils,2013,Overseas,0.375,1,False
+Jesse Ryder,All-Rounder,19500000,Delhi Daredevils,2013,Overseas,1.95,1,False
+Jhye Richardson,Bowler,140000000,Punjab Kings,2021,Overseas,14.0,1,False
+Jitesh Sharma,Wicket Keeper,1000000,Mumbai Indians,2016,Indian,0.1,2,True
+Jitesh Sharma,Wicket Keeper,2000000,Punjab Kings,2022,Indian,0.2,2,True
+Joe Denly,Batsman,10000000,Kolkata Knight Riders,2019,Overseas,1.0,1,False
+Joel Paris,Bowler,3000000,Delhi Daredevils,2016,Overseas,0.3,1,False
+Jofra Archer,All-Rounder,72000000,Rajasthan Royals,2018,Overseas,7.2,2,True
+Jofra Archer,All-Rounder,80000000,Mumbai Indians,2022,Overseas,8.0,2,True
+Johan Botha,All-Rounder,33750000,Delhi Daredevils,2013,Overseas,3.375,1,False
+John Hastings,All-Rounder,5000000,Chennai Super Kings,2014,Overseas,0.5,2,True
+John Hastings,Bowler,13000000,Kolkata Knight Riders,2016,Overseas,1.3,2,True
+Jonny Bairstow,Wicket Keeper,22000000,Sunrisers Hyderabad,2019,Overseas,2.2,2,True
+Jonny Bairstow,Wicket Keeper,67500000,Punjab Kings,2022,Overseas,6.75,2,True
+Jos Buttler,Wicket Keeper,38000000,Mumbai Indians,2016,Overseas,3.8,2,True
+Jos Buttler,Wicket Keeper,44000000,Rajasthan Royals,2018,Overseas,4.4,2,True
+Josh Hazlewood,Bowler,5000000,Mumbai Indians,2014,Overseas,0.5,3,True
+Josh Hazlewood,Bowler,20000000,Chennai Super Kings,2020,Overseas,2.0,3,True
+Josh Hazlewood,Bowler,77500000,Royal Challengers Bangalore,2022,Overseas,7.75,3,True
+Joshua Philippe,Wicket Keeper,2000000,Royal Challengers Bangalore,2020,Overseas,0.2,1,False
+Juan Theron,Bowler,3000000,Rajasthan Royals,2015,Overseas,0.3,1,False
+Krishnappa Gowtham,All-Rounder,9000000,Lucknow Super Giants,2022,Indian,0.9,4,True
+K.Bhagath Varma,All-Rounder,2000000,Chennai Super Kings,2021,Indian,0.2,2,True
+K.Bhagath Varma,All-Rounder,2000000,Chennai Super Kings,2022,Indian,0.2,2,True
+K.C Cariappa,Bowler,2000000,Rajasthan Royals,2021,Indian,0.2,2,True
+K.C Cariappa,Bowler,3000000,Rajasthan Royals,2022,Indian,0.3,2,True
+K.C. Cariappa,Bowler,24000000,Kolkata Knight Riders,2015,Indian,2.4,2,True
+K.C. Cariappa,Bowler,8000000,Kings XI Punjab,2016,Indian,0.8,2,True
+K.K. Jiyaz,Bowler,1000000,Delhi Daredevils,2015,Indian,0.1,1,False
+K.M. Asif,Bowler,2000000,Chennai Super Kings,2022,Indian,0.2,1,False
+K.S. Bharat,Wicket Keeper,20000000,Delhi Capitals,2022,Indian,2.0,1,False
+Kagiso Rabada,Bowler,50000000,Delhi Daredevils,2017,Overseas,5.0,3,True
+Kagiso Rabada,Bowler,42000000,Delhi Daredevils,2018,Overseas,4.2,3,True
+Kagiso Rabada,Bowler,92500000,Punjab Kings,2022,Overseas,9.25,3,True
+Kamlesh Nagarkoti,All-Rounder,32000000,Kolkata Knight Riders,2018,Indian,3.2,2,True
+Kamlesh Nagarkoti,All-Rounder,11000000,Delhi Capitals,2022,Indian,1.1,2,True
+Kane Richardson,Bowler,52500000,Pune Warriors India,2013,Overseas,5.25,4,True
+Kane Richardson,Bowler,10000000,Rajasthan Royals,2014,Overseas,1.0,4,True
+Kane Richardson,Bowler,20000000,Royal Challengers Bangalore,2016,Overseas,2.0,4,True
+Kane Richardson,Bowler,40000000,Royal Challengers Bangalore,2020,Overseas,4.0,4,True
+Kane Williamson,All-Rounder,6000000,Sunrisers Hyderabad,2015,Overseas,0.6,2,True
+Kane Williamson,Batsman,30000000,Sunrisers Hyderabad,2018,Overseas,3.0,2,True
+Kanishk Seth,All-Rounder,2000000,Chennai Super Kings,2018,Indian,0.2,1,False
+Karan Sharma,All-Rounder,2000000,Lucknow Super Giants,2022,Indian,0.2,1,False
+Karanveer Singh,All-Rounder,1000000,Kings XI Punjab,2014,Indian,0.1,1,False
+Karn Sharma,Bowler,37500000,Sunrisers Hyderabad,2014,Indian,3.75,4,True
+Karn Sharma,All-Rounder,32000000,Mumbai Indians,2017,Indian,3.2,4,True
+Karn Sharma,Bowler,50000000,Chennai Super Kings,2018,Indian,5.0,4,True
+Karn Sharma,Bowler,5000000,Royal Challengers Bangalore,2022,Indian,0.5,4,True
+Kartik Tyagi,Bowler,13000000,Rajasthan Royals,2020,Indian,1.3,2,True
+Kartik Tyagi,Bowler,40000000,Sunrisers Hyderabad,2022,Indian,4.0,2,True
+Karun Nair,Batsman,7500000,Rajasthan Royals,2014,Indian,0.75,5,True
+Karun Nair,Batsman,40000000,Delhi Daredevils,2016,Indian,4.0,5,True
+Karun Nair,Batsman,56000000,Kings XI Punjab,2018,Indian,5.6,5,True
+Karun Nair,Batsman,5000000,Kolkata Knight Riders,2021,Indian,0.5,5,True
+Karun Nair,Batsman,14000000,Rajasthan Royals,2022,Indian,1.4,5,True
+Kedar Jadhav,Batsman,20000000,Delhi Daredevils,2014,Indian,2.0,3,True
+Kedar Jadhav,All-Rounder,78000000,Chennai Super Kings,2018,Indian,7.8,3,True
+Kedar Jadhav,All-Rounder,20000000,Sunrisers Hyderabad,2021,Indian,2.0,3,True
+Keemo Paul,All-Rounder,5000000,Delhi Capitals,2019,Overseas,0.5,1,False
+Kevin Pietersen,Batsman,90000000,Delhi Daredevils,2014,Overseas,9.0,3,True
+Kevin Pietersen,Batsman,20000000,Sunrisers Hyderabad,2015,Overseas,2.0,3,True
+Kevin Pietersen,Batsman,35000000,Rising Pune Supergiant,2016,Overseas,3.5,3,True
+Kevon Cooper,All-Rounder,3000000,Rajasthan Royals,2014,Overseas,0.3,1,False
+Kieron Pollard,All-Rounder,54000000,Mumbai Indians,2018,Overseas,5.4,1,False
+Kishore Pramod Kamath,All-Rounder,14000000,Mumbai Indians,2016,Indian,1.4,1,False
+KL Rahul,Batsman,10000000,Sunrisers Hyderabad,2014,Indian,1.0,2,True
+KL Rahul,Batsman,110000000,Kings XI Punjab,2018,Indian,11.0,2,True
+Kona Srikar Bharat,Wicket Keeper,1000000,Delhi Daredevils,2015,Indian,0.1,2,True
+Kona Srikar Bharat,Wicket Keeper,2000000,Royal Challengers Bangalore,2021,Indian,0.2,2,True
+Krishnappa Gowtham,All-Rounder,20000000,Mumbai Indians,2017,Indian,2.0,4,True
+Krishnappa Gowtham,Bowler,62000000,Rajasthan Royals,2018,Indian,6.2,4,True
+Krishnappa Gowtham,All-Rounder,92500000,Chennai Super Kings,2021,Indian,9.25,4,True
+Krismar Santokie,Bowler,3000000,Mumbai Indians,2014,Overseas,0.3,1,False
+Krunal Pandya,All-Rounder,20000000,Mumbai Indians,2016,Indian,2.0,3,True
+Krunal Pandya,All-Rounder,88000000,Mumbai Indians,2018,Indian,8.8,3,True
+Krunal Pandya,All-Rounder,82500000,Lucknow Super Giants,2022,Indian,8.25,3,True
+Kshitiz Sharma,All-Rounder,2000000,Chennai Super Kings,2018,Indian,0.2,1,False
+Kuldeep Sen,Bowler,2000000,Rajasthan Royals,2022,Indian,0.2,1,False
+Kuldeep Yadav,Bowler,4000000,Kolkata Knight Riders,2014,Indian,0.4,3,True
+Kuldeep Yadav,Bowler,58000000,Kolkata Knight Riders,2018,Indian,5.8,3,True
+Kuldeep Yadav,Bowler,20000000,Delhi Capitals,2022,Indian,2.0,3,True
+Kuldip Yadav,Bowler,2000000,Rajasthan Royals,2021,Indian,0.2,2,True
+Kuldip Yadav,Bowler,2000000,Rajasthan Royals,2022,Indian,0.2,2,True
+Kulwant Khejroliya,Bowler,1000000,Mumbai Indians,2017,Indian,0.1,2,True
+Kulwant Khejroliya,Bowler,8500000,Royal Challengers Bangalore,2018,Indian,0.85,2,True
+Kusal Janith Perera,Wicket Keeper,1500000,Rajasthan Royals,2013,Indian,0.15,1,False
+Kyle Abbott,Bowler,3000000,Chennai Super Kings,2015,Overseas,0.3,2,True
+Kyle Abbott,Bowler,21000000,Kings XI Punjab,2016,Overseas,2.1,2,True
+Kyle Jamieson,All-Rounder,150000000,Royal Challengers Bangalore,2021,Overseas,15.0,1,False
+Kyle Mayers,All-Rounder,5000000,Lucknow Super Giants,2022,Overseas,0.5,1,False
+Lakshmipathy Balaji,Bowler,18000000,Kings XI Punjab,2014,Indian,1.8,1,False
+Lalit Yadav,All-Rounder,2000000,Delhi Capitals,2020,Indian,0.2,2,True
+Lalit Yadav,All-Rounder,6500000,Delhi Capitals,2022,Indian,0.65,2,True
+Lasith Malinga,Bowler,20000000,Mumbai Indians,2019,Overseas,2.0,1,False
+Laxmi Ratan Shukla,All-Rounder,15000000,Delhi Daredevils,2014,Indian,1.5,2,True
+Laxmi Ratan Shukla,All-Rounder,3000000,Sunrisers Hyderabad,2015,Indian,0.3,2,True
+Liam Livingstone,All-Rounder,5000000,Rajasthan Royals,2019,Overseas,0.5,3,True
+Liam Livingstone,All-Rounder,7500000,Rajasthan Royals,2021,Overseas,0.75,3,True
+Liam Livingstone,All-Rounder,115000000,Punjab Kings,2022,Overseas,11.5,3,True
+Lockie Ferguson,Bowler,5000000,Rising Pune Supergiant,2017,Overseas,0.5,3,True
+Lockie Ferguson,Bowler,16000000,Kolkata Knight Riders,2019,Overseas,1.6,3,True
+Lockie Ferguson,Bowler,100000000,Gujarat Titans,2022,Overseas,10.0,3,True
+Luke Pomersbach,Batsman,22500000,Kings XI Punjab,2013,Overseas,2.25,1,False
+Lukman Hussain Meriwala,Bowler,2000000,Delhi Capitals,2021,Indian,0.2,1,False
+Lungisani Ngidi,Bowler,5000000,Chennai Super Kings,2018,Overseas,0.5,2,True
+Lungisani Ngidi,Bowler,5000000,Delhi Capitals,2022,Overseas,0.5,2,True
+Luvnith Sisodia,Wicket Keeper,2000000,Royal Challengers Bangalore,2022,Indian,0.2,1,False
+M Siddharth,Bowler,2000000,Kolkata Knight Riders,2020,Indian,0.2,2,True
+M Siddharth,Bowler,2000000,Delhi Capitals,2021,Indian,0.2,2,True
+M. Ashwin,Bowler,45000000,Rising Pune Supergiant,2016,Indian,4.5,4,True
+M. Ashwin,Bowler,10000000,Delhi Daredevils,2017,Indian,1.0,4,True
+M. Ashwin,Bowler,22000000,Royal Challengers Bangalore,2018,Indian,2.2,4,True
+M. Ashwin,Bowler,2000000,Kings XI Punjab,2019,Indian,0.2,4,True
+M. Harisankar Reddy,Bowler,2000000,Chennai Super Kings,2021,Indian,0.2,1,False
+Washington Sundar,All-Rounder,32000000,Royal Challengers Bangalore,2018,Indian,3.2,2,True
+Maheesh Theekshana,Bowler,7000000,Chennai Super Kings,2022,Overseas,0.7,1,False
+Mahipal Lomror,All-Rounder,1000000,Delhi Daredevils,2016,Indian,0.1,3,True
+Mahipal Lomror,All-Rounder,2000000,Rajasthan Royals,2018,Indian,0.2,3,True
+Mahipal Lomror,All-Rounder,9500000,Royal Challengers Bangalore,2022,Indian,0.95,3,True
+Manan Ajay Sharma,All-Rounder,1000000,Kolkata Knight Riders,2016,Indian,0.1,1,False
+Manan Vohra,Batsman,11000000,Royal Challengers Bangalore,2018,Indian,1.1,3,True
+Manan Vohra,Batsman,2000000,Rajasthan Royals,2019,Indian,0.2,3,True
+Manan Vohra,Batsman,2000000,Lucknow Super Giants,2022,Indian,0.2,3,True
+Mandeep Hardev Singh,All-Rounder,8000000,Kings XI Punjab,2014,Indian,0.8,1,False
+Mandeep Singh,All-Rounder,14000000,Royal Challengers Bangalore,2018,Indian,1.4,2,True
+Mandeep Singh,Batsman,11000000,Delhi Capitals,2022,Indian,1.1,2,True
+Manish Pandey,Batsman,17000000,Kolkata Knight Riders,2014,Indian,1.7,3,True
+Manish Pandey,Batsman,110000000,Sunrisers Hyderabad,2018,Indian,11.0,3,True
+Manish Pandey,Batsman,46000000,Lucknow Super Giants,2022,Indian,4.6,3,True
+Manjot Kalra,Batsman,2000000,Delhi Daredevils,2018,Indian,0.2,1,False
+Manoj Tiwary,Batsman,28000000,Delhi Daredevils,2014,Indian,2.8,3,True
+Manoj Tiwary,Batsman,5000000,Rising Pune Supergiant,2017,Indian,0.5,3,True
+Manoj Tiwary,Batsman,10000000,Kings XI Punjab,2018,Indian,1.0,3,True
+Manpreet Gony,Bowler,37500000,Kings XI Punjab,2013,Indian,3.75,2,True
+Manpreet Gony,Bowler,6000000,Gujarat Lions,2017,Indian,0.6,2,True
+Manprit Juneja,Batsman,1000000,Sunrisers Hyderabad,2014,Indian,0.1,1,False
+Manvinder Bisla,Wicket Keeper,6000000,Kolkata Knight Riders,2014,Indian,0.6,1,False
+Manzoor Dar,All-Rounder,2000000,Kings XI Punjab,2018,Indian,0.2,1,False
+Marchant De Lange,Bowler,3000000,Mumbai Indians,2014,Overseas,0.3,1,False
+Marco Jansen,All-Rounder,2000000,Mumbai Indians,2021,Overseas,0.2,2,True
+Marco Jansen,All-Rounder,42000000,Sunrisers Hyderabad,2022,Overseas,4.2,2,True
+Marcus Stoinis,All-Rounder,2500000,Delhi Daredevils,2015,Overseas,0.25,4,True
+Marcus Stoinis,All-Rounder,5500000,Kings XI Punjab,2016,Overseas,0.55,4,True
+Marcus Stoinis,All-Rounder,62000000,Kings XI Punjab,2018,Overseas,6.2,4,True
+Marcus Stoinis,All-Rounder,48000000,Delhi Capitals,2020,Overseas,4.8,4,True
+Mark Wood,Bowler,15000000,Chennai Super Kings,2018,Overseas,1.5,2,True
+Mark Wood,Bowler,75000000,Lucknow Super Giants,2022,Overseas,7.5,2,True
+Martin Guptill,Batsman,5000000,Kings XI Punjab,2017,Overseas,0.5,2,True
+Martin Guptill,Batsman,10000000,Sunrisers Hyderabad,2019,Overseas,1.0,2,True
+Matt Henry,Bowler,3000000,Chennai Super Kings,2014,Overseas,0.3,2,True
+Matt Henry,Bowler,5000000,Kings XI Punjab,2017,Overseas,0.5,2,True
+Matthew Wade,Wicket Keeper,24000000,Gujarat Titans,2022,Overseas,2.4,1,False
+Mayank Agarwal,Batsman,16000000,Delhi Daredevils,2014,Indian,1.6,2,True
+Mayank Agarwal,Batsman,10000000,Kings XI Punjab,2018,Indian,1.0,2,True
+Mayank Dagar,All-Rounder,2000000,Kings XI Punjab,2018,Indian,0.2,1,False
+Mayank Markande,Bowler,2000000,Mumbai Indians,2018,Indian,0.2,2,True
+Mayank Markande,Bowler,6500000,Mumbai Indians,2022,Indian,0.65,2,True
+Mayank Yadav,Bowler,2000000,Lucknow Super Giants,2022,Indian,0.2,1,False
+Michael Clarke,Batsman,30000000,Pune Warriors India,2013,Overseas,3.0,1,False
+Michael Hussey,Batsman,50000000,Mumbai Indians,2014,Overseas,5.0,2,True
+Michael Hussey,Batsman,15000000,Chennai Super Kings,2015,Overseas,1.5,2,True
+Midhun S,All-Rounder,2000000,Rajasthan Royals,2018,Indian,0.2,1,False
+Milind Kumar,Batsman,1000000,Delhi Daredevils,2014,Indian,0.1,2,True
+Milind Kumar,All-Rounder,2000000,Royal Challengers Bangalore,2019,Indian,0.2,2,True
+Milind Tandon,All-Rounder,1000000,Rising Pune Supergiant,2017,Indian,0.1,1,False
+Mitchell Johnson,All-Rounder,65000000,Kings XI Punjab,2014,Overseas,6.5,3,True
+Mitchell Johnson,Bowler,20000000,Mumbai Indians,2017,Overseas,2.0,3,True
+Mitchell Johnson,Bowler,20000000,Kolkata Knight Riders,2018,Overseas,2.0,3,True
+Mitchell Marsh,All-Rounder,48000000,Rising Pune Supergiant,2016,Overseas,4.8,3,True
+Mitchell Marsh,All-Rounder,20000000,Sunrisers Hyderabad,2020,Overseas,2.0,3,True
+Mitchell Marsh,All-Rounder,65000000,Delhi Capitals,2022,Overseas,6.5,3,True
+Mitchell McClenaghan,Bowler,3000000,Mumbai Indians,2015,Overseas,0.3,1,False
+Mitchell Santner,All-Rounder,5000000,Chennai Super Kings,2018,Overseas,0.5,2,True
+Mitchell Santner,All-Rounder,19000000,Chennai Super Kings,2022,Overseas,1.9,2,True
+Mitchell Starc,Bowler,50000000,Royal Challengers Bangalore,2014,Overseas,5.0,2,True
+Mitchell Starc,Bowler,94000000,Kolkata Knight Riders,2018,Overseas,9.4,2,True
+Mithun Manhas,All-Rounder,3000000,Chennai Super Kings,2014,Indian,0.3,1,False
+Moeen Ali,All-Rounder,17000000,Royal Challengers Bangalore,2018,Overseas,1.7,2,True
+Moeen Ali,All-Rounder,70000000,Chennai Super Kings,2021,Overseas,7.0,2,True
+Mohammad Nabi,All-Rounder,3000000,Sunrisers Hyderabad,2017,Overseas,0.3,3,True
+Mohammad Nabi,All-Rounder,10000000,Sunrisers Hyderabad,2018,Overseas,1.0,3,True
+Mohammad Nabi,All-Rounder,10000000,Kolkata Knight Riders,2022,Overseas,1.0,3,True
+Mohammad Shami,Bowler,42500000,Delhi Daredevils,2014,Indian,4.25,4,True
+Mohammad Shami,Bowler,30000000,Delhi Daredevils,2018,Indian,3.0,4,True
+Mohammad Shami,Bowler,48000000,Kings XI Punjab,2019,Indian,4.8,4,True
+Mohammad Shami,Bowler,62500000,Gujarat Titans,2022,Indian,6.25,4,True
+Mohammed Azharudeen,Wicket Keeper,2000000,Royal Challengers Bangalore,2021,Indian,0.2,1,False
+Mohammed Siraj,Bowler,26000000,Sunrisers Hyderabad,2017,Indian,2.6,2,True
+Mohammed Siraj,Bowler,26000000,Royal Challengers Bangalore,2018,Indian,2.6,2,True
+Mohd. Arshad Khan,All-Rounder,2000000,Mumbai Indians,2022,Indian,0.2,1,False
+Mohit Sharma,Bowler,20000000,Chennai Super Kings,2014,Indian,2.0,5,True
+Mohit Sharma,Bowler,65000000,Kings XI Punjab,2016,Indian,6.5,5,True
+Mohit Sharma,Bowler,24000000,Kings XI Punjab,2018,Indian,2.4,5,True
+Mohit Sharma,Bowler,50000000,Chennai Super Kings,2019,Indian,5.0,5,True
+Mohit Sharma,Bowler,5000000,Delhi Capitals,2020,Indian,0.5,5,True
+Mohsin Khan,Bowler,2000000,Mumbai Indians,2018,Indian,0.2,3,True
+Mohsin Khan,Bowler,2000000,Mumbai Indians,2020,Indian,0.2,3,True
+Mohsin Khan,Bowler,2000000,Lucknow Super Giants,2022,Indian,0.2,3,True
+Moises Henriques,All-Rounder,22500000,Royal Challengers Bangalore,2013,Overseas,2.25,4,True
+Moises Henriques,All-Rounder,10000000,Sunrisers Hyderabad,2014,Overseas,1.0,4,True
+Moises Henriques,All-Rounder,10000000,Kings XI Punjab,2019,Overseas,1.0,4,True
+Moises Henriques,All-Rounder,42000000,Punjab Kings,2021,Overseas,4.2,4,True
+Monu Singh,Bowler,2000000,Chennai Super Kings,2018,Indian,0.2,1,False
+Morne Morkel,Bowler,28000000,Kolkata Knight Riders,2014,Overseas,2.8,1,False
+Mujeeb Zadran,Bowler,40000000,Kings XI Punjab,2018,Overseas,4.0,2,True
+Mujeeb Zadran,Bowler,15000000,Sunrisers Hyderabad,2021,Overseas,1.5,2,True
+Mukesh Choudhary,Bowler,2000000,Chennai Super Kings,2022,Indian,0.2,1,False
+Munaf Patel,Bowler,3000000,Gujarat Lions,2017,Indian,0.3,1,False
+Murali Kartik,Bowler,10000000,Kings XI Punjab,2014,Indian,1.0,1,False
+Murali Vijay,Batsman,50000000,Delhi Daredevils,2014,Indian,5.0,3,True
+Murali Vijay,Batsman,30000000,Kings XI Punjab,2015,Indian,3.0,3,True
+Murali Vijay,Batsman,20000000,Chennai Super Kings,2018,Indian,2.0,3,True
+Murugan Ashwin,Bowler,16000000,Mumbai Indians,2022,Indian,1.6,1,False
+Mustafizur Rahman,Bowler,14000000,Sunrisers Hyderabad,2016,Overseas,1.4,4,True
+Mustafizur Rahman,Bowler,22000000,Mumbai Indians,2018,Overseas,2.2,4,True
+Mustafizur Rahman,Bowler,10000000,Rajasthan Royals,2021,Overseas,1.0,4,True
+Mustafizur Rahman,Bowler,20000000,Delhi Capitals,2022,Overseas,2.0,4,True
+Muttiah Muralitharan,Bowler,10000000,Royal Challengers Bangalore,2014,Overseas,1.0,1,False
+N Jagadeesan,Wicket Keeper,2000000,Chennai Super Kings,2018,Indian,0.2,1,False
+N. Jagadeesan,Wicket Keeper,2000000,Chennai Super Kings,2022,Indian,0.2,1,False
+N. Tilak Varma,All-Rounder,17000000,Mumbai Indians,2022,Indian,1.7,1,False
+Naman Ojha,Wicket Keeper,5000000,Sunrisers Hyderabad,2014,Indian,0.5,2,True
+Naman Ojha,Wicket Keeper,14000000,Delhi Daredevils,2018,Indian,1.4,2,True
+Nathan Coulter-Nile,Bowler,33750000,Mumbai Indians,2013,Overseas,3.375,7,True
+Nathan Coulter-Nile,Bowler,42500000,Delhi Daredevils,2014,Overseas,4.25,7,True
+Nathan Coulter-Nile,Bowler,35000000,Kolkata Knight Riders,2017,Overseas,3.5,7,True
+Nathan Coulter-Nile,Bowler,22000000,Royal Challengers Bangalore,2018,Overseas,2.2,7,True
+Nathan Coulter-Nile,Bowler,80000000,Mumbai Indians,2020,Overseas,8.0,7,True
+Nathan Coulter-Nile,Bowler,50000000,Mumbai Indians,2021,Overseas,5.0,7,True
+Nathan Coulter-Nile,Bowler,20000000,Rajasthan Royals,2022,Overseas,2.0,7,True
+Nathan Ellis,Bowler,7500000,Punjab Kings,2022,Overseas,0.75,1,False
+Nathan McCullum,Bowler,7500000,Sunrisers Hyderabad,2013,Overseas,0.75,1,False
+Nathu Singh,Bowler,32000000,Mumbai Indians,2016,Indian,3.2,3,True
+Nathu Singh,Bowler,5000000,Gujarat Lions,2017,Indian,0.5,3,True
+Nathu Singh,Bowler,2000000,Delhi Capitals,2019,Indian,0.2,3,True
+Navdeep Saini,Bowler,1000000,Delhi Daredevils,2017,Indian,0.1,3,True
+Navdeep Saini,Bowler,30000000,Royal Challengers Bangalore,2018,Indian,3.0,3,True
+Navdeep Saini,Bowler,26000000,Rajasthan Royals,2022,Indian,2.6,3,True
+Nic Maddinson,Batsman,5000000,Royal Challengers Bangalore,2014,Overseas,0.5,1,False
+Nicolas Pooran,Wicket Keeper,107500000,Sunrisers Hyderabad,2022,Overseas,10.75,3,True
+Nicolas Pooran,Wicket Keeper,3000000,Mumbai Indians,2017,Overseas,0.3,3,True
+Nicolas Pooran,Wicket Keeper,42000000,Kings XI Punjab,2019,Overseas,4.2,3,True
+Nidheesh M D Dinesan,Bowler,2000000,Mumbai Indians,2018,Indian,0.2,1,False
+Nikhil Shankar Naik,Wicket Keeper,3000000,Kings XI Punjab,2015,Indian,0.3,3,True
+Nikhil Shankar Naik,Wicket Keeper,2000000,Kolkata Knight Riders,2019,Indian,0.2,3,True
+Nikhil Shankar Naik,Wicket Keeper,2000000,Kolkata Knight Riders,2020,Indian,0.2,3,True
+Nitish Rana,All-Rounder,1000000,Mumbai Indians,2015,Indian,0.1,3,True
+Nitish Rana,All-Rounder,34000000,Kolkata Knight Riders,2018,Indian,3.4,3,True
+Nitish Rana,All-Rounder,80000000,Kolkata Knight Riders,2022,Indian,8.0,3,True
+Noor Ahmad,Bowler,3000000,Gujarat Titans,2022,Overseas,0.3,1,False
+Obed Mccoy,Bowler,7500000,Rajasthan Royals,2022,Overseas,0.75,1,False
+Odean Smith,All-Rounder,60000000,Punjab Kings,2022,Overseas,6.0,1,False
+Oshane Thomas,Bowler,11000000,Rajasthan Royals,2019,Overseas,1.1,2,True
+Oshane Thomas,Bowler,5000000,Rajasthan Royals,2020,Overseas,0.5,2,True
+Pankaj Jaswal,All-Rounder,2000000,Mumbai Indians,2019,Overseas,0.2,1,False
+Pankaj Singh,Bowler,11250000,Royal Challengers Bangalore,2013,Indian,1.125,1,False
+Paras Dogra,Batsman,1000000,Gujarat Lions,2016,Indian,0.1,1,False
+Pardeep Sahu,All-Rounder,1000000,Rajasthan Royals,2015,Indian,0.1,3,True
+Pardeep Sahu,All-Rounder,1000000,Kings XI Punjab,2016,Indian,0.1,3,True
+Pardeep Sahu,Bowler,2000000,Kings XI Punjab,2018,Indian,0.2,3,True
+Parthiv Patel,Wicket Keeper,14000000,Royal Challengers Bangalore,2014,Indian,1.4,2,True
+Parthiv Patel,Wicket Keeper,17000000,Royal Challengers Bangalore,2018,Indian,1.7,2,True
+Parveez Rasool,All-Rounder,9500000,Sunrisers Hyderabad,2014,Indian,0.95,1,False
+Parvinder Awana,Bowler,6500000,Kings XI Punjab,2014,Indian,0.65,1,False
+Pat Cummins,Bowler,54000000,Mumbai Indians,2018,Overseas,5.4,5,True
+Pat Cummins,All-Rounder,155000000,Kolkata Knight Riders,2020,Overseas,15.5,5,True
+Pat Cummins,All-Rounder,72500000,Kolkata Knight Riders,2022,Overseas,7.25,5,True
+Pat Cummins,Bowler,10000000,Kolkata Knight Riders,2014,Overseas,1.0,5,True
+Pat Cummins,Bowler,45000000,Delhi Daredevils,2017,Overseas,4.5,5,True
+Pavan Deshpande,All-Rounder,2000000,Royal Challengers Bangalore,2018,Indian,0.2,2,True
+Pavan Deshpande,All-Rounder,2000000,Royal Challengers Bangalore,2020,Indian,0.2,2,True
+Pawan Negi,Bowler,1000000,Chennai Super Kings,2014,Indian,0.1,5,True
+Pawan Negi,All-Rounder,85000000,Delhi Daredevils,2016,Indian,8.5,5,True
+Pawan Negi,All-Rounder,10000000,Royal Challengers Bangalore,2017,Indian,1.0,5,True
+Pawan Negi,All-Rounder,10000000,Royal Challengers Bangalore,2018,Indian,1.0,5,True
+Pawan Negi,All-Rounder,5000000,Kolkata Knight Riders,2021,Indian,0.5,5,True
+Pawan Suyal,Bowler,1000000,Mumbai Indians,2014,Indian,0.1,2,True
+Pawan Suyal,Bowler,1000000,Delhi Daredevils,2016,Indian,0.1,2,True
+Peter Handscomb,Wicket Keeper,3000000,Rising Pune Supergiant,2016,Overseas,0.3,1,False
+Philip Hughes,Batsman,7500000,Mumbai Indians,2013,Overseas,0.75,1,False
+Piyush Chawla,Bowler,42500000,Kolkata Knight Riders,2014,Indian,4.25,4,True
+Piyush Chawla,Bowler,42000000,Kolkata Knight Riders,2018,Indian,4.2,4,True
+Piyush Chawla,Bowler,67500000,Chennai Super Kings,2020,Indian,6.75,4,True
+Piyush Chawla,Bowler,24000000,Mumbai Indians,2021,Indian,2.4,4,True
+Prabhsimran Singh,Wicket Keeper,48000000,Kings XI Punjab,2019,Indian,4.8,3,True
+Prabhsimran Singh,Wicket Keeper,5500000,Kings XI Punjab,2020,Indian,0.55,3,True
+Prabhsimran Singh,Wicket Keeper,6000000,Punjab Kings,2022,Indian,0.6,3,True
+Pradeep Sangwan,All-Rounder,2000000,Gujarat Lions,2016,Indian,0.2,3,True
+Pradeep Sangwan,Bowler,15000000,Mumbai Indians,2018,Indian,1.5,3,True
+Pradeep Sangwan,All-Rounder,2000000,Gujarat Titans,2022,Indian,0.2,3,True
+Pragyan Ojha,Bowler,32500000,Mumbai Indians,2014,Indian,3.25,2,True
+Pragyan Ojha,Bowler,5000000,Mumbai Indians,2015,Indian,0.5,2,True
+Prasanth Padmanabhan,All-Rounder,1000000,Sunrisers Hyderabad,2015,Indian,0.1,1,False
+Prasanth Parameswaran,Bowler,3000000,Sunrisers Hyderabad,2014,Indian,0.3,1,False
+Prashant Chopra,Wicket Keeper,2000000,Rajasthan Royals,2018,Indian,0.2,1,False
+Prashant Solanki,Bowler,12000000,Chennai Super Kings,2022,Indian,1.2,1,False
+Prasidh Krishna,Bowler,100000000,Rajasthan Royals,2022,Indian,10.0,1,False
+Pratham Singh,All-Rounder,1000000,Gujarat Lions,2017,Indian,0.1,2,True
+Pratham Singh,Batsman,2000000,Kolkata Knight Riders,2022,Indian,0.2,2,True
+Pratyush Singh,All-Rounder,1000000,Chennai Super Kings,2015,Indian,0.1,2,True
+Pratyush Singh,All-Rounder,1000000,Delhi Daredevils,2016,Indian,0.1,2,True
+Praveen Dubey,All-Rounder,3500000,Royal Challengers Bangalore,2016,Indian,0.35,2,True
+Praveen Dubey,All-Rounder,1000000,Royal Challengers Bangalore,2017,Indian,0.1,2,True
+Praveen Kumar,Bowler,22000000,Sunrisers Hyderabad,2015,Indian,2.2,2,True
+Praveen Kumar,Bowler,35000000,Gujarat Lions,2016,Indian,3.5,2,True
+Pravin Dubey,All-Rounder,5000000,Delhi Capitals,2022,Indian,0.5,1,False
+Pravin Tambe,Bowler,1000000,Rajasthan Royals,2014,Indian,0.1,4,True
+Pravin Tambe,Bowler,2000000,Gujarat Lions,2016,Indian,0.2,4,True
+Pravin Tambe,Bowler,1000000,Sunrisers Hyderabad,2017,Indian,0.1,4,True
+Pravin Tambe,Bowler,2000000,Kolkata Knight Riders,2020,Indian,0.2,4,True
+Prayas Ray Barman,All-Rounder,15000000,Royal Challengers Bangalore,2019,Indian,1.5,1,False
+Prerak Mankad,All-Rounder,2000000,Punjab Kings,2022,Indian,0.2,1,False
+Prince Balwant Rai Singh,All-Rounder,2000000,Mumbai Indians,2020,Indian,0.2,1,False
+Prithvi Raj Yarra,Bowler,2000000,Kolkata Knight Riders,2019,Indian,0.2,1,False
+Prithvi Shaw,Batsman,12000000,Delhi Daredevils,2018,Indian,1.2,1,False
+Priyam Garg,Batsman,19000000,Sunrisers Hyderabad,2020,Indian,1.9,2,True
+Priyam Garg,Batsman,2000000,Sunrisers Hyderabad,2022,Indian,0.2,2,True
+Quinton De Kock,Wicket Keeper,1500000,Sunrisers Hyderabad,2013,Overseas,0.15,4,True
+Quinton De Kock,Wicket Keeper,35000000,Delhi Daredevils,2014,Overseas,3.5,4,True
+Quinton De Kock,Wicket Keeper,28000000,Royal Challengers Bangalore,2018,Overseas,2.8,4,True
+Quinton De Kock,Wicket Keeper,67500000,Lucknow Super Giants,2022,Overseas,6.75,4,True
+R Samarth,Batsman,2000000,Sunrisers Hyderabad,2022,Indian,0.2,1,False
+R. Ashwin,All-Rounder,50000000,Rajasthan Royals,2022,Indian,5.0,1,False
+R. Sai Kishore,Bowler,2000000,Chennai Super Kings,2020,Indian,0.2,2,True
+R. Sai Kishore,Bowler,30000000,Gujarat Titans,2022,Indian,3.0,2,True
+R. Sanjay Yadav,All-Rounder,1000000,Kolkata Knight Riders,2017,Indian,0.1,1,False
+Rahul Ajay Tripathi,All-Rounder,1000000,Rising Pune Supergiant,2017,Indian,0.1,1,False
+Rahul Buddhi,Batsman,2000000,Mumbai Indians,2022,Indian,0.2,1,False
+Rahul Chahar,Bowler,1000000,Rising Pune Supergiant,2017,Indian,0.1,3,True
+Rahul Chahar,Bowler,19000000,Mumbai Indians,2018,Indian,1.9,3,True
+Rahul Chahar,Bowler,52500000,Punjab Kings,2022,Indian,5.25,3,True
+Rahul Sharma,Bowler,19000000,Delhi Daredevils,2014,Indian,1.9,2,True
+Rahul Sharma,Bowler,3000000,Chennai Super Kings,2015,Indian,0.3,2,True
+Rahul Shukla,Bowler,4000000,Delhi Daredevils,2014,Indian,0.4,1,False
+Rahul Tewatia,All-Rounder,1000000,Rajasthan Royals,2014,Indian,0.1,4,True
+Rahul Tewatia,All-Rounder,2500000,Kings XI Punjab,2017,Indian,0.25,4,True
+Rahul Tewatia,All-Rounder,30000000,Delhi Daredevils,2018,Indian,3.0,4,True
+Rahul Tewatia,All-Rounder,90000000,Gujarat Titans,2022,Indian,9.0,4,True
+Rahul Tripathi,Batsman,34000000,Rajasthan Royals,2018,Indian,3.4,3,True
+Rahul Tripathi,Batsman,6000000,Kolkata Knight Riders,2020,Indian,0.6,3,True
+Rahul Tripathi,Batsman,85000000,Sunrisers Hyderabad,2022,Indian,8.5,3,True
+Raj Angad Bawa,All-Rounder,20000000,Punjab Kings,2022,Indian,2.0,1,False
+Rajagopal Sathish,All-Rounder,2000000,Kolkata Knight Riders,2016,Indian,0.2,1,False
+Rajat Bhatia,All-Rounder,17000000,Rajasthan Royals,2014,Indian,1.7,2,True
+Rajat Bhatia,All-Rounder,6000000,Rising Pune Supergiant,2016,Indian,0.6,2,True
+Rajat Patidar,Batsman,2000000,Royal Challengers Bangalore,2021,Indian,0.2,1,False
+Rajvardhan Hangargekar,All-Rounder,15000000,Chennai Super Kings,2022,Indian,1.5,1,False
+Ramandeep Singh,All-Rounder,2000000,Mumbai Indians,2022,Indian,0.2,1,False
+Ramesh Kumar,Batsman,2000000,Kolkata Knight Riders,2022,Indian,0.2,1,False
+Ranganath Vinay Kumar,Bowler,28000000,Kolkata Knight Riders,2014,Indian,2.8,2,True
+Ranganath Vinay Kumar,Bowler,10000000,Kolkata Knight Riders,2018,Indian,1.0,2,True
+Rashid Khan Arman,Bowler,40000000,Sunrisers Hyderabad,2017,Overseas,4.0,2,True
+Rashid Khan Arman,Bowler,90000000,Sunrisers Hyderabad,2018,Overseas,9.0,2,True
+Rasikh Dar,Bowler,2000000,Mumbai Indians,2019,Indian,0.2,2,True
+Rasikh Dar,Bowler,2000000,Kolkata Knight Riders,2022,Indian,0.2,2,True
+Rassie Van Der Dussen,Batsman,10000000,Rajasthan Royals,2022,Overseas,1.0,1,False
+Ravi Bishnoi,Bowler,20000000,Kings XI Punjab,2020,Indian,2.0,1,False
+Ravi Bopara,All-Rounder,10000000,Sunrisers Hyderabad,2015,Indian,1.0,1,False
+Ravi Rampaul,Bowler,21750000,Royal Challengers Bangalore,2013,Overseas,2.175,2,True
+Ravi Rampaul,Bowler,9000000,Royal Challengers Bangalore,2014,Overseas,0.9,2,True
+Ravichandran Ashwin,All-Rounder,76000000,Kings XI Punjab,2018,Overseas,7.6,1,False
+Ricky Bhui,Batsman,1000000,Sunrisers Hyderabad,2014,Overseas,0.1,2,True
+Ricky Bhui,Batsman,2000000,Sunrisers Hyderabad,2018,Overseas,0.2,2,True
+Ricky Ponting,Batsman,30000000,Mumbai Indians,2013,Overseas,3.0,1,False
+Riley Meredith,Bowler,80000000,Punjab Kings,2021,Overseas,8.0,2,True
+Riley Meredith,Bowler,10000000,Mumbai Indians,2022,Overseas,1.0,2,True
+Rinku Singh,Batsman,1000000,Kings XI Punjab,2017,Indian,0.1,3,True
+Rinku Singh,Batsman,8000000,Kolkata Knight Riders,2018,Indian,0.8,3,True
+Rinku Singh,Batsman,5500000,Kolkata Knight Riders,2022,Indian,0.55,3,True
+Ripal Patel,All-Rounder,2000000,Delhi Capitals,2021,Indian,0.2,2,True
+Ripal Patel,All-Rounder,2000000,Delhi Capitals,2022,Indian,0.2,2,True
+Rishabh Pant,Wicket Keeper,19000000,Delhi Daredevils,2016,Indian,1.9,1,False
+Rishi Dhawan,All-Rounder,30000000,Kings XI Punjab,2014,Indian,3.0,3,True
+Rishi Dhawan,All-Rounder,5500000,Kolkata Knight Riders,2017,Indian,0.55,3,True
+Rishi Dhawan,All-Rounder,5500000,Punjab Kings,2022,Indian,0.55,3,True
+Riyan Parag,All-Rounder,2000000,Rajasthan Royals,2019,Indian,0.2,2,True
+Riyan Parag,All-Rounder,38000000,Rajasthan Royals,2022,Indian,3.8,2,True
+Robin Uthappa,Batsman,50000000,Kolkata Knight Riders,2014,Indian,5.0,4,True
+Robin Uthappa,Batsman,64000000,Kolkata Knight Riders,2018,Indian,6.4,4,True
+Robin Uthappa,Batsman,30000000,Rajasthan Royals,2020,Indian,3.0,4,True
+Robin Uthappa,Batsman,20000000,Chennai Super Kings,2022,Indian,2.0,4,True
+Romario Shepherd,All-Rounder,77500000,Sunrisers Hyderabad,2022,Overseas,7.75,1,False
+Ronit More,Bowler,1000000,Chennai Super Kings,2014,Indian,0.1,1,False
+Ross Taylor,Batsman,20000000,Delhi Daredevils,2014,Overseas,2.0,1,False
+Rovman Powell,All-Rounder,3000000,Kolkata Knight Riders,2017,Overseas,0.3,2,True
+Rovman Powell,Batsman,28000000,Delhi Capitals,2022,Overseas,2.8,2,True
+Rudra Pratap Singh,Bowler,30000000,Royal Challengers Bangalore,2013,Indian,3.0,2,True
+Rudra Pratap Singh,Bowler,3000000,Rising Pune Supergiant,2016,Indian,0.3,2,True
+Ruturaj Gaikwad,Batsman,2000000,Chennai Super Kings,2019,Indian,0.2,1,False
+Ryan McLaren,Bowler,3750000,Kolkata Knight Riders,2013,Overseas,0.375,1,False
+Ryan Ten Doeschate,All-Rounder,10000000,Kolkata Knight Riders,2014,Overseas,1.0,1,False
+Sachin Baby,Batsman,1000000,Royal Challengers Bangalore,2016,Indian,0.1,3,True
+Sachin Baby,Batsman,2000000,Sunrisers Hyderabad,2018,Indian,0.2,3,True
+Sachin Baby,Batsman,2000000,Royal Challengers Bangalore,2021,Indian,0.2,3,True
+Sachin Rana,Bowler,2000000,Royal Challengers Bangalore,2014,Indian,0.2,1,False
+Sachithra Senanayaka,All-Rounder,46875000,Kolkata Knight Riders,2013,Overseas,4.6875,1,False
+Sagar Trivedi,All-Rounder,1000000,Rajasthan Royals,2015,Indian,0.1,1,False
+Sam Billings,Wicket Keeper,3000000,Delhi Daredevils,2016,Overseas,0.3,4,True
+Sam Billings,Wicket Keeper,10000000,Chennai Super Kings,2018,Overseas,1.0,4,True
+Sam Billings,Wicket Keeper,20000000,Delhi Capitals,2021,Overseas,2.0,4,True
+Sam Billings,Wicket Keeper,20000000,Kolkata Knight Riders,2022,Overseas,2.0,4,True
+Sam Curran,All-Rounder,72000000,Kings XI Punjab,2019,Overseas,7.2,2,True
+Sam Curran,All-Rounder,55000000,Chennai Super Kings,2020,Overseas,5.5,2,True
+Samuel Badree,Bowler,3000000,Chennai Super Kings,2014,Overseas,0.3,2,True
+Samuel Badree,Bowler,5000000,Royal Challengers Bangalore,2016,Overseas,0.5,2,True
+Sandeep Bavanaka,All-Rounder,2000000,Sunrisers Hyderabad,2020,Overseas,0.2,1,False
+Sandeep Lamichhane,Bowler,2000000,Delhi Daredevils,2018,Overseas,0.2,1,False
+Sandeep Sharma,Bowler,8500000,Kings XI Punjab,2014,Indian,0.85,3,True
+Sandeep Sharma,Bowler,30000000,Sunrisers Hyderabad,2018,Indian,3.0,3,True
+Sandeep Sharma,Bowler,5000000,Punjab Kings,2022,Indian,0.5,3,True
+Sandeep Warrier,Bowler,1000000,Royal Challengers Bangalore,2014,Indian,0.1,1,False
+Sanjay Yadav,All-Rounder,2000000,Sunrisers Hyderabad,2020,Indian,0.2,2,True
+Sanjay Yadav,All-Rounder,5000000,Mumbai Indians,2022,Indian,0.5,2,True
+Sanju Samson,Wicket Keeper,42000000,Delhi Daredevils,2016,Indian,4.2,2,True
+Sanju Samson,Wicket Keeper,80000000,Rajasthan Royals,2018,Indian,8.0,2,True
+Sarabjit Ladda,Bowler,1000000,Gujarat Lions,2016,Indian,0.1,1,False
+Sarfaraz Khan,All-Rounder,2000000,Delhi Capitals,2022,Indian,0.2,1,False
+Sarfaraz Naushad Khan,Batsman,5000000,Royal Challengers Bangalore,2015,Indian,0.5,2,True
+Sarfaraz Naushad Khan,All-Rounder,2500000,Kings XI Punjab,2019,Indian,0.25,2,True
+Saurabh Dubey,Bowler,2000000,Sunrisers Hyderabad,2022,Indian,0.2,1,False
+Saurabh Kumar,Bowler,1000000,Rising Pune Supergiant,2017,Indian,0.1,2,True
+Saurabh Kumar,All-Rounder,2000000,Punjab Kings,2021,Indian,0.2,2,True
+Saurabh Tiwary,Batsman,7000000,Delhi Daredevils,2014,Indian,0.7,4,True
+Saurabh Tiwary,Batsman,3000000,Mumbai Indians,2017,Indian,0.3,4,True
+Saurabh Tiwary,Batsman,8000000,Mumbai Indians,2018,Indian,0.8,4,True
+Saurabh Tiwary,Batsman,5000000,Mumbai Indians,2020,Indian,0.5,4,True
+Sayan Ghosh,Bowler,1000000,Kolkata Knight Riders,2017,Indian,0.1,2,True
+Sayan Ghosh,Bowler,2000000,Delhi Daredevils,2018,Indian,0.2,2,True
+Sayan Sekhar Mandal,All-Rounder,1000000,Kolkata Knight Riders,2014,Indian,0.1,1,False
+Scott Boland,Bowler,5000000,Rising Pune Supergiant,2016,Overseas,0.5,1,False
+Sean Abbott,Bowler,10000000,Royal Challengers Bangalore,2015,Overseas,1.0,2,True
+Sean Abbott,Bowler,24000000,Sunrisers Hyderabad,2022,Overseas,2.4,2,True
+Shadab Jakati,Bowler,2000000,Royal Challengers Bangalore,2014,Indian,0.2,2,True
+Shadab Jakati,All-Rounder,2000000,Gujarat Lions,2016,Indian,0.2,2,True
+Shahbaz Ahamad,Wicket Keeper,2000000,Royal Challengers Bangalore,2020,Indian,0.2,2,True
+Shahbaz Ahamad,All-Rounder,24000000,Royal Challengers Bangalore,2022,Indian,2.4,2,True
+Shahbaz Nadeem,Bowler,8500000,Delhi Daredevils,2014,Indian,0.85,3,True
+Shahbaz Nadeem,Bowler,32000000,Delhi Daredevils,2018,Indian,3.2,3,True
+Shahbaz Nadeem,Bowler,5000000,Lucknow Super Giants,2022,Indian,0.5,3,True
+Shahrukh Khan,All-Rounder,52500000,Punjab Kings,2021,Indian,5.25,2,True
+Shahrukh Khan,All-Rounder,90000000,Punjab Kings,2022,Indian,9.0,2,True
+Shakib Al Hasan,All-Rounder,28000000,Kolkata Knight Riders,2014,Overseas,2.8,3,True
+Shakib Al Hasan,All-Rounder,20000000,Sunrisers Hyderabad,2018,Overseas,2.0,3,True
+Shakib Al Hasan,All-Rounder,32000000,Kolkata Knight Riders,2021,Overseas,3.2,3,True
+Shane Watson,All-Rounder,95000000,Royal Challengers Bangalore,2016,Overseas,9.5,2,True
+Shane Watson,All-Rounder,40000000,Chennai Super Kings,2018,Overseas,4.0,2,True
+Sharad Lumba,Batsman,2000000,Mumbai Indians,2018,Indian,0.2,1,False
+Shardul Thakur,Bowler,2000000,Kings XI Punjab,2014,Indian,0.2,3,True
+Shardul Thakur,Bowler,26000000,Chennai Super Kings,2018,Indian,2.6,3,True
+Shardul Thakur,Bowler,107500000,Delhi Capitals,2022,Indian,10.75,3,True
+Shashank Singh,All-Rounder,1000000,Delhi Daredevils,2017,Indian,0.1,3,True
+Shashank Singh,All-Rounder,3000000,Rajasthan Royals,2019,Indian,0.3,3,True
+Shashank Singh,All-Rounder,2000000,Sunrisers Hyderabad,2022,Indian,0.2,3,True
+Shaun Marsh,Batsman,22000000,Kings XI Punjab,2014,Overseas,2.2,1,False
+Sheldon Cottrell,Bowler,85000000,Kings XI Punjab,2020,Overseas,8.5,1,False
+Sheldon Jackson,Batsman,1500000,Kolkata Knight Riders,2015,Indian,0.15,3,True
+Sheldon Jackson,Wicket Keeper,2000000,Kolkata Knight Riders,2021,Indian,0.2,3,True
+Sheldon Jackson,Wicket Keeper,6000000,Kolkata Knight Riders,2022,Indian,0.6,3,True
+Shelley Shaurya,Bowler,1000000,Gujarat Lions,2017,Indian,0.1,1,False
+Sherfane Rutherford,All-Rounder,20000000,Delhi Capitals,2019,Overseas,2.0,2,True
+Sherfane Rutherford,All-Rounder,10000000,Royal Challengers Bangalore,2022,Overseas,1.0,2,True
+Shikhar Dhawan,Batsman,52000000,Sunrisers Hyderabad,2018,Indian,5.2,2,True
+Shikhar Dhawan,Batsman,82500000,Punjab Kings,2022,Indian,8.25,2,True
+Shimron Hetmyer,Batsman,42000000,Royal Challengers Bangalore,2019,Overseas,4.2,3,True
+Shimron Hetmyer,Batsman,77500000,Delhi Capitals,2020,Overseas,7.75,3,True
+Shimron Hetmyer,Batsman,85000000,Rajasthan Royals,2022,Overseas,8.5,3,True
+Shishir Bhavane,Batsman,1000000,Royal Challengers Bangalore,2015,Indian,0.1,1,False
+Shivam Dube,All-Rounder,50000000,Royal Challengers Bangalore,2019,Indian,5.0,3,True
+Shivam Dube,All-Rounder,44000000,Rajasthan Royals,2021,Indian,4.4,3,True
+Shivam Dube,All-Rounder,40000000,Chennai Super Kings,2022,Indian,4.0,3,True
+Shivam Mavi,All-Rounder,30000000,Kolkata Knight Riders,2018,Indian,3.0,2,True
+Shivam Mavi,All-Rounder,72500000,Kolkata Knight Riders,2022,Indian,7.25,2,True
+Shivam Sharma,Bowler,1000000,Kings XI Punjab,2014,Indian,0.1,1,False
+Shivil Kaushik,Bowler,1000000,Gujarat Lions,2016,Indian,0.1,1,False
+Shreevats Goswami,Wicket Keeper,10000000,Sunrisers Hyderabad,2018,Indian,1.0,1,False
+Shreyas Gopal,Bowler,1000000,Mumbai Indians,2014,Indian,0.1,3,True
+Shreyas Gopal,All-Rounder,2000000,Rajasthan Royals,2018,Indian,0.2,3,True
+Shreyas Gopal,Bowler,7500000,Sunrisers Hyderabad,2022,Indian,0.75,3,True
+Shreyas Iyer,Batsman,26000000,Delhi Daredevils,2015,Indian,2.6,2,True
+Shreyas Iyer,Batsman,122500000,Kolkata Knight Riders,2022,Indian,12.25,2,True
+Shrikant Mundhe,All-Rounder,2000000,Kolkata Knight Riders,2019,Indian,0.2,1,False
+Shubam Agrawal,All-Rounder,1000000,Gujarat Lions,2017,Indian,0.1,1,False
+Shubham Garhwal,All-Rounder,2000000,Rajasthan Royals,2022,Indian,0.2,1,False
+Shubham Ranjane,All-Rounder,2000000,Rajasthan Royals,2019,Indian,0.2,1,False
+Shubman Gill,Batsman,18000000,Kolkata Knight Riders,2018,Indian,1.8,1,False
+Siddarth Kaul,Bowler,4500000,Delhi Daredevils,2014,Indian,0.45,3,True
+Siddarth Kaul,Bowler,1000000,Sunrisers Hyderabad,2015,Indian,0.1,3,True
+Siddarth Kaul,Bowler,38000000,Sunrisers Hyderabad,2018,Indian,3.8,3,True
+Siddharth Kaul,Bowler,7500000,Royal Challengers Bangalore,2022,Indian,0.75,1,False
+Siddhesh Dinesh Lad,All-Rounder,1000000,Mumbai Indians,2015,Indian,0.1,2,True
+Siddhesh Dinesh Lad,Batsman,2000000,Mumbai Indians,2018,Indian,0.2,2,True
+Simarjeet Singh,Bowler,2000000,Chennai Super Kings,2022,Indian,0.2,1,False
+Srikkanth Anirudha,Batsman,2000000,Sunrisers Hyderabad,2014,Indian,0.2,1,False
+Steven Smith,All-Rounder,40000000,Rajasthan Royals,2014,Overseas,4.0,2,True
+Steven Smith,Batsman,22000000,Delhi Capitals,2021,Overseas,2.2,2,True
+Stuart Binny,All-Rounder,20000000,Royal Challengers Bangalore,2016,Indian,2.0,2,True
+Stuart Binny,All-Rounder,5000000,Rajasthan Royals,2018,Indian,0.5,2,True
+Subhranshu Senapati,Batsman,2000000,Chennai Super Kings,2022,Indian,0.2,1,False
+Subramaniam Badrinath,Batsman,3000000,Royal Challengers Bangalore,2015,Indian,0.3,1,False
+Sudeep Tyagi,Bowler,7500000,Sunrisers Hyderabad,2013,Indian,0.75,1,False
+Sumit Narwal,All-Rounder,1000000,Kolkata Knight Riders,2015,Indian,0.1,1,False
+Suryakumar Yadav,Batsman,7000000,Kolkata Knight Riders,2014,Indian,0.7,2,True
+Suryakumar Yadav,Batsman,32000000,Mumbai Indians,2018,Indian,3.2,2,True
+Sushant Marathe,Wicket Keeper,1000000,Mumbai Indians,2014,Indian,0.1,1,False
+Suyash Prabhudesai,All-Rounder,2000000,Royal Challengers Bangalore,2021,Indian,0.2,1,False
+Suyash Prabhudessai,All-Rounder,3000000,Royal Challengers Bangalore,2022,Indian,0.3,1,False
+Swapnil Singh,All-Rounder,1000000,Kings XI Punjab,2016,Indian,0.1,1,False
+Syed Khaleel Ahmed,All-Rounder,1000000,Delhi Daredevils,2016,Indian,0.1,3,True
+Syed Khaleel Ahmed,Bowler,30000000,Sunrisers Hyderabad,2018,Indian,3.0,3,True
+Syed Khaleel Ahmed,Bowler,52500000,Delhi Capitals,2022,Indian,5.25,3,True
+Syed Mehdi Hasan,All-Rounder,2000000,Sunrisers Hyderabad,2018,Indian,0.2,1,False
+T Natarajan,Bowler,30000000,Kings XI Punjab,2017,Indian,3.0,2,True
+T Natarajan,Bowler,4000000,Sunrisers Hyderabad,2018,Indian,0.4,2,True
+T. Natarajan,Bowler,40000000,Sunrisers Hyderabad,2022,Indian,4.0,1,False
+Tajinder Dhillon,All-Rounder,5500000,Mumbai Indians,2018,Indian,0.55,2,True
+Tajinder Dhillon,All-Rounder,2000000,Kings XI Punjab,2020,Indian,0.2,2,True
+Tanmay Agarwal,Batsman,1000000,Sunrisers Hyderabad,2017,Indian,0.1,2,True
+Tanmay Agarwal,Batsman,2000000,Sunrisers Hyderabad,2018,Indian,0.2,2,True
+Tanmay Mishra,Batsman,1000000,Royal Challengers Bangalore,2014,Indian,0.1,1,False
+Tejas Baroka,Bowler,2000000,Rajasthan Royals,2022,Indian,0.2,1,False
+Tejas Singh Baroka,Bowler,1000000,Gujarat Lions,2017,Indian,0.1,1,False
+Thisara Perera,All-Rounder,50625000,Sunrisers Hyderabad,2013,Overseas,5.0625,3,True
+Thisara Perera,All-Rounder,16000000,Kings XI Punjab,2014,Overseas,1.6,3,True
+Thisara Perera,All-Rounder,10000000,Rising Pune Supergiant,2016,Overseas,1.0,3,True
+Tim David,All-Rounder,82500000,Mumbai Indians,2022,Overseas,8.25,1,False
+Tim Seifert,Wicket Keeper,5000000,Delhi Capitals,2022,Overseas,0.5,1,False
+Tim Southee,Bowler,12000000,Rajasthan Royals,2014,Overseas,1.2,4,True
+Tim Southee,Bowler,25000000,Mumbai Indians,2016,Overseas,2.5,4,True
+Tim Southee,Bowler,10000000,Royal Challengers Bangalore,2018,Overseas,1.0,4,True
+Tim Southee,Bowler,15000000,Kolkata Knight Riders,2022,Overseas,1.5,4,True
+Tirumalasetti Suman,Batsman,1000000,Sunrisers Hyderabad,2016,Indian,0.1,1,False
+Tom Banton,Batsman,10000000,Kolkata Knight Riders,2020,Overseas,1.0,1,False
+Tom Curran,All-Rounder,10000000,Rajasthan Royals,2020,Overseas,1.0,2,True
+Tom Curran,All-Rounder,52500000,Delhi Capitals,2021,Overseas,5.25,2,True
+Travis Head,Batsman,3000000,Delhi Daredevils,2015,Overseas,0.3,2,True
+Travis Head,Batsman,5000000,Royal Challengers Bangalore,2016,Overseas,0.5,2,True
+Trent Boult,Bowler,38000000,Sunrisers Hyderabad,2015,Overseas,3.8,4,True
+Trent Boult,Bowler,50000000,Kolkata Knight Riders,2017,Overseas,5.0,4,True
+Trent Boult,Bowler,22000000,Delhi Daredevils,2018,Overseas,2.2,4,True
+Trent Boult,Bowler,80000000,Rajasthan Royals,2022,Overseas,8.0,4,True
+Tushar Deshpande,Bowler,2000000,Delhi Capitals,2020,Indian,0.2,2,True
+Tushar Deshpande,Bowler,2000000,Chennai Super Kings,2022,Indian,0.2,2,True
+Tymal Mills,Bowler,120000000,Royal Challengers Bangalore,2017,Overseas,12.0,2,True
+Tymal Mills,Bowler,15000000,Mumbai Indians,2022,Overseas,1.5,2,True
+Umang Sharma,Batsman,1000000,Gujarat Lions,2016,Indian,0.1,1,False
+Umesh Yadav,Bowler,26000000,Kolkata Knight Riders,2014,Indian,2.6,4,True
+Umesh Yadav,Bowler,42000000,Royal Challengers Bangalore,2018,Indian,4.2,4,True
+Umesh Yadav,Bowler,10000000,Delhi Capitals,2021,Indian,1.0,4,True
+Umesh Yadav,Bowler,20000000,Kolkata Knight Riders,2022,Indian,2.0,4,True
+Unmukt Chand,Batsman,6500000,Rajasthan Royals,2014,Indian,0.65,1,False
+Utkarsh Singh,All-Rounder,2000000,Punjab Kings,2021,Indian,0.2,1,False
+Vaibhav Arora,Bowler,2000000,Kolkata Knight Riders,2021,Indian,0.2,2,True
+Vaibhav Arora,Bowler,20000000,Punjab Kings,2022,Indian,2.0,2,True
+Vaibhav Rawal,All-Rounder,1000000,Kolkata Knight Riders,2015,Indian,0.1,1,False
+Varun Aaron,Bowler,20000000,Royal Challengers Bangalore,2014,Indian,2.0,4,True
+Varun Aaron,Bowler,28000000,Kings XI Punjab,2017,Indian,2.8,4,True
+Varun Aaron,Bowler,24000000,Rajasthan Royals,2019,Indian,2.4,4,True
+Varun Aaron,Bowler,5000000,Gujarat Titans,2022,Indian,0.5,4,True
+Varun Chakaravarthy,All-Rounder,84000000,Kings XI Punjab,2019,Indian,8.4,2,True
+Varun Chakaravarthy,All-Rounder,40000000,Kolkata Knight Riders,2020,Indian,4.0,2,True
+Veer Pratap Singh,Bowler,4000000,Kolkata Knight Riders,2014,Indian,0.4,1,False
+Venkatesh Iyer,All-Rounder,2000000,Kolkata Knight Riders,2021,Indian,0.2,1,False
+Venugopal Rao,Batsman,5500000,Sunrisers Hyderabad,2014,Indian,0.55,1,False
+Vicky Ostwal,All-Rounder,2000000,Delhi Capitals,2022,Indian,0.2,1,False
+Vijay Shankar,All-Rounder,1000000,Chennai Super Kings,2014,Indian,0.1,4,True
+Vijay Shankar,All-Rounder,3500000,Sunrisers Hyderabad,2016,Indian,0.35,4,True
+Vijay Shankar,All-Rounder,32000000,Delhi Daredevils,2018,Indian,3.2,4,True
+Vijay Shankar,All-Rounder,14000000,Gujarat Titans,2022,Indian,1.4,4,True
+Vijay Zol,Batsman,3000000,Royal Challengers Bangalore,2014,Indian,0.3,1,False
+Vikas Tokas,Bowler,1000000,Royal Challengers Bangalore,2016,Indian,0.1,1,False
+Vikramjeet Malik,Bowler,2000000,Rajasthan Royals,2014,Indian,0.2,2,True
+Vikramjeet Malik,Bowler,2000000,Royal Challengers Bangalore,2016,Indian,0.2,2,True
+Virat Singh,Batsman,19000000,Sunrisers Hyderabad,2020,Indian,1.9,1,False
+Virender Sehwag,Batsman,32000000,Kings XI Punjab,2014,Indian,3.2,1,False
+Vishnu Vinod,Wicket Keeper,2000000,Delhi Capitals,2021,Indian,0.2,2,True
+Vishnu Vinod,Wicket Keeper,5000000,Sunrisers Hyderabad,2022,Indian,0.5,2,True
+Wanindu Hasaranga,All-Rounder,107500000,Royal Challengers Bangalore,2022,Overseas,10.75,1,False
+Washington Sundar,All-Rounder,87500000,Sunrisers Hyderabad,2022,Indian,8.75,2,True
+Wayne Parnell,Bowler,10000000,Delhi Daredevils,2014,Overseas,1.0,1,False
+Wriddhiman Saha,Wicket Keeper,22000000,Kings XI Punjab,2014,Indian,2.2,4,True
+Wriddhiman Saha,Wicket Keeper,50000000,Sunrisers Hyderabad,2018,Indian,5.0,4,True
+Wriddhiman Saha,Wicket Keeper,12000000,Sunrisers Hyderabad,2019,Indian,1.2,4,True
+Wriddhiman Saha,Wicket Keeper,19000000,Gujarat Titans,2022,Indian,1.9,4,True
+Writtick Chatterjee,All-Rounder,2000000,Punjab Kings,2022,Indian,0.2,1,False
+Yash Dayal,Bowler,32000000,Gujarat Titans,2022,Indian,3.2,1,False
+Yash Dhull,All-Rounder,5000000,Delhi Capitals,2022,Indian,0.5,1,False
+Yashasvi Jaiswal,All-Rounder,24000000,Rajasthan Royals,2020,Indian,2.4,1,False
+Yogesh Gowalkar,All-Rounder,1000000,Kings XI Punjab,2015,Indian,0.1,1,False
+Yogesh Takawale,Wicket Keeper,1000000,Royal Challengers Bangalore,2014,Indian,0.1,1,False
+Yudhvir Charak,All-Rounder,2000000,Mumbai Indians,2021,Indian,0.2,1,False
+Yusuf Pathan,All-Rounder,32500000,Kolkata Knight Riders,2014,Indian,3.25,2,True
+Yusuf Pathan,All-Rounder,19000000,Sunrisers Hyderabad,2018,Indian,1.9,2,True
+Yuvraj Singh,All-Rounder,140000000,Royal Challengers Bangalore,2014,Indian,14.0,5,True
+Yuvraj Singh,Batsman,160000000,Delhi Daredevils,2015,Indian,16.0,5,True
+Yuvraj Singh,All-Rounder,70000000,Sunrisers Hyderabad,2016,Indian,7.0,5,True
+Yuvraj Singh,All-Rounder,20000000,Kings XI Punjab,2018,Indian,2.0,5,True
+Yuvraj Singh,All-Rounder,10000000,Mumbai Indians,2019,Indian,1.0,5,True
+Yuzvendra Chahal,Bowler,65000000,Rajasthan Royals,2022,Indian,6.5,1,False
+Yuzvendra Singh Chahal,Bowler,1000000,Royal Challengers Bangalore,2014,Indian,0.1,2,True
+Yuzvendra Singh Chahal,Bowler,60000000,Royal Challengers Bangalore,2018,Indian,6.0,2,True
+Zaheer Khan,Bowler,26000000,Mumbai Indians,2014,Indian,2.6,2,True
+Zaheer Khan,Bowler,40000000,Delhi Daredevils,2015,Indian,4.0,2,True
+Zahir Khan Pakteen,Bowler,6000000,Rajasthan Royals,2018,Indian,0.6,1,False

@@ -1,0 +1,1081 @@
+/**
+ * Individual Player Performance Intelligence Profile
+ * Comprehensive individual player analytics workspace:
+ * - Batting & Bowling career benchmarks
+ * - Pace vs Spin splits (runs, balls, SR, boundary %, dot %)
+ * - Phase-by-phase breakdown (Powerplay, Middle, Death overs)
+ * - Format breakdown (Test, ODI, T20, T20I)
+ * - Opponent team and Venue performance records
+ * - Year-wise trajectory and recent match logs
+ * - Automated strengths & weaknesses
+ * - Machine Learning cosine similarity engine
+ * - Dynamic profile-level filters for Format, Years, Season, Opponent, Venue, Pace/Spin, Phase
+ */
+import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import {
+  getPlayer,
+  getPlayerAnalytics,
+  getPlayerFilterMetadata,
+  getPlayerSimilar,
+  getPlayerSimilarBowlers,
+  getPlayerSimilarAllRounders,
+  getPlayerWinProbabilityImpact
+} from '../../services/api';
+import {
+  LoadingSpinner, ErrorState, EmptyState, StatCard, Badge, Avatar
+} from '../../components/ui';
+import Icon from '../../components/icons';
+import { BarChart, LineChart } from '../../components/charts';
+import MatchCentreLink from '../../components/MatchCentreLink';
+import { BattingDeepDive, BowlingDeepDive } from './PlayerDeepAnalytics';
+import { Tabs } from '../../components/ui';
+
+export default function PlayerProfile() {
+  const { id } = useParams();
+
+  // Filter State
+  const [format, setFormat] = useState('T20');
+  const [startYear, setStartYear] = useState('');
+  const [endYear, setEndYear] = useState('');
+  const [appliedStartYear, setAppliedStartYear] = useState('');
+  const [appliedEndYear, setAppliedEndYear] = useState('');
+  const [yearFilterError, setYearFilterError] = useState('');
+  const invalidYearRange = Boolean(startYear && endYear && Number(startYear) > Number(endYear));
+  const [season, setSeason] = useState('');
+  const [vsTeamId, setVsTeamId] = useState('');
+  const [venueId, setVenueId] = useState('');
+  const [bowlingStyle, setBowlingStyle] = useState('');
+  const [phase, setPhase] = useState('');
+  const phaseLabels = ['ODI', 'ODM'].includes(format)
+    ? { powerplay: 'Powerplay (1–10)', middle: 'Middle (11–40)', death: 'Death (41–50)' }
+    : ['T20', 'T20I'].includes(format)
+      ? { powerplay: 'Powerplay (1–6)', middle: 'Middle (7–15)', death: 'Death (16–20)' }
+      : null;
+
+  // Active Tab
+  const [activeTab, setActiveTab] = useState('overview'); // 'overview', 'splits', 'opponents', 'trends', 'similar'
+
+  // Metadata State (Venues, Teams, Years)
+  const [metadata, setMetadata] = useState(null);
+  const [metadataLoading, setMetadataLoading] = useState(true);
+  const [metadataError, setMetadataError] = useState('');
+
+  // Profile Analytics Data
+  const [analytics, setAnalytics] = useState(null);
+  const [playerBio, setPlayerBio] = useState(null);
+  const [winImpact, setWinImpact] = useState(null);
+  const [winImpactLoading, setWinImpactLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => { let active = true; getPlayer(id).then(data => { if (active) setPlayerBio(data); }).catch(() => {}); return () => { active = false; }; }, [id]);
+
+  useEffect(() => {
+    if (activeTab !== 'impact') return;
+    let active = true;
+    setWinImpactLoading(true);
+    getPlayerWinProbabilityImpact(id).then(result => { if (active) setWinImpact(result); })
+      .catch(() => { if (active) setWinImpact(null); })
+      .finally(() => { if (active) setWinImpactLoading(false); });
+    return () => { active = false; };
+  }, [id, activeTab]);
+
+  // ML Similar Players
+  const [similarData, setSimilarData] = useState(null);
+  const [bowlerSimilarData, setBowlerSimilarData] = useState(null);
+  const [allRounderSimilarData, setAllRounderSimilarData] = useState(null);
+  const [similarLoading, setSimilarLoading] = useState(false);
+  const [similarMode, setSimilarMode] = useState('batter');
+
+  // Load all directory-backed filter options when the profile opens. These are
+  // needed by the filters themselves, not only by the all-rounder similarity tab.
+  useEffect(() => {
+    let mounted = true;
+    getPlayerFilterMetadata()
+      .then(res => {
+        if (mounted) {
+          setMetadata(res);
+          setMetadataError('');
+        }
+      })
+      .catch(err => {
+        if (mounted) setMetadataError(err.message || 'Could not load filter options.');
+      })
+      .finally(() => { if (mounted) setMetadataLoading(false); });
+    return () => { mounted = false; };
+  }, [id]);
+
+  // Fetch player analytics whenever filters change
+  const fetchAnalytics = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const params = {
+        format: format || undefined,
+        start_year: appliedStartYear ? Number(appliedStartYear) : undefined,
+        end_year: appliedEndYear ? Number(appliedEndYear) : undefined,
+        season: season || undefined,
+        vs_team_id: vsTeamId || undefined,
+        venue_id: venueId || undefined,
+        bowling_style: bowlingStyle || undefined,
+        phase: phase || undefined,
+      };
+
+      const res = await getPlayerAnalytics(id, params);
+      setAnalytics(res);
+    } catch (err) {
+      setError(err.message || 'Failed to fetch player analytics profile.');
+    } finally {
+      setLoading(false);
+    }
+  }, [id, format, appliedStartYear, appliedEndYear, season, vsTeamId, venueId, bowlingStyle, phase]);
+
+  useEffect(() => {
+    fetchAnalytics();
+  }, [fetchAnalytics]);
+
+  // Innings-level dashboards share the profile filters (phase/bowling-style split innings, so they are not applied there).
+  const deepParams = useMemo(() => ({
+    format: format || undefined,
+    start_year: appliedStartYear || undefined,
+    end_year: appliedEndYear || undefined,
+    season: season || undefined,
+    vs_team_id: vsTeamId || undefined,
+    venue_id: venueId || undefined,
+  }), [format, appliedStartYear, appliedEndYear, season, vsTeamId, venueId]);
+
+  // Fetch ML similar players for the current format
+  useEffect(() => {
+    if (activeTab !== 'similar' || similarMode !== 'batter') return;
+    let mounted = true;
+    setSimilarLoading(true);
+    getPlayerSimilar(id, { format: format || 'T20', limit: 10 })
+      .then(res => {
+        if (mounted) {
+          setSimilarData(res);
+          setSimilarLoading(false);
+        }
+      })
+      .catch(() => {
+        if (mounted) {
+          setSimilarData(null);
+          setSimilarLoading(false);
+        }
+      });
+    return () => { mounted = false; };
+  }, [id, format, activeTab, similarMode]);
+
+  useEffect(() => {
+    if (activeTab !== 'similar' || similarMode !== 'all_rounder') return;
+    let mounted = true;
+    getPlayerSimilarAllRounders(id, { format: format || 'T20', limit: 10 })
+      .then(res => { if (mounted) setAllRounderSimilarData(res); })
+      .catch(() => { if (mounted) setAllRounderSimilarData(null); });
+    return () => { mounted = false; };
+  }, [id, format, activeTab, similarMode]);
+
+  useEffect(() => {
+    if (activeTab !== 'similar' || similarMode !== 'bowler') return;
+    let mounted = true;
+    getPlayerSimilarBowlers(id, { format: format || 'T20', limit: 10 })
+      .then(res => { if (mounted) setBowlerSimilarData(res); })
+      .catch(() => { if (mounted) setBowlerSimilarData(null); });
+    return () => { mounted = false; };
+  }, [id, format, activeTab, similarMode]);
+
+  // Reset profile filters
+  const handleResetFilters = () => {
+    setFormat('T20');
+    setStartYear('');
+    setEndYear('');
+    setAppliedStartYear('');
+    setAppliedEndYear('');
+    setYearFilterError('');
+    setSeason('');
+    setVsTeamId('');
+    setVenueId('');
+    setBowlingStyle('');
+    setPhase('');
+  };
+
+  const applyYearFilters = () => {
+    if (startYear && endYear && Number(startYear) > Number(endYear)) {
+      setYearFilterError('From Year must be earlier than or equal to To Year.');
+      return;
+    }
+    setYearFilterError('');
+    setAppliedStartYear(startYear);
+    setAppliedEndYear(endYear);
+  };
+
+  const activeFiltersCount = useMemo(() => {
+    let count = 0;
+    if (format) count++;
+    if (appliedStartYear || appliedEndYear) count++;
+    if (season) count++;
+    if (vsTeamId) count++;
+    if (venueId) count++;
+    if (bowlingStyle) count++;
+    if (phase) count++;
+    return count;
+  }, [format, appliedStartYear, appliedEndYear, season, vsTeamId, venueId, bowlingStyle, phase]);
+
+  // Export full profile analytics as CSV
+  const handleExportCSV = () => {
+    if (!analytics) return;
+    const { player_name, batting, bowling, pace_spin, phases, format_breakdown, by_opponent, by_venue, year_trends } = analytics;
+    const lines = [
+      ['Report', 'Cricket Performance Intelligence — Comprehensive Player Profile'],
+      ['Player Name', player_name],
+      ['Format Filter', format || 'All Formats'],
+      ['Date Range', `${appliedStartYear || 'Any'} - ${appliedEndYear || 'Any'}`],
+      [],
+      ['=== OVERALL BATTING BENCHMARKS ==='],
+      ['Matches', batting.matches],
+      ['Innings', batting.innings],
+      ['Runs', batting.runs],
+      ['Balls Faced', batting.balls_faced],
+      ['Batting Average', batting.average ?? '—'],
+      ['Strike Rate', batting.strike_rate ?? '—'],
+      ['Highest Score', batting.highest_score],
+      ['Fours', batting.fours],
+      ['Sixes', batting.sixes],
+      ['Boundary %', `${batting.boundary_percentage ?? '—'}%`],
+      ['Dot Ball %', `${batting.dot_ball_percentage ?? '—'}%`],
+      [],
+      ['=== OVERALL BOWLING BENCHMARKS ==='],
+      ['Innings Bowled', bowling.innings_bowled],
+      ['Overs', bowling.overs_display],
+      ['Wickets', bowling.wickets],
+      ['Runs Conceded', bowling.runs_conceded],
+      ['Economy Rate', bowling.economy_rate ?? '—'],
+      ['Bowling Average', bowling.bowling_average ?? '—'],
+      ['Bowling Strike Rate', bowling.bowling_strike_rate ?? '—'],
+      ['Dot Ball %', `${bowling.dot_ball_percentage ?? '—'}%`],
+      [],
+      ['=== PACE VS SPIN PERFORMANCE ==='],
+      ['Style', 'Runs', 'Balls', 'Strike Rate', 'Average', 'Fours', 'Sixes', 'Dot %', 'Boundary %'],
+      ...pace_spin.map(p => [p.style.toUpperCase(), p.runs, p.balls, p.strike_rate ?? '', p.average ?? '', p.fours, p.sixes, `${p.dot_ball_percentage ?? ''}%`, `${p.boundary_percentage ?? ''}%`]),
+      [],
+      ['=== PHASE PERFORMANCE ==='],
+      ['Phase', 'Role', 'Runs', 'Balls', 'Strike Rate', 'Average', 'Fours', 'Sixes', 'Dot %'],
+      ...phases.map(p => [p.phase.toUpperCase(), p.role, p.runs, p.balls, p.strike_rate ?? '', p.average ?? '', p.fours, p.sixes, `${p.dot_ball_percentage ?? ''}%`]),
+      [],
+      ['=== FORMAT COMPARISON ==='],
+      ['Format', 'Matches', 'Innings', 'Runs', 'Balls', 'Bat Avg', 'Bat SR', 'Wkts', 'Economy'],
+      ...format_breakdown.map(f => [f.format, f.matches, f.innings_batted, f.runs, f.balls_faced, f.batting_average ?? '', f.batting_strike_rate ?? '', f.wickets, f.economy_rate ?? '']),
+      [],
+      ['=== TOP OPPONENT TEAMS ==='],
+      ['Opponent', 'Matches', 'Runs', 'Balls', 'Strike Rate'],
+      ...by_opponent.map(o => [o.opponent_name, o.matches, o.runs, o.balls_faced, o.batting_strike_rate ?? '']),
+      [],
+      ['=== TOP GROUNDS / VENUES ==='],
+      ['Venue', 'Matches', 'Runs', 'Balls', 'Strike Rate'],
+      ...by_venue.map(v => [v.venue_name, v.matches, v.runs, v.balls_faced, v.batting_strike_rate ?? '']),
+    ];
+
+    const csvContent = 'data:text/csv;charset=utf-8,' + lines.map(r => r.join(',')).join('\n');
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', `cpi-player-profile-${player_name.toLowerCase().replace(/\s+/g, '-')}-${new Date().toISOString().slice(0, 10)}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const formatsList = [
+    { id: '', label: 'All Formats' },
+    { id: 'T20I', label: 'T20I (International)' },
+    { id: 'T20', label: 'T20 (Franchise)' },
+    { id: 'ODI', label: 'ODI' },
+    { id: 'Test', label: 'Test' },
+    { id: 'MDM', label: 'Multi-day domestic' },
+    { id: 'ODM', label: 'One-day domestic' },
+  ];
+
+  const activeSimilarityData = similarMode === 'bowler'
+    ? bowlerSimilarData
+    : similarMode === 'all_rounder' ? allRounderSimilarData : similarData;
+
+  return (
+    <div className="space-y-6">
+      {playerBio?.analytics_notice && <section className="rounded-lg border border-amber-800 bg-amber-950/30 p-4 text-sm text-amber-200">
+        <p>{playerBio.analytics_notice}</p>
+        <p className="mt-1 text-xs text-amber-300/80">Source: {playerBio.data_source} · Availability: {playerBio.data_availability}</p>
+        {playerBio.external_basic_stats && <pre className="mt-3 whitespace-pre-wrap text-xs text-slate-300">{JSON.stringify(playerBio.external_basic_stats, null, 2)}</pre>}
+      </section>}
+      {/* Scouting-dossier header */}
+      <section className="panel relative overflow-hidden">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_140%_at_0%_0%,rgb(var(--accent)/0.11),transparent_60%)]" />
+        <div className="relative flex flex-col gap-5 p-5 sm:p-6 lg:flex-row lg:items-start lg:justify-between">
+          <div className="flex min-w-0 items-start gap-4">
+            <Avatar name={analytics?.player_name || playerBio?.name} size="lg" />
+            <div className="min-w-0">
+              <div className="mb-1.5 flex items-center gap-1.5 text-2xs text-slate-500">
+                <Link to="/players" className="transition-colors hover:text-slate-200">Players</Link><span className="text-slate-700">/</span><span>Profile</span>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <h1 className="title-xl">{analytics?.player_name || playerBio?.full_name || playerBio?.name || 'Player profile'}</h1>
+                {analytics?.primary_role && <Badge variant="indigo">{analytics.primary_role}</Badge>}
+              </div>
+              <dl className="mt-3 grid grid-cols-2 gap-x-6 gap-y-2.5 text-xs sm:flex sm:flex-wrap">
+                {[
+                  ['Country', analytics?.nationality || (playerBio?.nationality !== 'Unknown' ? playerBio?.nationality : null)],
+                  ['Age', analytics?.age ?? playerBio?.age],
+                  ['Batting', analytics?.batting_style || playerBio?.batting_style],
+                  ['Board role', analytics?.official_role],
+                ].filter(([, v]) => v !== null && v !== undefined && v !== '').map(([k, v]) => (
+                  <div key={k} className="min-w-0"><dt className="eyebrow mb-0.5">{k}</dt><dd className="truncate text-slate-200">{v}</dd></div>
+                ))}
+                <div className="col-span-2 min-w-0">
+                  <dt className="eyebrow mb-0.5">Bowling classification</dt>
+                  <dd className="flex flex-wrap items-center gap-1.5">
+                    <span className="text-slate-200">{analytics?.bowling_style || 'Not available'}</span>
+                    {analytics?.bowling_type && <Badge variant="blue">{analytics.bowling_type}</Badge>}
+                    {analytics?.bowling_arm && <Badge>{analytics.bowling_arm}</Badge>}
+                    {analytics?.bowling_speed_category && <Badge>{analytics.bowling_speed_category}</Badge>}
+                  </dd>
+                </div>
+              </dl>
+              <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-3xs text-slate-600">
+                {analytics?.source_player_id && <span className="font-mono">ID {analytics.source_player_id}</span>}
+                {analytics?.role_source && <span>Role: {analytics.role_source} · {analytics.role_confidence} confidence</span>}
+                {analytics?.bowling_style_source && <span>Bowling: {analytics.bowling_style_source} · {analytics.bowling_style_confidence || 'unspecified'} confidence</span>}
+                {playerBio?.data_source && <span>Data: {playerBio.data_source} · {playerBio.data_availability} availability</span>}
+              </div>
+            </div>
+          </div>
+          <div className="flex shrink-0 flex-wrap items-center gap-2">
+            <button onClick={handleExportCSV} disabled={!analytics} className="btn btn-secondary btn-sm"><Icon name="download" size={14} />Export CSV</button>
+            <Link to={`/compare?players=${id}`} className="btn btn-secondary btn-sm"><Icon name="compare" size={14} />Compare</Link>
+            <Link to={`/matchups?batter=${id}`} className="btn btn-primary btn-sm">Head-to-head<Icon name="arrowRight" size={14} /></Link>
+          </div>
+        </div>
+        {analytics && (
+          <div className="relative grid grid-cols-2 border-t border-line bg-surface-sunken/40 sm:grid-cols-4 lg:grid-cols-7">
+            {[
+              { label: 'Format', value: formatsList.find(f => f.id === format)?.label?.split(' (')[0] || format || 'All', sub: appliedStartYear || appliedEndYear ? `${appliedStartYear || '…'}–${appliedEndYear || '…'}` : 'All years' },
+              { label: 'Runs', value: analytics.batting?.runs?.toLocaleString(), sub: `${analytics.batting?.innings ?? 0} innings` },
+              { label: 'Bat average', value: analytics.batting?.average != null ? analytics.batting.average.toFixed(2) : null, sub: <>HS <MatchCentreLink matchId={analytics.batting?.highest_score_match_id} context={{ playerId: id, focus: 'batting' }}>{analytics.batting?.highest_score ?? '—'}</MatchCentreLink></> },
+              { label: 'Strike rate', value: analytics.batting?.strike_rate != null ? analytics.batting.strike_rate.toFixed(1) : null, sub: analytics.batting?.boundary_percentage != null ? `${analytics.batting.boundary_percentage.toFixed(1)}% boundaries` : null },
+              { label: 'Wickets', value: analytics.bowling?.legal_balls > 0 ? analytics.bowling.wickets : null, sub: analytics.bowling?.legal_balls > 0 ? `${Math.floor(analytics.bowling.legal_balls / 6)}.${analytics.bowling.legal_balls % 6} overs` : 'Has not bowled' },
+              { label: 'Economy', value: analytics.bowling?.economy_rate != null ? analytics.bowling.economy_rate.toFixed(2) : null, sub: analytics.bowling?.average != null ? `avg ${analytics.bowling.average.toFixed(2)}` : null },
+              { label: 'Dot ball %', value: analytics.batting?.dot_ball_percentage != null ? `${analytics.batting.dot_ball_percentage.toFixed(1)}%` : null, sub: 'Batting' },
+            ].map((m, i) => (
+              <div key={m.label} className={`min-w-0 border-line px-4 py-3 sm:px-5 ${i ? 'lg:border-l' : ''} max-lg:border-b max-sm:odd:border-r`}>
+                <div className="eyebrow mb-1 truncate">{m.label}</div>
+                <div className="num truncate text-lg font-semibold leading-tight tracking-tight text-white">{m.value ?? <span className="text-slate-600">—</span>}</div>
+                {m.sub && <div className="mt-0.5 truncate text-3xs text-slate-500">{m.sub}</div>}
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* Comprehensive Profile Filter Bar */}
+      <div className="panel space-y-3 p-4">
+        <div className="flex items-center justify-between border-b border-line pb-2.5">
+          <div className="flex items-center gap-2">
+            <Icon name="filter" size={14} className="text-slate-500" />
+            <span className="text-[13px] font-semibold text-slate-100">Analysis filters</span>
+            {activeFiltersCount > 0 && (
+              <span className="bg-indigo-900/60 text-indigo-300 text-[10px] px-2 py-0.5 rounded-full font-semibold border border-indigo-700/60">
+                {activeFiltersCount} active
+              </span>
+            )}
+          </div>
+          {(activeFiltersCount > 0 || startYear || endYear) && (
+            <button
+              onClick={handleResetFilters}
+              className="text-[11px] text-slate-400 hover:text-rose-400 transition-colors"
+            >
+              Reset Filters
+            </button>
+          )}
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3 text-xs">
+          {/* Format */}
+          <div>
+            <label className="mb-1.5 block text-2xs font-medium text-slate-500">Format</label>
+            <select
+              value={format}
+              onChange={e => { setFormat(e.target.value); setPhase(''); }}
+              className="h-9 w-full px-3 text-[13px]"
+            >
+              {formatsList.map(f => (
+                <option key={f.id} value={f.id}>{f.label}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* From Year */}
+          <div>
+            <label className="mb-1.5 block text-2xs font-medium text-slate-500">From Year</label>
+            <select
+              value={startYear}
+              onChange={e => setStartYear(e.target.value)}
+              disabled={metadataLoading}
+              className="h-9 w-full px-3 text-[13px]"
+            >
+              <option value="">{metadataLoading ? 'Loading years…' : `Any (${metadata?.min_year || '—'})`}</option>
+              {metadata?.years?.map(y => (
+                <option key={y} value={y}>{y}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* To Year */}
+          <div>
+            <label className="mb-1.5 block text-2xs font-medium text-slate-500">To Year</label>
+            <select
+              value={endYear}
+              onChange={e => setEndYear(e.target.value)}
+              disabled={metadataLoading}
+              className="h-9 w-full px-3 text-[13px]"
+            >
+              <option value="">{metadataLoading ? 'Loading years…' : `Any (${metadata?.max_year || '—'})`}</option>
+              {metadata?.years?.map(y => (
+                <option key={y} value={y}>{y}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Opponent */}
+          <div>
+            <label className="mb-1.5 block text-2xs font-medium text-slate-500">Opponent</label>
+            <select
+              value={vsTeamId}
+              onChange={e => setVsTeamId(e.target.value)}
+              disabled={metadataLoading}
+              className="h-9 w-full px-3 text-[13px]"
+            >
+              <option value="">All Opponents</option>
+              {metadata?.teams?.map(t => (
+                <option key={t.id} value={t.id}>{t.name}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Venue */}
+          <div>
+            <label className="mb-1.5 block text-2xs font-medium text-slate-500">Venue</label>
+            <select
+              value={venueId}
+              onChange={e => setVenueId(e.target.value)}
+              disabled={metadataLoading}
+              className="h-9 w-full px-3 text-[13px]"
+            >
+              <option value="">All Venues</option>
+              {metadata?.venues?.map(v => (
+                <option key={v.id} value={v.id}>{v.name}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Bowling Style (Pace vs Spin) */}
+          <div>
+            <label className="mb-1.5 block text-2xs font-medium text-slate-500">Bowler Style</label>
+            <select
+              value={bowlingStyle}
+              onChange={e => setBowlingStyle(e.target.value)}
+              className="h-9 w-full px-3 text-[13px]"
+            >
+              <option value="">All Styles</option>
+              <option value="pace">vs Pace Bowlers</option>
+              <option value="spin">vs Spin Bowlers</option>
+              {(metadata?.bowling_styles || []).map(style => <option key={style} value={style}>{style}</option>)}
+            </select>
+          </div>
+
+          {/* Phase */}
+          <div>
+            <label className="mb-1.5 block text-2xs font-medium text-slate-500">Match Phase</label>
+            <select
+              value={phase}
+              onChange={e => setPhase(e.target.value)}
+              className="h-9 w-full px-3 text-[13px]"
+            >
+              <option value="">All Overs</option>
+              {phaseLabels ? <>
+                <option value="powerplay">{phaseLabels.powerplay}</option>
+                <option value="middle">{phaseLabels.middle}</option>
+                <option value="death">{phaseLabels.death}</option>
+              </> : <option value="" disabled>Select a limited-overs format</option>}
+            </select>
+          </div>
+        </div>
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+          <div className="text-[11px] text-slate-500">
+            {appliedStartYear || appliedEndYear ? `Showing ${appliedStartYear || 'all available years'}–${appliedEndYear || 'all available years'} · ${format || 'all formats'}` : `Showing all available years · ${format || 'all formats'}`}
+            {(yearFilterError || (invalidYearRange && 'From Year must be earlier than or equal to To Year.') || metadataError) && <span className="block text-rose-400 mt-1">{yearFilterError || (invalidYearRange ? 'From Year must be earlier than or equal to To Year.' : metadataError)}</span>}
+          </div>
+          <button onClick={applyYearFilters} disabled={invalidYearRange}
+            className="btn btn-primary btn-sm">Apply year range</button>
+        </div>
+      </div>
+
+      {/* Navigation Tabs */}
+      <Tabs value={activeTab} onChange={setActiveTab} tabs={[
+        { id: 'overview', label: 'Overview' },
+        { id: 'batting', label: 'Batting Deep Dive' },
+        { id: 'bowling', label: 'Bowling Deep Dive' },
+        { id: 'splits', label: 'Pace/Spin & Phases' },
+        { id: 'opponents', label: 'Opponents & Venues' },
+        { id: 'trends', label: 'Trajectory & Form' },
+        { id: 'impact', label: 'Win Probability Impact' },
+        { id: 'similar', label: 'Similar Profiles' },
+      ]} />
+
+      {activeTab === 'batting' && <BattingDeepDive playerId={id} params={deepParams} />}
+      {activeTab === 'bowling' && <BowlingDeepDive playerId={id} params={deepParams} bowlingStyle={analytics?.bowling_style} />}
+
+      {/* Loading & Error States */}
+      {!['batting', 'bowling'].includes(activeTab) && loading && <LoadingSpinner message="Computing delivery-level performance analytics…" />}
+      {!['batting', 'bowling'].includes(activeTab) && error && <ErrorState message={error} onRetry={fetchAnalytics} />}
+
+      {!['batting', 'bowling'].includes(activeTab) && !loading && !error && analytics && (
+        <div className="space-y-8">
+          {/* TAB 1: OVERVIEW & BENCHMARKS */}
+          {activeTab === 'overview' && (
+            <div className="space-y-6">
+              {/* Tactical Strengths & Weaknesses Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-emerald-950/20 border border-emerald-800/40 rounded-xl p-4">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-1.5">
+                    <span>✓</span> Key Strengths & Tactical Edges
+                  </h3>
+                  {analytics.primary_role.includes('All-Rounder') ? <div className="grid sm:grid-cols-2 gap-3 text-xs text-slate-300">
+                    {[['Batting', analytics.strengths_weaknesses.batting_strengths], ['Bowling', analytics.strengths_weaknesses.bowling_strengths]].map(([label, items]) => <div key={label}>
+                      <p className="text-[10px] uppercase tracking-wide text-emerald-300 mb-1">{label}</p>
+                      {items.map((s, i) => <p key={i} className="mb-1">• {s}</p>)}
+                    </div>)}
+                  </div> : <ul className="space-y-1.5 text-xs text-slate-300">
+                    {analytics.strengths_weaknesses.strengths.map((s, i) => <li key={i} className="flex items-start gap-2"><span className="text-emerald-400 font-bold">•</span><span>{s}</span></li>)}
+                  </ul>}
+                </div>
+
+                <div className="bg-rose-950/20 border border-rose-800/40 rounded-xl p-4">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-rose-400 mb-2 flex items-center gap-1.5">
+                    <span>⚠</span> Caveats & Matchup Vulnerabilities
+                  </h3>
+                  {analytics.primary_role.includes('All-Rounder') ? <div className="grid sm:grid-cols-2 gap-3 text-xs text-slate-300">
+                    {[['Batting', analytics.strengths_weaknesses.batting_weaknesses], ['Bowling', analytics.strengths_weaknesses.bowling_weaknesses]].map(([label, items]) => <div key={label}>
+                      <p className="text-[10px] uppercase tracking-wide text-rose-300 mb-1">{label}</p>
+                      {items.map((w, i) => <p key={i} className="mb-1">• {w}</p>)}
+                    </div>)}
+                  </div> : <ul className="space-y-1.5 text-xs text-slate-300">
+                    {analytics.strengths_weaknesses.weaknesses.map((w, i) => <li key={i} className="flex items-start gap-2"><span className="text-rose-400 font-bold">•</span><span>{w}</span></li>)}
+                  </ul>}
+                </div>
+              </div>
+
+              {/* Complete Batting Benchmarks */}
+              <section className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Complete Batting Benchmarks</h3>
+                  <span className="text-[11px] text-slate-500 font-mono">
+                    {analytics.batting.sample_note}
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3">
+                  <StatCard label="Runs" value={analytics.batting.runs.toLocaleString()} highlight />
+                  <StatCard label="Batting Avg" value={analytics.batting.average != null ? analytics.batting.average.toFixed(2) : '—'} highlight />
+                  <StatCard label="Strike Rate" value={analytics.batting.strike_rate != null ? analytics.batting.strike_rate.toFixed(1) : '—'} highlight />
+                  <StatCard label="Highest Score" value={<MatchCentreLink matchId={analytics.batting.highest_score_match_id} context={{ playerId: id, focus: 'batting' }}>{analytics.batting.highest_score}</MatchCentreLink>} />
+                  <StatCard label="Innings / NO" value={`${analytics.batting.innings} / ${analytics.batting.not_outs}`} />
+                  <StatCard label="Balls Faced" value={analytics.batting.balls_faced.toLocaleString()} />
+                  <StatCard label="Boundaries (4s/6s)" value={`${analytics.batting.fours} / ${analytics.batting.sixes}`} />
+                  <StatCard label="Boundary %" value={analytics.batting.boundary_percentage != null ? `${analytics.batting.boundary_percentage.toFixed(1)}%` : '—'} />
+                  <StatCard label="Dot Ball %" value={analytics.batting.dot_ball_percentage != null ? `${analytics.batting.dot_ball_percentage.toFixed(1)}%` : '—'} />
+                  <StatCard label="Dismissals" value={analytics.batting.dismissals} />
+                </div>
+              </section>
+
+              {/* Complete Bowling Benchmarks (if bowled) */}
+              {analytics.bowling.legal_balls > 0 && (
+                <section className="space-y-3 pt-4 border-t border-slate-800">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Complete Bowling Benchmarks</h3>
+                    <span className="text-[11px] text-slate-500 font-mono">
+                      {analytics.bowling.sample_note}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3">
+                    <StatCard label="Wickets" value={analytics.bowling.wickets} highlight />
+                    <StatCard label="Economy Rate" value={analytics.bowling.economy_rate != null ? analytics.bowling.economy_rate.toFixed(2) : '—'} highlight />
+                    <StatCard label="Bowling Avg" value={analytics.bowling.bowling_average != null ? analytics.bowling.bowling_average.toFixed(2) : '—'} />
+                    <StatCard label="Bowling SR" value={analytics.bowling.bowling_strike_rate != null ? analytics.bowling.bowling_strike_rate.toFixed(1) : '—'} />
+                    <StatCard label="Overs Bowled" value={analytics.bowling.overs_display} />
+                    <StatCard label="Runs Conceded" value={analytics.bowling.runs_conceded.toLocaleString()} />
+                    <StatCard label="Dot Ball %" value={analytics.bowling.dot_ball_percentage != null ? `${analytics.bowling.dot_ball_percentage.toFixed(1)}%` : '—'} />
+                    <StatCard label="Innings Bowled" value={analytics.bowling.innings_bowled} />
+                  </div>
+                </section>
+              )}
+
+              {/* Format-by-Format Breakdown Table */}
+              <section className="space-y-3 pt-4 border-t border-slate-800">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Multi-Format Comparison (Test, ODI, T20, T20I)</h3>
+                <div className="panel overflow-x-auto">
+                  <table className="w-full text-left text-xs text-slate-300">
+                    <thead className="bg-slate-800 text-[11px] uppercase tracking-wider text-slate-400">
+                      <tr>
+                        <th className="py-2.5 px-4 font-semibold">Format</th>
+                        <th className="py-2.5 px-3 text-right">Matches</th>
+                        <th className="py-2.5 px-3 text-right">Innings</th>
+                        <th className="py-2.5 px-3 text-right">Runs</th>
+                        <th className="py-2.5 px-3 text-right">Bat Avg</th>
+                        <th className="py-2.5 px-3 text-right">Strike Rate</th>
+                        <th className="py-2.5 px-3 text-right">Overs</th>
+                        <th className="py-2.5 px-3 text-right">Wickets</th>
+                        <th className="py-2.5 px-3 text-right">Economy</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800 font-mono text-[12px]">
+                      {analytics.format_breakdown.map(f => (
+                        <tr key={f.format} className="hover:bg-slate-800/40">
+                          <td className="py-2 px-4 font-sans font-semibold text-white">
+                            <span className={`inline-block px-2 py-0.5 rounded text-[11px] font-semibold ${
+                              f.format === 'T20I' ? 'bg-indigo-950 text-indigo-300 border border-indigo-800' :
+                              f.format === 'T20' ? 'bg-cyan-950 text-cyan-300 border border-cyan-800' :
+                              f.format === 'ODI' ? 'bg-blue-950 text-blue-300 border border-blue-800' :
+                              'bg-amber-950 text-amber-300 border border-amber-800'
+                            }`}>
+                              {f.format}
+                            </span>
+                          </td>
+                          <td className="py-2 px-3 text-right text-slate-400">{f.matches}</td>
+                          <td className="py-2 px-3 text-right text-slate-400">{f.innings_batted}</td>
+                          <td className="py-2 px-3 text-right font-bold text-white">{f.runs > 0 ? f.runs.toLocaleString() : '—'}</td>
+                          <td className="py-2 px-3 text-right font-medium text-indigo-300">{f.batting_average != null ? f.batting_average.toFixed(2) : '—'}</td>
+                          <td className="py-2 px-3 text-right font-medium text-emerald-400">{f.batting_strike_rate != null ? f.batting_strike_rate.toFixed(1) : '—'}</td>
+                          <td className="py-2 px-3 text-right text-slate-400">{f.overs_bowled !== '0.0' ? f.overs_bowled : '—'}</td>
+                          <td className="py-2 px-3 text-right font-bold text-amber-300">{f.wickets > 0 ? f.wickets : '—'}</td>
+                          <td className="py-2 px-3 text-right text-slate-300">{f.economy_rate != null ? f.economy_rate.toFixed(2) : '—'}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                  <BarChart title="Runs by format" subtitle="Actual runs in each separately stored format; T20 and T20I remain distinct." data={analytics.format_breakdown.filter(f => Number(f.runs) > 0).map(f => ({ label: `${f.format} · ${f.matches} matches`, value: f.runs }))} formatter={value => Math.round(value).toLocaleString()} color="var(--c1)" />
+                  <BarChart title="Bowler-credit wickets by format" subtitle="Only formats with recorded bowler-credit wickets are shown." data={analytics.format_breakdown.filter(f => Number(f.wickets) > 0).map(f => ({ label: `${f.format} · ${f.innings_bowled} inns`, value: f.wickets }))} formatter={value => `${Math.round(value)} wickets`} color="var(--c3)" />
+                  <BarChart title="Batting strike rate by format" subtitle="Format-specific strike rate; formats without faced-ball data are omitted." data={analytics.format_breakdown.filter(f => f.batting_strike_rate != null).map(f => ({ label: `${f.format} · ${f.matches} matches`, value: f.batting_strike_rate }))} formatter={value => Number(value).toFixed(1)} color="var(--c2)" />
+                  <BarChart title="Bowling economy by format" subtitle="Runs conceded per six legal deliveries, calculated separately for each format." data={analytics.format_breakdown.filter(f => f.economy_rate != null).map(f => ({ label: `${f.format} · ${f.overs_bowled} overs`, value: f.economy_rate }))} formatter={value => Number(value).toFixed(2)} color="var(--c4)" />
+                </div>
+              </section>
+            </div>
+          )}
+
+          {/* TAB 2: PACE VS SPIN & PHASES */}
+          {activeTab === 'splits' && (
+            <div className="space-y-6">
+              {/* Pace vs Spin Section */}
+              <section className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Batting Splits: Pace versus Spin</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {analytics.pace_spin.map(ps => (
+                    <div
+                      key={ps.style}
+                      className={`p-4 rounded-xl border ${
+                        ps.style === 'pace'
+                          ? 'bg-cyan-950/20 border-cyan-800/40'
+                          : 'bg-indigo-950/20 border-indigo-800/40'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="font-bold text-sm uppercase tracking-wide text-white">
+                          vs {ps.style} Bowling
+                        </span>
+                        <span className={`text-xs px-2 py-0.5 rounded font-semibold ${
+                          ps.style === 'pace' ? 'bg-cyan-900/40 text-cyan-300' : 'bg-indigo-900/40 text-indigo-300'
+                        }`}>
+                          {ps.balls} balls faced
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-2 mb-3">
+                        <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 text-center">
+                          <span className="block text-[10px] text-slate-500 uppercase">Runs</span>
+                          <span className="font-bold text-base text-white">{ps.runs.toLocaleString()}</span>
+                        </div>
+                        <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 text-center">
+                          <span className="block text-[10px] text-slate-500 uppercase">Strike Rate</span>
+                          <span className="font-bold text-base text-emerald-400">
+                            {ps.strike_rate != null ? ps.strike_rate.toFixed(1) : '—'}
+                          </span>
+                        </div>
+                        <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 text-center">
+                          <span className="block text-[10px] text-slate-500 uppercase">Average</span>
+                          <span className="font-bold text-base text-indigo-300">
+                            {ps.average != null ? ps.average.toFixed(2) : '—'}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-2 text-[11px] text-slate-400 pt-2 border-t border-slate-800/60">
+                        <div>4s / 6s: <strong className="text-white">{ps.fours} / {ps.sixes}</strong></div>
+                        <div>Bound %: <strong className="text-white">{ps.boundary_percentage != null ? `${ps.boundary_percentage.toFixed(1)}%` : '—'}</strong></div>
+                        <div>Dot %: <strong className="text-white">{ps.dot_ball_percentage != null ? `${ps.dot_ball_percentage.toFixed(1)}%` : '—'}</strong></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                  <BarChart title="Batting strike rate by bowling style" subtitle="Delivery-classified pace and spin only; missing style data stays unavailable." data={analytics.pace_spin.filter(row=>row.strike_rate!=null).map(row=>({label:`${row.style} · n=${row.balls} balls`,value:row.strike_rate}))} formatter={value=>Number(value).toFixed(1)} color="var(--c4)" />
+                  <BarChart title="Batting average by bowling style" subtitle="Dismissal-based average against pace and spin; not-outs are not treated as dismissals." data={analytics.pace_spin.filter(row=>row.average!=null).map(row=>({label:`${row.style} · ${row.dismissals} dismissals`,value:row.average}))} formatter={value=>Number(value).toFixed(2)} color="var(--c1)" />
+                  <BarChart title="Boundary scoring by bowling style" subtitle="Share of faced balls resulting in fours or sixes." data={analytics.pace_spin.filter(row=>row.boundary_percentage!=null).map(row=>({label:`${row.style} · ${row.balls} balls`,value:row.boundary_percentage}))} formatter={value=>`${Number(value).toFixed(1)}%`} color="var(--c2)" />
+                  <BarChart title="Dot-ball pressure by bowling style" subtitle="Share of faced balls with no batter runs." data={analytics.pace_spin.filter(row=>row.dot_ball_percentage!=null).map(row=>({label:`${row.style} · ${row.balls} balls`,value:row.dot_ball_percentage}))} formatter={value=>`${Number(value).toFixed(1)}%`} color="var(--c6)" />
+                  {analytics.bowling_pace_spin?.length > 0 && <BarChart title="Bowler-credit wickets by bowling style" subtitle="Style labels are based on CPI's available bowling classification." data={analytics.bowling_pace_spin.map(row=>({label:`${row.style} · ${row.overs} overs`,value:row.wickets}))} formatter={value=>`${Math.round(value)} wickets`} color="var(--c3)" />}
+                  {analytics.bowling_pace_spin?.length > 0 && <BarChart title="Bowling economy by style" subtitle="Bowling runs conceded per six legal deliveries; style samples shown in overs." data={analytics.bowling_pace_spin.filter(row=>row.economy!=null).map(row=>({label:`${row.style} · ${row.overs} overs`,value:row.economy}))} formatter={value=>Number(value).toFixed(2)} color="var(--c5)" />}
+                  {analytics.bowling_pace_spin?.length > 0 && <BarChart title="Bowling strike rate by style" subtitle="Legal deliveries per bowler-credit wicket." data={analytics.bowling_pace_spin.filter(row=>row.bowling_strike_rate!=null).map(row=>({label:`${row.style} · ${row.wickets} wickets`,value:row.bowling_strike_rate}))} formatter={value=>Number(value).toFixed(1)} color="var(--c3)" />}
+                </div>
+              </section>
+
+              {/* Phase-wise Breakdown */}
+              <section className="space-y-3 pt-4 border-t border-slate-800">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Phase-by-Phase Batting Breakdown</h3>
+                {phaseLabels && <BarChart title="Runs by innings phase" subtitle="Format-specific phase rules; delivery totals come from the filtered player analytics." data={analytics.phases.map(p => ({ label: phaseLabels[p.phase] || p.phase, value: p.runs }))} formatter={value => `${Math.round(value).toLocaleString()} runs`} color="var(--c2)" />}
+                {phaseLabels && <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                  <BarChart title="Phase batting strike rate" subtitle="Runs per 100 faced balls; unavailable phases are omitted." data={analytics.phases.filter(p=>p.strike_rate!=null).map(p=>({label:phaseLabels[p.phase]||p.phase,value:p.strike_rate}))} formatter={value=>Number(value).toFixed(1)} color="var(--c4)" />
+                  <BarChart title="Phase dots and boundaries" subtitle="Dots and boundary balls as shares of balls faced; separate charts preserve the underlying rates." data={analytics.phases.filter(p=>p.dot_ball_percentage!=null).map(p=>({label:`${phaseLabels[p.phase]||p.phase} · dots`,value:p.dot_ball_percentage,color:'var(--c6)'})).concat(analytics.phases.filter(p=>p.boundary_percentage!=null).map(p=>({label:`${phaseLabels[p.phase]||p.phase} · boundaries`,value:p.boundary_percentage,color:'var(--c2)'})))} formatter={value=>`${Number(value).toFixed(1)}%`} color="var(--c1)" />
+                </div>}
+                {!phaseLabels ? <p className="text-xs text-slate-500">Select T20, T20I, ODI or ODM to view comparable phase breakdowns. Test and multi-day cricket use innings progression instead of powerplay phases.</p> : <div className="panel overflow-x-auto">
+                  <table className="w-full text-left text-xs text-slate-300">
+                    <thead className="bg-slate-800 text-[11px] uppercase tracking-wider text-slate-400">
+                      <tr>
+                        <th className="py-2.5 px-4 font-semibold">Match Phase</th>
+                        <th className="py-2.5 px-3 text-right">Runs</th>
+                        <th className="py-2.5 px-3 text-right">Balls</th>
+                        <th className="py-2.5 px-3 text-right">Strike Rate</th>
+                        <th className="py-2.5 px-3 text-right">Average</th>
+                        <th className="py-2.5 px-3 text-right">4s / 6s</th>
+                        <th className="py-2.5 px-3 text-right">Dot Ball %</th>
+                        <th className="py-2.5 px-3 text-right">Boundary %</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800 font-mono text-[12px]">
+                      {analytics.phases.map(p => (
+                        <tr key={p.phase} className="hover:bg-slate-800/40">
+                          <td className="py-2.5 px-4 font-sans font-semibold text-white capitalize">
+                            {phaseLabels?.[p.phase] || p.phase.replace('_', ' ')}
+                          </td>
+                          <td className="py-2.5 px-3 text-right font-bold text-white">{p.runs.toLocaleString()}</td>
+                          <td className="py-2.5 px-3 text-right text-slate-400">{p.balls.toLocaleString()}</td>
+                          <td className="py-2.5 px-3 text-right font-bold text-emerald-400">
+                            {p.strike_rate != null ? p.strike_rate.toFixed(1) : '—'}
+                          </td>
+                          <td className="py-2.5 px-3 text-right font-medium text-indigo-300">
+                            {p.average != null ? p.average.toFixed(2) : '—'}
+                          </td>
+                          <td className="py-2.5 px-3 text-right text-slate-400">{p.fours} / {p.sixes}</td>
+                          <td className="py-2.5 px-3 text-right text-slate-300">
+                            {p.dot_ball_percentage != null ? `${p.dot_ball_percentage.toFixed(1)}%` : '—'}
+                          </td>
+                          <td className="py-2.5 px-3 text-right text-slate-300">
+                            {p.boundary_percentage != null ? `${p.boundary_percentage.toFixed(1)}%` : '—'}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>}
+              </section>
+              <section className="space-y-3 pt-4 border-t border-slate-800">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Bowling Phases & Economy</h3>
+                {!analytics.bowling_phases?.length ? <p className="text-xs text-slate-500">No phase or innings-progression bowling sample is available for this format and range.</p> : <>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                    <BarChart title="Bowler-credit wickets by phase" subtitle="Super overs and non-bowler dismissals are excluded by the analytics API." data={analytics.bowling_phases.map(p => ({ label: p.phase.replaceAll('_', ' '), value: p.wickets }))} formatter={value => `${Math.round(value)} wickets`} color="var(--c3)" />
+                    <BarChart title="Phase economy comparison" subtitle="Economy per six legal deliveries; phase labels follow the selected format." data={analytics.bowling_phases.filter(p => p.economy != null).map(p => ({ label: p.phase.replaceAll('_', ' '), value: p.economy }))} formatter={value => Number(value).toFixed(2)} color="var(--c1)" />
+                    <BarChart title="Phase bowling strike rate" subtitle="Legal deliveries per bowler-credit wicket." data={analytics.bowling_phases.filter(p => p.bowling_strike_rate != null).map(p => ({ label: p.phase.replaceAll('_', ' '), value: p.bowling_strike_rate }))} formatter={value => Number(value).toFixed(1)} color="var(--c4)" />
+                    <BarChart title="Bowling dots and boundaries conceded" subtitle="Delivery percentages by phase, using only phase samples with valid denominators." data={analytics.bowling_phases.filter(p=>p.dot_ball_percentage!=null).map(p=>({label:`${p.phase.replaceAll('_',' ')} · dots`,value:p.dot_ball_percentage,color:'var(--c2)'})).concat(analytics.bowling_phases.filter(p=>p.boundary_percentage!=null).map(p=>({label:`${p.phase.replaceAll('_',' ')} · boundaries`,value:p.boundary_percentage,color:'var(--c6)'})))} formatter={value=>`${Number(value).toFixed(1)}%`} color="var(--c1)" />
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    {analytics.bowling_phases.map(p => {
+                      const maxEconomy = Math.max(1, ...analytics.bowling_phases.map(x => x.economy || 0));
+                      return <div key={p.phase} className="bg-slate-900/70 border border-slate-800 rounded-lg p-3 space-y-2">
+                        <div className="flex justify-between text-xs"><strong className="text-white capitalize">{p.phase.replaceAll('_', ' ')}</strong><span className="text-slate-400">{p.overs} ov</span></div>
+                        <div className="h-1.5 bg-slate-800 rounded"><div className="h-1.5 bg-indigo-500 rounded" style={{ width: `${Math.min(100, (p.economy || 0) / maxEconomy * 100)}%` }} /></div>
+                        <div className="grid grid-cols-2 gap-y-1 text-[11px] text-slate-400">
+                          <span>Wickets <b className="text-white">{p.wickets}</b></span><span>Runs <b className="text-white">{p.runs_conceded}</b></span>
+                          <span>Economy <b className="text-indigo-300">{p.economy == null ? '—' : p.economy.toFixed(2)}</b></span><span>Average <b className="text-white">{p.bowling_average == null ? '—' : p.bowling_average.toFixed(1)}</b></span>
+                          <span>Strike rate <b className="text-white">{p.bowling_strike_rate == null ? '—' : p.bowling_strike_rate.toFixed(1)}</b></span><span>Dots <b className="text-white">{p.dot_ball_percentage == null ? '—' : `${p.dot_ball_percentage.toFixed(1)}%`}</b></span>
+                          <span>Boundaries conceded <b className="text-white">{p.boundary_percentage == null ? '—' : `${p.boundary_percentage.toFixed(1)}%`}</b></span>
+                        </div>
+                      </div>;
+                    })}
+                  </div>
+                  {['Test', 'MDM'].includes(format) && <p className="text-[10px] text-slate-500">Test/MDM periods are thirds of each innings by recorded over progression, not powerplay phases.</p>}
+                </>}
+                {analytics.bowling_pace_spin?.length > 0 && <div className="rounded-lg border border-slate-800 overflow-x-auto">
+                  <div className="px-3 py-2 text-[10px] font-bold uppercase tracking-wide text-slate-400">Bowling effectiveness by style</div>
+                  <table className="w-full text-xs text-slate-300"><thead className="bg-slate-800 text-[10px] uppercase text-slate-400"><tr><th className="p-2 text-left">Style</th><th className="p-2 text-right">Overs</th><th className="p-2 text-right">Wkts</th><th className="p-2 text-right">Economy</th><th className="p-2 text-right">Average</th><th className="p-2 text-right">SR</th><th className="p-2 text-right">Dots</th><th className="p-2 text-right">Boundaries</th></tr></thead>
+                    <tbody>{analytics.bowling_pace_spin.map(s => <tr key={s.style} className="border-t border-slate-800"><td className="p-2 capitalize">{s.style}</td><td className="p-2 text-right">{s.overs}</td><td className="p-2 text-right">{s.wickets}</td><td className="p-2 text-right">{s.economy?.toFixed(2) ?? '—'}</td><td className="p-2 text-right">{s.bowling_average?.toFixed(1) ?? '—'}</td><td className="p-2 text-right">{s.bowling_strike_rate?.toFixed(1) ?? '—'}</td><td className="p-2 text-right">{s.dot_ball_percentage?.toFixed(1) ?? '—'}%</td><td className="p-2 text-right">{s.boundary_percentage?.toFixed(1) ?? '—'}%</td></tr>)}</tbody>
+                  </table>
+                </div>}
+              </section>
+            </div>
+          )}
+
+          {/* TAB 3: OPPONENTS & VENUES */}
+          {activeTab === 'opponents' && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Opponent Teams */}
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Performance by Opponent Team</h3>
+                <div className="grid grid-cols-1 gap-3">
+                  <BarChart title="Runs by opponent" subtitle="Top opponent samples in this filtered format and date range." data={[...analytics.by_opponent].filter(o=>Number(o.runs)>0).sort((a,b)=>b.runs-a.runs).slice(0,8).map(o=>({label:`${o.opponent_name} · ${o.matches} matches`,value:o.runs}))} formatter={value=>Math.round(value).toLocaleString()} color="var(--c1)" />
+                  <BarChart title="Strike rate by opponent" subtitle="Only opponent splits with recorded faced-ball denominators." data={[...analytics.by_opponent].filter(o=>o.batting_strike_rate!=null).sort((a,b)=>b.batting_strike_rate-a.batting_strike_rate).slice(0,8).map(o=>({label:`${o.opponent_name} · ${o.matches} matches`,value:o.batting_strike_rate}))} formatter={value=>Number(value).toFixed(1)} color="var(--c2)" />
+                </div>
+                <div className="panel overflow-x-auto">
+                  <table className="w-full text-left text-xs text-slate-300">
+                    <thead className="bg-slate-800 text-[11px] uppercase tracking-wider text-slate-400">
+                      <tr>
+                        <th className="py-2.5 px-3 font-semibold">Opponent</th>
+                        <th className="py-2.5 px-2 text-right">Mat</th>
+                        <th className="py-2.5 px-2 text-right">Runs</th>
+                        <th className="py-2.5 px-2 text-right">Balls</th>
+                        <th className="py-2.5 px-2 text-right">SR</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800 font-mono text-[11px]">
+                      {analytics.by_opponent.map(o => (
+                        <tr key={o.opponent_id} className="hover:bg-slate-800/40">
+                          <td className="py-2 px-3 font-sans font-medium text-slate-200">{o.opponent_name}</td>
+                          <td className="py-2 px-2 text-right text-slate-400">{o.matches}</td>
+                          <td className="py-2 px-2 text-right font-bold text-white">{o.runs.toLocaleString()}</td>
+                          <td className="py-2 px-2 text-right text-slate-400">{o.balls_faced}</td>
+                          <td className="py-2 px-2 text-right font-medium text-emerald-400">
+                            {o.batting_strike_rate != null ? o.batting_strike_rate.toFixed(1) : '—'}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Top Venues */}
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Performance by Venue</h3>
+                <div className="grid grid-cols-1 gap-3">
+                  <BarChart title="Runs by venue" subtitle="Top venue totals in the selected format and date range." data={[...analytics.by_venue].filter(v=>Number(v.runs)>0).sort((a,b)=>b.runs-a.runs).slice(0,8).map(v=>({label:`${v.venue_name} · ${v.matches} matches`,value:v.runs}))} formatter={value=>Math.round(value).toLocaleString()} color="var(--c5)" />
+                  <BarChart title="Strike rate by venue" subtitle="Venue splits with observed balls faced only." data={[...analytics.by_venue].filter(v=>v.batting_strike_rate!=null).sort((a,b)=>b.batting_strike_rate-a.batting_strike_rate).slice(0,8).map(v=>({label:`${v.venue_name} · ${v.matches} matches`,value:v.batting_strike_rate}))} formatter={value=>Number(value).toFixed(1)} color="var(--c4)" />
+                </div>
+                <div className="panel overflow-x-auto">
+                  <table className="w-full text-left text-xs text-slate-300">
+                    <thead className="bg-slate-800 text-[11px] uppercase tracking-wider text-slate-400">
+                      <tr>
+                        <th className="py-2.5 px-3 font-semibold">Venue</th>
+                        <th className="py-2.5 px-2 text-right">Mat</th>
+                        <th className="py-2.5 px-2 text-right">Runs</th>
+                        <th className="py-2.5 px-2 text-right">Balls</th>
+                        <th className="py-2.5 px-2 text-right">SR</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800 font-mono text-[11px]">
+                      {analytics.by_venue.map(v => (
+                        <tr key={v.venue_id} className="hover:bg-slate-800/40">
+                          <td className="py-2 px-3 font-sans font-medium text-slate-200">
+                            {v.venue_name} {v.city ? <span className="text-slate-500 text-[10px]">({v.city})</span> : ''}
+                          </td>
+                          <td className="py-2 px-2 text-right text-slate-400">{v.matches}</td>
+                          <td className="py-2 px-2 text-right font-bold text-white">{v.runs.toLocaleString()}</td>
+                          <td className="py-2 px-2 text-right text-slate-400">{v.balls_faced}</td>
+                          <td className="py-2 px-2 text-right font-medium text-emerald-400">
+                            {v.batting_strike_rate != null ? v.batting_strike_rate.toFixed(1) : '—'}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 4: CAREER TRENDS & FORM */}
+          {activeTab === 'trends' && (
+            <div className="space-y-6">
+              {/* Year Trends */}
+              <section className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Year-by-Year Performance Trajectory</h3>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                  <LineChart title="Runs by year" subtitle="Runs from the selected format and applied date filters." data={analytics.year_trends.map(y => ({ label: y.year, value: y.runs }))} formatter={value => Math.round(value).toLocaleString()} color="var(--c1)" />
+                  <LineChart title="Batting strike rate by year" subtitle="Years without faced-ball data are omitted rather than treated as zero." data={analytics.year_trends.filter(y => y.batting_strike_rate != null).map(y => ({ label: y.year, value: y.batting_strike_rate }))} formatter={value => Number(value).toFixed(1)} color="var(--c2)" />
+                  <LineChart title="Matches played by year" subtitle="Filtered player match appearances by year; an appearance is counted once per match." data={analytics.year_trends.filter(y=>Number(y.matches)>0).map(y=>({label:y.year,value:y.matches}))} formatter={value=>Math.round(value).toLocaleString()} color="var(--c4)" />
+                </div>
+                <LineChart title="Runs in recent matches" subtitle="Latest ten batting appearances, shown oldest to newest; these are match-level totals from the filtered analytics API." data={[...(analytics.recent_matches || [])].reverse().map(m=>({label:(m.match_date || '').slice(0,10),value:m.runs}))} formatter={value=>Math.round(value).toLocaleString()} color="var(--c5)" />
+                <div className="panel overflow-x-auto">
+                  <table className="w-full text-left text-xs text-slate-300">
+                    <thead className="bg-slate-800 text-[11px] uppercase tracking-wider text-slate-400">
+                      <tr>
+                        <th className="py-2.5 px-4 font-semibold">Year</th>
+                        <th className="py-2.5 px-3 text-right">Matches</th>
+                        <th className="py-2.5 px-3 text-right">Runs</th>
+                        <th className="py-2.5 px-3 text-right">Balls Faced</th>
+                        <th className="py-2.5 px-3 text-right">Strike Rate</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800 font-mono text-[12px]">
+                      {analytics.year_trends.map(y => (
+                        <tr key={y.year} className="hover:bg-slate-800/40">
+                          <td className="py-2 px-4 font-sans font-bold text-indigo-300">{y.year}</td>
+                          <td className="py-2 px-3 text-right text-slate-400">{y.matches}</td>
+                          <td className="py-2 px-3 text-right font-bold text-white">{y.runs.toLocaleString()}</td>
+                          <td className="py-2 px-3 text-right text-slate-400">{y.balls_faced}</td>
+                          <td className="py-2 px-3 text-right font-medium text-emerald-400">
+                            {y.batting_strike_rate != null ? y.batting_strike_rate.toFixed(1) : '—'}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              {/* Recent Matches */}
+              <section className="space-y-3 pt-4 border-t border-slate-800">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Recent Match Logs (Last 10 Matches)</h3>
+                <div className="panel overflow-x-auto">
+                  <table className="w-full text-left text-xs text-slate-300">
+                    <thead className="bg-slate-800 text-[11px] uppercase tracking-wider text-slate-400">
+                      <tr>
+                        <th className="py-2.5 px-4 font-semibold">Date</th>
+                        <th className="py-2.5 px-2">Format</th>
+                        <th className="py-2.5 px-3">Opponent</th>
+                        <th className="py-2.5 px-3">Venue</th>
+                        <th className="py-2.5 px-3 text-right">Runs (Balls)</th>
+                        <th className="py-2.5 px-3 text-right">Strike Rate</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800 font-mono text-[11px]">
+                      {analytics.recent_matches.map(m => (
+                        <tr key={m.match_id} className="hover:bg-slate-800/40">
+                          <td className="py-2 px-4 text-slate-400"><MatchCentreLink matchId={m.match_id} context={{ tab: 'scorecard', playerId: id, focus: 'batting' }}>{m.match_date || 'Open scorecard'}</MatchCentreLink></td>
+                          <td className="py-2 px-2 font-sans font-medium text-indigo-300">{m.format}</td>
+                          <td className="py-2 px-3 font-sans font-medium text-slate-200">{m.opponent_name}</td>
+                          <td className="py-2 px-3 font-sans text-slate-400 truncate max-w-xs">{m.venue_name}</td>
+                          <td className="py-2 px-3 text-right font-bold text-white">
+                            <MatchCentreLink matchId={m.match_id} context={{ tab: 'scorecard', playerId: id, focus: 'batting' }}>{m.runs}</MatchCentreLink> <span className="font-normal text-slate-500">({m.balls_faced})</span>
+                          </td>
+                          <td className="py-2 px-3 text-right font-medium text-emerald-400">
+                            {m.strike_rate != null ? m.strike_rate.toFixed(1) : '—'}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {/* TAB 5: ML SIMILAR PLAYERS */}
+          {activeTab === 'similar' && (
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-indigo-400">Role-aware player similarity</h3>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    {similarMode === 'bowler' ? 'Bowling-only profiles, compared within the selected format.' : similarMode === 'all_rounder' ? 'Batting and bowling are scored separately and weighted equally.' : 'Batting profiles, compared within the selected format.'}
+                  </p>
+                </div>
+                {activeSimilarityData?.model_version && (
+                  <span className="text-[10px] text-slate-500 font-mono">
+                    Model: {activeSimilarityData.model_version}
+                  </span>
+                )}
+              </div>
+
+              <div className="flex gap-2">
+                {[['batter', 'Similar batters'], ['bowler', 'Similar bowlers'], ['all_rounder', 'Similar all-rounders']].map(([mode, label]) => (
+                  <button key={mode} onClick={() => setSimilarMode(mode)}
+                    className={`rounded-full px-3 py-1.5 text-xs font-semibold border ${similarMode === mode ? 'bg-indigo-600/20 text-indigo-300 border-indigo-500/50' : 'text-slate-400 border-slate-700 hover:text-white'}`}>
+                    {label}
+                  </button>
+                ))}
+              </div>
+
+              {similarLoading ? (
+                <LoadingSpinner message="Calculating nearest neighbor similarity vectors..." />
+              ) : activeSimilarityData?.similar_players?.length ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {activeSimilarityData.similar_players.map(sp => (
+                    <div key={sp.player_id} className="panel p-4 space-y-3">
+                      <div className="flex items-center justify-between">
+                        <Link
+                          to={`/players/${sp.player_id}`}
+                          className="font-bold text-white hover:text-indigo-400 transition-colors text-sm"
+                        >
+                          {sp.player_name}
+                        </Link>
+                        <span className="bg-emerald-950 text-emerald-300 border border-emerald-800/80 px-2 py-0.5 rounded text-[11px] font-bold">
+                          {Math.round(sp.similarity_score)}% match
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2 text-xs font-mono bg-slate-800/50 p-2.5 rounded-lg border border-slate-700/50">
+                        {similarMode === 'all_rounder' ? <>
+                          <div>Batting match: <strong className="text-white">{sp.batting_similarity}%</strong></div>
+                          <div>Bowling match: <strong className="text-emerald-400">{sp.bowling_similarity}%</strong></div>
+                          <div>Batting sample: <strong className="text-slate-300">{sp.batting_innings} innings</strong></div>
+                          <div>Bowling sample: <strong className="text-slate-300">{sp.bowling_innings} innings</strong></div>
+                        </> : similarMode === 'bowler' ? <>
+                          <div>Wickets: <strong className="text-white">{sp.wickets}</strong></div>
+                          <div>Economy: <strong className="text-emerald-400">{sp.economy == null ? '—' : Number(sp.economy).toFixed(2)}</strong></div>
+                          <div>Bowling avg: <strong className="text-slate-300">{sp.bowling_average == null ? '—' : Number(sp.bowling_average).toFixed(1)}</strong></div>
+                          <div>Dot %: <strong className="text-slate-300">{sp.dot_ball_pct == null ? '—' : `${Number(sp.dot_ball_pct).toFixed(1)}%`}</strong></div>
+                          <div className="col-span-2 text-slate-400">Sample: {sp.matches} matches / {sp.innings} innings</div>
+                        </> : <>
+                          <div>Avg: <strong className="text-white">{sp.batting_average == null ? '—' : Number(sp.batting_average).toFixed(1)}</strong></div>
+                          <div>SR: <strong className="text-emerald-400">{sp.strike_rate == null ? '—' : Number(sp.strike_rate).toFixed(1)}</strong></div>
+                          <div>Innings: <strong className="text-slate-300">{sp.innings}</strong></div>
+                          <div>Bound %: <strong className="text-slate-300">{sp.boundary_pct == null ? '—' : `${Number(sp.boundary_pct).toFixed(1)}%`}</strong></div>
+                        </>}
+                      </div>
+
+                      {similarMode === 'all_rounder' ? <div className="grid grid-cols-2 gap-3 text-[11px] text-slate-400">
+                        <div><p className="text-indigo-300 font-semibold mb-1">Batting</p>{(sp.batting_explanations || []).slice(0, 3).map((e, i) => <p key={i}>• {e}</p>)}</div>
+                        <div><p className="text-indigo-300 font-semibold mb-1">Bowling</p>{(sp.bowling_explanations || []).slice(0, 3).map((e, i) => <p key={i}>• {e}</p>)}</div>
+                      </div> : (sp.explanations?.length > 0 || sp.differences?.length > 0) && (
+                        <div className="text-[11px] text-slate-400 space-y-1 pt-1">
+                          {[...(sp.explanations || []).slice(0, 2), ...(sp.differences || []).slice(0, 1)].map((exp, idx) => (
+                            <p key={idx} className="flex items-start gap-1.5">
+                              <span className="text-indigo-400 font-bold">•</span>
+                              <span>{exp}</span>
+                            </p>
+                          ))}
+                        </div>
+                      )}
+
+                      <Link
+                        to={`/players/${sp.player_id}`}
+                        className="block text-center text-xs text-indigo-400 hover:text-indigo-300 font-semibold pt-1 border-t border-slate-800"
+                      >
+                        Inspect Profile →
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <EmptyState message="No similar player models found with sufficient sample size." />
+              )}
+            </div>
+          )}
+
+          {activeTab === 'impact' && (
+            <section className="panel space-y-4 p-4 sm:p-5">
+              <div><h3 className="font-semibold text-white">Career Win Probability Added</h3><p className="mt-1 text-xs text-slate-500">Format-separated cumulative probability change across precomputed historical deliveries. Bowling impact is signed from the bowling team's perspective.</p></div>
+              {winImpactLoading ? <LoadingSpinner message="Loading precomputed player impact…" /> : winImpact?.formats?.length ? <div className="overflow-x-auto"><table className="w-full min-w-[760px] text-sm"><thead className="text-left text-xs uppercase tracking-wide text-slate-500"><tr><th className="py-2">Format</th><th className="py-2 text-right">Matches</th><th className="py-2 text-right">Batting WPA</th><th className="py-2 text-right">Bowling WPA</th><th className="py-2 text-right">Combined WPA</th><th className="py-2 text-right">Avg / match</th><th className="py-2 text-right">Peak delivery</th><th className="py-2 text-right">Peak match</th></tr></thead><tbody className="divide-y divide-slate-800">{winImpact.formats.map(row => <tr key={row.format}><td className="py-3 font-medium text-white">{row.format}</td><td className="py-3 text-right tabular-nums text-slate-300">{row.matches}</td><td className="py-3 text-right tabular-nums text-indigo-300">{row.batting_wpa.toFixed(3)}</td><td className="py-3 text-right tabular-nums text-emerald-300">{row.bowling_wpa.toFixed(3)}</td><td className="py-3 text-right tabular-nums text-white">{row.career_wpa.toFixed(3)}</td><td className="py-3 text-right tabular-nums text-slate-300">{row.average_wpa_per_match?.toFixed(4) ?? '—'}</td><td className="py-3 text-right tabular-nums text-slate-300">{row.peak_delivery_impact.toFixed(3)}</td><td className="py-3 text-right">{row.peak_match_id ? <MatchCentreLink matchId={row.peak_match_id} context={{ tab: 'summary', playerId: id }}>{'Open match'}</MatchCentreLink> : '—'}</td></tr>)}</tbody></table></div> : <EmptyState message="Win probability impact has not been precomputed for this player yet." />}
+              <p className="text-[11px] text-slate-500">WPA is shown separately by source format and must not be compared as an unadjusted raw total between formats. Values represent model probability changes, not a prediction of future performance.</p>
+            </section>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}

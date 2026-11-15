@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Environment
+.env
+*.env.local
+
+# Data - raw archives (large)
+gamedata/
+data/raw/
+data/staging/
+data/processed/
+data/backups/
+players_database_export.csv
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.env.local
+backend/artifacts/auction/*.joblib
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Sync worker runtime files
+backend/logs/
+backend/run/
+
+# Win-probability delivery extract cache (rebuilt from PostgreSQL)
+backend/artifacts/win_probability/cache/
+
+# Audit, Architecture, and Internal Methodology Documents
+*AUDIT*.md
+*audit*.md
+AUCTION_ARCHITECTURE.md
+SCOUTING_METHODOLOGY.md
+PHASE_RULES.md
+PRD.md
+PROGRESS.md
+implementation.md
+data/reports/
+venues_database_export.csv
+.claude/
