@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
@@ -97,7 +97,7 @@ Scorecards, ball-by-ball commentary data and the v2 win-probability curve for ev
 All competition endpoints share the same scope filters (format, gender, competition, season, year range) and attach sample sizes and significance tests where a comparison is drawn.
 
 ### Auction Intelligence
-Versioned auction scenarios with rules, franchises, retentions and player pools imported from CSV, identity resolution against CPI players, live auction sessions (call, bid, sell/unsell, event log) and an experimental historical price model. See [AUCTION_ARCHITECTURE.md](AUCTION_ARCHITECTURE.md).
+Versioned auction scenarios with rules, franchises, retentions and player pools imported from CSV, identity resolution against CPI players, live auction sessions (call, bid, sell/unsell, event log) and an experimental historical price model. See [docs/AUCTION_ARCHITECTURE.md](docs/AUCTION_ARCHITECTURE.md).
 
 ### Settings
 Data management: Cricsheet sync status, schedule, manual sync and import history.
@@ -182,7 +182,7 @@ Every calculation follows the Laws of Cricket and standard scoring conventions. 
    - Bowling average = runs conceded / bowler wickets
    - Bowling strike rate = legal balls / bowler wickets
    - A zero denominator returns `null` (shown as `—`).
-6. **Phases** are format-aware: T20/T20I 1–6 / 7–15 / 16–20, ODI/ODM 1–10 / 11–40 / 41–50, and none for Test and multi-day. See [PHASE_RULES.md](PHASE_RULES.md).
+6. **Phases** are format-aware: T20/T20I 1–6 / 7–15 / 16–20, ODI/ODM 1–10 / 11–40 / 41–50, and none for Test and multi-day. See [docs/PHASE_RULES.md](docs/PHASE_RULES.md).
 7. **Super overs** are kept out of standard innings statistics.
 
 ---
@@ -223,7 +223,7 @@ Every calculation follows the Laws of Cricket and standard scoring conventions. 
 
 ## Tech Stack
 
-- **Backend**: Python 3.9+, FastAPI, SQLAlchemy 2, Psycopg 3, Pydantic 2, Alembic
+- **Backend**: Python 3.11+, FastAPI, SQLAlchemy 2, Psycopg 3, Pydantic 2, Alembic
 - **Database**: PostgreSQL 16
 - **ML / data**: scikit-learn, pandas, NumPy, joblib
 - **Frontend**: React 18, Vite 5, Tailwind CSS 3, React Router 6
@@ -234,7 +234,7 @@ Every calculation follows the Laws of Cricket and standard scoring conventions. 
 ## Installation & Setup
 
 ### 1. Prerequisites
-- Python 3.9+
+- Python 3.11+
 - Node.js 18+ and npm
 - PostgreSQL 14+
 
@@ -342,6 +342,8 @@ The suite (about 340 tests across `tests/unit` and `tests/integration`) covers:
 | [docs/cricket-rules.md](docs/cricket-rules.md) | Scoring rules reference |
 | [docs/data-dictionary.md](docs/data-dictionary.md) | Schema and field definitions |
 | [docs/DATA_SYNC.md](docs/DATA_SYNC.md) | Cricsheet sync worker & background updates |
+| [docs/PHASE_RULES.md](docs/PHASE_RULES.md) | Format-aware phase boundaries |
+| [docs/AUCTION_ARCHITECTURE.md](docs/AUCTION_ARCHITECTURE.md) | Auction module architecture & invariants |
 | [backend/artifacts/win_probability/v2/REPORT.md](backend/artifacts/win_probability/v2/REPORT.md) | Win-probability model evaluation & metrics |
 
 ---
